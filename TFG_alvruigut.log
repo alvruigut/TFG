@@ -1,10 +1,10 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.4)  10 FEB 2025 13:57
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.4)  10 FEB 2025 14:02
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
  %&-line parsing enabled.
-**c:/Users/alvar/Desktop/TFG/proyecto/TFG_alvruigut.tex
-(c:/Users/alvar/Desktop/TFG/proyecto/TFG_alvruigut.tex
+**c:/Users/alvar/Desktop/TFG/github/TFG/TFG_alvruigut.tex
+(c:/Users/alvar/Desktop/TFG/github/TFG/TFG_alvruigut.tex
 LaTeX2e <2024-06-01> patch level 2
 L3 programming layer <2024-05-27>
 (C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex/latex/base\article.cls
@@ -584,12 +584,12 @@ Package rerunfilecheck Info: File `TFG_alvruigut.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  12906 strings out of 473904
- 213067 string characters out of 5726601
+ 213091 string characters out of 5726601
  1944908 words of memory out of 5000000
  35570 multiletter control sequences out of 15000+600000
  562096 words of font info for 49 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,12n,93p,770b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 79i,12n,93p,772b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb>
 Output written on TFG_alvruigut.pdf (21 pages, 168070 bytes).
 PDF statistics:

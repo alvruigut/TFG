@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1739192265.87622 "c:/Users/alvar/Desktop/TFG/proyecto/TFG_alvruigut.tex" "TFG_alvruigut.pdf" "TFG_alvruigut" 1739192266.91927 0
+["pdflatex"] 1739192552.4907 "c:/Users/alvar/Desktop/TFG/github/TFG/TFG_alvruigut.tex" "TFG_alvruigut.pdf" "TFG_alvruigut" 1739192553.43895 0
   "C:/Users/alvar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1739114883 82507 a9eef8696c92627b87e9975edea03b2a ""
   "C:/Users/alvar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1720089695 24264716 3cc0e9fe9e8a9423a31adf6def4b6e59 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
@@ -75,13 +75,13 @@
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657797096 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "TFG_alvruigut.aux" 1739192266 4954 a7460afd290e7082b9813a7439f41ec5 "pdflatex"
-  "TFG_alvruigut.lof" 1739192266 30 1bb04962d39b6bda471ac6c46ce13f85 "pdflatex"
-  "TFG_alvruigut.lot" 1739192266 164 25bc9c0f4e4b270c1c7cf7b3831f84cf "pdflatex"
-  "TFG_alvruigut.out" 1739192266 5796 67b9cb2ad1108a5f8d5dae5d806571ef "pdflatex"
-  "TFG_alvruigut.tex" 1739192264 26448 c041d89eb045b6df5c8b3282887c3e02 ""
-  "TFG_alvruigut.toc" 1739192266 2946 b0e8330e0643f92348c696399aa9b2ef "pdflatex"
-  "c:/Users/alvar/Desktop/TFG/proyecto/TFG_alvruigut.tex" 1739192264 26448 c041d89eb045b6df5c8b3282887c3e02 ""
+  "TFG_alvruigut.aux" 1739192553 4954 a7460afd290e7082b9813a7439f41ec5 "pdflatex"
+  "TFG_alvruigut.lof" 1739192553 30 1bb04962d39b6bda471ac6c46ce13f85 "pdflatex"
+  "TFG_alvruigut.lot" 1739192553 164 25bc9c0f4e4b270c1c7cf7b3831f84cf "pdflatex"
+  "TFG_alvruigut.out" 1739192553 5796 67b9cb2ad1108a5f8d5dae5d806571ef "pdflatex"
+  "TFG_alvruigut.tex" 1739192552 26448 c041d89eb045b6df5c8b3282887c3e02 ""
+  "TFG_alvruigut.toc" 1739192553 2946 b0e8330e0643f92348c696399aa9b2ef "pdflatex"
+  "c:/Users/alvar/Desktop/TFG/github/TFG/TFG_alvruigut.tex" 1739192552 26448 c041d89eb045b6df5c8b3282887c3e02 ""
   "images/logo_uni.png" 1732140402 5564 22785baf6bb6cf6225a7223e69f0c9e4 ""
   (generated)
   "TFG_alvruigut.aux"
