@@ -1,8 +1,10 @@
 # Fdb version 4
-["pdflatex"] 1739465743.25294 "c:/Users/alvar/Desktop/TFG/github_proyecto/TFG/TFG_alvruigut.tex" "TFG_alvruigut.pdf" "TFG_alvruigut" 1739465744.13912 0
+["pdflatex"] 1739467002.48477 "c:/Users/alvar/Desktop/TFG/github_proyecto/TFG/TFG_alvruigut.tex" "TFG_alvruigut.pdf" "TFG_alvruigut" 1739467003.44474 0
   "C:/Users/alvar/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1739114883 82507 a9eef8696c92627b87e9975edea03b2a ""
+  "C:/Users/alvar/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcbx1000.pk" 1720094982 12124 25e1ccb1b7d43df21bc72449f67a411e ""
   "C:/Users/alvar/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1000.pk" 1720263660 11548 cfd0981afffa2ea3f0e012b6e0a90edd ""
   "C:/Users/alvar/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1720089695 24264716 3cc0e9fe9e8a9423a31adf6def4b6e59 ""
+  "C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcbx1000.tfm" 993058878 1456 278016b1e421c8e979679e0372f68bf1 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/tfm/jknappen/ec/tcrm1000.tfm" 993058908 1436 c7f957a372ef2fbe93c0982f96625e12 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
@@ -80,13 +82,13 @@
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/tex/latex/rerunfilecheck/rerunfilecheck.sty" 1657797096 9714 ba3194bd52c8499b3f1e3eb91d409670 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/alvar/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1700127522 55487 80a65caedd3722f4c20a14a69e785d8f ""
-  "TFG_alvruigut.aux" 1739465743 6015 85847a266c62de2947e34741a35e45a4 "pdflatex"
-  "TFG_alvruigut.lof" 1739465743 30 1bb04962d39b6bda471ac6c46ce13f85 "pdflatex"
-  "TFG_alvruigut.lot" 1739465743 447 5e2ee62e1e7a2da211369f68ed78cc82 "pdflatex"
-  "TFG_alvruigut.out" 1739465743 6081 9ca72ac46afc16f095b7f5c7bb77bacc "pdflatex"
-  "TFG_alvruigut.tex" 1739465742 29096 25076f74903dcdcae23d83a252bb54ae ""
-  "TFG_alvruigut.toc" 1739465743 3144 eec1c94bf8bfe8a02e83a14971482aaa "pdflatex"
-  "c:/Users/alvar/Desktop/TFG/github_proyecto/TFG/TFG_alvruigut.tex" 1739465742 29096 25076f74903dcdcae23d83a252bb54ae ""
+  "TFG_alvruigut.aux" 1739467003 6255 68ac69bedf65fd802ad5f85dd999e7ee "pdflatex"
+  "TFG_alvruigut.lof" 1739467003 30 1bb04962d39b6bda471ac6c46ce13f85 "pdflatex"
+  "TFG_alvruigut.lot" 1739467003 555 9aee6e3a762a56aae575d936f97beb8b "pdflatex"
+  "TFG_alvruigut.out" 1739467003 6081 55cd21068718551755fcddba692a53c6 "pdflatex"
+  "TFG_alvruigut.tex" 1739467001 31160 83d77a16f1e93e2861963e3b2aebf338 ""
+  "TFG_alvruigut.toc" 1739467003 3144 136dd858ad3eafd7860d63c91ceed122 "pdflatex"
+  "c:/Users/alvar/Desktop/TFG/github_proyecto/TFG/TFG_alvruigut.tex" 1739467001 31160 83d77a16f1e93e2861963e3b2aebf338 ""
   "images/logo_uni.png" 1732140402 5564 22785baf6bb6cf6225a7223e69f0c9e4 ""
   (generated)
   "TFG_alvruigut.aux"
