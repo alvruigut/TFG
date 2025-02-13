@@ -9,6 +9,7 @@
 \usepackage{lipsum} 
 \usepackage{caption}
 \usepackage{xcolor}
+\usepackage{float}
 
 % Variables
 \newcommand{\logoPortada}{images/logo_uni.png}
@@ -116,7 +117,7 @@ The ultimate goal of this study is not only to facilitate the execution of cyber
 En el mundo digital actual, la ciberseguridad ya no es una opción, sino una necesidad. Las pequeñas y medianas empresas (PYMEs), pilares fundamentales de la economía global, se encuentran entre los objetivos más vulnerables frente a ciberataques. A pesar de su importancia económica, muchas de estas empresas subestiman su exposición a amenazas digitales, creyendo erróneamente que su tamaño las hace pasar desapercibidas para los ciberdelincuentes. Sin embargo, esta percepción es un error crítico, ya que la limitada infraestructura de seguridad de las PYMEs las convierte en blancos fáciles.
 \par\vspace{0.5cm}
 
-Un claro ejemplo de la creciente amenaza cibernética es el ataque sufrido por el portal de afiliación del sindicato Comisiones Obreras (CCOO) en diciembre de 2023. El atacante explotó una vulnerabilidad en el formulario de afiliación, accediendo a la configuración interna del sitio web. Esta brecha permitió la subida de un archivo malicioso que otorgó control total sobre el sistema, facilitando el acceso a información sensible, incluyendo contraseñas sin la protección adecuada. Como resultado, el atacante alteró la página de inicio de aproximadamente 50 subdominios de ccoo.es, demostrando la facilidad con la que se puede comprometer la seguridad digital de una organización.
+Un claro ejemplo de la creciente amenaza cibernética es el ataque sufrido por el portal de afiliación del sindicato Comisiones Obreras (CCOO) en diciembre de 2023 \cite{farlopa}. El atacante explotó una vulnerabilidad en el formulario de afiliación, accediendo a la configuración interna del sitio web. Esta brecha permitió la subida de un archivo malicioso que otorgó control total sobre el sistema, facilitando el acceso a información sensible, incluyendo contraseñas sin la protección adecuada. Como resultado, el atacante alteró la página de inicio de aproximadamente 50 subdominios de ccoo.es, demostrando la facilidad con la que se puede comprometer la seguridad digital de una organización.
 \par\vspace{0.5cm}
 
 Este incidente subraya la necesidad urgente de fortalecer la ciberseguridad en organizaciones de todos los tamaños. Las PYMEs, en particular, son especialmente susceptibles debido a la escasez de recursos y, en muchos casos, a una falta de concienciación sobre las amenazas digitales. La creciente digitalización y la dependencia de sistemas conectados a la red han ampliado la superficie de ataque, exponiendo a estas organizaciones a riesgos significativos.
@@ -159,7 +160,7 @@ El alcance de este trabajo está diseñado para cubrir de manera integral todos 
 \subsection{Motivación}
 La creciente digitalización ha expuesto a las Pequeñas y Medianas Empresas (PYMEs) a una variedad de ciberamenazas que, de no ser gestionadas adecuadamente, pueden poner en riesgo la continuidad de sus operaciones. A diferencia de las grandes corporaciones, las PYMEs suelen carecer de los recursos humanos y financieros necesarios para implementar medidas robustas de ciberseguridad, lo que las convierte en objetivos atractivos para los ciberdelincuentes.
 \par\vspace{0.5cm}
-El aumento en el volumen de software malicioso, que supera los 450.000 nuevos programas diarios según AV-TEST, y el hecho de que el 70 por ciento de los ciberataques en la Península Ibérica afectan a PYMEs, subrayan la urgencia de desarrollar herramientas accesibles y eficaces para proteger a estas organizaciones. Este proyecto surge como respuesta a esa necesidad, proporcionando una guía práctica que permite a cualquier persona, independientemente de su nivel técnico, llevar a cabo una auditoría básica de ciberseguridad.
+El aumento en el volumen de software malicioso, que supera los 450.000 nuevos programas diarios \cite{avtest}, y el hecho de que el 70 por ciento de los ciberataques en la Península Ibérica afectan a PYMEs, subrayan la urgencia de desarrollar herramientas accesibles y eficaces para proteger a estas organizaciones. Este proyecto surge como respuesta a esa necesidad, proporcionando una guía práctica que permite a cualquier persona, independientemente de su nivel técnico, llevar a cabo una auditoría básica de ciberseguridad.
 \par\vspace{0.5cm}
 
 La implementación del modelo propuesto no solo mejorará la seguridad digital de las PYMEs, sino que también fomentará una mayor concienciación sobre la importancia de la ciberseguridad en el entorno empresarial. De esta manera, se busca fortalecer el tejido empresarial frente a las crecientes amenazas cibernéticas.
@@ -235,85 +236,100 @@ El documento está organizado en once capítulos que abordan de manera integral 
 Este capítulo presenta la planificación detallada para el desarrollo del trabajo. Se describirán las fases y tareas específicas a desarrollar, los roles y responsabilidades de los participantes en el proyecto, así como un cronograma que permitirá visualizar el progreso del trabajo a lo largo del tiempo. Además, se identificarán los recursos necesarios para llevar a cabo el proyecto y se realizará un análisis de los costes asociados.
 
 \subsection{Fases y lista de actividades}
+\par\vspace{0.5cm}
+\textbf{\large Fase 1 - Gestión del Proyecto} \vspace{0.5cm}
 
-\textbf{Fase 1: Preparación y selección del tema}
 \begin{itemize}
-    \item \textbf{Reunión inicial}: Primer encuentro con el tutor para explorar posibles temas de interés para el TFG.
-    \item \textbf{Investigación y reflexión}: Análisis de las diferentes opciones y selección del tema más adecuado.
-    \item \textbf{Adjudicación del TFG}: Confirmación oficial del tema y comienzo de la investigación preliminar.
+    \item \textbf{1.1 Plan de Inicio}
+    \begin{itemize}
+        \item \textbf{1.1.1 Reunión inicial:} Primer encuentro con el tutor para explorar posibles temas de interés para el TFG.
+        \item \textbf{1.1.2 Investigación preliminar:} Análisis de las diferentes opciones y selección del tema más adecuado.
+        \item \textbf{1.1.3 Adjudicación TFG:} Confirmación oficial del tema y asignación del trabajo.
+        \item \textbf{1.1.4 Inicio del trabajo:} Comienzo formal de la redacción y desarrollo del trabajo.
+        \item \textbf{1.1.5 Investigación orientada a los objetivos:} Ampliación del conocimiento sobre el tema seleccionado.
+        \item \textbf{1.1.6 Segunda reunión con el tutor:} Reunión para debatir la estructura y organización del TFG.
+        \item \textbf{1.1.7 Reunión con CTO BeeHacker:} Análisis de la viabilidad del trabajo y perspectivas del sector.
+        \item \textbf{1.1.8 Segunda reunión con CTO BeeHacker:} Obtención de información adicional.
+        \item \textbf{1.1.9 Desarrollo de la introducción:} Definición clara de los objetivos, alcance, motivación y requisitos.
+        \item \textbf{1.1.10 Revisión de la introducción:} Revisión y aprobación del plan de inicio.
+    \end{itemize}
+
+    \item \textbf{1.2 Planificación}
+    \begin{itemize}
+        \item \textbf{1.2.1 Definición de fases y tareas:} Establecimiento de las fases y actividades del proyecto.
+        \item \textbf{1.2.2 Definición de roles y responsables:} Asignación de roles y responsabilidades del proyecto.
+        \item \textbf{1.2.3 Cronograma:} Desarrollo del cronograma en MSProject.
+        \item \textbf{1.2.4 Recursos:} Identificación de recursos humanos y materiales.
+        \item \textbf{1.2.5 Estimación de costes:} Cálculo del presupuesto estimado.
+        \item \textbf{1.2.6 Revisión de la planificación:} Revisión y aprobación de la planificación.
+    \end{itemize}
+
+    \item \textbf{1.3 Seguimiento y Control}
+    \begin{itemize}
+        \item \textbf{1.3.1 Corrección de la introducción:} Corrección y ajuste de la introducción.
+        \item \textbf{1.3.2 Corrección de la planificación:} Corrección y ajuste de la planificación.
+        \item \textbf{1.3.3 Corrección del marco teórico:} Corrección y ajuste del marco teórico.
+        \item \textbf{1.3.4 Corrección del modelo de auditoría:} Corrección y ajuste del modelo de auditoría.
+        \item \textbf{1.3.5 Informe y control del desempeño:} Generación de informes de seguimiento.
+    \end{itemize}
+
+    \item \textbf{1.4 Cierre}
+    \begin{itemize}
+        \item \textbf{1.4.1 Informe final con resultados:} Documentación final con las conclusiones.
+        \item \textbf{1.4.2 Plan de mitigación de riesgos:} Propuesta de acciones correctivas.
+        \item \textbf{1.4.3 Lecciones aprendidas:} Reflexión sobre los conocimientos adquiridos.
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
+\textbf{\large Fase 2 - Desarrollo del Producto} \vspace{0.5cm}
 
-\textbf{Fase 2: Desarrollo inicial}
 \begin{itemize}
-    \item \textbf{Inicio del trabajo en el TFG}: Comienzo formal de la redacción y desarrollo del trabajo.
-    \item \textbf{Profundización en la investigación}: Ampliación del conocimiento sobre el tema seleccionado.
-    \item \textbf{Reunión con el tutor}: Reunión inicial para debatir sobre la estructura y organización del TFG.
-    \item \textbf{Reunión con el CTO de la empresa BeeHacker}: Obtención de información adicional y perspectivas del sector.
-    \item \textbf{Desarrollo de introducción y planificación}: Definición clara de los objetivos, alcance, motivación y requisitos. También se establecerá la estructura general del documento y la planificación del proyecto.
+    \item \textbf{2.1 Marco teórico}
+    \begin{itemize}
+        \item \textbf{2.1.1 Desarrollo del marco teórico:} Investigación, análisis, redacción y estructuración del marco conceptual.
+        \item \textbf{2.1.2 Revisión del marco teórico:} Revisión y aprobación del marco teórico.
+    \end{itemize}
+
+    \item \textbf{2.2 Modelo de auditoría}
+    \begin{itemize}
+        \item \textbf{2.2.1 Diseño del modelo:} Definición de la estructura metodológica y los procedimientos a seguir.
+        \item \textbf{2.2.2 Revisión del modelo:} Revisión y aprobación del modelo de auditoría.
+    \end{itemize}
+
+    \item \textbf{2.3 Caso práctico}
+    \begin{itemize}
+        \item \textbf{2.3.1 Desarrollo del caso práctico:} Ejecución y aplicación en la PYME.
+        \item \textbf{2.3.2 Seguimiento de la práctica:} Monitorización y análisis del proceso.
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
+\textbf{\large Fase 3 - Revisión técnica formal} \vspace{0.5cm}
 
-\textbf{Fase 3: Desarrollo del Marco Teórico}
 \begin{itemize}
-    \item \textbf{Reunión con el tutor}: Evaluación del avance y orientación sobre el contenido teórico.
-    \item \textbf{Iniciar el desarrollo de la parte teórica}: Redacción y compilación de la base teórica del proyecto.
-    \item \textbf{Reunión con el CTO de la empresa BeeHacker}: Confirmación y validación de los conceptos teóricos aplicados.
-    \item \textbf{Investigación sobre normativas y certificaciones}: Estudio de las regulaciones pertinentes al tema.
+    \item \textbf{3.1 Revisión del proyecto}
+    \begin{itemize}
+        \item \textbf{3.1.1} Análisis completo del trabajo desarrollado y correcciones necesarias.
+    \end{itemize}
 \end{itemize}
 
 \vspace{0.5cm}
+\textbf{\large Fase 4 - Presentación} \vspace{0.5cm}
 
-\textbf{Fase 4: Finalización del Marco Teórico}
 \begin{itemize}
-    \item \textbf{Reunión con el tutor}: Verificación del contenido desarrollado hasta el momento.
-    \item \textbf{Corrección y ajuste final del marco teórico}: Modificaciones necesarias basadas en las recomendaciones del tutor.
-    \item \textbf{Reunión con el tutor}: Confirmación de la versión final del marco teórico.
+    \item \textbf{4.1 Presentación del proyecto}
+    \begin{itemize}
+        \item \textbf{4.1.1} Exposición y defensa del trabajo realizado.
+    \end{itemize}
 \end{itemize}
-
-\vspace{0.5cm}
-
-\textbf{Fase 5: Implementación y diseño de la auditoría}
-\begin{itemize}
-    \item \textbf{Inicio de la implementación de la guía}: Desarrollo práctico de la guía de auditoría.
-    \item \textbf{Desarrollo de la propuesta de metodología}: Creación de un enfoque metodológico para el proyecto.
-    \item \textbf{Reunión con el CTO de la empresa BeeHacker}: Ajustes finales en la metodología basada en feedback.
-    \item \textbf{Reunión con el tutor para revisar el progreso}: Evaluación de los avances en la implementación.
-    \item \textbf{Cierre de la propuesta de metodología}: Finalización y validación del enfoque metodológico.
-\end{itemize}
-
-\vspace{0.5cm}
-
-\textbf{Fase 6: Caso Práctico}
-\begin{itemize}
-    \item \textbf{Inicio del caso práctico}: Comienzo de la aplicación práctica de la metodología.
-    \item \textbf{Desarrollo del caso práctico}: Implementación y evaluación del caso de estudio.
-    \item \textbf{Cierre del caso práctico}: Finalización y análisis de resultados.
-    \item \textbf{Redacción del informe}: Documentación detallada de los hallazgos y conclusiones sobre el caso práctico.
-\end{itemize}
-
-\vspace{0.5cm}
-
-\textbf{Fase 7: Revisión y corrección final}
-\begin{itemize}
-    \item \textbf{Reunión con el tutor}: Revisión integral del documento final.
-    \item \textbf{Corrección y ajuste final del documento}: Implementación de las correcciones finales antes de la entrega.
-\end{itemize}
-
-\vspace{0.5cm}
-
-En conclusión, este trabajo ha requerido aproximadamente X horas de dedicación. Una parte considerable de este tiempo se destinó a la investigación y estructuración del proyecto, dado que la temática fue seleccionada conjuntamente por el alumno y el tutor, lo que añadió un desafío adicional al tratarse de un área completamente nueva para el alumno. Las primeras fases del proyecto coincidieron con la recuperación de asignaturas pendientes, lo que limitó el tiempo disponible. No obstante, a partir de la tercera fase, especialmente desde inicios de 2025, el Trabajo Fin de Grado pasó a ser la prioridad principal tras la finalización de todas las asignaturas académicas.
-
-
 
 
 
 
 \subsection{Roles y responsabilidades}
 
-\begin{table}[h!]
+\begin{table}[H]
     \centering
     \begin{tabular}{|c|c|}
 
@@ -361,13 +377,66 @@ En conclusión, este trabajo ha requerido aproximadamente X horas de dedicación
 
 
 \subsection{Cronograma}
-uso de la app para hacer el gant con presupuesto, recursos...
-%\begin{figure}[H]
- %   \centering
-    %\includegraphics[width=0.8\textwidth]{}
-  %  \caption{Diagrama de planificación general del trabajo, dividido en tareas.}
-%\end{figure}
+ANALISIS FINAL CON EL MSProject
+
 \subsection{Recursos}
+
+Los recursos necesarios para el desarrollo de la auditoría de ciberseguridad se dividen en tres categorías principales: recursos humanos, materiales y costos asociados. A continuación, se detallan cada uno de ellos.
+
+\subsubsection{Recursos Humanos}
+
+En virtud del documento oficial de la Agencia Digital de Andalucía \cite{agencia_digital}, se establecen los costes por hora de los perfiles profesionales necesarios para la realización del proyecto.
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Recurso} & \textbf{Tipo} & \textbf{Costo por Hora}  \\ \hline
+Director de Proyecto & Trabajo & 63,75 €/h  \\ \hline
+Jefe de Equipo & Trabajo & 53,55 €/h  \\ \hline
+Analista & Trabajo & 47,17 €/h  \\ \hline
+\end{tabular}
+\caption{Recursos Humanos}
+\label{tab:recursos_humanos}
+\end{table}
+
+
+
+\subsubsection{Recursos Materiales}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+\textbf{Recurso} & \textbf{Tipo} & \textbf{Costo Unitario} & \textbf{Unidades} & \textbf{Costo Total}  \\ \hline
+Impresora & Material & €50,00 & 1& €50,00  \\ \hline
+Disco Duro Externo & Material &  €60,00 &1& €60,00  \\ \hline
+Pen Drive & Material & €20,00 & 1& €20,00  \\ \hline
+Ordenador & Material & €600,00 & 1& €600,00  \\ \hline
+\end{tabular}
+\caption{Recursos Materiales}
+\label{tab:recursos_materiales}
+\end{table}
+
+
+
+\subsubsection{Costos Asociados}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{Recurso} & \textbf{Tipo} & \textbf{Costo Total} & \textbf{Coste Estimado}  \\ \hline
+Reserva de Contingencia & Costo & Variable & 1000€  \\ \hline
+Licencias Software & Costo & Variable &  100€ \\ \hline
+\end{tabular}
+\caption{Costos Asociados}
+\label{tab:costos_asociados}
+\end{table}
+
+
 
 \subsection{Estimación de costes}
 
@@ -459,8 +528,19 @@ QUE HAY?¿? TIPOS DE AUDITORIA, NORMATIVAS, RECOMENDACIONES OWASP10 , HERRAMIENT
 \clearpage
 
 % -----------------------------------------------REFERENCIAS------------------------------------------------------------
-\section{Referencias o Bibliografía}
+\begin{thebibliography}{20}
+    
+    \bibitem{farlopa}
+    DefSec. (s.f.). \textit{Mariscada virtual en el servidor de CCOO}. Recuperado el 08 de febrero de 2025, de \url{https://defsec.noblogs.org/mariscada-virtual-en-el-servidor-de-ccoo/}
+    
+    \bibitem{avtest}
+    AV-TEST. (s.f.). \textit{AV-Atlas Malware Portal}. Recuperado el 10 de enero de 2025, de \url{https://portal.av-atlas.org/malware}
+    
+    \bibitem{agencia_digital} 
+    Agencia Digital de Andalucía. (2024). \textit{Documento de transparencia sobre costes laborales en perfiles TIC}. Encontrado el 13 de febrero de 2025, de \url{https://ws040.juntadeandalucia.es/webconsejos/cgobierno/transparencia/240730/documentos/30Expediente.pdf}
+    
 
+\end{thebibliography}
 
 
 \clearpage

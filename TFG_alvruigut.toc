@@ -14,6 +14,9 @@
 \contentsline {subsection}{\numberline {2.2}Roles y responsabilidades}{12}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Cronograma}{13}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Recursos}{13}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Recursos Humanos}{13}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Recursos Materiales}{13}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Costos Asociados}{13}{subsubsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.5}Estimación de costes}{13}{subsection.2.5}%
 \contentsline {section}{\numberline {3}Marco Teórico (Estado del arte)}{14}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Principales amenazas y riesgos para PYMEs}{14}{subsection.3.1}%
@@ -31,4 +34,3 @@
 \contentsline {subsection}{\numberline {6.1}Implementación de la auditoría}{17}{subsection.6.1}%
 \contentsline {section}{\numberline {7}Resultados}{18}{section.7}%
 \contentsline {section}{\numberline {8}Discusión de resultados o conclusiones}{19}{section.8}%
-\contentsline {section}{\numberline {9}Referencias o Bibliografía}{20}{section.9}%

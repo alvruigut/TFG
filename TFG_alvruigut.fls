@@ -1,6 +1,6 @@
-PWD c:\Users\alvar\Desktop\TFG\github\TFG
+PWD c:\Users\alvar\Desktop\TFG\github_proyecto\TFG
 INPUT C:\Users\alvar\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
-INPUT c:\Users\alvar\Desktop\TFG\github\TFG\TFG_alvruigut.tex
+INPUT c:\Users\alvar\Desktop\TFG\github_proyecto\TFG\TFG_alvruigut.tex
 OUTPUT TFG_alvruigut.log
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
@@ -124,6 +124,8 @@ INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\graphics-cfg\color.
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\graphics\mathcolor.ltx
+INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
+INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\tex\latex\float\float.sty
 INPUT .\TFG_alvruigut.aux
 INPUT .\TFG_alvruigut.aux
 INPUT TFG_alvruigut.aux
@@ -177,9 +179,13 @@ OUTPUT TFG_alvruigut.lot
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr12.tfm
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx12.tfm
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti10.tfm
+INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1000.tfm
+INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmtt10.tfm
 INPUT TFG_alvruigut.aux
 INPUT .\TFG_alvruigut.out
 INPUT .\TFG_alvruigut.out
+INPUT C:\Users\alvar\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
+INPUT C:\Users\alvar\AppData\Local\MiKTeX\fonts\pk\ljfour\jknappen\ec\dpi600\tcrm1000.pk
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx10.pfb
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmbx12.pfb
@@ -192,3 +198,5 @@ INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti10.pfb
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
 INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb
+INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
+INPUT C:\Users\alvar\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmtt10.pfb
