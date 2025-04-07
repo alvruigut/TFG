@@ -331,6 +331,7 @@ Este capítulo presenta la planificación detallada para el desarrollo del traba
 
 \begin{table}[H]
     \centering
+    \caption{Distribución de roles y responsabilidades en el proyecto}
     \begin{tabular}{|c|c|}
 
         \hline
@@ -370,7 +371,9 @@ Este capítulo presenta la planificación detallada para el desarrollo del traba
         \hline
 
     \end{tabular}
-    \caption{Distribución de roles y responsabilidades en el proyecto}
+    \begin{flushleft}\centering
+        \footnotesize \textbf{Fuente:} Elaboración propia
+    \end{flushleft}    
     \label{tab:distribucion_roles}
 \end{table}
 
@@ -388,6 +391,7 @@ Los recursos necesarios para el desarrollo de la auditoría de ciberseguridad se
 En virtud del documento oficial de la Agencia Digital de Andalucía \cite{agencia_digital}, se establecen los costes por hora de los perfiles profesionales necesarios para la realización del proyecto.
 
 \begin{table}[H]
+\caption{Recursos Humanos}
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|}
@@ -397,7 +401,9 @@ Director de Proyecto & Trabajo & 63,75 €/h  \\ \hline
 Jefe de Equipo & Trabajo & 53,55 €/h  \\ \hline
 Analista & Trabajo & 47,17 €/h  \\ \hline
 \end{tabular}
-\caption{Recursos Humanos}
+\begin{flushleft}\centering
+    \footnotesize \textbf{Fuente:} Elaboración propia
+\end{flushleft}   
 \label{tab:recursos_humanos}
 \end{table}
 
@@ -405,6 +411,7 @@ Analista & Trabajo & 47,17 €/h  \\ \hline
 
 \subsubsection{Recursos Materiales}
 \begin{table}[H]
+\caption{Recursos Materiales}
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|c|c|}
@@ -415,7 +422,9 @@ Disco Duro Externo & Material &  €60,00 &1& €60,00  \\ \hline
 Pen Drive & Material & €20,00 & 1& €20,00  \\ \hline
 Ordenador & Material & €600,00 & 1& €600,00  \\ \hline
 \end{tabular}
-\caption{Recursos Materiales}
+\begin{flushleft}\centering
+    \footnotesize \textbf{Fuente:} Elaboración propia
+\end{flushleft}   
 \label{tab:recursos_materiales}
 \end{table}
 
@@ -424,6 +433,7 @@ Ordenador & Material & €600,00 & 1& €600,00  \\ \hline
 \subsubsection{Costos Asociados}
 
 \begin{table}[H]
+\caption{Costos Asociados}
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|c|c|}
@@ -432,7 +442,9 @@ Ordenador & Material & €600,00 & 1& €600,00  \\ \hline
 Reserva de Contingencia & Costo & Variable & 1000€  \\ \hline
 Licencias Software & Costo & Variable &  100€ \\ \hline
 \end{tabular}
-\caption{Costos Asociados}
+\begin{flushleft}\centering
+    \footnotesize \textbf{Fuente:} Elaboración propia
+\end{flushleft}   
 \label{tab:costos_asociados}
 \end{table}
 
@@ -461,6 +473,7 @@ Este cálculo corresponde a una \textbf{duración estimada del proyecto de 4 mes
 \textbf{De esta manera, los costes totales estimados son los siguientes:}  
 
 \begin{table}[H]
+\caption{Resumen de costes del proyecto}
 \centering
 \renewcommand{\arraystretch}{1.5}
 \begin{tabular}{|c|c|}
@@ -471,7 +484,9 @@ Recursos Materiales & 730 € \\ \hline
 Costos Asociados & 1.100 € \\ \hline
 \textbf{Total Estimado} & \underline{\textbf{17.791,50 €}} \\ \hline
 \end{tabular}
-\caption{Resumen de costes del proyecto}
+\begin{flushleft}\centering
+    \footnotesize \textbf{Fuente:} Elaboración propia
+\end{flushleft}   
 \label{tab:resumen_costes}
 \end{table}
 
@@ -510,16 +525,115 @@ Costos Asociados & 1.100 € \\ \hline
 
 
 % -----------------------------------------------MARCO TEÓRICO------------------------------------------------------------
-\section{Marco Teórico (Estado del arte)}
-QUE HAY?¿? TIPOS DE AUDITORIA, NORMATIVAS, RECOMENDACIONES OWASP10 , HERRAMIENTAS, ETC.
-\subsection{Principales amenazas y riesgos para PYMEs}
-\subsection{Normativas nacionales aplicables}
-\subsection{Normativas europeas aplicables}
-\subsection{Leyes y regulaciones en ciberseguridad}
-\subsection{Herramientas de pentesting}
-\subsection{Técnicas y buenas prácticas de una auditoría}
+\section{Fundamentos Teóricos sobre Normativas y Técnicas de Auditoría de Ciberseguridad} %QUE HAY?¿? TIPOS DE AUDITORIA, NORMATIVAS, RECOMENDACIONES OWASP10 , HERRAMIENTAS, ETC.
+El presente marco teórico tiene como objetivo proporcionar un contexto detallado sobre las auditorías de ciberseguridad, sus metodologías y herramientas, así como los estándares y normativas que rigen este campo.
+\par\vspace{0.5cm}
 
+Adicionalmente, se presentará un análisis de las normativas y regulaciones relevantes en el ámbito de la ciberseguridad, tanto a nivel nacional como europeo. También se describirán las principales metodologías utilizadas en auditorías de ciberseguridad y las herramientas más utilizadas en la industria.
+\par\vspace{0.5cm}
+
+Este marco teórico servirá como base para el diseño e implementación de un modelo de auditoría de ciberseguridad orientado a PYMEs, permitiendo establecer un procedimiento claro y estructurado para mejorar la seguridad, identificar vulnerabilidades y mitigar riesgos.
+
+\subsection{Principales amenazas y riesgos para PYMEs}
+Las PYMEs enfrentan riesgos significativos como \textbf{accesos no autorizados, robo de datos y alteración de información confidencial} , lo que compromete la integridad de sus sistemas. 
+Para hacer frente a estos desafíos, muchas organizaciones integran personal especializado en ciberseguridad, adoptan soluciones tecnológicas y promueven la formación continua de sus empleados para prevenir y responder eficazmente ante posibles 
+ataques (Morales-López \& Taipe-Yanez \& Pallo-Tulmo, 2024). \cite{vuln}
+\par\vspace{0.5cm}
+Entre los principales tipos de ataques cibernéticos se encuentran:
+
+\begin{table}[H]
+    \centering
+    \caption{Principales ataques en ciberseguridad}
+    \begin{tabular}{p{4cm} p{12cm}}
+    \hline
+    \textbf{Tipo de Ataque} & \textbf{Descripción} \\
+    \hline
+    \textbf{Malware} & Programas informáticos maliciosos diseñados para acceder a información confidencial o interrumpir servicios. Ejemplos comunes son troyanos, spyware y virus. \\
+    \hline
+    \textbf{Ransomware} & Tipo de malware que cifra los datos de una organización y exige un rescate para su liberación. Representa una forma de extorsión altamente perjudicial. \\
+    \hline
+    \textbf{Ataque de intermediario (Man-in-the-Middle) }& Consiste en interceptar las comunicaciones entre dos partes para acceder a información sensible, como credenciales o datos financieros. \\
+    \hline
+    \textbf{Phishing} & Técnica de ingeniería social que engaña a los usuarios para que revelen información confidencial, como contraseñas o datos bancarios, mediante correos electrónicos o sitios web falsos. \\
+    \hline
+    \textbf{Ataques DDoS} & Buscan saturar un servidor mediante el envío masivo de solicitudes, impidiendo el acceso a usuarios legítimos. \\
+    \hline
+    \textbf{Amenaza interna} & Proviene de empleados o colaboradores con acceso autorizado que, intencionadamente o por negligencia, comprometen la seguridad de la organización. \\
+    \hline
+    \end{tabular}
+    \begin{flushleft}\centering
+        \footnotesize \textbf{Fuente:} Elaboración propia en base  a (Estrategias de Auditoría en ciberseguridad y su importancia en las empresas una revisión bibliográfica año 2024)
+    \end{flushleft}
+    \label{tab:tipos_ataques}
+    \end{table}
+
+\subsection{Normativas nacionales aplicables}
+
+    En el contexto español, la legislación vigente en materia de ciberseguridad establece un conjunto de normas esenciales que las PYMEs deben tener en cuenta para garantizar la protección de sus sistemas y datos. Estas normativas buscan no solo proteger la información sensible de las organizaciones, sino también fomentar una cultura de prevención y resiliencia ante los ciberataques.
+    \par\vspace{0.5cm}
+
+    Una de las normativas más relevantes es el \textbf{Esquema Nacional de Seguridad (ENS)}, regulado por el Real Decreto 311/2022. Este marco establece los principios básicos y requisitos mínimos necesarios para una protección adecuada de la información manejada por medios electrónicos, y es de obligado cumplimiento para las entidades del sector público y recomendable para las empresas privadas. El ENS promueve un enfoque basado en riesgos y establece diferentes niveles de seguridad en función del impacto que una amenaza pueda tener sobre la organización. (Boletín Oficial del Estado, 2024). \cite{boe}
+    \par\vspace{0.5cm}
+
+    Asimismo, el \textbf{Real Decreto-ley 12/2018}, sobre seguridad de las redes y sistemas de información, incorpora al derecho español la Directiva NIS de la Unión Europea. Este decreto impone obligaciones a los operadores de servicios esenciales y proveedores de servicios digitales para garantizar un nivel adecuado de seguridad en sus operaciones, además de establecer la necesidad de notificar los incidentes de seguridad más relevantes a la autoridad competente. (Boletín Oficial del Estado, 2024). \cite{boe}
+    \par\vspace{0.5cm}
+
+    Otra normativa destacable es la \textbf{Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD)}, que adapta el Reglamento General de Protección de Datos (RGPD) al ordenamiento jurídico español. Esta ley establece obligaciones específicas en cuanto al tratamiento, almacenamiento y seguridad de los datos personales, lo cual es especialmente relevante en escenarios donde se procesan grandes volúmenes de datos sensibles. (Boletín Oficial del Estado, 2024). \cite{boe}
+    \par\vspace{0.5cm}
+
+    Además, organismos nacionales como el \textbf{Instituto Nacional de Ciberseguridad (INCIBE)} y el \textbf{Centro Criptológico Nacional (CCN)}  han reforzado su colaboración para coordinar acciones frente a las ciberamenazas que afectan tanto a ciudadanos como a empresas, 
+    proporcionan directrices, guías técnicas y herramientas de apoyo que complementan el cumplimiento normativo, 
+    especialmente adaptadas a las capacidades de las pequeñas y medianas empresas. (Escudo Digital, 2023). \cite{escudo2023}
+
+\subsection{Normativas europeas aplicables}
+
+    La Unión Europea ha desarrollado un marco normativo sólido para fortalecer la ciberseguridad en sus Estados miembros, afectando directamente a las PYMEs. Estas regulaciones buscan establecer un nivel común de seguridad y resiliencia operativa en el entorno digital europeo.
+    \par\vspace{0.5cm}
+
+    Una pieza clave es la \textbf{Directiva NIS2} (Directiva (UE) 2022/2555), que entró en vigor en enero de 2023. Esta directiva amplía el alcance de su predecesora, la Directiva NIS, imponiendo requisitos de seguridad más estrictos y procesos de notificación de incidentes más concretos. Se aplica a medianas y grandes empresas de sectores críticos, incluyendo energía, transporte, salud y administración pública. Las empresas deben implementar políticas de gestión de riesgos, autenticación multifactor y formación en ciberseguridad para empleados. (Cadena SER, 2024). \cite{cadena_ser}
+    \par\vspace{0.5cm}
+
+    Otra regulación relevante es el \textbf{Reglamento DORA} (Reglamento (UE) 2022/2554), que establece un marco para la resiliencia operativa digital del sector financiero. Su objetivo es garantizar que todas las entidades financieras puedan soportar, responder y recuperarse de incidentes relacionados con las TIC, asegurando la estabilidad del sistema financiero europeo. (Banco Central Europeo, 2025). \cite{bce}
+    \par\vspace{0.5cm}
+
+    Además, la propuesta de la \textbf{Ley de Ciberresiliencia} de la UE, presentada en septiembre de 2022, busca introducir requisitos horizontales obligatorios de ciberseguridad para productos con elementos digitales, garantizando que los consumidores y empresas puedan confiar en productos digitales seguros. (Comisión Europea, 2023). \cite{comision_europea}
+    
+
+    
+\subsection{Herramientas de pentesting}
+
+
+\subsection{Técnicas y buenas prácticas de una auditoría} 
+%Mencion a owasp 10 , mención a planes de mitigacion de como estructurar la red... Conciencias a tus empleados de la importancia de la ciberseguridad, actualizar todo el software, tener un plan de respuesta a incidentes... https://www.investigarmqr.com/ojs/index.php/mqr/article/view/1436/4849
+Además, existen plataformas y recursos comunitarios que permiten a los profesionales de la ciberseguridad mantenerse actualizados sobre las amenazas más recientes. Por ejemplo, sitios como \textbf{Exploit DB} ofrecen una base de datos pública de exploits y vulnerabilidades conocidas, categorizadas por tipo de software o sistema afectado. Asimismo, los \textbf{CVE (Common Vulnerabilities and Exposures)} constituyen un estándar internacional para identificar vulnerabilidades de seguridad; cada entrada en el CVE representa una amenaza específica y es asignada por organizaciones autorizadas como el MITRE Corporation, en colaboración con instituciones públicas y privadas a nivel global. Estas fuentes resultan esenciales para el análisis y priorización de riesgos durante una auditoría de ciberseguridad (MITRE Corporation, 2024). \cite{mitre2024}
 \clearpage
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 % ----------------------------------------------- REQUISITOS------------------------------------------------------------
 \section{Requisitos}
@@ -561,6 +675,7 @@ QUE HAY?¿? TIPOS DE AUDITORIA, NORMATIVAS, RECOMENDACIONES OWASP10 , HERRAMIENT
 \clearpage
 
 % -----------------------------------------------REFERENCIAS------------------------------------------------------------
+%Poner bien las referencias en APA, en word puedo crear las bibliografias ya sean de entrevistas a empresas, webs, articulos... Se citan  \cite{farlopa} en el código para un ajuste final de la bibliografía.
 \begin{thebibliography}{20}
     
     \bibitem{farlopa}
@@ -571,6 +686,28 @@ QUE HAY?¿? TIPOS DE AUDITORIA, NORMATIVAS, RECOMENDACIONES OWASP10 , HERRAMIENT
     
     \bibitem{agencia_digital} 
     Agencia Digital de Andalucía. (2024). \textit{Documento de transparencia sobre costes laborales en perfiles TIC}. Encontrado el 13 de febrero de 2025, de \url{https://ws040.juntadeandalucia.es/webconsejos/cgobierno/transparencia/240730/documentos/30Expediente.pdf}
+    
+    \bibitem{vuln}
+    Morales-López \& Taipe-Yanez \& Pallo-Tulmo, (2024) \textit{Estrategias de Auditoría en ciberseguridad y su importancia en las empresas una revisión bibliográfica} Encontrado el 07 de abril de 2025 de \url{https://www.investigarmqr.com/ojs/index.php/mqr/article/view/1436/4849}
+
+    \bibitem{boe}
+    Boletín Oficial del Estado. (2024). Código Electrónico de Ciberseguridad. el 08 de abril de 2025 Recuperado de: \url{https://www.boe.es/biblioteca_juridica/codigos/codigo.php?id=173}
+
+   
+    \bibitem{cadena_ser}
+    Cadena SER. (2024). ¿Qué cambia la directiva de la UE que mejora la ciberseguridad y ya aplican los Estados?. el 08 de abril de 2025 Recuperado de: \url{https://cadenaser.com/cmadrid/2024/10/22/que-cambia-la-directiva-de-la-ue-que-mejora-la-ciberseguridad-y-ya-aplican-los-estados-ser-madrid-sur/}
+
+    \bibitem{bce}
+    Banco Central Europeo. (2025). Decisiones adoptadas por el Consejo de Gobierno del BCE. el 08 de abril de 2025 Recuperado de: \url{https://www.ecb.europa.eu/press/govcdec/otherdec/2025/html/ecb.gc250131~d2c6d582b0.es.html}
+
+    \bibitem{comision_europea}
+    Comisión Europea. (2023). Una Europa Adaptada a la Era Digital. Recuperado de:el 08 de abril de 2025  \url{https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age_es}
+
+    \bibitem{escudo2023}
+    Escudo Digital. (2023). \textit{INCIBE, CNI y CCN se reúnen para impulsar su coordinación en ciberseguridad}. Recuperado de: \url{https://www.escudodigital.com/ciberseguridad/incibe-cni-ccn-se-reunen-impulsar-su-coordinacion-en-ciberseguridad_54930_102.html}
+    
+    \bibitem{mitre2024}
+    MITRE. (2024). \textit{Common Vulnerabilities and Exposures (CVE)}.el 08 de abril de 2025  Recuperado de: \url{https://www.cve.org/About/Overview}
     
 
 \end{thebibliography}

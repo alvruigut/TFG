@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.4)  13 FEB 2025 18:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (MiKTeX 24.4) (preloaded format=pdflatex 2024.7.4)  8 APR 2025 01:42
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -347,7 +347,7 @@ Package hyperref Info: Link coloring OFF on input line 27.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: End \AtBeginDocument code.
-<images/logo_uni.png, id=143, 150.5625pt x 150.5625pt>
+<images/logo_uni.png, id=139, 150.5625pt x 150.5625pt>
 File: images/logo_uni.png Graphic file (type png)
 <use images/logo_uni.png>
 Package pdftex.def Info: images/logo_uni.png  used on input line 32.
@@ -478,8 +478,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 
-LaTeX Info: Redefining \. on input line 382.
-LaTeX Info: Redefining \% on input line 382.
+LaTeX Info: Redefining \. on input line 379.
+LaTeX Info: Redefining \% on input line 379.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -489,8 +489,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [12]
 
-LaTeX Info: Redefining \. on input line 454.
-LaTeX Info: Redefining \% on input line 454.
+LaTeX Info: Redefining \. on input line 430.
+LaTeX Info: Redefining \% on input line 430.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -500,8 +500,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [13]
 
-LaTeX Info: Redefining \. on input line 480.
-LaTeX Info: Redefining \% on input line 480.
+LaTeX Info: Redefining \. on input line 492.
+LaTeX Info: Redefining \% on input line 492.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -511,8 +511,8 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 [14]
 
-LaTeX Info: Redefining \. on input line 522.
-LaTeX Info: Redefining \% on input line 522.
+LaTeX Info: Redefining \. on input line 495.
+LaTeX Info: Redefining \% on input line 495.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -520,50 +520,66 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 (fancyhdr)                You might also make \topmargin smaller to compensate:
 (fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
 
-[15
+[15]
+Underfull \hbox (badness 7099) in paragraph at lines 555--555
+[]\OT1/cmr/bx/n/10 Ataque de in-ter-me-
+ []
 
-]
 
-LaTeX Info: Redefining \. on input line 527.
-LaTeX Info: Redefining \% on input line 527.
+Underfull \hbox (badness 10000) in paragraph at lines 555--555
+\OT1/cmr/bx/n/10 dia-rio (Man-in-the-
+ []
+
+
+Overfull \hbox (23.99997pt too wide) in paragraph at lines 547--564
+ [][] 
+ []
+
+
+
+LaTeX Info: Redefining \. on input line 576.
+LaTeX Info: Redefining \% on input line 576.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 25.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-13.07225pt}.
+
 [16
 
 ]
 
-LaTeX Info: Redefining \. on input line 538.
-LaTeX Info: Redefining \% on input line 538.
+LaTeX Info: Redefining \. on input line 609.
+LaTeX Info: Redefining \% on input line 609.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                Make it at least 25.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.07225pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+(fancyhdr)                \addtolength{\topmargin}{-13.07225pt}.
 
-[17
+[17]
 
-]
-
-LaTeX Info: Redefining \. on input line 547.
-LaTeX Info: Redefining \% on input line 547.
+LaTeX Info: Redefining \. on input line 609.
+LaTeX Info: Redefining \% on input line 609.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
-(fancyhdr)                Make it at least 13.07225pt, for example:
-(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                Make it at least 25.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{25.07225pt}.
 (fancyhdr)                You might also make \topmargin smaller to compensate:
-(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+(fancyhdr)                \addtolength{\topmargin}{-13.07225pt}.
 
-[18
+[18]
 
-]
-
-LaTeX Info: Redefining \. on input line 554.
-LaTeX Info: Redefining \% on input line 554.
+LaTeX Info: Redefining \. on input line 641.
+LaTeX Info: Redefining \% on input line 641.
 [19
 
 ]
 
-LaTeX Info: Redefining \. on input line 561.
-LaTeX Info: Redefining \% on input line 561.
+LaTeX Info: Redefining \. on input line 652.
+LaTeX Info: Redefining \% on input line 652.
 
 Package fancyhdr Warning: \headheight is too small (12.0pt): 
 (fancyhdr)                Make it at least 13.07225pt, for example:
@@ -575,9 +591,61 @@ Package fancyhdr Warning: \headheight is too small (12.0pt):
 
 ]
 
-LaTeX Info: Redefining \. on input line 579.
-LaTeX Info: Redefining \% on input line 579.
+LaTeX Info: Redefining \. on input line 661.
+LaTeX Info: Redefining \% on input line 661.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
 [21
+
+]
+
+LaTeX Info: Redefining \. on input line 668.
+LaTeX Info: Redefining \% on input line 668.
+[22
+
+]
+
+LaTeX Info: Redefining \. on input line 675.
+LaTeX Info: Redefining \% on input line 675.
+
+Package fancyhdr Warning: \headheight is too small (12.0pt): 
+(fancyhdr)                Make it at least 13.07225pt, for example:
+(fancyhdr)                \setlength{\headheight}{13.07225pt}.
+(fancyhdr)                You might also make \topmargin smaller to compensate:
+(fancyhdr)                \addtolength{\topmargin}{-1.07225pt}.
+
+[23
+
+]
+Overfull \hbox (109.80682pt too wide) in paragraph at lines 698--699
+\OT1/cmtt/m/n/10 que-[]cambia-[]la-[]directiva-[]de-[]la-[]ue-[]que-[]mejora-[]la-[]ciberseguridad-[]y-[]ya-[]aplican-[]los-[]estados-[]ser-[]madrid-[]sur/$[] 
+ []
+
+
+Underfull \hbox (badness 2503) in paragraph at lines 707--708
+[]\OT1/cmr/m/n/10 Escudo Di-gi-tal. (2023). \OT1/cmr/m/it/10 IN-CI-BE, CNI y CCN se re^^Sunen pa-ra im-pul-sar su coor-di-na-ci^^Son
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
+\OT1/cmr/m/it/10 en ci-ber-se-gu-ri-dad\OT1/cmr/m/n/10 . Re-cu-pe-ra-do de: []$\OT1/cmtt/m/n/10 https : / / www . escudodigital . com / ciberseguridad /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 707--708
+\OT1/cmtt/m/n/10 incibe-[]cni-[]ccn-[]se-[]reunen-[]impulsar-[]su-[]coordinacion-[]en-[]ciberseguridad _ 54930 _ 102 .
+ []
+
+
+
+LaTeX Info: Redefining \. on input line 716.
+LaTeX Info: Redefining \% on input line 716.
+[24
 
 ] (TFG_alvruigut.aux
 LaTeX Info: Redefining \. on input line 11.
@@ -592,20 +660,20 @@ L3 programming layer <2024-05-27>
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 Package rerunfilecheck Info: File `TFG_alvruigut.out' has not changed.
-(rerunfilecheck)             Checksum: 55CD21068718551755FCDDBA692A53C6;6081.
+(rerunfilecheck)             Checksum: 01F4DD7B4412E44E496F0248EACF5A30;6076.
  ) 
 Here is how much of TeX's memory you used:
- 12996 strings out of 473904
- 214706 string characters out of 5726601
+ 13020 strings out of 473904
+ 214997 string characters out of 5726601
  1944908 words of memory out of 5000000
- 35642 multiletter control sequences out of 15000+600000
- 562939 words of font info for 52 fonts, out of 8000000 for 9000
+ 35654 multiletter control sequences out of 15000+600000
+ 563547 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 79i,12n,93p,796b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\alvar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\alvar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
-Output written on TFG_alvruigut.pdf (22 pages, 200527 bytes).
+ 79i,12n,93p,956b,525s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\alvar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcbx1000.pk> <C:\Users\alvar\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1000.pk><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx8.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti10.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/alvar/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb>
+Output written on TFG_alvruigut.pdf (25 pages, 244972 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 77 named destinations out of 1000 (max. 500000)
- 286 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 420 PDF objects out of 1000 (max. 8388607)
+ 87 named destinations out of 1000 (max. 500000)
+ 278 words of extra memory for PDF output out of 10000 (max. 10000000)
 

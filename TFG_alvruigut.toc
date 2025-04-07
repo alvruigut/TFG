@@ -11,26 +11,25 @@
 \contentsline {subsection}{\numberline {1.5}Estructura del documento}{9}{subsection.1.5}%
 \contentsline {section}{\numberline {2}Planificación}{11}{section.2}%
 \contentsline {subsection}{\numberline {2.1}Fases y lista de actividades}{11}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Roles y responsabilidades}{12}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.2}Roles y responsabilidades}{13}{subsection.2.2}%
 \contentsline {subsection}{\numberline {2.3}Cronograma}{13}{subsection.2.3}%
 \contentsline {subsection}{\numberline {2.4}Recursos}{13}{subsection.2.4}%
 \contentsline {subsubsection}{\numberline {2.4.1}Recursos Humanos}{13}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Recursos Materiales}{13}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Costos Asociados}{13}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}Estimación de Costes}{13}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Marco Teórico (Estado del arte)}{15}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Principales amenazas y riesgos para PYMEs}{15}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Normativas nacionales aplicables}{15}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Normativas europeas aplicables}{15}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Leyes y regulaciones en ciberseguridad}{15}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Herramientas de pentesting}{15}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Técnicas y buenas prácticas de una auditoría}{15}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Requisitos}{16}{section.4}%
-\contentsline {section}{\numberline {5}Modelo de auditoría}{17}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Diseño}{17}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Propuesta de auditoría}{17}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Metodología de auditoría}{17}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Caso Práctico}{18}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Implementación de la auditoría}{18}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Resultados}{19}{section.7}%
-\contentsline {section}{\numberline {8}Discusión de resultados o conclusiones}{20}{section.8}%
+\contentsline {subsubsection}{\numberline {2.4.2}Recursos Materiales}{14}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Costos Asociados}{14}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}Estimación de Costes}{14}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Fundamentos Teóricos sobre Normativas y Técnicas de Auditoría de Ciberseguridad}{16}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Principales amenazas y riesgos para PYMEs}{16}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Normativas nacionales aplicables}{16}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Normativas europeas aplicables}{17}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Herramientas de pentesting}{17}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Técnicas y buenas prácticas de una auditoría}{17}{subsection.3.5}%
+\contentsline {section}{\numberline {4}Requisitos}{19}{section.4}%
+\contentsline {section}{\numberline {5}Modelo de auditoría}{20}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Diseño}{20}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Propuesta de auditoría}{20}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Metodología de auditoría}{20}{subsection.5.3}%
+\contentsline {section}{\numberline {6}Caso Práctico}{21}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Implementación de la auditoría}{21}{subsection.6.1}%
+\contentsline {section}{\numberline {7}Resultados}{22}{section.7}%
+\contentsline {section}{\numberline {8}Discusión de resultados o conclusiones}{23}{section.8}%
