@@ -1,7 +1,7 @@
 \documentclass[a4paper, 10pt]{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage[margin=2.5cm, top=3cm]{geometry}
+\usepackage[margin=2.5cm, top=3.5cm]{geometry}
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
@@ -9,7 +9,9 @@
 \usepackage{lipsum} 
 \usepackage{caption}
 \usepackage{xcolor}
+\usepackage{colortbl}
 \usepackage{float}
+\usepackage{array}
 
 % Variables
 \newcommand{\logoPortada}{images/logo_uni.png}
@@ -114,16 +116,20 @@ The ultimate goal of this study is not only to facilitate the execution of cyber
 
 % -----------------------------------------------INTRODUCCION------------------------------------------------------------
 \section{Introducción}
-En el mundo digital actual, la ciberseguridad ya no es una opción, sino una necesidad. Las pequeñas y medianas empresas (PYMEs), pilares fundamentales de la economía global, se encuentran entre los objetivos más vulnerables frente a ciberataques. A pesar de su importancia económica, muchas de estas empresas subestiman su exposición a amenazas digitales, creyendo erróneamente que su tamaño las hace pasar desapercibidas para los ciberdelincuentes. Sin embargo, esta percepción es un error crítico, ya que la limitada infraestructura de seguridad de las PYMEs las convierte en blancos fáciles.
+En el mundo digital actual, la ciberseguridad ya no es una opción, sino una necesidad. Las pequeñas y medianas empresas (PYMEs), pilares fundamentales de la economía global, se encuentran entre los objetivos más vulnerables frente a ciberataques. A pesar de su importancia económica, 
+muchas de estas empresas subestiman su exposición a amenazas digitales, creyendo erróneamente que su tamaño las hace pasar desapercibidas para los ciberdelincuentes. Sin embargo, esta percepción es un error crítico, ya que la limitada infraestructura de seguridad de las 
+PYMEs las convierte en blancos fáciles. 
 \par\vspace{0.5cm}
 
 Un claro ejemplo de la creciente amenaza cibernética es el ataque sufrido por el portal de afiliación del sindicato Comisiones Obreras (CCOO) en diciembre de 2023 \cite{farlopa}. El atacante explotó una vulnerabilidad en el formulario de afiliación, accediendo a la configuración interna del sitio web. Esta brecha permitió la subida de un archivo malicioso que otorgó control total sobre el sistema, facilitando el acceso a información sensible, incluyendo contraseñas sin la protección adecuada. Como resultado, el atacante alteró la página de inicio de aproximadamente 50 subdominios de ccoo.es, demostrando la facilidad con la que se puede comprometer la seguridad digital de una organización.
 \par\vspace{0.5cm}
 
-Este incidente subraya la necesidad urgente de fortalecer la ciberseguridad en organizaciones de todos los tamaños. Las PYMEs, en particular, son especialmente susceptibles debido a la escasez de recursos y, en muchos casos, a una falta de concienciación sobre las amenazas digitales. La creciente digitalización y la dependencia de sistemas conectados a la red han ampliado la superficie de ataque, exponiendo a estas organizaciones a riesgos significativos.
+Este incidente subraya la necesidad urgente de fortalecer la ciberseguridad en organizaciones de todos los tamaños. Las PYMEs, en particular, son especialmente susceptibles debido a la escasez de recursos y, en muchos casos, a una falta de concienciación sobre las amenazas digitales. 
+La creciente digitalización y la dependencia de sistemas conectados a la red han ampliado la superficie de ataque, exponiendo a estas organizaciones a riesgos significativos.
 \par\vspace{0.5cm}
 
-En este contexto, es crucial que las PYMEs adopten medidas proactivas para proteger sus activos digitales. Este trabajo propone una guía práctica para la realización de auditorías de ciberseguridad, con el objetivo de identificar vulnerabilidades, evaluar riesgos y establecer estrategias de mitigación efectivas. A través de esta guía, se busca empoderar a las PYMEs para que fortalezcan su postura de seguridad y enfrenten con mayor confianza los desafíos del entorno digital actual.
+En este contexto, es crucial que las PYMEs adopten medidas proactivas para proteger sus activos digitales. Este trabajo propone una guía práctica para la realización de auditorías de ciberseguridad, con el objetivo de identificar vulnerabilidades, evaluar riesgos y establecer 
+estrategias de mitigación efectivas. A través de esta guía, se busca empoderar a las PYMEs para que fortalezcan su postura de seguridad y enfrenten con mayor confianza los desafíos del entorno digital actual.
 
 \clearpage
 
@@ -171,7 +177,7 @@ Una vez dado un contexto general del trabajo, nos centraremos en describir que r
  del documento.
 \subsubsection{Documentación e información}
 \begin{itemize}
-    \item Los documentos pueden ser extraídos de \textit{Google Scholar} para su posterior citación, recomendando documentos no más antiguos de 2 o 3 años para asegurar la vigencia de la información.
+    \item Los documentos pueden ser extraídos de \textit{Google Scholar} para su posterior citación, recomendando documentos no más antiguos de 3 o 4 años para asegurar la vigencia de la información.
     \item Se citarán en el documento en formato APA todos los documentos de los que se ha extraído información.
     \item Deben contener información relevante y actualizada sobre ciberseguridad en PYMEs, incluyendo normativas, estándares, herramientas y técnicas de auditoría.
 \end{itemize}
@@ -525,47 +531,83 @@ Costos Asociados & 1.100 € \\ \hline
 
 
 % -----------------------------------------------MARCO TEÓRICO------------------------------------------------------------
-\section{Fundamentos Teóricos sobre Normativas y Técnicas de Auditoría de Ciberseguridad} %QUE HAY?¿? TIPOS DE AUDITORIA, NORMATIVAS, RECOMENDACIONES OWASP10 , HERRAMIENTAS, ETC.
-El presente marco teórico tiene como objetivo proporcionar un contexto detallado sobre las auditorías de ciberseguridad, sus metodologías y herramientas, así como los estándares y normativas que rigen este campo.
+\section{Marco Teórico}
+
+El presente marco teórico tiene como objetivo fundamentar los conceptos esenciales relacionados con la ciberseguridad en el contexto de las pequeñas y medianas empresas (PYMEs), abordando los principales riesgos y amenazas a los que se enfrentan, así como los marcos normativos que regulan la protección de sistemas y datos. Se incluyen tanto normativas nacionales como europeas, junto con recomendaciones prácticas derivadas de estándares ampliamente reconocidos como OWASP Top 10, NIST u OSSTMM.
+
 \par\vspace{0.5cm}
 
-Adicionalmente, se presentará un análisis de las normativas y regulaciones relevantes en el ámbito de la ciberseguridad, tanto a nivel nacional como europeo. También se describirán las principales metodologías utilizadas en auditorías de ciberseguridad y las herramientas más utilizadas en la industria.
+Además, se analizan las técnicas empleadas durante una auditoría de ciberseguridad, así como las herramientas más relevantes utilizadas en procesos de pentesting, con el objetivo de identificar vulnerabilidades y mejorar la postura de seguridad organizacional.
 \par\vspace{0.5cm}
 
-Este marco teórico servirá como base para el diseño e implementación de un modelo de auditoría de ciberseguridad orientado a PYMEs, permitiendo establecer un procedimiento claro y estructurado para mejorar la seguridad, identificar vulnerabilidades y mitigar riesgos.
+Este análisis proporciona una base sólida para el diseño e implementación de un modelo de auditoría de ciberseguridad orientado a PYMEs, permitiendo establecer un procedimiento claro y estructurado para mejorar la seguridad, identificar vulnerabilidades y mitigar riesgos.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Principales amenazas y riesgos para PYMEs}
-Las PYMEs enfrentan riesgos significativos como \textbf{accesos no autorizados, robo de datos y alteración de información confidencial} , lo que compromete la integridad de sus sistemas. 
-Para hacer frente a estos desafíos, muchas organizaciones integran personal especializado en ciberseguridad, adoptan soluciones tecnológicas y promueven la formación continua de sus empleados para prevenir y responder eficazmente ante posibles 
-ataques (Morales-López \& Taipe-Yanez \& Pallo-Tulmo, 2024). \cite{vuln}
-\par\vspace{0.5cm}
-Entre los principales tipos de ataques cibernéticos se encuentran:
 
-\begin{table}[H]
-    \centering
-    \caption{Principales ataques en ciberseguridad}
-    \begin{tabular}{p{4cm} p{12cm}}
-    \hline
-    \textbf{Tipo de Ataque} & \textbf{Descripción} \\
-    \hline
-    \textbf{Malware} & Programas informáticos maliciosos diseñados para acceder a información confidencial o interrumpir servicios. Ejemplos comunes son troyanos, spyware y virus. \\
-    \hline
-    \textbf{Ransomware} & Tipo de malware que cifra los datos de una organización y exige un rescate para su liberación. Representa una forma de extorsión altamente perjudicial. \\
-    \hline
-    \textbf{Ataque de intermediario (Man-in-the-Middle) }& Consiste en interceptar las comunicaciones entre dos partes para acceder a información sensible, como credenciales o datos financieros. \\
-    \hline
-    \textbf{Phishing} & Técnica de ingeniería social que engaña a los usuarios para que revelen información confidencial, como contraseñas o datos bancarios, mediante correos electrónicos o sitios web falsos. \\
-    \hline
-    \textbf{Ataques DDoS} & Buscan saturar un servidor mediante el envío masivo de solicitudes, impidiendo el acceso a usuarios legítimos. \\
-    \hline
-    \textbf{Amenaza interna} & Proviene de empleados o colaboradores con acceso autorizado que, intencionadamente o por negligencia, comprometen la seguridad de la organización. \\
-    \hline
-    \end{tabular}
-    \begin{flushleft}\centering
-        \footnotesize \textbf{Fuente:} Elaboración propia en base  a (Estrategias de Auditoría en ciberseguridad y su importancia en las empresas una revisión bibliográfica año 2024)
-    \end{flushleft}
-    \label{tab:tipos_ataques}
-    \end{table}
+La ciberseguridad representa un desafío importante para muchas pequeñas y medianas empresas españolas. Según el informe de Hiscox, cerca del 50\% de las empresas en España sufrió algún tipo de ciberataque en 2023. Las PYMEs, en particular, son cada vez más objetivo de estos ataques debido a su limitada preparación en ciberseguridad. De hecho, solo el 61\% de las empresas con menos de 250 empleados se sienten seguras de su preparación en esta materia. (Hiscox, 2022) \cite{hiscox}
+\par\vspace{0.5cm}
+
+El Instituto Nacional de Ciberseguridad (INCIBE) registró en 2022 un total de 118.000 incidentes de ciberseguridad, un 9\% más que el año anterior. Una gran parte de estos incidentes afectaron a pequeñas y medianas empresas, y uno de cada tres se trató de una filtración de datos. (INCIBE, 2023) \cite{incibe2023}
+\par\vspace{0.5cm}
+
+Aunque cada vez más PYMEs aumentan sus presupuestos en ciberseguridad y colaboran con empresas especializadas, muchas todavía optan por externalizar sus servicios por falta de personal y recursos internos. Esta externalización, si bien útil, debe complementarse con una adecuada cultura interna de seguridad, especialmente mediante la formación del personal.
+\par\vspace{0.5cm}
+
+Según PwC España, el 86\% de las organizaciones considera que sus empleados carecen de una cultura de ciberseguridad adecuada, lo que pone de relieve la necesidad urgente de concienciación. (PWC, 2021) \cite{pow}
+
+\vspace{0.5cm}
+Entre los principales tipos de ataques cibernéticos que afectan a las PYMEs se encuentran:
+
+\begin{itemize}
+  \item \textbf{Phishing / Suplantación de identidad:} Técnica de ingeniería social mediante la cual el atacante suplanta la identidad de una entidad legítima para obtener información confidencial (credenciales, datos bancarios, etc.) mediante correos electrónicos o sitios web falsos.
+  \item \textbf{Ransomware / Secuestro de datos:} Software malicioso que cifra archivos y exige el pago de un rescate para su recuperación. Es uno de los ataques más perjudiciales para PYMEs.
+  \item \textbf{Ataques DDoS:} Buscan saturar los servidores de una organización mediante el envío masivo de solicitudes, impidiendo el acceso a usuarios legítimos.
+  \item \textbf{Ataques a la cadena de suministro:} Se aprovechan de vulnerabilidades en proveedores o terceros con los que la empresa colabora, explotando relaciones de confianza para infiltrar malware o robar información.
+  \item \textbf{Malware:} Software diseñado para dañar sistemas, robar datos o controlar dispositivos. Incluye virus, troyanos y spyware.
+  \item \textbf{Amenaza interna:} Proviene de empleados o colaboradores con acceso autorizado que, por negligencia o intención maliciosa, comprometen la seguridad de la organización.
+  \item \textbf{Contraseñas débiles:} El uso de contraseñas simples o reutilizadas permite a los atacantes acceder fácilmente a los sistemas. Es una vulnerabilidad común que puede prevenirse con políticas de autenticación robustas.
+  \item \textbf{Falta de formación y políticas de seguridad:} La ausencia de programas de concienciación y protocolos claros de actuación ante amenazas limita la capacidad de reacción ante incidentes.
+  \item \textbf{Falta de actualizaciones de seguridad:} No aplicar los parches y actualizaciones necesarios en sistemas y aplicaciones deja expuestas vulnerabilidades que pueden ser explotadas por atacantes.
+\end{itemize}
+
+
+
+\par\vspace{0.5cm}
+Además de los vectores de ataque anteriores, existen ciertos \textbf{riesgos estructurales} que afectan especialmente a las PYMEs y que incrementan su vulnerabilidad frente a ciberataques:
+
+\begin{itemize}
+  \item \textbf{Falta de recursos de seguridad dedicados:} Muchas pequeñas empresas no cuentan con personal especializado en ciberseguridad (como un CISO o un técnico en protección de datos), lo que dificulta la detección y respuesta ante incidentes.
+  \item \textbf{Presupuestos limitados:} La inversión en ciberseguridad suele quedar relegada frente a otras prioridades de negocio, lo que impide implementar soluciones de protección efectivas o actualizadas.
+  \item \textbf{Falta de diseño seguro desde el inicio:} Al haber sido creadas por expertos en su sector y no por especialistas en tecnología, muchas PYMEs han desarrollado sus sistemas sin tener en cuenta principios de seguridad por defecto.
+  \item \textbf{Ausencia de fondos de emergencia:} La falta de capacidad económica para hacer frente a pagos por rescates o pérdidas prolongadas de ingresos hace que las consecuencias de un ciberataque sean especialmente devastadoras.
+  \item \textbf{Impacto operativo total ante incidentes graves:} Un ciberataque que provoque una filtración o la caída de sistemas puede detener completamente la actividad del negocio, ya que las PYMEs no suelen tener infraestructuras de respaldo.
+\end{itemize}
+
+\par\vspace{0.5cm}
+Estos factores, sumados a una falsa sensación de anonimato (“somos demasiado pequeños para que nos ataquen”), aumentan considerablemente el riesgo de que las PYMEs se conviertan en blancos frecuentes y exitosos de los ciberdelincuentes. Implementar medidas preventivas y desarrollar una cultura de seguridad sólida resulta crucial para garantizar su continuidad. (L. Toms, 2021) \cite{toms2021}
+
+
 
 \subsection{Normativas nacionales aplicables}
 
@@ -600,14 +642,156 @@ Entre los principales tipos de ataques cibernéticos se encuentran:
     
 
     
-\subsection{Herramientas de pentesting}
+
+    \subsection{Herramientas de pentesting}
+
+    La selección de herramientas de pentesting desempeña un papel fundamental en la eficacia de las auditorías de seguridad. Identificar las herramientas adecuadas permite detectar vulnerabilidades de forma precisa y eficiente, adaptándose a distintos escenarios 
+    como redes, aplicaciones web, servicios en la nube o incluso factores humanos a través de técnicas de ingeniería social. A partir de un análisis conjunto de diversas fuentes especializadas, se recopilaron las diez herramientas 
+    más utilizadas y valoradas en el ámbito del pentesting. (F. Redondo \& N. Cárdenas, 2024). \cite{felipe2024}
+    
+    \begin{table}[H]
+    \caption{Herramientas de pentesting más empleadas}
+    \centering
+    \begin{tabular}{|m{5cm}|m{8cm}|m{3.5cm}|}
+        \hline
+        \textbf{Herramienta} & \textbf{Descripción} & \textbf{Donde encontrarlas} \\
+        \hline
+        \includegraphics[width=0.8cm]{images/nmap.jpeg} \textbf{Nmap} & Escáner de redes y auditor de seguridad que permite descubrir hosts, servicios y vulnerabilidades activas. & \href{https://nmap.org}{nmap.org} \\
+        \hline
+        \includegraphics[width=0.8cm]{images/metasploit.jpeg} \textbf{Metasploit} & Framework completo para desarrollar, probar y ejecutar exploits en entornos controlados. & \href{https://www.metasploit.com}{metasploit.com} \\
+        \hline
+        \includegraphics[width=0.7cm]{images/burp.jpeg} \textbf{Burp Suite} & Plataforma integrada para análisis de seguridad en aplicaciones web, capaz de interceptar, modificar y automatizar pruebas. & \href{https://portswigger.net/burp}{portswigger.net/burp} \\
+        \hline
+        \includegraphics[width=0.85cm]{images/kali.jpeg} \textbf{Kali Linux / Parrot OS} & Sistemas operativos especializados para pentesting que incluyen múltiples herramientas de auditoría, análisis forense e ingeniería inversa. & \href{https://www.kali.org}{kali.org}, \href{https://www.parrotsec.org}{parrotsec.org} \\
+        \hline
+        \includegraphics[width=0.95cm]{images/nessus.png} \textbf{Nessus} & Escáner de vulnerabilidades de red que identifica configuraciones erróneas, parches faltantes y debilidades comunes. & \href{https://www.tenable.com/products/nessus}{tenable.com/nessus} \\
+        \hline
+        \includegraphics[width=0.8cm]{images/john.png} \textbf{John the Ripper} & Herramienta para craqueo de contraseñas y evaluación de su fortaleza en diferentes sistemas. & \href{https://www.openwall.com/john}{openwall.com/john} \\
+        \hline
+        \includegraphics[width=0.75cm]{images/wireshark.png} \textbf{Wireshark} & Analizador de protocolos de red que permite capturar y examinar en tiempo real el tráfico que circula por una red. & \href{https://www.wireshark.org}{wireshark.org} \\
+        \hline
+        \includegraphics[width=0.7cm]{images/zap.jpeg} \textbf{ZAP (Zed Attack Proxy)} & Escáner de seguridad de aplicaciones web enfocado en detectar vulnerabilidades durante el desarrollo. & \href{https://www.zaproxy.org}{zaproxy.org} \\
+        \hline
+        \textbf{SQLmap} & Automatiza la detección y explotación de inyecciones SQL en aplicaciones web. & \href{https://sqlmap.org}{sqlmap.org} \\
+        \hline
+        \includegraphics[width=0.8cm]{images/aircrack.jpeg} \textbf{Aircrack-ng} & Conjunto de herramientas para auditar redes Wi-Fi, especializado en romper claves WEP y WPA/WPA2. & \href{https://www.aircrack-ng.org}{aircrack-ng.org} \\
+        \hline
+        \end{tabular}
+    \begin{flushleft}\centering
+        \footnotesize \textbf{Fuente:} Elaboración propia en base a (Criterios de selección de herramientas para pentesting, 2024)
+    \end{flushleft}
+    \end{table}
 
 
-\subsection{Técnicas y buenas prácticas de una auditoría} 
-%Mencion a owasp 10 , mención a planes de mitigacion de como estructurar la red... Conciencias a tus empleados de la importancia de la ciberseguridad, actualizar todo el software, tener un plan de respuesta a incidentes... https://www.investigarmqr.com/ojs/index.php/mqr/article/view/1436/4849
-Además, existen plataformas y recursos comunitarios que permiten a los profesionales de la ciberseguridad mantenerse actualizados sobre las amenazas más recientes. Por ejemplo, sitios como \textbf{Exploit DB} ofrecen una base de datos pública de exploits y vulnerabilidades conocidas, categorizadas por tipo de software o sistema afectado. Asimismo, los \textbf{CVE (Common Vulnerabilities and Exposures)} constituyen un estándar internacional para identificar vulnerabilidades de seguridad; cada entrada en el CVE representa una amenaza específica y es asignada por organizaciones autorizadas como el MITRE Corporation, en colaboración con instituciones públicas y privadas a nivel global. Estas fuentes resultan esenciales para el análisis y priorización de riesgos durante una auditoría de ciberseguridad (MITRE Corporation, 2024). \cite{mitre2024}
-\clearpage
 
+  
+    
+    \subsection{Técnicas utilizadas en auditorías de ciberseguridad}
+
+    Además de contar con herramientas especializadas, una auditoría de ciberseguridad eficaz debe basarse en técnicas metodológicas contrastadas. Las técnicas descritas a continuación están ampliamente consolidadas y han sido validadas por organismos y marcos de referencia reconocidos internacionalmente, como el \textbf{PTES (Penetration Testing Execution Standard)}, el \textbf{OSSTMM (Open Source Security Testing Methodology Manual)}, el \textbf{NIST SP 800-82} para entornos industriales, y el \textbf{OWASP Top 10} en el ámbito de las aplicaciones web.
+    
+    \begin{itemize}
+      \item \textbf{Reconocimiento (Reconnaissance):} Técnicas previas al ataque que permiten recolectar información del objetivo. Se utilizan metodologías OSINT (Open Source Intelligence), como análisis de redes sociales, WHOIS, Shodan o Google Hacking. También incluye \textit{footprinting} y \textit{fingerprinting} para identificar sistemas, servicios y versiones.
+    
+      \item \textbf{Escaneo y enumeración:} Se identifican puertos abiertos, servicios activos y configuraciones usando herramientas como \texttt{Nmap} o \texttt{WhatWeb}. La enumeración permite descubrir detalles específicos de servicios expuestos en la red.
+    
+      \item \textbf{Explotación (Exploitation):} Consiste en aprovechar vulnerabilidades detectadas para obtener acceso no autorizado a sistemas.
+    
+      \item \textbf{Post-explotación:} Tras comprometer un sistema, se buscan técnicas de escalado de privilegios, mantenimiento de acceso y técnicas de pivoting.
+    
+      \item \textbf{Análisis de vulnerabilidades:} Permite identificar y evaluar debilidades sin necesidad de explotación directa. Se emplean escáneres automáticos o revisión manual, especialmente útil en aplicaciones web, móviles o APIs.
+    
+      \item \textbf{Ingeniería social:} Técnica que explota el factor humano mediante engaños. Incluye phishing (correos falsos), y pretexting (identidades falsas para obtener información). Se pueden realizar simulaciones controladas para evaluar la concienciación del personal. 
+    
+      \item \textbf{Pentesting web:} Se prueban vulnerabilidades específicas en aplicaciones web. Para ello se suelen usar las recomendaciones de OWASP Top 10 para identificar problemas comunes en este entorno.
+    
+      \item \textbf{Pentesting de redes Wi-Fi:} Incluye captura de handshakes y ataques a redes WPA/WPA2/WPA3. También se realizan ataques tipo \textit{Evil Twin}, donde se simula un punto de acceso para engañar a los usuarios.
+    
+      \item \textbf{Ataques físicos y hardware hacking:} Cuando se tiene acceso físico a dispositivos, se pueden explotar puertos inseguros, configuraciones erróneas en BIOS, dispositivos IoT vulnerables o mediante el uso de USBs maliciosos.
+    \end{itemize}
+    
+    
+    \subsection{Buenas prácticas durante una auditoría de ciberseguridad}
+    \begin{table}[H]
+        \centering
+        \caption{Buenas prácticas en auditorías de ciberseguridad según el rol}
+        \begin{tabular}{|p{4cm}|p{11cm}|}
+        \hline
+        \rowcolor[HTML]{EFEFEF}
+        \textbf{Rol} & \textbf{Buenas prácticas clave} \\
+        \hline
+        
+        \textbf{Equipo auditor} & 
+        \begin{itemize}
+            \item Definir claramente el alcance de la auditoría.
+            \item Firmar acuerdos de confidencialidad y autorización.
+            \item Aplicar metodologías estándar (PTES, OSSTMM, NIST).
+            \item Utilizar entornos de prueba cuando sea posible.
+            \item Documentar cada fase del proceso de auditoría.
+            \item Actuar siempre con profesionalidad y ética.
+            \item Redactar un informe técnico claro, útil y comprensible.
+            \item Recomendar un plan de acción adaptado a la realidad de la empresa.
+        \end{itemize} \\
+        \hline
+        
+        \textbf{PYME auditada} & 
+        \begin{itemize}
+            \item Colaborar activamente con el equipo auditor.
+            \item Tener identificados sus activos críticos (datos, sistemas, personas).
+            \item Mantener un inventario actualizado de hardware y software.
+            \item Aplicar el principio de mínimo privilegio en los accesos.
+            \item Establecer políticas básicas de seguridad internas.
+            \item Realizar copias de seguridad periódicas y probadas.
+            \item Mantener los sistemas actualizados.
+            \item Concienciar al personal sobre amenazas (phishing, ingeniería social).
+            \item Implementar doble factor de autenticación en accesos sensibles.
+            \item Contar con un plan básico de respuesta ante incidentes.
+        \end{itemize} \\
+        \hline
+        \end{tabular}
+        \end{table}
+        
+
+    \subsubsection{Buenas prácticas durante una auditoría de ciberseguridad}
+    
+    Durante la realización de una auditoría, es esencial aplicar buenas prácticas que garanticen la calidad y efectividad del proceso. Entre ellas se incluyen:
+    
+    \begin{itemize}
+    \item \textbf{Aplicación de estándares reconocidos}: seguir marcos de trabajo como OWASP Top 10 y OSSTMM asegura una cobertura exhaustiva de las vulnerabilidades más comunes y relevantes.
+    
+    \item \textbf{Documentación clara y trazabilidad}: mantener registros detallados de pruebas realizadas, resultados obtenidos y medidas propuestas facilita el seguimiento de las recomendaciones y la toma de decisiones informadas.
+    
+    \item \textbf{Comunicación constante con la organización auditada}: establecer un canal de comunicación fluido con los responsables técnicos y de seguridad permite ajustar el alcance, resolver dudas y aumentar la efectividad del proceso.
+    
+    \item \textbf{Evaluación del factor humano}: incluir simulaciones de ataques de ingeniería social, como campañas de phishing controladas, para identificar debilidades en la concienciación del personal.
+    \end{itemize}
+    
+    \subsubsection{Buenas prácticas dentro de la organización auditada}
+    
+    Más allá de las técnicas aplicadas por el equipo auditor, las organizaciones deben adoptar un conjunto de buenas prácticas estructurales para mejorar su postura de seguridad a largo plazo:
+    
+    \begin{itemize}
+    \item \textbf{Segmentación adecuada de la red}: separar físicamente o virtualmente las distintas áreas de la red reduce la superficie de ataque y limita el daño potencial de un incidente.
+    
+    \item \textbf{Gestión continua de parches y actualizaciones}: mantener todo el software actualizado es crucial para evitar vulnerabilidades conocidas.
+    
+    \item \textbf{Implementación de sistemas avanzados de detección y prevención de intrusiones (IDS/IPS)}: estos sistemas permiten detectar amenazas en tiempo real y reaccionar rápidamente.
+    
+    \item \textbf{Planes de respuesta ante incidentes}: preparar protocolos claros que guíen las acciones inmediatas ante una brecha de seguridad o incidente detectado.
+    
+    \item \textbf{Formación y concienciación continuas del personal}: sesiones periódicas sobre buenas prácticas, manejo de información sensible, identificación de amenazas comunes como phishing o ransomware, y cómo responder adecuadamente ante incidentes.
+    
+    \item \textbf{Monitorización continua y análisis de amenazas}: emplear herramientas y recursos comunitarios como \textbf{Exploit DB} y el estándar \textbf{CVE (Common Vulnerabilities and Exposures)}, permite a los equipos de seguridad mantenerse actualizados sobre nuevas amenazas y vulnerabilidades.
+    
+    \item \textbf{Gestión profesional desde un SOC (Security Operations Center)}: contar con un Centro de Operaciones de Seguridad activo permite centralizar la supervisión, detección y respuesta ante incidentes de forma continua. Un SOC bien gestionado ofrece una visión integral del estado de la seguridad de la organización, automatiza alertas, coordina respuestas y permite tomar decisiones informadas basadas en datos en tiempo real. Este trabajo es llevado a cabo habitualmente por un equipo \textbf{Blue Team}, responsable de defender los activos frente a ataques reales. Su función es crítica para asegurar la continuidad del negocio y minimizar el impacto de amenazas, tanto externas como internas.
+    \end{itemize}
+    
+    Finalmente, para ilustrar en tiempo real la magnitud y frecuencia global de estos ataques y reforzar la importancia de adoptar medidas proactivas, puede consultarse el mapa interactivo proporcionado por Fortinet en el siguiente enlace: \href{https://fortiguard.fortinet.com/threat-map}{\textcolor{blue}{fortiguard.fortinet.com/threat-map}}.
+    
+    \clearpage
+    
+    
+    
 
 
 
@@ -693,7 +877,6 @@ Además, existen plataformas y recursos comunitarios que permiten a los profesio
     \bibitem{boe}
     Boletín Oficial del Estado. (2024). Código Electrónico de Ciberseguridad. el 08 de abril de 2025 Recuperado de: \url{https://www.boe.es/biblioteca_juridica/codigos/codigo.php?id=173}
 
-   
     \bibitem{cadena_ser}
     Cadena SER. (2024). ¿Qué cambia la directiva de la UE que mejora la ciberseguridad y ya aplican los Estados?. el 08 de abril de 2025 Recuperado de: \url{https://cadenaser.com/cmadrid/2024/10/22/que-cambia-la-directiva-de-la-ue-que-mejora-la-ciberseguridad-y-ya-aplican-los-estados-ser-madrid-sur/}
 
@@ -704,12 +887,23 @@ Además, existen plataformas y recursos comunitarios que permiten a los profesio
     Comisión Europea. (2023). Una Europa Adaptada a la Era Digital. Recuperado de:el 08 de abril de 2025  \url{https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age_es}
 
     \bibitem{escudo2023}
-    Escudo Digital. (2023). \textit{INCIBE, CNI y CCN se reúnen para impulsar su coordinación en ciberseguridad}. Recuperado de: \url{https://www.escudodigital.com/ciberseguridad/incibe-cni-ccn-se-reunen-impulsar-su-coordinacion-en-ciberseguridad_54930_102.html}
-    
-    \bibitem{mitre2024}
-    MITRE. (2024). \textit{Common Vulnerabilities and Exposures (CVE)}.el 08 de abril de 2025  Recuperado de: \url{https://www.cve.org/About/Overview}
-    
+    Escudo Digital. (2023). INCIBE, CNI y CCN se reúnen para impulsar su coordinación en ciberseguridad. Recuperado de: \url{https://www.escudodigital.com/ciberseguridad/incibe-cni-ccn-se-reunen-impulsar-su-coordinacion-en-ciberseguridad_54930_102.html}
 
+    \bibitem{felipe2024}
+    Felipe Redondo, A. M., \& Núñez Cárdenas, F. J. (2024). \textit{Criterios de selección de herramientas para pentesting}. Ciencia Huasteca Boletín Científico de la Escuela Superior de Huejutla, 12(24), 31-35. Recuperado de \url{https://repository.uaeh.edu.mx/revistas/index.php/huejutla/article/view/12763/11251}
+    
+    \bibitem{hiscox}
+    Hiscox (2022). \textit{ 44\% de las pymes españolas sufrió al menos un ciberataque durante 2021} Recuperado de \url{https://www.hiscox.es/el-44-de-las-pymes-espanolas-sufrio-al-menos-un-ciberataque-durante-2021}
+
+    \bibitem{incibe2023}
+    INCIBE (2023). \textit{INCIBE gestionó más de 118.000 incidentes de ciberseguridad durante 2022, un 9\% más que en 202} Recuperado de \url{https://www.incibe.es/incibe/sala-de-prensa/incibe-gestiono-mas-115000-incidentes-ciberseguridad-durante-2022-9-mas}
+
+    \bibitem{pow}
+    POW (2021). \textit{El 86\% de las compañías españolas carecen de una cultura de ciberseguridad entre los empleados} Recuperado de \url{https://www.pwc.es/es/sala-prensa/notas-prensa/2021/companias-espanolas-cultura-ciberseguridad-empleados.html}
+
+    \bibitem{toms2021}
+    Toms, L. (2021). \textit{5 riesgos de seguridad para las PYMEs que se deben tener en cuenta} Recuperado de \url{https://www.globalsign.com/es/blog/top-5-pequena-empresa-grandes-riesgos-5-riesgos-de-seguridad-para-las-pymes-que-se-deben-tener-en-cuenta}
+    
 \end{thebibliography}
 
 
