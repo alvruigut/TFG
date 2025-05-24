@@ -18,47 +18,53 @@
 \contentsline {subsubsection}{\numberline {2.4.2}Recursos Materiales}{18}{subsubsection.2.4.2}%
 \contentsline {subsubsection}{\numberline {2.4.3}Costos Asociados}{18}{subsubsection.2.4.3}%
 \contentsline {subsection}{\numberline {2.5}Estimación de Costes}{18}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Fundamentos básicos de Ciberseguridad}{20}{section.3}%
+\contentsline {section}{\numberline {3}Fundamentos teóricos para una auditoría de ciberseguridad en PYMEs}{20}{section.3}%
 \contentsline {subsection}{\numberline {3.1}Principales amenazas y riesgos para PYMEs}{20}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Normativas nacionales aplicables}{23}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Normativas europeas aplicables}{23}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}Metodologías de Auditoría}{24}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}Planes de Mitigación}{24}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Certificaciones del sector}{25}{subsection.3.6}%
-\contentsline {subsection}{\numberline {3.7}Herramientas de pentesting}{26}{subsection.3.7}%
-\contentsline {subsection}{\numberline {3.8}Buenas prácticas}{27}{subsection.3.8}%
-\contentsline {subsubsection}{\numberline {3.8.1}Buenas prácticas en PYMES}{27}{subsubsection.3.8.1}%
-\contentsline {subsubsection}{\numberline {3.8.2}Buenas prácticas en auditorías de ciberseguridad}{28}{subsubsection.3.8.2}%
-\contentsline {section}{\numberline {4}Requisitos previos para la auditoría de ciberseguridad}{30}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Requisitos técnicos}{30}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Requisitos formales}{30}{subsection.4.2}%
-\contentsline {section}{\numberline {5}Modelo de auditoría}{32}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Diseño}{32}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Propuesta de auditoría}{34}{subsection.5.2}%
-\contentsline {subsubsection}{\numberline {5.2.1}Análisis del Perímetro de Red}{34}{subsubsection.5.2.1}%
-\contentsline {paragraph}{Resultados esperados:}{34}{section*.22}%
-\contentsline {paragraph}{Limitaciones:}{35}{section*.23}%
-\contentsline {subsubsection}{\numberline {5.2.2}Fingerprint y Reconocimiento Interno}{36}{subsubsection.5.2.2}%
-\contentsline {paragraph}{Resultados esperados:}{36}{section*.25}%
-\contentsline {paragraph}{Limitaciones:}{36}{section*.26}%
-\contentsline {subsubsection}{\numberline {5.2.3}OSINT e Ingeniería Social}{37}{subsubsection.5.2.3}%
-\contentsline {paragraph}{Resultados esperados:}{37}{section*.28}%
-\contentsline {paragraph}{Limitaciones:}{37}{section*.29}%
-\contentsline {subsubsection}{\numberline {5.2.4}Seguridad en IoT}{38}{subsubsection.5.2.4}%
-\contentsline {paragraph}{Resultados esperados:}{38}{section*.31}%
-\contentsline {paragraph}{Limitaciones:}{38}{section*.32}%
-\contentsline {subsubsection}{\numberline {5.2.5}Auditoría Web}{39}{subsubsection.5.2.5}%
-\contentsline {paragraph}{Resultados esperados:}{39}{section*.34}%
-\contentsline {paragraph}{Limitaciones:}{40}{section*.35}%
-\contentsline {subsubsection}{\numberline {5.2.6}Seguridad de Infraestructura}{40}{subsubsection.5.2.6}%
-\contentsline {paragraph}{Resultados esperados:}{41}{section*.37}%
-\contentsline {paragraph}{Limitaciones:}{41}{section*.38}%
-\contentsline {subsubsection}{\numberline {5.2.7}Seguridad de Endpoints y Datos}{41}{subsubsection.5.2.7}%
-\contentsline {paragraph}{Resultados esperados:}{42}{section*.40}%
-\contentsline {paragraph}{Limitaciones:}{42}{section*.41}%
-\contentsline {subsection}{\numberline {5.3}Metodología de auditoría}{43}{subsection.5.3}%
-\contentsline {section}{\numberline {6}Caso Práctico}{44}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Implementación de la auditoría}{44}{subsection.6.1}%
-\contentsline {section}{\numberline {7}Resultados}{45}{section.7}%
-\contentsline {section}{\numberline {8}Conclusiones}{46}{section.8}%
-\contentsline {section}{\numberline {9}Anexos}{48}{section.9}%
+\contentsline {subsection}{\numberline {3.2}Planes de Mitigación}{23}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Buenas prácticas}{24}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Buenas prácticas en PYMES}{24}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Buenas prácticas en auditorías de ciberseguridad}{25}{subsubsection.3.3.2}%
+\contentsline {section}{\numberline {4}Marco Regulatorio y Metodológico en Ciberseguridad}{26}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Organismos Reguladores en Ciberseguridad}{26}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Normativas y Estándares Aplicables}{29}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Metodologías de Auditoría en Ciberseguridad}{32}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Herramientas de pentesting}{33}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Certificaciones del sector}{34}{subsection.4.5}%
+\contentsline {section}{\numberline {5}Metodología elegida: NIST SP 800-115}{35}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Fase de Planificación (Planning Phase)}{35}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Fase de Descubrimiento (Discovery Phase)}{35}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Fase de Ataque (Attack Phase)}{35}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Fase de Reporte (Reporting Phase)}{36}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Actividades posteriores opcionales (Post-Test Activities)}{36}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Requisitos previos a la auditoría}{36}{section.6}%
+\contentsline {section}{\numberline {7}Modelo de auditoría}{37}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Diseño}{37}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Propuesta de auditoría}{39}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Análisis del Perímetro de Red}{39}{subsubsection.7.2.1}%
+\contentsline {paragraph}{Resultados esperados:}{39}{section*.38}%
+\contentsline {paragraph}{Limitaciones:}{40}{section*.39}%
+\contentsline {subsubsection}{\numberline {7.2.2}Fingerprint y Reconocimiento Interno}{41}{subsubsection.7.2.2}%
+\contentsline {paragraph}{Resultados esperados:}{41}{section*.41}%
+\contentsline {paragraph}{Limitaciones:}{41}{section*.42}%
+\contentsline {subsubsection}{\numberline {7.2.3}OSINT e Ingeniería Social}{42}{subsubsection.7.2.3}%
+\contentsline {paragraph}{Resultados esperados:}{42}{section*.44}%
+\contentsline {paragraph}{Limitaciones:}{42}{section*.45}%
+\contentsline {subsubsection}{\numberline {7.2.4}Seguridad en IoT}{43}{subsubsection.7.2.4}%
+\contentsline {paragraph}{Resultados esperados:}{43}{section*.47}%
+\contentsline {paragraph}{Limitaciones:}{43}{section*.48}%
+\contentsline {subsubsection}{\numberline {7.2.5}Auditoría Web}{44}{subsubsection.7.2.5}%
+\contentsline {paragraph}{Resultados esperados:}{44}{section*.50}%
+\contentsline {paragraph}{Limitaciones:}{45}{section*.51}%
+\contentsline {subsubsection}{\numberline {7.2.6}Seguridad de Infraestructura}{45}{subsubsection.7.2.6}%
+\contentsline {paragraph}{Resultados esperados:}{46}{section*.53}%
+\contentsline {paragraph}{Limitaciones:}{46}{section*.54}%
+\contentsline {subsubsection}{\numberline {7.2.7}Seguridad de Endpoints y Datos}{46}{subsubsection.7.2.7}%
+\contentsline {paragraph}{Resultados esperados:}{47}{section*.56}%
+\contentsline {paragraph}{Limitaciones:}{48}{section*.57}%
+\contentsline {subsection}{\numberline {7.3}Metodología de auditoría propuesta}{49}{subsection.7.3}%
+\contentsline {section}{\numberline {8}Caso Práctico}{50}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Implementación de la auditoría}{50}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Planificación de la auditoría}{50}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Resultados}{51}{section.9}%
+\contentsline {section}{\numberline {10}Conclusiones}{52}{section.10}%
+\contentsline {section}{\numberline {11}Anexos}{54}{section.11}%
