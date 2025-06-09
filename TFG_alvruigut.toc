@@ -1,70 +1,75 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{\numberline {1}Introducción}{11}{section.1}%
-\contentsline {subsection}{\numberline {1.1}Objetivos}{12}{subsection.1.1}%
-\contentsline {subsection}{\numberline {1.2}Alcance}{12}{subsection.1.2}%
-\contentsline {subsection}{\numberline {1.3}Motivación}{12}{subsection.1.3}%
-\contentsline {subsection}{\numberline {1.4}Requisitos formales}{13}{subsection.1.4}%
-\contentsline {subsubsection}{\numberline {1.4.1}Documentación e información}{13}{subsubsection.1.4.1}%
-\contentsline {subsubsection}{\numberline {1.4.2}Normativas y certificaciones}{13}{subsubsection.1.4.2}%
-\contentsline {subsubsection}{\numberline {1.4.3}Propuesta de metodología de la auditoría}{13}{subsubsection.1.4.3}%
-\contentsline {subsubsection}{\numberline {1.4.4}Sobre el caso práctico}{13}{subsubsection.1.4.4}%
-\contentsline {subsection}{\numberline {1.5}Estructura del documento}{13}{subsection.1.5}%
-\contentsline {section}{\numberline {2}Planificación}{15}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Fases y lista de actividades}{15}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}Cronograma}{17}{subsection.2.2}%
-\contentsline {subsection}{\numberline {2.3}Roles y responsabilidades}{19}{subsection.2.3}%
-\contentsline {subsection}{\numberline {2.4}Recursos}{19}{subsection.2.4}%
-\contentsline {subsubsection}{\numberline {2.4.1}Recursos Humanos}{19}{subsubsection.2.4.1}%
-\contentsline {subsubsection}{\numberline {2.4.2}Recursos Materiales}{20}{subsubsection.2.4.2}%
-\contentsline {subsubsection}{\numberline {2.4.3}Costos Asociados}{20}{subsubsection.2.4.3}%
-\contentsline {subsection}{\numberline {2.5}Estimación de Costes}{20}{subsection.2.5}%
-\contentsline {section}{\numberline {3}Fundamentos teóricos para una auditoría de ciberseguridad en PYMEs}{22}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Principales amenazas y riesgos para PYMEs}{22}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Planes de Mitigación}{25}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}Buenas prácticas}{26}{subsection.3.3}%
-\contentsline {subsubsection}{\numberline {3.3.1}Buenas prácticas en PYMES}{26}{subsubsection.3.3.1}%
-\contentsline {subsubsection}{\numberline {3.3.2}Buenas prácticas en auditorías de ciberseguridad}{27}{subsubsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.4}Marco Regulatorio y Metodológico en Ciberseguridad}{28}{subsection.3.4}%
-\contentsline {subsubsection}{\numberline {3.4.1}Organismos Reguladores en Ciberseguridad}{28}{subsubsection.3.4.1}%
-\contentsline {subsubsection}{\numberline {3.4.2}Normativas y Estándares Aplicables}{31}{subsubsection.3.4.2}%
-\contentsline {subsubsection}{\numberline {3.4.3}Metodologías de Auditoría en Ciberseguridad}{34}{subsubsection.3.4.3}%
-\contentsline {subsection}{\numberline {3.5}Herramientas de pentesting}{35}{subsection.3.5}%
-\contentsline {subsection}{\numberline {3.6}Certificaciones del sector}{35}{subsection.3.6}%
-\contentsline {section}{\numberline {4}Metodología elegida: NIST SP 800-115}{37}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Fase de Planificación (Planning Phase)}{37}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}Fase de Descubrimiento (Discovery Phase)}{37}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}Fase de Ataque (Attack Phase)}{37}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Fase de Reporte (Reporting Phase)}{38}{subsection.4.4}%
-\contentsline {section}{\numberline {5}Modelo de auditoría}{39}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Diseño propuesto por BeeHacker}{39}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Análisis del Perímetro de Red}{40}{subsection.5.2}%
-\contentsline {paragraph}{Resultados esperados:}{40}{section*.40}%
-\contentsline {paragraph}{Limitaciones:}{41}{section*.41}%
-\contentsline {subsubsection}{\numberline {5.2.1}Fingerprint y Reconocimiento Interno}{42}{subsubsection.5.2.1}%
-\contentsline {paragraph}{Resultados esperados:}{42}{section*.43}%
-\contentsline {paragraph}{Limitaciones:}{42}{section*.44}%
-\contentsline {subsubsection}{\numberline {5.2.2}OSINT e Ingeniería Social}{43}{subsubsection.5.2.2}%
-\contentsline {paragraph}{Resultados esperados:}{43}{section*.46}%
-\contentsline {paragraph}{Limitaciones:}{43}{section*.47}%
-\contentsline {subsubsection}{\numberline {5.2.3}Seguridad en IoT}{44}{subsubsection.5.2.3}%
-\contentsline {paragraph}{Resultados esperados:}{44}{section*.49}%
-\contentsline {paragraph}{Limitaciones:}{44}{section*.50}%
-\contentsline {subsubsection}{\numberline {5.2.4}Auditoría Web}{45}{subsubsection.5.2.4}%
-\contentsline {paragraph}{Resultados esperados:}{45}{section*.52}%
-\contentsline {paragraph}{Limitaciones:}{46}{section*.53}%
-\contentsline {subsubsection}{\numberline {5.2.5}Seguridad de Infraestructura}{46}{subsubsection.5.2.5}%
-\contentsline {paragraph}{Resultados esperados:}{47}{section*.55}%
-\contentsline {paragraph}{Limitaciones:}{47}{section*.56}%
-\contentsline {subsubsection}{\numberline {5.2.6}Seguridad de Endpoints y Datos}{47}{subsubsection.5.2.6}%
-\contentsline {paragraph}{Resultados esperados:}{48}{section*.58}%
-\contentsline {paragraph}{Limitaciones:}{49}{section*.59}%
-\contentsline {section}{\numberline {6}Requisitos previos a la auditoría}{50}{section.6}%
-\contentsline {section}{\numberline {7}Propuesta metodológica de auditoría}{51}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Fase de Planificación de la Auditoría}{51}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Fase de Descubrimiento}{51}{subsection.7.2}%
-\contentsline {section}{\numberline {8}Caso Práctico}{52}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Implementación de la auditoría}{52}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Planificación de la auditoría}{52}{subsection.8.2}%
-\contentsline {section}{\numberline {9}Resultados}{53}{section.9}%
-\contentsline {section}{\numberline {10}Conclusiones}{54}{section.10}%
-\contentsline {section}{\numberline {11}Anexos}{58}{section.11}%
+\contentsline {section}{\numberline {1}Introducción}{12}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Objetivos}{13}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Alcance}{13}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Motivación}{14}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Requisitos formales}{14}{subsection.1.4}%
+\contentsline {subsubsection}{\numberline {1.4.1}Documentación e información}{15}{subsubsection.1.4.1}%
+\contentsline {subsubsection}{\numberline {1.4.2}Normativas y certificaciones}{15}{subsubsection.1.4.2}%
+\contentsline {subsubsection}{\numberline {1.4.3}Propuesta de metodología de la auditoría}{15}{subsubsection.1.4.3}%
+\contentsline {subsubsection}{\numberline {1.4.4}Sobre el caso práctico}{15}{subsubsection.1.4.4}%
+\contentsline {subsection}{\numberline {1.5}Estructura del documento}{15}{subsection.1.5}%
+\contentsline {section}{\numberline {2}Planificación}{17}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Fases y lista de actividades}{17}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Cronograma}{19}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Roles y responsabilidades}{21}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Recursos}{21}{subsection.2.4}%
+\contentsline {subsubsection}{\numberline {2.4.1}Recursos Humanos}{21}{subsubsection.2.4.1}%
+\contentsline {subsubsection}{\numberline {2.4.2}Recursos Materiales}{22}{subsubsection.2.4.2}%
+\contentsline {subsubsection}{\numberline {2.4.3}Costos Asociados}{22}{subsubsection.2.4.3}%
+\contentsline {subsection}{\numberline {2.5}Estimación de Costes}{22}{subsection.2.5}%
+\contentsline {section}{\numberline {3}Fundamentos teóricos para una auditoría de ciberseguridad en PYMEs}{24}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Principales amenazas y riesgos para PYMEs}{24}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Planes de Mitigación}{28}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Buenas prácticas}{30}{subsection.3.3}%
+\contentsline {subsubsection}{\numberline {3.3.1}Buenas prácticas en PYMES}{30}{subsubsection.3.3.1}%
+\contentsline {subsubsection}{\numberline {3.3.2}Buenas prácticas en auditorías de ciberseguridad}{31}{subsubsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.4}Marco Regulatorio y Metodológico en Ciberseguridad}{32}{subsection.3.4}%
+\contentsline {subsubsection}{\numberline {3.4.1}Organismos Reguladores en Ciberseguridad}{32}{subsubsection.3.4.1}%
+\contentsline {subsubsection}{\numberline {3.4.2}Otros Organismos Internacionales}{34}{subsubsection.3.4.2}%
+\contentsline {subsubsection}{\numberline {3.4.3}Normativas y Estándares Aplicables}{36}{subsubsection.3.4.3}%
+\contentsline {subsubsection}{\numberline {3.4.4}Metodologías de Auditoría en Ciberseguridad}{40}{subsubsection.3.4.4}%
+\contentsline {subsection}{\numberline {3.5}Herramientas de pentesting}{41}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Certificaciones del sector}{42}{subsection.3.6}%
+\contentsline {section}{\numberline {4}Metodología elegida: NIST SP 800-115}{44}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Fase de Planificación (Planning Phase)}{44}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Fase de Descubrimiento (Discovery Phase)}{44}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Fase de Ataque (Attack Phase)}{45}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Fase de Reporte (Reporting Phase)}{45}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Modelo de auditoría}{46}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Diseño propuesto por BeeHacker}{46}{subsection.5.1}%
+\contentsline {subsubsection}{\numberline {5.1.1}Análisis del Perímetro de Red}{47}{subsubsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.2}Fingerprint (Reconocimiento Interno)}{48}{subsubsection.5.1.2}%
+\contentsline {subsubsection}{\numberline {5.1.3}OSINT e Ingeniería Social}{49}{subsubsection.5.1.3}%
+\contentsline {subsubsection}{\numberline {5.1.4}Seguridad en IoT}{50}{subsubsection.5.1.4}%
+\contentsline {subsubsection}{\numberline {5.1.5}Auditoría Web}{50}{subsubsection.5.1.5}%
+\contentsline {subsubsection}{\numberline {5.1.6}Seguridad de la Infraestructura}{51}{subsubsection.5.1.6}%
+\contentsline {subsubsection}{\numberline {5.1.7}Seguridad de Endpoints y Datos}{52}{subsubsection.5.1.7}%
+\contentsline {section}{\numberline {6}Requisitos previos a la auditoría}{54}{section.6}%
+\contentsline {section}{\numberline {7}Propuesta metodológica de auditoría}{55}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Fase de Planificación de la Auditoría}{55}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Fase de Descubrimiento de la Auditoría}{56}{subsection.7.2}%
+\contentsline {subsubsection}{\numberline {7.2.1}Análisis Externo de Redes Inalámbricas}{56}{subsubsection.7.2.1}%
+\contentsline {subsubsection}{\numberline {7.2.2}Análisis Interno de Redes (Fingerprint)}{58}{subsubsection.7.2.2}%
+\contentsline {subsubsection}{\numberline {7.2.3}Análisis Interno de Tráfico de Red}{60}{subsubsection.7.2.3}%
+\contentsline {subsubsection}{\numberline {7.2.4}Análisis de vulnerabilidades}{61}{subsubsection.7.2.4}%
+\contentsline {subsubsection}{\numberline {7.2.5}Clasificación de vulnerabilidades}{62}{subsubsection.7.2.5}%
+\contentsline {subsubsection}{\numberline {7.2.6}OSINT e Ingeniería Social}{64}{subsubsection.7.2.6}%
+\contentsline {subsection}{\numberline {7.3}Fase de Ataque de la Auditoría}{69}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Fase de Reporte de la Auditoría}{70}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {7.4.1}Objetivos de la fase de reporte}{70}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {7.4.2}Informe Técnico detallado}{70}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {7.4.3}Informe Ejecutivo}{71}{subsubsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {7.4.4}Comparativa entre informe ejecutivo y técnico}{72}{subsubsection.7.4.4}%
+\contentsline {subsubsection}{\numberline {7.4.5}Evaluación de Riesgos}{72}{subsubsection.7.4.5}%
+\contentsline {subsubsection}{\numberline {7.4.6}Plan de Mitigación de Riesgos}{74}{subsubsection.7.4.6}%
+\contentsline {section}{\numberline {8}Caso Práctico}{75}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Implementación de la auditoría}{75}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Planificación de la auditoría}{75}{subsection.8.2}%
+\contentsline {section}{\numberline {9}Resultados}{76}{section.9}%
+\contentsline {section}{\numberline {10}Conclusiones}{77}{section.10}%
+\contentsline {section}{\numberline {11}Anexos}{81}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Anexo I. Registro de actividades en Clockify}{81}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Anexo II. Enlaces oficiales de herramientas de pentesting}{82}{subsection.11.2}%
+\contentsline {subsection}{\numberline {11.3}Anexo III: Glosario de términos}{84}{subsection.11.3}%
+\contentsline {subsection}{\numberline {11.4}Anexo IV: Parámetros avanzados de Nmap}{89}{subsection.11.4}%

@@ -1,8 +1,23 @@
-\documentclass[a4paper, 10pt]{article}
+\documentclass[a4paper, 11pt]{article}
 
+% Codificación y lenguaje
 \usepackage[utf8]{inputenc}
-\usepackage[margin=2.5cm, top=3.5cm]{geometry}
 \usepackage[spanish]{babel}
+\usepackage[T1]{fontenc}
+
+
+% Márgenes 
+\usepackage[left=3cm, right=3cm, top=2.5cm, bottom=2.5cm]{geometry}
+
+% Interlineado 1.5
+\usepackage{setspace}
+\onehalfspacing
+
+% Fuente Helvetica 
+\usepackage{helvet}
+\renewcommand{\familydefault}{\sfdefault}
+
+% Paquetes gráficos y generales
 \usepackage{graphicx}
 \usepackage[hidelinks]{hyperref}
 \usepackage{fancyhdr}
@@ -14,17 +29,103 @@
 \usepackage{array}
 \usepackage{booktabs}
 \usepackage{pdflscape}
-% Variables
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{smartdiagram}
+\usepackage[most]{tcolorbox}
+
+% Configuración de código
+\usepackage{listings}
+\lstset{
+    inputencoding=utf8,
+    extendedchars=true,
+    literate={á}{{\'a}}1 {é}{{\'e}}1 {í}{{\'i}}1 {ó}{{\'o}}1 {ú}{{\'u}}1
+             {Á}{{\'A}}1 {É}{{\'E}}1 {Í}{{\'I}}1 {Ó}{{\'O}}1 {Ú}{{\'U}}1
+             {ñ}{{\~n}}1 {Ñ}{{\~N}}1 {ü}{{\"u}}1 {Ü}{{\"U}}1
+}
+
+% Colores potentes sobre fondo negro puro
+% Definición de colores
+\definecolor{darkbg}{rgb}{0.05, 0.05, 0.05}       % casi negro puro
+\definecolor{brightgreen}{rgb}{0.6, 1.0, 0.6}      % verde claro
+\definecolor{lightcyan}{rgb}{0.6, 1.0, 1.0}        % cian claro
+\definecolor{brightorange}{rgb}{1.0, 0.6, 0.3}     % naranja brillante
+\definecolor{vividpurple}{rgb}{1.0, 0.4, 0.4}
+\definecolor{softwhite}{rgb}{0.9, 0.9, 0.9}        % blanco suave
+\definecolor{graynumbers}{rgb}{0.5, 0.5, 0.5}      % gris números
+
+% Estilo personalizado
+\lstdefinestyle{terminalstyle}{
+    backgroundcolor=\color{darkbg},
+    basicstyle=\ttfamily\small\color{softwhite},
+    keywordstyle=\color{brightorange}\bfseries,
+    stringstyle=\color{brightorange},
+    commentstyle=\color{brightgreen}\itshape,
+    identifierstyle=\color{lightcyan},
+    numberstyle=\tiny\color{softwhite},
+    frame=single,
+    rulecolor=\color{darkbg},
+    framerule=0.8pt,
+    breaklines=true,
+    breakautoindent=true,
+    captionpos=b,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    numbers=left,
+    numbersep=8pt,
+    xleftmargin=0.5cm,
+    framexleftmargin=0.5cm
+}
+
+
+
+
+
+
+
+
+% Definición de colores para tabla de vulnerabilidades
+\definecolor{cvsscritical}{RGB}{204,0,0}    % rojo fuego
+\definecolor{cvsshigh}{RGB}{255,102,0}      % naranja
+\definecolor{cvssmedium}{RGB}{255,204,0}    % amarillo
+\definecolor{cvsslow}{RGB}{0,153,0}         % verde
+
+% Definición de colores y estilo
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false
+}
+
+\lstset{style=mystyle}
+\renewcommand{\lstlistingname}{Código}
+% Variable para logo
 \newcommand{\logoPortada}{images/logo_uni.png}
 
-
+% Configuración de cabecera y pie de página
 \pagestyle{fancy}
-
-\fancyhead[L]{\leftmark}    
-\fancyhead[C]{}             
+\fancyhead[L]{\textcolor{red}\leftmark}    
+\fancyhead[C]{}
 \fancyhead[R]{}
-
 \fancyfoot[C]{\textcolor{red}{\thepage}}
+
 
 
 \begin{document}
@@ -62,6 +163,12 @@
 \listoftables
 \thispagestyle{empty}
 \clearpage
+
+\renewcommand{\lstlistlistingname}{Índice de códigos}
+\lstlistoflistings
+\thispagestyle{empty}
+\clearpage
+
 
 
 % -----------------------------------------------AGRADECIMIENTOS------------------------------------------------------------
@@ -118,7 +225,7 @@ A la empresa Beehacker, por su colaboración en este proyecto. Agradezco sincera
 \section*{Resumen}
 \thispagestyle{empty}
 Las pequeñas y medianas empresas (PYMEs) desempeñan un papel fundamental en la economía global. Sin embargo, su creciente digitalización ha incrementado su exposición a ciberataques, debido a infraestructuras de seguridad limitadas y a la falta de recursos suficientes para hacer frente a amenazas sofisticadas.
-Este proyecto tiene como objetivo principal desarrollar un modelo de auditoría de ciberseguridad adaptado a las PYMEs, basándose en la normativa europea y nacional vigente. Para garantizar su aplicabilidad, se elaborará una guía accesible para usuarios sin conocimientos técnicos avanzados, que les permita evaluar la seguridad de sus entornos digitales de forma autónoma.
+Este proyecto tiene como objetivo principal desarrollar un modelo de auditoría de ciberseguridad adaptado a las PYMEs. Para garantizar su aplicabilidad, se elaborará una guía accesible para usuarios sin conocimientos técnicos avanzados, que les permita evaluar la seguridad de sus entornos digitales de forma autónoma.
 
 \par\vspace{0.5cm}
 
@@ -140,7 +247,7 @@ Finalmente, se presentan los resultados obtenidos, ofreciendo una visión clara 
 \section*{Abstract}
 \thispagestyle{empty}
 Small and medium-sized enterprises (SMEs) play a fundamental role in the global economy. However, their increasing digitalization has significantly raised their exposure to cyberattacks, due to limited security infrastructures and insufficient resources to address sophisticated threats.
-This project aims to develop a cybersecurity audit model specifically tailored to SMEs, based on current European and national regulations. To ensure its usability, an accessible guide will be created for users without advanced technical knowledge, enabling them to assess the security of their digital environments independently.
+This project aims to develop a cybersecurity audit model specifically tailored to SME. To ensure its usability, an accessible guide will be created for users without advanced technical knowledge, enabling them to assess the security of their digital environments independently.
 
 \par\vspace{0.5cm}
 
@@ -160,12 +267,14 @@ Finally, the results obtained are presented, providing a clear and structured ov
 
 % -----------------------------------------------INTRODUCCION------------------------------------------------------------
 \section{Introducción}
+\par\vspace{0.5cm}
+
 En el mundo digital actual, la ciberseguridad ya no es una opción, sino una necesidad. Las pequeñas y medianas empresas (PYMEs), pilares fundamentales de la economía global, se encuentran entre los objetivos más vulnerables frente a ciberataques. A pesar de su importancia económica, 
 muchas de estas empresas subestiman su exposición a amenazas digitales, creyendo erróneamente que su tamaño las hace pasar desapercibidas para los ciberdelincuentes. Sin embargo, esta percepción es un error crítico, ya que la limitada infraestructura de seguridad de las 
 PYMEs las convierte en blancos fáciles. 
 \par\vspace{0.5cm}
 
-Un claro ejemplo de la creciente amenaza cibernética es el ataque sufrido por el portal de afiliación del sindicato Comisiones Obreras (CCOO) en diciembre de 2023 \cite{farlopa}. El atacante explotó una vulnerabilidad en el formulario de afiliación, accediendo a la configuración interna del sitio web. Esta brecha permitió la subida de un archivo malicioso que otorgó control total sobre el sistema, facilitando el acceso a información sensible, incluyendo contraseñas sin la protección adecuada. Como resultado, el atacante alteró la página de inicio de aproximadamente 50 subdominios de ccoo.es, demostrando la facilidad con la que se puede comprometer la seguridad digital de una organización.
+Un claro ejemplo de la creciente amenaza cibernética es el ataque sufrido por el portal de afiliación del sindicato Comisiones Obreras (CCOO) en diciembre de 2023 \cite{napalm-ccoo}. El atacante explotó una vulnerabilidad en el formulario de afiliación, accediendo a la configuración interna del sitio web. Esta brecha permitió la subida de un archivo malicioso que otorgó control total sobre el sistema, facilitando el acceso a información sensible, incluyendo contraseñas sin la protección adecuada. Como resultado, el atacante alteró la página de inicio de aproximadamente 50 subdominios de ccoo.es, demostrando la facilidad con la que se puede comprometer la seguridad digital de una organización.
 \par\vspace{0.5cm}
 
 Este incidente subraya la necesidad de fortalecer la ciberseguridad en organizaciones de todos los tamaños. Las PYMEs, en particular, son especialmente susceptibles debido a la escasez de recursos y, en muchos casos, a una falta de concienciación sobre las amenazas digitales. 
@@ -174,12 +283,14 @@ La creciente digitalización y la dependencia de sistemas conectados a la red ha
 
 En este contexto, es crucial que las PYMEs adopten medidas proactivas para proteger sus activos digitales. Este trabajo propone una guía práctica para la realización de auditorías de ciberseguridad, con el objetivo de identificar vulnerabilidades, evaluar riesgos y establecer 
 estrategias de mitigación efectivas. A través de esta guía, se busca que las PYMEs fortalezcan su seguridad informática y enfrenten con mayor confianza los desafíos del entorno digital actual.
+\par\vspace{0.5cm}
 
 \clearpage
 
 
 
 \subsection{Objetivos}
+\par\vspace{0.5cm}
 
 El objetivo principal de este trabajo es dise\~nar un modelo de auditor\'ia de ciberseguridad  espec\'ifico para PYMEs, que sea f\'acil de implementar por personas sin conocimientos t\'ecnicos avanzados. Los objetivos espec\'ificos incluyen:
 
@@ -190,8 +301,10 @@ El objetivo principal de este trabajo es dise\~nar un modelo de auditor\'ia de c
     \item Redactar un informe detallado que incluya el an\'alisis de riesgos, vulnerabilidades detectadas y recomendaciones de mejora.
     \item Elaborar una guía clara y comprensible, diseñada específicamente para ser utilizada por personas con conocimientos básicos de ciberseguridad.
 \end{itemize}
+\par\vspace{0.5cm}
 
 \subsection{Alcance}
+\par\vspace{0.5cm}
 
 El alcance está diseñado para cubrir todos los aspectos necesarios para realizar una auditoría de ciberseguridad efectiva en PYMEs, basándose en estándares y metodologías reconocidas internacionalmente.
 
@@ -206,13 +319,16 @@ El alcance está diseñado para cubrir todos los aspectos necesarios para realiz
     \item \textbf{Informe final:} Elaboración de un documento que refleje el estado actual de la ciberseguridad en la empresa auditada y las recomendaciones pertinentes.
 \end{enumerate}
 
+\par\vspace{0.5cm}
 
 \subsection{Motivación}
+\par\vspace{0.5cm}
+
 La creciente digitalización ha expuesto a las Pequeñas y Medianas Empresas (PYMEs) a una variedad de ciberamenazas que, de no ser gestionadas adecuadamente, 
 pueden poner en riesgo la continuidad de sus operaciones. A diferencia de las grandes corporaciones, las PYMEs suelen carecer de los recursos humanos y financieros 
 necesarios para implementar medidas robustas de ciberseguridad, lo que las convierte en un fácil objetivo para los ciberdelincuentes.
 \par\vspace{0.5cm}
-El aumento en el volumen de software malicioso, que supera los 450.000 nuevos programas diarios \cite{avtest}, y el hecho de que el 70 
+El aumento en el volumen de software malicioso, que supera los 450.000 nuevos programas diarios según el análisis de la plataforma de inteligencia de amenazas de AV-TEST \cite{avtest}, y el hecho de que el 70 
 por ciento de los ciberataques en la Península Ibérica afectan a PYMEs, subrayan la urgencia de desarrollar herramientas accesibles y eficaces para proteger a estas organizaciones. 
 Este proyecto surge como respuesta a esa necesidad, proporcionando una guía práctica que permite a cualquier persona, independientemente de su nivel técnico, llevar a cabo una auditoría 
 básica de ciberseguridad.
@@ -225,6 +341,8 @@ De este modo, no solo se contribuye a la protección de las PYMEs, sino también
 
 
 \subsection{Requisitos formales}
+\par\vspace{0.5cm}
+
 Una vez definido el contexto general del trabajo, se establecen los requisitos formales necesarios para la correcta redacción y desarrollo del documento.
 
 \subsubsection{Documentación e información}
@@ -253,8 +371,10 @@ Una vez definido el contexto general del trabajo, se establecen los requisitos f
     \item Detalle de las pruebas realizadas y la obtención de información sobre riesgos, amenazas y vulnerabilidades.
 \end{itemize}
 
+\par\vspace{0.5cm}
 
 \subsection{Estructura del documento}
+\par\vspace{0.5cm}
 
 El documento está organizado en once capítulos que abordan de manera integral todos los aspectos necesarios para realizar una auditoría de ciberseguridad en PYMEs:
 
@@ -295,7 +415,9 @@ El documento está organizado en once capítulos que abordan de manera integral 
 
 % -----------------------------------------------PLANIFICACION------------------------------------------------------------
 \section{Planificación}
+\par\vspace{0.5cm}
 Este capítulo presenta la planificación detallada para el desarrollo del trabajo. Se describirán las fases y tareas específicas a desarrollar, los roles y responsabilidades de los participantes en el proyecto, así como un cronograma que permitirá visualizar el progreso del trabajo a lo largo del tiempo. Además, se identificarán los recursos necesarios para llevar a cabo el proyecto y se realizará un análisis de los costes asociados.
+\par\vspace{0.5cm}
 
 \subsection{Fases y lista de actividades}
 \par\vspace{0.5cm}
@@ -408,13 +530,14 @@ Este capítulo presenta la planificación detallada para el desarrollo del traba
 
 
 \subsection{Cronograma}
+\par\vspace{0.5cm}
 
 El cronograma presentado a continuación  muestra la planificación general del proyecto, centrada en las fases clave del desarrollo sin entrar 
 en el detalle de cada tarea individual. La duración total del trabajo ha sido de nueve meses, dado que se la ha dado mayor importancia a 
 partir del mes de mayo, una vez finalizadas las asignaturas del curso actual.
 \par\vspace{0.5cm}
-Para consultar un desglose más detallado de las actividades realizadas, incluyendo descripciones y tiempos invertidos en cada una, 
-puede accederse al recurso utilizado para el seguimiento del proyecto \cite{clockify}.
+Para consultar un desglose más detallado de las actividades realizadas, incluyendo descripciones y tiempos invertidos en cada una, puede accederse al recurso utilizado para el seguimiento del proyecto, disponible en el \textbf{Anexo I}.
+
 \par\vspace{0.5cm}
 
 En la siguiente figura se muestra el diagrama de Gantt, que recoge visualmente las distintas fases del proyecto y su distribución temporal.
@@ -433,6 +556,7 @@ En la siguiente figura se muestra el diagrama de Gantt, que recoge visualmente l
 
 
 \subsection{Roles y responsabilidades}
+\par\vspace{0.5cm}
 
 \begin{table}[H]
     \centering
@@ -482,16 +606,21 @@ En la siguiente figura se muestra el diagrama de Gantt, que recoge visualmente l
     \label{tab:distribucion_roles}
 \end{table}
 
+\par\vspace{0.5cm}
 
 
 
 \subsection{Recursos}
+\par\vspace{0.5cm}
 
 Los recursos necesarios para el desarrollo de la auditoría de ciberseguridad se dividen en tres categorías principales: recursos humanos, materiales y costos asociados. A continuación, se detallan cada uno de ellos.
+\par\vspace{0.5cm}
 
 \subsubsection{Recursos Humanos}
+\par\vspace{0.5cm}
 
-En virtud del documento oficial de la Agencia Digital de Andalucía \cite{agencia_digital}, se establecen los costes por hora de los perfiles profesionales necesarios para la realización del proyecto.
+En virtud del documento oficial de la Junta de Andalucía \cite{junta-perfiles}, se establecen los costes por hora de los perfiles profesionales necesarios para la realización del proyecto.
+\par\vspace{0.5cm}
 
 \begin{table}[H]
 \caption{Recursos Humanos}
@@ -555,6 +684,7 @@ Licencias Software & Costo & Variable &  100€ \\ \hline
 
 
 \subsection{Estimación de Costes}
+\par\vspace{0.5cm}
 
 Considerando los recursos descritos anteriormente, se prevé que el \textbf{Analista} desempeñe un total de \textbf{300 horas de trabajo}, lo que supone un coste estimado de \underline{14.151 €}.  
 \par\vspace{0.3cm}
@@ -661,6 +791,7 @@ Esta exposición teórica sentará las bases para el desarrollo posterior de una
 
 
 
+\par\vspace{0.5cm}
 
 
 
@@ -669,11 +800,12 @@ Esta exposición teórica sentará las bases para el desarrollo posterior de una
 
 
 \subsection{Principales amenazas y riesgos para PYMEs}
-
-La ciberseguridad representa un desafío importante para muchas pequeñas y medianas empresas españolas. Según el informe de Hiscox, cerca del 50\% de las empresas en España sufrió algún tipo de ciberataque en 2023. Las PYMEs, en particular, son cada vez más objetivo de estos ataques debido a su limitada preparación en ciberseguridad. De hecho, solo el 61\% de las empresas con menos de 250 empleados se sienten seguras de su preparación en este sector. \cite{hiscox}
 \par\vspace{0.5cm}
 
-El Instituto Nacional de Ciberseguridad (INCIBE) registró en 2022 un total de 118.000 incidentes de ciberseguridad, un 9\% más que el año anterior. Una gran parte de estos incidentes afectaron a pequeñas y medianas empresas, y uno de cada tres se trató de una filtración de datos.\cite{incibe2023}
+La ciberseguridad representa un desafío importante para muchas pequeñas y medianas empresas españolas. Según el informe de Hiscox \cite{hiscox}, cerca del 50\% de las empresas en España sufrió algún tipo de ciberataque en 2023. Las PYMEs, en particular, son cada vez más objetivo de estos ataques debido a su limitada preparación en ciberseguridad. De hecho, solo el 61\% de las empresas con menos de 250 empleados se sienten seguras de su preparación en este sector. 
+\par\vspace{0.5cm}
+
+El Instituto Nacional de Ciberseguridad (INCIBE) registró en 2022 un total de 118.000 incidentes de ciberseguridad, un 9\% más que el año anterior \cite{incibe2023}. Una gran parte de estos incidentes afectaron a pequeñas y medianas empresas, y uno de cada tres se trató de una filtración de datos.
 \par\vspace{0.5cm}
 
 Aunque cada vez más PYMEs aumentan sus presupuestos en ciberseguridad y colaboran con empresas especializadas, muchas todavía optan por contratar a otras empresas especializadas para que se encarguen de gestionar sus servicios de ciberseguridad, 
@@ -681,10 +813,10 @@ por falta de personal y recursos internos. Esta
 externalización, debe complementarse con una adecuada cultura interna de seguridad, especialmente mediante la formación del personal.
 \par\vspace{0.5cm}
 
-Según PwC España, el 86\% de las organizaciones considera que sus empleados carecen de una cultura de ciberseguridad adecuada, lo que pone en pie la necesidad urgente de concienciación.\cite{pow}
+Según PwC España \cite{pwc}, el 86\% de las organizaciones considera que sus empleados carecen de una cultura de ciberseguridad adecuada, lo que pone en pie la necesidad urgente de concienciación.
 \par\vspace{0.5cm}
 
-Entre las principales ciberamenazas que afectan a las PYMEs según la empresa de Software Treyder \cite{treider} se encuentran:
+Entre las principales ciberamenazas que afectan a las PYMEs según la empresa de Software Treyder \cite{treyder} se encuentran:
 
 \begin{itemize}
     \item \textbf{Malware:}  
@@ -705,29 +837,29 @@ La relevancia del malware como una de las principales ciberamenazas se refleja c
 
 \vspace{0.5cm}
 
-Aparte del malware, existen otras amenazas igualmente relevantes para las PYMEs: 
+Aparte del malware, existen otras amenazas igualmente relevantes para las PYMEs como se expone en Taipe-Yanez y Pallo-Tulmo (2024) \cite{vuln}, como son: 
+\par\vspace{0.5cm}
 
 \begin{itemize}
     \item \textbf{Phishing:}  
-    Consiste en técnicas de suplantación de identidad para engañar y obtener datos confidenciales, como contraseñas, credenciales bancarias o información sensible de clientes. Suele realizarse mediante correos electrónicos o mensajes falsificados que imitan a bancos, plataformas de pago o servicios tecnológicos conocidos. En las PYMEs, donde el nivel de concienciación en ciberseguridad suele ser limitado, el phishing representa una puerta de entrada frecuente a ataques más complejos, como el acceso remoto a sistemas o la instalación de malware. \cite{vuln}
+    Consiste en técnicas de suplantación de identidad para engañar y obtener datos confidenciales, como contraseñas, credenciales bancarias o información sensible de clientes. Suele realizarse mediante correos electrónicos o mensajes falsificados que imitan a bancos, plataformas de pago o servicios tecnológicos conocidos. En las PYMEs, donde el nivel de concienciación en ciberseguridad suele ser limitado, el phishing representa una puerta de entrada frecuente a ataques más complejos, como el acceso remoto a sistemas o la instalación de malware. 
     \vspace{0.3cm}
 
     \item \textbf{Ataques de denegación de servicio (DDoS):}  
-    Este tipo de ataque busca hacer que los servidores, aplicaciones o sitios web de una empresa queden inoperativos mediante el envío masivo de peticiones falsas. Se trata de una sobrecarga intencionada de los recursos tecnológicos de la organización, que impide el funcionamiento normal de servicios clave. Aunque muchas veces se asocian a grandes empresas, las PYMEs también son objetivo, especialmente si ofrecen servicios digitales o tiendas online. Un DDoS puede paralizar las operaciones durante horas o días, con pérdidas económicas importantes y daño reputacional. \cite{vuln}
+    Este tipo de ataque busca hacer que los servidores, aplicaciones o sitios web de una empresa queden inoperativos mediante el envío masivo de peticiones falsas. Se trata de una sobrecarga intencionada de los recursos tecnológicos de la organización, que impide el funcionamiento normal de servicios clave. Aunque muchas veces se asocian a grandes empresas, las PYMEs también son objetivo, especialmente si ofrecen servicios digitales o tiendas online. Un DDoS puede paralizar las operaciones durante horas o días, con pérdidas económicas importantes y daño reputacional. 
     \vspace{0.3cm}
 
     \item \textbf{Brechas de datos:}  
-    Ocurren cuando un atacante consigue acceder sin autorización a bases de datos internas, habitualmente mediante credenciales robadas, vulnerabilidades no parcheadas o ingeniería social. Estas brechas pueden afectar a información crítica como datos de clientes, contraseñas, información financiera o planes estratégicos. Para una PYME, una brecha de datos no solo puede suponer sanciones legales (por ejemplo, si no cumple con el Reglamento General de Protección de Datos (RGPD)), sino también pérdida de confianza por parte de clientes y socios. \cite{vuln}
+    Ocurren cuando un atacante consigue acceder sin autorización a bases de datos internas, habitualmente mediante credenciales robadas, vulnerabilidades no parcheadas o ingeniería social. Estas brechas pueden afectar a información crítica como datos de clientes, contraseñas, información financiera o planes estratégicos. Para una PYME, una brecha de datos no solo puede suponer sanciones legales (por ejemplo, si no cumple con el Reglamento General de Protección de Datos (RGPD)), sino también pérdida de confianza por parte de clientes y socios. 
     \vspace{0.3cm}
 
     \item \textbf{Errores de configuración:}  
-    Son fallos humanos o técnicos al configurar correctamente sistemas, redes o aplicaciones. Por ejemplo, dejar puertos abiertos innecesarios, permitir contraseñas por defecto, o no establecer permisos adecuados. Estos errores abren puertas invisibles a los ciberatacantes y son especialmente comunes en entornos donde no existe un departamento de TI dedicado. La falta de mantenimiento o revisión de estas configuraciones puede convertir una infraestructura aparentemente segura en un objetivo fácil. \cite{vuln}
+    Son fallos humanos o técnicos al configurar correctamente sistemas, redes o aplicaciones. Por ejemplo, dejar puertos abiertos innecesarios, permitir contraseñas por defecto, o no establecer permisos adecuados. Estos errores abren puertas invisibles a los ciberatacantes y son especialmente comunes en entornos donde no existe un departamento de TI dedicado. La falta de mantenimiento o revisión de estas configuraciones puede convertir una infraestructura aparentemente segura en un objetivo fácil.
 
 \end{itemize}
 
 \par\vspace{0.5cm}
-Además de los vectores de ataques mencionados anteriormente, existen ciertos \textbf{riesgos estructurales} que afectan especialmente a las PYMEs y que incrementan su vulnerabilidad frente a ciberataques:
-
+Además de los vectores de ataque mencionados anteriormente, es importante considerar ciertos \textbf{riesgos estructurales} que afectan de manera particular a las PYMEs, aumentando su exposición frente a ciberataques. Según la empresa  de seguridad digital GlobalSign, estos riesgos incluyen factores internos y operativos que suelen pasarse por alto en organizaciones de menor tamaño \cite{toms2021}. 
 \begin{itemize}
   \item \textbf{Falta de recursos de seguridad:} Muchas pequeñas empresas no cuentan con personal especializado en ciberseguridad (como un CISO o un técnico en protección de datos), lo que dificulta la detección y respuesta ante incidentes.
   \item \textbf{Presupuestos limitados:} La inversión en ciberseguridad suele ser muy pobre frente a otras prioridades de negocio, lo que impide implementar soluciones de protección efectivas o actualizadas.
@@ -738,11 +870,12 @@ Además de los vectores de ataques mencionados anteriormente, existen ciertos \t
 
 \par\vspace{0.5cm}
 Estos factores, sumados a una falsa sensación de anonimato (“somos demasiado pequeños para que nos ataquen”), aumentan considerablemente el riesgo de que las PYMEs se conviertan en blancos frecuentes y exitosos de los ciberdelincuentes. 
-Implementar medidas preventivas y desarrollar una cultura de seguridad sólida resulta crucial para garantizar su continuidad. \cite{toms2021}
+Implementar medidas preventivas y desarrollar una cultura de seguridad sólida resulta crucial para garantizar su continuidad. 
+
 \par\vspace{0.5cm}
 
-Finalmente, para ilustrar en tiempo real la magnitud y frecuencia global de estos ataques y reforzar la importancia de adoptar medidas proactivas, puede consultarse el mapa 
-interactivo, donde se muestran los ciberataques que se acontecen en tiempo real, proporcionado por Fortinet. 
+Finalmente, para ilustrar en tiempo real la magnitud y frecuencia global de estos ataques y reforzar la importancia de adoptar medidas de seguridad, puede consultarse el mapa 
+interactivo donde se muestran los ciberataques que se acontecen en tiempo real proporcionado por Fortinet \cite{fortinet}. 
 
 \begin{figure}[H]
     \centering
@@ -750,23 +883,22 @@ interactivo, donde se muestran los ciberataques que se acontecen en tiempo real,
     \caption{Mapa global de ciberamenazas en tiempo real. Fuente: Fortinet \cite{fortinet}.}
     \label{fig:mapa-fortiguard}
 \end{figure}
+\par\vspace{0.5cm}
 
 \subsection{Planes de Mitigación}
-
-Para reducir los riesgos derivados de incidentes de ciberseguridad, es fundamental contar con planes de mitigación bien estructurados, 
-que contemplen diversas medidas técnicas y organizativas. 
-Entre las estrategias más efectivas destacan el uso de \textbf{firewalls y filtros de red}, que actúan como barreras de 
-protección frente a accesos no autorizados; el \textbf{monitoreo continuo de red}, que permite la detección temprana de comportamientos anómalos; 
-y la \textbf{protección frente a ataques DDoS}, que asegura la disponibilidad de los servicios durante intentos de saturación del sistema.
-
 \par\vspace{0.5cm}
 
-Otras medidas incluyen la aplicación periódica de \textbf{actualizaciones y parches} para corregir vulnerabilidades conocidas, 
-la implementación de \textbf{mecanismos de autenticación y control de acceso} robustos, y el \textbf{cifrado del tráfico de datos} para garantizar la confidencialidad 
-durante la transmisión. La \textbf{segmentación de red} también se presenta como una medida eficaz para contener amenazas, al limitar su propagación a segmentos específicos.
+Como destacan Viteri-Hernández y Avila-Pesantez en su revisión sistemática sobre seguridad en redes de proveedores de servicios de Internet \cite{mitigacion}, reducir los riesgos derivados de incidentes de ciberseguridad requiere implementar planes de mitigación efectivos, que incluyan medidas tanto técnicas como organizativas. Entre las principales técnicas destacan el uso de barreras preventivas como \textbf{firewalls y filtros de red}, el control proactivo del tráfico mediante \textbf{monitoreo continuo} y la adopción de mecanismos de \textbf{autenticación y control de acceso robustos}, que permiten proteger adecuadamente los recursos sensibles.
 \par\vspace{0.5cm}
 
-Asimismo, la \textbf{gestión proactiva de vulnerabilidades}, la \textbf{educación en ciberseguridad} del personal, y la adopción de \textbf{políticas de seguridad claras y bien definidas} son elementos esenciales para una postura de seguridad integral. Finalmente, contar con sistemas de \textbf{respaldo y recuperación de datos}, así como fomentar la \textbf{colaboración con la comunidad de ciberseguridad}, fortalece significativamente la capacidad de respuesta ante incidentes y la resiliencia organizacional frente a amenazas emergentes \cite{mitigacion}.
+Asimismo, es crucial integrar estrategias orientadas a fortalecer la cultura de ciberseguridad dentro de la organización mediante \textbf{programas continuos de concienciación y formación del personal}, así como establecer mecanismos sistemáticos para la \textbf{gestión de vulnerabilidades}, aplicación periódica de \textbf{actualizaciones y parches}, y asegurar la confidencialidad mediante el \textbf{cifrado del tráfico de datos}.
+\par\vspace{0.5cm}
+
+Finalmente, la planificación debe considerar también la preparación frente a incidentes mediante la implementación de procedimientos eficaces de \textbf{respaldo y recuperación de información} y fomentar una cooperación activa con la \textbf{comunidad de ciberseguridad} para enfrentar eficazmente amenazas emergentes.
+\par\vspace{0.5cm}
+
+En la siguiente tabla se resumen las principales medidas de mitigación recomendadas, junto con sus características y efectividad:
+\par\vspace{0.5cm}
 
 \begin{table}[H]
     \centering
@@ -806,11 +938,15 @@ Asimismo, la \textbf{gestión proactiva de vulnerabilidades}, la \textbf{educaci
     \end{flushleft}
     \label{tab:medidas_mitigacion}
 \end{table}
+\par\vspace{0.5cm}
 
 \subsection{Buenas prácticas}
+\par\vspace{0.5cm}
 Las buenas prácticas en el ámbito de la ciberseguridad constituyen un conjunto de acciones, políticas y medidas preventivas que buscan minimizar riesgos, proteger la información y garantizar la continuidad operativa ante posibles amenazas. En este apartado se diferenciarán dos perspectivas clave: por un lado, las buenas prácticas que una PYME debe implementar de forma interna para fortalecer su seguridad digital; y por otro, aquellas prácticas recomendadas y seguidas durante las auditorías de ciberseguridad, las cuales permiten evaluar el estado real de la infraestructura tecnológica y proponer mejoras efectivas.
+\par\vspace{0.5cm}
 
 \subsubsection{Buenas prácticas en PYMES}
+\par\vspace{0.5cm}
 
 La ciberseguridad en pequeñas y medianas empresas requiere un enfoque integral que combine herramientas, políticas, concienciación y planificación estratégica. Una única medida no es suficiente para garantizar la protección frente a las amenazas actuales. A continuación, se detallan algunas de las buenas prácticas más relevantes que una PYME debe adoptar para construir un entorno digital más seguro, según las recomendaciones de expertos \cite{toms2021}:
 
@@ -835,8 +971,10 @@ La ciberseguridad en pequeñas y medianas empresas requiere un enfoque integral 
     Las copias de seguridad son fundamentales para asegurar la recuperación de datos tras incidentes como ransomware, fallos de hardware o errores humanos. Se recomienda realizar copias frecuentes, almacenarlas en diferentes ubicaciones (local, nube o dispositivos externos), y verificar periódicamente que pueden restaurarse correctamente. Esta práctica sencilla puede marcar la diferencia entre la continuidad del negocio o la pérdida irreversible de información crítica.
 
 \end{itemize}
+\par\vspace{0.5cm}
 
 \subsubsection{Buenas prácticas en auditorías de ciberseguridad}
+\par\vspace{0.5cm}
 
 Las auditorías son procesos estructurados que permiten evaluar el estado de la seguridad informática de una organización. 
 Para que sean eficaces, deben llevarse a cabo bajo un conjunto de buenas prácticas que garanticen no solo la calidad técnica del análisis, sino también la ética profesional, 
@@ -869,10 +1007,16 @@ la trazabilidad de los hallazgos y la aplicabilidad de las recomendaciones. A co
     Durante todo el proceso, el equipo auditor debe actuar con responsabilidad, integridad y confidencialidad. Cualquier hallazgo crítico debe comunicarse de inmediato a los responsables de seguridad de la organización, sin esperar al informe final.
 
 \end{itemize}
+\par\vspace{0.5cm}
 
 \subsection{Marco Regulatorio y Metodológico en Ciberseguridad}
+\par\vspace{0.5cm}
+
+La ciberseguridad se ha consolidado como un pilar esencial para la protección de los activos digitales, tanto en el ámbito público como privado. En un entorno cada vez más digitalizado y expuesto a riesgos tecnológicos, contar con un marco normativo sólido y con metodologías contrastadas resulta imprescindible para garantizar la integridad, confidencialidad y disponibilidad de la información. Esta sección presenta los principales organismos encargados de regular y supervisar la ciberseguridad en España, así como las metodologías empleadas en auditorías y evaluaciones técnicas. Comprender este marco es clave para aplicar buenas prácticas y actuar conforme a los estándares exigidos a nivel nacional y europeo.
+\par\vspace{0.5cm}
 
 \subsubsection{Organismos Reguladores en Ciberseguridad}
+\par\vspace{0.5cm}
 
 En España, diversos organismos desempeñan un papel clave en la regulación, supervisión y fomento de la ciberseguridad. Entre ellos destacan:
 \par\vspace{0.5cm}
@@ -919,6 +1063,11 @@ Forma parte del Centro Nacional de Inteligencia (CNI) y actúa como el equipo de
 Autoridad independiente encargada de supervisar el cumplimiento del Reglamento General de Protección de Datos (RGPD) y la Ley Orgánica 3/2018 (LOPD-GDD), además de ofrecer orientación y recursos a organizaciones para gestionar datos personales de manera segura \cite{aepd}.
 \par\vspace{0.5cm}
 
+
+\subsubsection{Otros Organismos Internacionales}
+
+\par\vspace{0.5cm}
+
 Además, existen organismos internacionales relevantes cuya influencia en ciberseguridad tiene alcance global, incluidos España y Europa:
 \par\vspace{0.5cm}
 
@@ -942,7 +1091,7 @@ Uno de sus marcos más influyentes es el \textbf{NIST Cybersecurity Framework (C
 \begin{figure}[H]
 \centering
 \includegraphics[width=7cm]{images/nist_framework.png}
-\caption{Funciones del Marco de Ciberseguridad de NIST. Fuente: DEVICE42 Company {device42}.}
+\caption{Funciones del Marco de Ciberseguridad de NIST. Fuente: DEVICE42 Company \cite{device42}.}
 \label{fig:nist-framework}
 \end{figure}
 
@@ -950,7 +1099,7 @@ Este enfoque es adaptable y escalable, y ha sido adoptado no solo en Estados Uni
 
 \par\vspace{0.5cm}
 
-Otra pieza fundamental desarrollada por esta entidad es la \textbf{serie NIST Special Publications 800 (SP 800)}, que comprende más de 130 documentos gratuitos disponibles para descarga, en los que se describen políticas, procedimientos y directrices sobre ciberseguridad, evaluaciones de riesgos, controles técnicos y auditoría. Esta colección se considera una de las fuentes más completas y detalladas en materia de seguridad de la información.
+Otra pieza fundamental desarrollada por esta entidad es la \textbf{serie NIST Special Publications 800 (SP 800)}, que comprende más de 130 documentos gratuitos disponibles para descarga, en los que se describen políticas, procedimientos y directrices sobre ciberseguridad, evaluaciones de riesgos, controles técnicos y auditoría. Esta colección se considera una de las fuentes más completas y detalladas en materia de seguridad de la información. \cite{nistsp}
 \par\vspace{0.5cm}
 
 Dentro de esta serie, se encuentran guías ampliamente reconocidas como la NIST SP 800-53 (controles de seguridad y privacidad) o la SP 800-115 (metodología para pruebas técnicas de seguridad). En capítulos posteriores, se seleccionarán y adaptarán varias de estas metodologías como base para diseñar nuestra propia propuesta de auditoría adaptada al contexto de PYMEs.
@@ -962,11 +1111,10 @@ Dentro de esta serie, se encuentran guías ampliamente reconocidas como la NIST 
 
 \subsection*{SANS Institute (SysAdmin, Audit, Networking, and Security Institute)}
 Es una de las organizaciones más reconocidas a nivel mundial en el ámbito de la ciberseguridad. 
-Su objetivo principal es proporcionar formación avanzada y especializada en seguridad informática a profesionales, empresas y organismos públicos. SANS ofrece una amplia 
-variedad de cursos presenciales y virtuales, que cubren áreas como análisis forense, respuesta ante incidentes, seguridad ofensiva, defensiva y gestión de riesgos.
+Su objetivo principal es proporcionar formación avanzada y especializada en seguridad informática a profesionales, empresas y organismos públicos. \cite{sans}
 \par\vspace{0.5cm}
 
-Además de sus programas de formación, SANS es responsable de desarrollar y mantener recursos ampliamente utilizados en la industria, como el Top 20 Critical Security Controls y el proyecto GIAC (Global Information Assurance Certification). GIAC es un sistema de certificación reconocido internacionalmente que valida las competencias técnicas en múltiples especialidades de ciberseguridad, desde pentesting hasta auditoría o administración de sistemas seguros. \cite{sans}
+Además de sus programas de formación, SANS es responsable de desarrollar y mantener recursos ampliamente utilizados en la industria, como el Top 20 Critical Security Controls y el proyecto GIAC (Global Information Assurance Certification). GIAC es un sistema de certificación reconocido internacionalmente que valida las competencias técnicas en múltiples especialidades de ciberseguridad, desde pentesting hasta auditoría o administración de sistemas seguros. \cite{sanscert}
 \par\vspace{0.5cm}
 
 
@@ -982,10 +1130,15 @@ Pentesting y hacking ético & GPEN (Penetration Tester), GXPN (Exploit Researche
 Respuesta ante incidentes & GCIH (Incident Handler) \\
 Análisis forense & GCFA (Forensic Analyst), GCFE (Forensic Examiner) \\
 Administración de sistemas seguros & GCWN (Windows), GCUX (Unix/Linux) \\
-Gestión de riesgos y auditoría & GSNA (Systems and Network Auditor), GRCP (Risk and Compliance) \\
+Gestión de riesgos y auditoría & GSNA (Systems and Network Auditor), \\
+&GRCP (Risk and Compliance)\\
 Defensa de redes y sistemas & GCIA (Intrusion Analyst), GCCC (Critical Controls) \\
 \hline
 \end{tabular}
+\begin{flushleft}
+\footnotesize \textbf{Fuente:} Red Team Operations Certifications. \cite{sanscert}
+
+\end{flushleft}
 \label{tab:giac-certificaciones}
 \end{table}
 
@@ -1027,7 +1180,7 @@ Es una directiva europea diseñada para fortalecer y verificar las medidas de se
 
 Esta normativa afecta principalmente a medianas y grandes empresas pertenecientes a sectores críticos, estableciendo dos niveles de clasificación:
 \begin{itemize}
-\item \textbf{Entidades esenciales (EE)}: grandes empresas de sectores como energía, transporte, salud, DNS, administración pública, y otras definidas como críticas por los Estados miembros o por la Directiva (UE) 2022/2557.
+\item \textbf{Entidades esenciales (EE)}: grandes empresas de sectores como energía, transporte, salud, administración pública, y otras definidas como críticas por los Estados miembros o por la Directiva (UE) 2022/2557.
 \item \textbf{Entidades importantes (EI)}: organizaciones medianas y grandes que, aunque no sean esenciales, cumplen tres criterios: ubicación en la UE, tamaño y pertenencia a uno de los 18 sectores regulados.
 \end{itemize}
 
@@ -1064,9 +1217,9 @@ Asimismo, la seguridad de la información está fundamentada en la \textbf{triad
 
 
 \begin{itemize}
-\item \textbf{Confidencialidad}: Garantiza que la información esté accesible únicamente para personas autorizadas. Utiliza mecanismos como la autenticación, controles de acceso y cifrado para evitar accesos indebidos.
-\item \textbf{Integridad}: Asegura la precisión y confiabilidad de los datos a lo largo de su ciclo de vida. Se mantiene a través de controles de versión, sumas de verificación, copias de seguridad, autenticación y cifrado.
-\item \textbf{Disponibilidad}: Busca asegurar que la información y los recursos tecnológicos sean accesibles y utilizables cuando sean necesarios. Se apoya en mecanismos y protocolos específicos diseñados para proteger la información crítica.
+\item \textbf{Confidencialidad}: Es la propiedad que se refiere a que la información no esté disponible ni sea revelada a individuos, entidades o procesos no autorizados, Esta se debe definir de acuerdo con las características de los activos que se manejan en la empresa.
+\item \textbf{Integridad}: Se refiere a la exactitud y completitud de la información. Esta propiedad es la que permite que la información sea precisa, coherente y completa desde su creación hasta su destrucción. 
+\item \textbf{Disponibilidad}: Es la propiedad de la información que se refiere a que ésta debe ser accesible y utilizable por solicitud de una persona entidad o proceso autorizado cuando así lo requiera éste, en el momento y en la forma que se requiere ahora y en el futuro, al igual que los recursos necesarios para su uso.
 \end{itemize}
 \par\vspace{0.5cm}
 
@@ -1200,6 +1353,7 @@ Para ejecutar auditorías completas y rigurosas en ciberseguridad, existen metod
 
 
 \subsection{Herramientas de pentesting}
+\par\vspace{0.5cm}
 
 La selección de herramientas de pentesting desempeña un papel fundamental en la eficacia de las auditorías de seguridad. Identificar las herramientas adecuadas permite detectar vulnerabilidades de forma precisa y eficiente, adaptándose a distintos escenarios 
 como redes, aplicaciones web, servicios en la nube o incluso factores humanos a través de técnicas de ingeniería social. A partir de un análisis conjunto de diversas fuentes especializadas, se recopilaron las diez herramientas 
@@ -1237,32 +1391,36 @@ más utilizadas y valoradas en el ámbito del pentesting. \cite{felipe2024}
     \footnotesize \textbf{Fuente:} Criterios de selección de herramientas para pentesting. \cite{felipe2024}
 \end{flushleft}
 \end{table}
+\par\vspace{0.5cm}
+Estas herramientas, junto con sus respectivas páginas oficiales para descarga o consulta, pueden encontrarse en el \textbf{Anexo II}.
 
-    
-    
+\par\vspace{0.5cm}
+
 
 \subsection{Certificaciones del sector}
+\par\vspace{0.5cm}
 
 Por último, para aquellas personas interesadas en iniciarse en el campo de la ciberseguridad ofensiva, 
 es fundamental contar con una guía clara que oriente su aprendizaje y desarrollo profesional. Las certificaciones 
-profesionales cumplen un papel importante en este sentido, ya que no solo validan los conocimientos técnicos y las habilidades de la persona, sino que también proporcionan una formación progresiva para adquirir competencias en distintas áreas de la ciberseguridad. A continuación, se presentan algunas de las certificaciones más relevantes, ordenadas por nivel de dificultad dentro del área ofensiva, incluyendo una certificación fundamental en administración de sistemas Linux, que sirve de base para el dominio de entornos seguros.
+profesionales cumplen un papel importante en este sentido, ya que no solo validan los conocimientos técnicos y las habilidades de la persona, sino que también proporcionan una formación progresiva para adquirir competencias en distintas áreas de la ciberseguridad. La selección que se presenta a continuación ha sido elaborada a partir de fuentes formales y del conocimiento compartido en comunidades especializadas de hacking ético y pentesting, incluyendo foros, redes profesionales y grupos de intercambio de experiencias. Se incluyen algunas de las certificaciones más relevantes, ordenadas por nivel de dificultad dentro del área ofensiva, incluyendo una certificación fundamental en administración de sistemas Linux, que sirve de base para el dominio de entornos seguros.
 
 
 
 \begin{itemize}
-    \item \textbf{LPIC-1/2 (Linux Professional Institute Certification)}: Es la certificación de nivel básico/intermedio para administradores de sistemas Linux. Valida competencias en instalación, configuración, mantenimiento y administración de sistemas basados en Linux, incluyendo tareas de red y scripting en bash. Resulta especialmente útil como base sólida para profesionales que quieran profundizar en seguridad ofensiva y defensiva en entornos Unix. \cite{lpic}
+    \item \textbf{LPIC-1/2 (Linux Professional Institute Certification)}: Es la certificación de nivel básico/intermedio para administradores de sistemas Linux. Valida competencias en instalación, configuración, mantenimiento y administración de sistemas basados en Linux, incluyendo tareas de red y scripting en bash. Resulta especialmente útil como base sólida para profesionales que quieran profundizar en seguridad ofensiva y defensiva en entornos Unix.
 
-    \item \textbf{eJPTv2 (eLearnSecurity Junior Penetration Tester)}: Ideal para principiantes en el campo del pentesting. Evalúa conocimientos básicos sobre redes, sistemas operativos, metodologías de pruebas de penetración y explotación de vulnerabilidades comunes. El examen es práctico y se realiza en un entorno de laboratorio simulado.\cite{ejptv2}
+    \item \textbf{eJPTv2 (eLearnSecurity Junior Penetration Tester)}: Ideal para principiantes en el campo del pentesting. Evalúa conocimientos básicos sobre redes, sistemas operativos, metodologías de pruebas de penetración y explotación de vulnerabilidades comunes. El examen es práctico y se realiza en un entorno de laboratorio simulado.
 
-    \item \textbf{eWPT (eLearnSecurity Web Penetration Tester)}: Certificación especializada en seguridad de aplicaciones web. Cubre ataques como inyecciones SQL, cross-site scripting (XSS), CSRF, gestión de sesiones, autenticación insegura, entre otros. \cite{ewpt}
+    \item \textbf{eWPT (eLearnSecurity Web Penetration Tester)}: Certificación especializada en seguridad de aplicaciones web.
 
-    \item \textbf{eCPPTv2 (eLearnSecurity Certified Professional Penetration Tester)}: De nivel intermedio, esta certificación evalúa habilidades prácticas en pentesting interno y externo, incluyendo explotación de vulnerabilidades, escalada de privilegios, evasión de antivirus y generación de informes. \cite{ecpptv2}
+    \item \textbf{eCPPTv2 (eLearnSecurity Certified Professional Penetration Tester)}: De nivel intermedio, esta certificación evalúa habilidades prácticas en pentesting interno y externo, incluyendo explotación de vulnerabilidades, escalada de privilegios, evasión de antivirus y generación de informes.
 
-    \item \textbf{PNPT (Practical Network Penetration Tester)}: Emitida por TCM Security, esta certificación simula una auditoría real de red empresarial. El candidato debe realizar tareas de reconocimiento, explotación, post-explotación, pivoting y red teaming básico, y entregar un informe técnico al estilo profesional. \cite{pnpt}
+    \item \textbf{PNPT (Practical Network Penetration Tester)}: Emitida por TCM Security, esta certificación simula una auditoría real de red empresarial. El candidato debe realizar tareas de reconocimiento, explotación, post-explotación, pivoting y red teaming básico, y entregar un informe técnico al estilo profesional.
 
-    \item \textbf{OSCP (Offensive Security Certified Professional)}: Considerada una de las certificaciones más exigentes y prestigiosas en pentesting. Exige comprometer múltiples máquinas en un entorno controlado durante un examen de 24 horas. Requiere dominio de técnicas como buffer overflows, escalada de privilegios, evasión de defensas, explotación manual y redacción exhaustiva de informes. Es un estándar de referencia en la industria de seguridad ofensiva. \cite{oscp}
+    \item \textbf{OSCP (Offensive Security Certified Professional)}: Considerada una de las certificaciones más exigentes y prestigiosas en pentesting. Exige comprometer múltiples máquinas en un entorno controlado durante un examen de 24 horas. Requiere dominio de técnicas como buffer overflows, escalada de privilegios, evasión de defensas, explotación manual y redacción exhaustiva de informes. Es un estándar de referencia en la industria de seguridad ofensiva.
 \end{itemize}
 
+\par\vspace{0.5cm}
 
 
 
@@ -1278,6 +1436,7 @@ profesionales cumplen un papel importante en este sentido, ya que no solo valida
 
 \section{Metodología elegida: NIST SP 800-115}
 
+\par\vspace{0.5cm}
 
 Para la propuesta metodológica planteada en este trabajo, se toma como base fundamental la metodología NIST SP 800-115 debido a su amplia aceptación y versatilidad en auditorías técnicas de seguridad informática. Esta metodología se selecciona específicamente por su capacidad para adaptarse eficazmente a los objetivos establecidos por la empresa BeeHacker, sobre los cuales se sustenta nuestra propuesta de auditoría. 
 \par\vspace{0.5cm}
@@ -1303,9 +1462,12 @@ Esta fase inicial implica la definición clara de los objetivos, el alcance y la
 
 \subsection{Fase de Descubrimiento (Discovery Phase)}
 
-En esta etapa se lleva a cabo la recolección de datos sobre los sistemas objetivo mediante técnicas pasivas y activas. Las técnicas pasivas incluyen el análisis de información disponible públicamente (OSINT), mientras que las técnicas activas abarcan escaneos de red, detección de puertos abiertos, identificación de servicios y sistemas operativos, así como la enumeración de posibles vulnerabilidades. El propósito es obtener una visión detallada del entorno evaluado sin interferir en su funcionamiento.
+En esta etapa se lleva a cabo la recolección de datos sobre los sistemas objetivo mediante técnicas pasivas y activas. 
+Las técnicas pasivas incluyen el análisis de información disponible públicamente (OSINT), mientras que las técnicas activas abarcan escaneos de red, detección de puertos abiertos, 
+identificación de servicios y sistemas operativos, así como la enumeración de posibles vulnerabilidades. El propósito es obtener una visión detallada del entorno evaluado sin interferir en su funcionamiento.
 
-
+\par\vspace{0.5cm}
+Una vez recopilada toda la información, se procede al análisis detallado de los descubrimientos con el objetivo de evaluar el nivel de riesgo asociado a cada vulnerabilidad identificada. Esta evaluación permite priorizar los posibles vectores de ataque y trazar un plan de acción estratégico para la siguiente fase.
 
 \subsection{Fase de Ataque (Attack Phase)}
 
@@ -1343,6 +1505,7 @@ Finalmente, se documentan los hallazgos obtenidos durante la auditoría. El info
 % -----------------------------------------------MODELO------------------------------------------------------------
 
 \section{Modelo de auditoría}
+\par\vspace{0.5cm}
 
 El presente capítulo tiene como objetivo presentar un modelo de auditoría de ciberseguridad diseñado específicamente para las PYMES. 
 Este modelo ha sido construido siguiendo el \textbf{roadmap de auditoría de seguridad de la empresa BeeHacker}, 
@@ -1350,6 +1513,7 @@ una guía actualizada basada en la experiencia real de entornos empresariales.
 \par\vspace{0.5cm}
 
 \subsection{Diseño propuesto por BeeHacker}
+\par\vspace{0.5cm}
 
 El modelo de auditoría propuesto se basa en un enfoque estructurado por capas, abarcando todos los vectores de ataque 
 potenciales desde el perímetro exterior hasta los datos almacenados internamente. 
@@ -1368,6 +1532,7 @@ El modelo se compone específicamente de siete grandes bloques que permiten un a
     \caption{Diagrama de flujo de los bloques del diseño del modelo de auditoría. Fuente: Elaboración propia}
     \label{fig:diseno_modelo_auditoria}
 \end{figure}
+\par\vspace{0.5cm}
 
 \begin{enumerate}
     \item \textbf{Perímetro de Red:} Se analiza la exposición externa de la infraestructura desde la perspectiva de un atacante sin conocimiento previo. Se evalúan routers con configuraciones por defecto (telnet, SSH abiertos), firewalls mal configurados, accesos remotos sin cifrado, y redes inalámbricas vulnerables. Se incluyen pruebas sobre sistemas RADIUS, bypass de portales cautivos, detección de APs maliciosos (Rogue AP / Karma WiFi), análisis de seguridad inalámbrica y cifrado.
@@ -1386,22 +1551,24 @@ El mapeo de red se complementa con un análisis de vulnerabilidades.
 
 \end{enumerate}
 
+\par\vspace{0.5cm}
 
 
 
 
 A continuación, se detallan los objetivos y actividades que componen este diseño:
 
+\par\vspace{0.5cm}
 
 
-\subsection{Análisis del Perímetro de Red}
+\subsubsection{Análisis del Perímetro de Red}
 
 Con el análisis del perímetro de red, intentamos identificar los puntos débiles de la infraestructura desde la perspectiva de un atacante externo, sin conocimiento de la arquitectura interna.
 
 \begin{table}[H]
     \centering
     \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{|p{1.2cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
+    \begin{tabular}{|p{1.4cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
     \hline
     \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}\\
     \hline
@@ -1420,41 +1587,24 @@ Con el análisis del perímetro de red, intentamos identificar los puntos débil
     OBJ-07 & Identificar routers con credenciales por defecto & Prueba de acceso a SSH, Telnet, interfaces web & Nmap, Hydra \\
     \hline
     \end{tabular}
-    \caption{Tabla de trazabilidad de objetivos en el análisis del perímetro de red}
+    \caption{Tabla de objetivos en el análisis del perímetro de red}
     \end{table}
     
+\par\vspace{0.5cm}
 
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Inventario de redes inalámbricas detectadas (visibles y ocultas), con información detallada sobre SSID, canal, BSSID (OBJ-01, OBJ-06).
-    \item Diagnóstico del tipo de cifrado implementado en cada red, con identificación de aquellas que presenten algoritmos débiles o configuraciones inseguras (OBJ-02).
-    \item Registro de contraseñas vulneradas mediante fuerza bruta, con indicación del tiempo estimado (OBJ-03).
-    \item Evidencias de portales cautivos vulnerables ante técnicas de evasión o manipulación del tráfico (OBJ-04).
-    \item Clientes conectados a AP falsos y evaluación del impacto potencial del ataque mediante Rogue AP o Karma (OBJ-05).
-    \item Listado de routers o dispositivos accesibles remotamente con interfaces mal protegidas o credenciales por defecto (OBJ-07).
-\end{itemize}
-
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item El análisis externo puede verse obstaculizado por la presencia de firewalls avanzados, WAFs, mecanismos de bloqueo o listas blancas, que filtran escaneos o conexiones sospechosas (OBJ-07).
-    \item La detección de redes ocultas depende de la presencia activa de clientes conectados; de no haber tráfico asociado, podrían no identificarse (OBJ-01, OBJ-06).
-    \item Las pruebas de fuerza bruta pueden requerir tiempos prolongados y recursos computacionales considerables, lo que limita su viabilidad en escenarios reales (OBJ-03).
-    \item Algunas herramientas utilizadas en pruebas como Rogue AP o ataques MitM requieren hardware específico y tráfico en la red. (OBJ-05, OBJ-04).
-    \item El uso de técnicas intrusivas, como la simulación de APs maliciosos o la manipulación del portal cautivo, debe realizarse en entornos controlados, ya que podrían provocar interrupciones en la conectividad de usuarios reales si se ejecutan en producción.
-\end{itemize}
 
 
-\clearpage
 
-\subsubsection{Fingerprint y Reconocimiento Interno}
+
+\subsubsection{Fingerprint (Reconocimiento Interno)}
 
 Una vez dentro de la red, se analizan los diferentes dispositivos conectados y sus diferentes vulnerabilidades, para trazar un plan de ataque.
 
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{|p{1.2cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
+    \begin{tabular}{|p{1.4cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
 \hline
 \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}  \\
 \hline
@@ -1468,26 +1618,13 @@ OBJ-11 & Detección de vulnerabilidades conocidas & Escaneo de CVEs, servicios s
 \hline
 
 \end{tabular}
-\caption{Tabla de trazabilidad de objetivos en la fase de Fingerprint interno}
+\caption{Tabla de objetivos en la fase de Fingerprint interno}
 \end{table}
 
 
+\par\vspace{0.5cm}
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Topología detallada de la red interna, con identificación de dispositivos, gateways, y subredes (OBJ-08).
-    \item Listado exhaustivo de puertos abiertos y servicios en cada host, con indicación del tipo de protocolo (OBJ-09).
-    \item Información precisa sobre los servicios activos, versiones detectadas y sistemas operativos (OBJ-10).
-    \item Inventario de vulnerabilidades conocidas asociadas a los servicios detectados, incluyendo identificadores CVE y criticidad (OBJ-11).
-\end{itemize}
 
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item La ejecución de escaneos internos requiere acceso a la red local, lo cual puede estar fuera del alcance del auditor en ciertas condiciones (OBJ-08–11).
-    \item Las herramientas de escaneo pueden generar falsos positivos o negativos debido a la presencia de firewalls internos, IDS/IPS, o configuraciones personalizadas de los servicios (especialmente en OBJ-09 y OBJ-10).
-    \item En redes grandes o mal segmentadas, los tiempos de escaneo aumentan significativamente, lo que puede limitar la cobertura o el rendimiento de las herramientas utilizadas (OBJ-08).
-\end{itemize}
-\clearpage
 
 \subsubsection{OSINT e Ingeniería Social}
 
@@ -1496,7 +1633,7 @@ Esta fase se centra en la obtención de información utilizando fuentes abiertas
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{|p{1.2cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
+    \begin{tabular}{|p{1.4cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
 \hline
 \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}  \\
 \hline
@@ -1511,29 +1648,15 @@ OBJ-15 & Buscar credenciales filtradas y contraseñas públicas & Consultas sobr
 OBJ-16 & Evaluar la respuesta humana frente a ataques simulados & Pruebas de phishing, manipulación, evaluación de políticas internas  & GoPhish, RubberDucky \\
 \hline
 \end{tabular}
-\caption{Tabla de trazabilidad de objetivos en la fase OSINT e Ingeniería Social}
+\caption{Tabla de objetivos en la fase OSINT e Ingeniería Social}
 \end{table}
 
 
 
+\par\vspace{0.5cm}
 
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Identificación de documentos, paneles de administración u otros recursos accesibles desde motores de búsqueda mediante el uso de dorks avanzados (OBJ-12).
-    \item Inventario de activos públicos expuestos (direcciones IP, puertos, servicios abiertos), con detalles sobre su localización (OBJ-13).
-    \item Mapas de relaciones entre dominios, cuentas de correo, nombres de empleados o entidades asociadas, así como metadatos incrustados en documentos (OBJ-14).
-    \item Listado de credenciales potencialmente comprometidas, asociadas a dominios corporativos o emails internos (OBJ-15).
-    \item Evaluación de la resiliencia del personal frente a técnicas de ingeniería social (OBJ-16).
-\end{itemize}
 
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item La información obtenida mediante OSINT puede estar desactualizada, parcial o haber sido ya mitigada por la organización en el momento del análisis (OBJ-12–15).
-    \item Las herramientas de búsqueda tienen limitaciones en cuanto al alcance de indexación, especialmente en contenidos dinámicos, servicios protegidos o entornos internos no expuestos (OBJ-12, OBJ-13).
-    \item La interpretación de relaciones en herramientas como Maltego puede generar asociaciones erróneas si no se valida manualmente el contexto (OBJ-14).
-    \item Las pruebas de ingeniería social requieren autorización explícita y un entorno controlado. Además, su ejecución puede estar condicionada por la normativa laboral y la cultura organizativa de la empresa (OBJ-16).
-\end{itemize}
 
 \subsubsection{Seguridad en IoT}
 
@@ -1542,7 +1665,7 @@ Los dispositivos IoT suelen carecer de medidas de seguridad sólidas y se convie
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{|p{1.2cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
+    \begin{tabular}{|p{1.4cm}|p{3.9cm}|p{5.3cm}|p{4.2cm}|}
 \hline
 \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}  \\
 \hline
@@ -1557,26 +1680,11 @@ OBJ-20 & Detectar firmware inseguro o mal configurado & Extracción y análisis 
 OBJ-21 & Atacar dispositivos vulnerables & Explotación de servicios abiertos, contraseñas por defecto, ejecución remota de comandos & Metasploit, hydra, scripts personalizados  \\
 \hline
 \end{tabular}
-\caption{Tabla de trazabilidad de objetivos en la auditoría de dispositivos IoT}
+\caption{Tabla de objetivos en la auditoría de dispositivos IoT}
 \end{table}
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Inventario detallado de dispositivos IoT detectados en la red, con su identificación por fabricante, modelo y dirección MAC (OBJ-17).
-    \item Análisis del tráfico de red IoT, con detección de protocolos inseguros, datos transmitidos en texto plano o configuraciones por defecto (OBJ-18).
-    \item Evaluación del nivel de exposición de las APIs o paneles de gestión, incluyendo endpoints sin autenticación, tokens expuestos o comandos inseguros (OBJ-19).
-    \item Extracción exitosa y análisis estático de firmware, con identificación de puertas traseras, claves embebidas, certificados obsoletos o servicios inseguros habilitados (OBJ-20).
-    \item Demostración controlada de vulnerabilidades explotables, como ejecución remota de comandos, credenciales por defecto y escalada de privilegios (OBJ-21).
-    \item Recomendaciones específicas de mitigación para cada dispositivo vulnerable o mal configurado.
-\end{itemize}
+\par\vspace{0.5cm}
 
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item Muchos dispositivos IoT no responden a técnicas de escaneo convencionales o emplean protocolos inusuales, lo que dificulta su identificación (OBJ-17, OBJ-18).
-    \item El análisis de tráfico requiere que los dispositivos estén activos y generen comunicaciones durante el período de captura, de lo contrario, ciertos vectores podrían pasar desapercibidos (OBJ-18).
-    \item La extracción de firmware puede no ser posible sin acceso físico al dispositivo o sin credenciales propietarias del fabricante, lo que limita la evaluación completa de vulnerabilidades (OBJ-20).
-    \item La explotación directa puede ser peligrosa si se realiza en un entorno de producción, pudiendo provocar bloqueos, reinicios o corrupción del sistema (OBJ-21).
-\end{itemize}
 
 \subsubsection{Auditoría Web}
 
@@ -1585,7 +1693,7 @@ En esta fase se analiza por completo la plataforma web, partiendo desde el propi
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{1.2cm}|p{4cm}|p{4.8cm}|p{3.8cm}|p{2.5cm}|}
+\begin{tabular}{|p{1.4cm}|p{4cm}|p{4.8cm}|p{3.8cm}|p{2.5cm}|}
 \hline
 \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}  \\
 \hline
@@ -1610,41 +1718,22 @@ OBJ-30 & Realizar fuerza bruta y fuzzing sobre parámetros & Testeo de inputs, f
 OBJ-31 & Evaluar la criptografía usada en la aplicación & Análisis de algoritmos de hash, cifrados, tokens y secretos & Burp Crypto  \\
 \hline
 \end{tabular}
-\caption{Tabla de trazabilidad de objetivos en la auditoría de aplicaciones web}
+\caption{Tabla de objetivos en la auditoría de aplicaciones web}
 \end{table}
 
+\par\vspace{0.5cm}
 
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Identificación de versiones del servidor web y servicios expuestos, con posibles configuraciones inseguras (OBJ-22).
-    \item Descubrimiento de rutas ocultas, endpoints sensibles y tecnologías potencialmente vulnerables (OBJ-23, OBJ-29).
-    \item Detección de vulnerabilidades OWASP (como SQLi, XSS, CSRF, etc.), clasificadas según nivel de criticidad (OBJ-24).
-    \item Evidencia de fallos en los mecanismos de autenticación, como contraseñas débiles, formularios vulnerables o bypasses de login (OBJ-25).
-    \item Análisis de sesiones inseguras: cookies sin flags de seguridad, tokens sin caducidad, falta de regeneración en login/logout (OBJ-26).
-    \item Accesos indebidos o escaladas de privilegio mediante manipulación de permisos o tokens de autorización (OBJ-27).
-    \item Pruebas de validación inadecuada de entrada/salida que permitan inyecciones o manipulaciones en el flujo de datos (OBJ-28, OBJ-30).
-    \item Evaluación de la criptografía utilizada, identificando algoritmos inseguros o mal implementados en la gestión de contraseñas, tokens o almacenamiento (OBJ-31).
-    \item Recomendaciones específicas para cada vulnerabilidad detectada, priorizadas por impacto técnico y facilidad de explotación.
-\end{itemize}
-
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item Muchas vulnerabilidades solo se manifiestan tras autenticación o en condiciones específicas (estado de sesión, tipo de usuario, datos introducidos), lo que puede limitar la cobertura si no se dispone de credenciales o acceso completo (OBJ-24, OBJ-25, OBJ-27).
-    \item Los sistemas con WAF, captcha, rate limiting o mecanismos de detección de automatización pueden bloquear ataques de fuzzing, fuerza bruta o crawling automatizado (OBJ-25, OBJ-29, OBJ-30).
-    \item La validación criptográfica se limita a los elementos accesibles desde el frontend (tokens, cookies, headers), sin acceso al código backend o configuración de librerías criptográficas (OBJ-31).
-    \item La ejecución de pruebas intrusivas como SQLi o RCE debe realizarse con extremo cuidado en entornos de producción, ya que pueden comprometer la integridad del sistema.
-\end{itemize}
 
 
-\subsubsection{Seguridad de Infraestructura}
+\subsubsection{Seguridad de la Infraestructura}
 
 Esta fase abarca pruebas sobre el núcleo central de la seguridad en la organización.
 
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{1.2cm}|p{4.2cm}|p{4.8cm}|p{3.8cm}|p{2.3cm}|}
+\begin{tabular}{|p{1.4cm}|p{4.2cm}|p{4.8cm}|p{3.8cm}|p{2.3cm}|}
 \hline
 \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}  \\
 \hline
@@ -1663,32 +1752,14 @@ OBJ-37 & Realizar escalada de privilegios en el entorno & Búsqueda de binarios 
 OBJ-38 & Ejecutar técnicas de pivoting y movimiento lateral & Conexión a otras redes o máquinas a través de un host comprometido & Chisel, ProxyChains, SSH tunneling, Metasploit  \\
 \hline
 \end{tabular}
-\caption{Tabla de trazabilidad de objetivos en la evaluación de la seguridad de la infraestructura}
+\caption{Tabla de objetivos en la evaluación de la seguridad de la infraestructura}
 \end{table}
 
 
+\par\vspace{0.5cm}
 
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Listado de reglas del firewall efectivas, puertos abiertos innecesariamente o configuraciones que permiten tráfico no autorizado (OBJ-32).
-    \item Comprobación del funcionamiento de IDS/IPS ante tráfico anómalo, identificación de firmas activas o ausencia de detección (OBJ-33).
-    \item Evaluación de seguridad de servidores internos: servicios inseguros, credenciales por defecto, vulnerabilidades sin parchear (OBJ-34).
-    \item Enumeración de la estructura del Active Directory: usuarios, políticas de grupo, servicios Kerberos y relaciones de confianza (OBJ-35).
-    \item Detección de segmentación inadecuada en redes mediante análisis de tráfico y técnicas de sniffing (OBJ-36).
-    \item Identificación de rutas para escalada de privilegios: binarios mal configurados, exploits locales disponibles y configuraciones débiles (OBJ-37).
-    \item Mapeo de movimiento lateral y pivoting: hosts accesibles desde un nodo comprometido, redes internas accesibles sin controles adecuados (OBJ-38).
-    \item Recomendaciones de mitigación técnica, incluyendo segmentación, refuerzo de controles de acceso y actualización de servicios vulnerables.
-\end{itemize}
 
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item La ejecución de pruebas sobre firewall, AD o escalada de privilegios requiere permisos elevados, a menudo restringidos por la política de la organización (OBJ-32, OBJ-35, OBJ-37).
-    \item Las técnicas de pivoting y movimiento lateral pueden causar interferencias en la red o en servicios productivos si no se realizan en entornos aislados (OBJ-38).
-    \item El análisis de tráfico puede estar limitado por la encriptación de extremo a extremo o el uso de VLANs y redes virtuales que impidan el sniffing pasivo (OBJ-36).
-    \item Las herramientas de enumeración como CrackMapExec o Kerbrute pueden generar tráfico considerado agresivo, que puede activar alarmas de IDS o sistemas de bloqueo temporal (OBJ-33, OBJ-35).
-    \item La recopilación de logs, políticas de grupo o información sensible del dominio puede estar regulada por normativas internas o leyes de protección de datos, limitando el alcance de algunas técnicas (OBJ-35, OBJ-36).
-\end{itemize}
 
 
 \subsubsection{Seguridad de Endpoints y Datos}
@@ -1699,7 +1770,7 @@ Además, se evalúan un conjunto de test sobre el almacenamiento de los datos y 
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{1.2cm}|p{4.2cm}|p{4.8cm}|p{3.8cm}|}
+\begin{tabular}{|p{1.4cm}|p{4.2cm}|p{4.8cm}|p{3.8cm}|}
 \hline
 \textbf{ID} & \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}  \\
 \hline
@@ -1722,26 +1793,11 @@ OBJ-46 & Evaluar políticas de privacidad y protección de datos sensibles & Rev
 OBJ-47 & Verificar uso de contraseñas robustas y controles de autenticación & Comprobación de políticas de longitud, complejidad, expiración y almacenamiento seguro de contraseñas & Auditoría técnica, herramientas de análisis de políticas \\
 \hline
 \end{tabular}
-\caption{Tabla de trazabilidad de objetivos en la auditoría de seguridad de endpoints y datos}
+\caption{Tabla de objetivos en la auditoría de seguridad de endpoints y datos}
 \end{table}
+\par\vspace{0.5cm}
 
-\paragraph{Resultados esperados:}
-\begin{itemize}
-    \item Verificación del cumplimiento de políticas de acceso según perfil de usuario: restricciones adecuadas, acceso limitado a configuraciones del sistema o consolas administrativas (OBJ-39, OBJ-43).
-    \item Comprobación del control físico de dispositivos: detección de políticas activas sobre uso de puertos USB, ejecución automática o instalación de drivers externos (OBJ-40).
-    \item Evidencia de posibles bypasses del proxy corporativo mediante uso de túneles cifrados o canales alternativos de comunicación externa (OBJ-41).
-    \item Informe sobre medidas de protección de datos locales y sistemas de backup, incluyendo cifrado de disco, políticas de restauración y almacenamiento redundante (OBJ-44, OBJ-45).
-    \item Evaluación del cumplimiento de políticas internas de privacidad y manejo adecuado de datos sensibles (OBJ-46).
-    \item Revisión del uso de contraseñas robustas y mecanismos de autenticación seguros (OBJ-47).
-\end{itemize}
 
-\paragraph{Limitaciones:}
-\begin{itemize}
-    \item Algunos sistemas de protección avanzados como antivirus pueden interferir en la ejecución de pruebas o generar falsos negativos/positivos (OBJ-41, OBJ-42).
-    \item Las pruebas de ejecución de software no autorizado, túneles o bypasses de proxy pueden entrar en conflicto con políticas internas o requerir una autorización explícita (OBJ-41, OBJ-42).
-    \item El análisis de backup, cifrado de disco o políticas de privacidad puede no ser viable sin credenciales administrativas o acceso a la documentación interna de TI (políticas, scripts, logs) (objetivo general).
-    \item Las técnicas de evaluación manual pueden depender del entorno operativo (Windows, Linux) y requerir diferentes enfoques para cada uno.
-\end{itemize}
 
 
 \clearpage
@@ -1837,14 +1893,17 @@ Conforme a la metodología establecida, es imprescindible cumplir con los siguie
 \clearpage
 
 \section{Propuesta metodológica de auditoría}
+\par\vspace{0.5cm}
 
 Esta propuesta combina el modelo estructurado por bloques sugerido por BeeHacker con las fases claramente definidas de la metodología NIST SP 800-115: Planificación, Descubrimiento, Ataque y Reporte.
 \par\vspace{0.5cm}
 
 Cada uno de los siete bloques será abordado secuencialmente, siguiendo estas cuatro etapas fundamentales:
 
+\par\vspace{0.5cm}
 
 \subsection{Fase de Planificación de la Auditoría}
+\par\vspace{0.5cm}
 
 La fase de planificación representa el punto de partida formal del proceso de auditoría. En esta etapa se establecen las bases necesarias para garantizar que el trabajo se desarrolle de forma estructurada, controlada y alineada con los objetivos del proyecto. Es aquí donde se consolidan todos los acuerdos documentales previos, como el Acuerdo de Confidencialidad (NDA), el Acuerdo de Servicios y la Autorización para Pruebas Técnicas, descritos previamente en los requisitos.
 \par\vspace{0.5cm}
@@ -1870,14 +1929,91 @@ Una vez realizado este análisis preliminar y formalizada la documentación lega
 \par\vspace{0.5cm}
 
 
+\subsection{Fase de Descubrimiento de la Auditoría}
+\par\vspace{0.5cm}
 
-\subsection{Fase de Descubrimiento}
-
-
-
-
+En esta fase se lleva a cabo la recopilación de información técnica sobre los sistemas y redes que serán objeto de auditoría. El objetivo es obtener información relevante acerca de los activos, servicios y configuraciones existentes, así como identificar vulnerabilidades o puntos débiles potencialmente explotables por un atacante.
 
 
+\subsubsection{Análisis Externo de Redes Inalámbricas}
+
+
+\par\vspace{0.5cm}
+Inicialmente, se realiza un reconocimiento pasivo de las redes inalámbricas disponibles, lo que permite detectar tanto redes visibles como ocultas en el área de alcance. Durante este análisis se busca recopilar datos esenciales como el SSID, canal, BSSID, tipo de cifrado y potencia de la señal. Asimismo, se pretende capturar, cuando sea posible, el handshake de la red, fundamental para realizar posteriormente ataques de fuerza bruta que evalúen la seguridad del cifrado implementado.
+
+\par\vspace{0.5cm}
+\subsubsection*{Herramientas}
+\begin{itemize}
+    \item \textbf{Airodump-ng}: Herramienta de captura de paquetes de datos de redes WiFi, que proporciona información detallada sobre las redes detectadas.
+    \item  \textbf{Wireshark}: Herramienta de captura y análisis de tráfico de red, que permite examinar los paquetes en detalle.
+    \item \textbf{Antena WiFi}: Adaptador inalámbrico compatible con modo monitor, preferiblemente que soporte tanto las frecuencias de 2,4 GHz como las de 5 GHz. Si además soporta modo AP, se pueden realizar ataques avanzados como "rogue AP".
+\end{itemize}
+
+\par\vspace{0.5cm}
+
+\subsubsection*{Prueba de concepto}
+
+Esta técnica utiliza \textbf{Airodump-ng} para capturar tráfico de redes WiFi y realizar ataques de fuerza bruta sobre los handshakes capturados. El procedimiento comienza configurando la antena en modo monitor, seguido del escaneo de redes inalámbricas disponibles para seleccionar la red objetivo. Se debe registrar el BSSID y el canal específico para proceder a capturar el handshake mediante técnicas de desautenticación, que desconectan momentáneamente a los clientes obligándolos a reconectarse y generando el handshake.
+\par\vspace{0.5cm}
+
+Este handshake posteriormente será explotado mediante fuerza bruta para evaluar la robustez de la contraseña.
+
+\par\vspace{0.5cm}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Captura WPA2 con Aircrack-ng]
+    # Configuración de la antena en modo monitor
+$ sudo airmon-ng start wlan0
+    # Escaneo de redes WiFi disponibles
+$ sudo airodump-ng wlan0mon
+    # Selección de la red objetivo y captura del handshake
+$ sudo airodump-ng --bssid BSSID --channel CHANNEL -w capture wlan0mon
+    # Desautenticación de clientes para capturar el handshake en paralelo con airodump-ng
+$ sudo aireplay-ng -0 9 -a BSSID -c CLIENT_MAC wlan0mon
+    # Análisis del handshake capturado
+$ sudo aircrack-ng -w /path/to/wordlist.txt capture-01.cap
+\end{lstlisting}
+
+
+
+\subsubsection*{Resultados esperados}
+
+Se espera obtener los siguientes resultados clave tras la ejecución de las herramientas de análisis de redes inalámbricas:
+
+\begin{itemize}
+    \item \textbf{Inventario detallado de redes detectadas} (visibles y ocultas), incluyendo información como el \textit{SSID}, canal, \textit{BSSID}, tipo de cifrado y potencia de señal.
+    
+    \item \textbf{Captura del handshake WPA/WPA2}, que servirá para evaluar posteriormente la robustez de la contraseña mediante técnicas de fuerza bruta o diccionario, y así estimar la complejidad real de explotación.
+\end{itemize}
+
+\vspace{1em}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{|l|c|l|c|c|}
+\hline
+\textbf{SSID} & \textbf{Canal} & \textbf{BSSID} & \textbf{Cifrado} & \textbf{Potencia (dBm)} \\
+\hline
+WLAN-Casa     & 6      & 00:14:22:01:23:45 & WPA2 & -45 \\
+Red Oculta    & 11     & A1:B2:C3:D4:E5:F6 & WPA2 & -60 \\
+Biblioteca    & 1      & 12:34:56:78:9A:BC & WEP      & -72 \\
+INVITADOS     & 3      & DE:AD:BE:EF:00:01 & Abierta  & -50 \\
+\hline
+\end{tabular}
+\caption{Ejemplo de redes inalámbricas detectadas con Airodump-ng}
+\label{tab:redes_detectadas}
+\end{table}
+\subsubsection*{Limitaciones}
+
+\begin{itemize}
+    \item \textbf{Limitación de análisis externo:} Puede verse afectado por firewalls avanzados, WAFs, mecanismos de bloqueo o listas blancas que filtran escaneos sospechosos.
+    
+    \item \textbf{Redes ocultas:} La detección depende del tráfico activo de clientes conectados; sin actividad, estas redes podrían no detectarse.
+    
+    \item \textbf{Desautenticación inefectiva:} Esta técnica podría fallar si no hay clientes conectados o si no existe tráfico activo.
+\end{itemize}
+
+\par\vspace{0.5cm}
 
 
 
@@ -1907,6 +2043,655 @@ Una vez realizado este análisis preliminar y formalizada la documentación lega
 
 
 
+
+
+
+\subsubsection{Análisis Interno de Redes (Fingerprint)}
+
+Una vez se logra acceso a la red, el objetivo es realizar un reconocimiento interno exhaustivo para identificar dispositivos conectados, configuraciones, y vulnerabilidades potenciales. El propósito es mapear claramente la topología interna, descubrir dispositivos, puertos y servicios activos, y evaluar vulnerabilidades relacionadas.
+
+\par\vspace{0.5cm}
+\subsubsection*{Herramientas}
+Se emplean herramientas especializadas como \textbf{Nmap} o \textbf{Masscan} para realizar escaneos detallados. Además, conviene usar 
+herramientas automatizdas como \textbf{Nessus} para ofrecer una primera visión clasificada de vulnerabilidades según su severidad.
+
+\par\vspace{0.5cm}
+\subsubsection*{Prueba de concepto}
+El proceso comienza con un primer barrido de red mediante \textbf{Nessus}, para lo cual es fundamental identificar previamente el entorno en el que nos encontramos. Esto implica reconocer la red local y determinar su bloque \textit{CIDR}, con el objetivo de conocer el rango de direcciones IP disponibles y asegurarnos de que el análisis abarque todos los dispositivos posibles, evitando dejar zonas sin explorar.
+\par\vspace{0.5cm}
+
+Una vez definido el rango de red, se configura el escaneo desde la interfaz de Nessus, seleccionando la opción \textbf{Advanced Scan}, que permite personalizar el reconocimiento inicial según las necesidades del entorno.
+\par\vspace{0.5cm}
+
+Paralelamente, puede ejecutarse un proceso de enumeración de hosts activos mediante herramientas como \textbf{Nmap} o \textbf{Masscan}, utilizando técnicas basadas en \textit{ICMP} o \textit{ARP}. Es importante conocer cómo funcionan estos comandos, ya que algunos dispositivos podrían estar protegidos por firewalls o configuraciones que impidan una detección directa. En estos casos, el uso de scripts personalizados puede ser clave para mejorar la visibilidad y completar el mapeo de red de forma más precisa.
+
+\par\vspace{0.5cm}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Escaneo de activos en la red]
+    # Escaneo de red ICMP para identificar hosts activos
+$ sudo nmap -sn 192.168.0.0/24
+   # Escaneo de red con Masscan para identificar hosts activos 
+$ sudo masscan 192.168.0.0/24 -p0-65535 --rate=1000
+\end{lstlisting}
+
+
+Una vez hemos identificado todos los activos a nuestro alcance, procederemos a enumerarlos con Nmap para obtener información sobre los puertos que tienen abierto y el servicio que está ejecutando cada uno de ellos.
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Escaneo de puertos y servicios con Nmap]
+    # Escaneo de puertos con Nmap
+$ sudo nmap -p- --open -sS --min-rate 5000 -vvv -n -Pn 192.168.0.2 -oG allPorts
+    # Escaneo de servicios con Nmap a los puertos abiertos del host
+$ sudo nmap -sCV -p22,80,443 192.168.0.2 -oX scanService.xml
+    # Convertir el resultado a un formato legible html
+$ xsltproc scanService.xml -o scanService.html
+\end{lstlisting}
+
+
+
+Los comandos mostrados anteriormente representan ejemplos básicos del uso de estas herramientas para la detección de activos y escaneo de puertos. Sin embargo, estas herramientas ofrecen una gran variedad de parámetros adicionales que permiten ajustar el comportamiento del análisis en función de los objetivos y restricciones del entorno.
+\par\vspace{0.5cm}
+Es posible configurar escaneos más \textbf{sigilosos} para evitar la detección por firewalls o sistemas de prevención de intrusiones (IPS), así como escaneos más \textbf{agresivos} y rápidos cuando no se requiere discreción.
+\par\vspace{0.5cm}
+Un desglose detallado de estas opciones avanzadas, se encuentra disponible en el \textbf{Anexo IV}.
+
+\subsubsection*{Resultados esperados}
+\begin{itemize}
+
+    \item \textbf{Topología interna detallada:} Mapeo completo de dispositivos conectados, gateways y subredes detectadas. 
+    
+    \item \textbf{Inventario de servicios y puertos:} Listado exhaustivo por dispositivo de los puertos abiertos, servicios en ejecución y protocolos asociados.
+\end{itemize}
+
+\subsubsection*{Limitaciones}
+
+\begin{itemize}
+   
+    \item \textbf{Mecanismos de seguridad:} Firewalls, sistemas IDS/IPS o configuraciones personalizadas pueden bloquear escaneos o generar falsos positivos/negativos.
+    
+    \item \textbf{Rendimiento en redes complejas:} En redes mal segmentadas o muy extensas, el proceso puede volverse lento o ineficiente sin optimización adecuada.
+    
+    \item \textbf{Técnicas de evasión:} En algunos casos, será imprescindible aplicar estrategias de escaneo más avanzadas para evitar ser detectado.
+\end{itemize}
+
+\par\vspace{0.5cm}
+
+\subsubsection{Análisis Interno de Tráfico de Red}
+
+Una vez identificada la topología de red y los dispositivos activos, se procede a realizar un análisis pasivo del tráfico con el objetivo 
+de obtener información sobre los protocolos en uso, detectar servicios inseguros, descubrir dispositivos IoT, y encontrar posibles vulnerabilidades asociadas al comportamiento de red observado.
+\par\vspace{0.5cm}
+
+\textbf{Los dispositivos IoT} (cámaras, sensores, impresoras, dispositivos domóticos, etc.) representan una superficie de 
+ataque frecuente debido a su escasa protección, credenciales por defecto y uso de protocolos poco seguros. Su detección durante 
+el análisis de red o tráfico es clave para evaluar su seguridad y posibles riesgos asociados.
+
+\vspace{0.5cm}
+\subsubsection*{Herramientas}
+
+Para esta fase se utilizan herramientas de captura de tráfico como \textbf{Wireshark} o \textbf{tcpdump}. Estas permiten interceptar paquetes en tiempo real y aplicar filtros específicos para centrarse en protocolos relevantes (HTTP, DNS, CoAP, MQTT, etc.).
+
+\vspace{0.5cm}
+\subsubsection*{Prueba de concepto}
+
+A continuación, se presentan comandos básicos para realizar una captura de tráfico en una interfaz específica y aplicar filtros útiles durante el análisis:
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Captura de tráfico con Wireshark]
+# Iniciar Wireshark en la interfaz de red 'eth0'
+$ sudo wireshark -i eth0
+
+# Aplicar filtros para protocolos de interés (ejemplo: MQTT, CoAP, HTTP)
+mqtt or coap or http
+
+# Guardar la captura directamente en un archivo
+$ sudo wireshark -i eth0 -w capture.pcap
+\end{lstlisting}
+
+También puede usarse `tcpdump` como alternativa en terminal sin interfaz gráfica.
+
+
+
+\subsubsection*{Resultados esperados}
+
+\begin{itemize}
+    \item \textbf{Detección de servicios inseguros:} Reconocimiento de servicios transmitiendo datos sin cifrado, configuraciones débiles o uso de protocolos obsoletos.
+    
+    \item \textbf{Análisis de patrones de tráfico:} Detección de comportamientos sospechosos o vulnerabilidades potenciales en el flujo de paquetes.
+
+    \item \textbf{Inventario de dispositivos IoT:} Identificación de dispositivos conectados mediante análisis de tráfico y fingerprinting pasivo (fabricante, modelo, dirección MAC).
+
+    \item \textbf{Evidencias técnicas:} Capturas que evidencian el uso de contraseñas en texto plano, paneles de administración visibles o firmware con servicios obsoletos.
+
+\end{itemize}
+
+\vspace{0.5cm}
+\subsubsection*{Limitaciones}
+
+\begin{itemize}
+    \item \textbf{Dependencia del tráfico:} Si durante la captura no se genera tráfico relevante, los resultados pueden ser limitados.
+        
+    \item \textbf{Volumen elevado de datos:} Las capturas pueden generar grandes cantidades de información, lo que requiere hacer uso de filtros adecuados para el análisis.
+
+    \item \textbf{Identificación limitada:} Algunos dispositivos IoT no responden a técnicas de escaneo convencionales o emplean protocolos no documentados, dificultando su detección precisa.
+
+\end{itemize}
+
+\par\vspace{0.5cm}
+
+
+
+
+
+
+
+
+\subsubsection{Análisis de vulnerabilidades}
+
+Una vez recopilada toda la información relevante sobre la red (topología, dispositivos, puertos, servicios y tráfico capturado), se procede a la identificación y evaluación de posibles vulnerabilidades presentes en los activos analizados.
+
+\vspace{0.5cm}
+El análisis se realiza considerando distintos niveles de exposición:
+
+\begin{itemize}
+    \item \textbf{Topología y segmentación de red:} Se analiza si la red está correctamente segmentada. Se evalúa la presencia o ausencia de medidas como \textbf{firewalls}, \textbf{IDS/IPS}. También se identifican dispositivos obsoletos o sin soporte, los cuales representan vectores de ataque especialmente críticos por la imposibilidad de aplicar parches de seguridad.
+
+    \item \textbf{Seguridad de la red inalámbrica:} Se revisa la robustez del cifrado WiFi (WPA2/WPA3) y la complejidad de la contraseña. En casos de configuraciones débiles, herramientas de fuerza bruta con diccionarios optimizados podrían permitir el acceso en tiempos relativamente cortos, dejando la red al alcance de un atacante con conocimientos medios.
+
+    \item \textbf{Servicios expuestos:} A partir de los datos obtenidos mediante escaneo (puertos abiertos, protocolos y versiones), se identifican servicios susceptibles de ser explotados. Se recomienda cerrar servicios innecesarios, actualizar versiones, y evaluar cada caso con herramientas como \textbf{searchsploit}, \textbf{ExploitDB}, \textbf{Metasploit} o bases de datos de vulnerabilidades como \textbf{CVE} y \textbf{NVD}.
+    
+    \item \textbf{Análisis del tráfico de red:} La información obtenida mediante herramientas como Wireshark puede revelar contraseñas en texto plano, protocolos sin cifrado, dispositivos IoT inseguros o configuraciones débiles. Todo ello debe ser considerado como superficie de ataque viable.
+\end{itemize}
+
+\vspace{0.3cm}
+Toda esta información servirá como base para definir un plan de mitigación de riesgos asociados a la Pyme, y diseñar un plan de ataque adaptado al entorno evaluado.
+
+\vspace{0.5cm}
+\subsubsection*{Técnicas y fuentes de búsqueda}
+
+\begin{itemize}
+    \item \textbf{Bases de datos públicas:} \textit{CVE Details}, \textit{ExploitDB}, \textit{NVD}.
+    \item \textbf{Herramientas automatizadas:} \textbf{Nessus}, \textbf{OpenVAS}, \textbf{Metasploit}.
+    \item \textbf{Comunidades técnicas:} Foros especializados, issues de GitHub y publicaciones recientes.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{Clasificación de vulnerabilidades}
+
+La clasificación de las vulnerabilidades (alta, media o baja) se realiza en función de su puntuación en el estándar \textbf{CVSS (Common Vulnerability Scoring System)}, ampliamente utilizado en entornos profesionales y por bases de datos como NVD o CVE Details. Esta puntuación evalúa aspectos como la complejidad del ataque, si requiere autenticación previa, si puede explotarse remotamente, y el impacto sobre la confidencialidad, integridad y disponibilidad. \cite{cvss}
+\vspace{0.5cm}
+
+A continuación, se presentan los rangos definidos por el estándar CVSS junto con su interpretación en función del nivel de riesgo que representan.
+
+\vspace{0.5cm}
+
+\begin{tcolorbox}[colback=cvsscritical!10, colframe=cvsscritical!80!black, coltitle=white,
+    title=Crítica (CVSS 9.0 -- 10.0)]
+Vulnerabilidad extremadamente peligrosa que permite a un atacante ejecutar código malicioso de forma remota, escalar privilegios o tomar control total del sistema afectado. No requiere autenticación previa ni interacción del usuario, y suele tener un vector de ataque accesible desde redes públicas. Este tipo de vulnerabilidades puede comprometer completamente la confidencialidad, integridad y disponibilidad del sistema.
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+\begin{tcolorbox}[colback=cvsshigh!10, colframe=cvsshigh!80!black, coltitle=white,
+    title=Alta (CVSS 7.0 -- 8.9)]
+Vulnerabilidad de alto impacto que podría ser aprovechada por un atacante para obtener acceso privilegiado o interferir gravemente en el funcionamiento del sistema. Aunque puede requerir condiciones específicas, como acceso físico, autenticación o una configuración concreta, su explotación puede provocar daños significativos si no se mitiga adecuadamente.
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+\begin{tcolorbox}[colback=cvssmedium!10, colframe=cvssmedium!80!black, coltitle=white,
+    title=Media (CVSS 4.0 -- 6.9)]
+Riesgo moderado asociado a fallos que, si bien no comprometen completamente el sistema, pueden permitir accesos no autorizados, fugas de información o interrupciones parciales. A menudo requieren cierto conocimiento técnico o acceso limitado, pero podrían servir como escalón para ataques más complejos si se combinan con otras vulnerabilidades.
+\end{tcolorbox}
+
+\vspace{0.2cm}
+
+\begin{tcolorbox}[colback=cvsslow!10, colframe=cvsslow!80!black, coltitle=white,
+    title=Baja (CVSS 0.1 -- 3.9)]
+Vulnerabilidades de impacto limitado, con baja probabilidad de explotación práctica. Suelen requerir condiciones muy específicas o tener efectos mínimos en el sistema, como errores menores en la interfaz o en la validación de entradas no críticas. Aunque representan un riesgo bajo, es recomendable solucionarlas en ciclos regulares de mantenimiento.
+\end{tcolorbox}
+
+
+
+\vspace{0.5cm}
+\subsubsection*{Resultados esperados}
+
+\begin{itemize}
+    \item \textbf{Listado de vulnerabilidades asociadas:} Clasificadas por criticidad, con referencias a CVE y evidencias técnicas.
+    
+    \item \textbf{Recomendaciones técnicas:} Cierre de servicios no utilizados, actualización de versiones vulnerables, implementación de controles de red (firewall, IDS/IPS).
+\end{itemize}
+
+\vspace{0.5cm}
+\subsubsection*{Limitaciones}
+
+\begin{itemize}
+    \item \textbf{Falsos positivos o negativos:} Las herramientas automatizadas pueden identificar como vulnerables elementos que no lo son, o pasar por alto riesgos reales.
+    
+    \item \textbf{Limitaciones en la explotación:} La presencia de vulnerabilidades no garantiza su explotación. A menudo requieren condiciones muy específicas.
+\end{itemize}
+
+
+\par\vspace{0.5cm}
+
+
+
+
+
+
+\subsubsection{OSINT e Ingeniería Social}
+
+Como fase complementaria al descubrimiento inicial, se incluye un proceso de \textbf{OSINT (Open Source Intelligence)} orientado a la recopilación de información pública disponible sobre la empresa auditada y su entorno. Esta etapa no es obligatoria, pero puede resultar clave en la preparación de ataques más sofisticados, especialmente si el cliente ha solicitado una evaluación de la \textbf{exposición externa} o de la \textbf{concienciación de los empleados frente a amenazas de ingeniería social}.
+
+\vspace{0.5cm}
+\subsubsection*{Objetivos}
+
+\begin{itemize}
+    \item Identificar \textbf{información sensible expuesta públicamente} que pueda comprometer la seguridad de la organización (datos corporativos, correos, leaks, etc.).
+    \item Detectar \textbf{usuarios, empleados o responsables} susceptibles de ser utilizados como vectores de ataque social.
+    \item Evaluar la presencia digital de la empresa en redes sociales, dominios, foros y fuentes técnicas, así como detectar posibles \textbf{filtraciones previas de credenciales o documentos}.
+\end{itemize}
+
+\vspace{0.5cm}
+\subsubsection*{Herramientas y fuentes empleadas}
+
+\begin{itemize}
+    \item \textbf{Buscadores avanzados:} Utilización de dorks en \textit{Google}, \textit{Shodan} o \textit{Censys} para localizar información indexada de forma inadvertida.
+    \item \textbf{Plataformas de leaks:} Comprobación de credenciales filtradas en servicios como \textit{HaveIBeenPwned}, \textit{DeHashed} o repositorios de bases de datos expuestas.
+    \item \textbf{Metadatos en documentos públicos:} Análisis de ficheros PDF, DOCX u otros formatos descargados desde sitios corporativos o redes sociales (por ejemplo, mediante \texttt{exiftool}).
+    \item \textbf{Reconocimiento en redes sociales:} Búsqueda de perfiles de empleados en \textit{LinkedIn}, \textit{Twitter}, \textit{Facebook} o foros profesionales, para analizar su rol, relación con la empresa y grado de exposición.
+    \item \textbf{WHOIS y DNS:} Revisión de registros públicos asociados a dominios de la empresa para detectar subdominios olvidados, servidores internos o emails técnicos.
+    \item \textbf{Maltego:} Herramienta de análisis visual de inteligencia que permite mapear relaciones entre personas, correos, dominios, IPs y redes sociales, mediante transformaciones automáticas que integran fuentes abiertas y comerciales.
+\end{itemize}
+
+\vspace{0.5cm}
+\subsubsection*{Aplicaciones prácticas}
+
+En el caso de que el cliente solicite realizar un \textbf{ejercicio controlado de ingeniería social}, la información recopilada en esta fase puede servir como base para:
+
+\begin{itemize}
+    \item \textbf{Campañas de phishing dirigidas}, adaptadas a departamentos, empleados o eventos reales de la empresa.
+    \item \textbf{Llamadas telefónicas simuladas} (vishing) utilizando datos reales para ganar confianza y extraer información.
+    \item \textbf{Ataques físicos o combinados}, como uso de USBs maliciosos con nombres personalizados o entrega de documentos impresos con logos de la empresa.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\vspace{0.5cm}
+
+
+
+
+
+\vspace{0.5cm}
+\subsubsection*{Prueba de concepto: OSINT}
+
+\begin{enumerate}
+    \item \textbf{Búsqueda de archivos indexados en dominios relacionados:}
+
+    Se recomienda comenzar identificando los principales dominios vinculados a la organización y, posteriormente, aplicar dorks avanzados para localizar documentos potencialmente sensibles.
+
+    \begin{tcolorbox}[colback=yellow!20!white, colframe=orange!80!black, title={Dorks para documentos y configuraciones}]
+    \small
+    site:<dominio> filetype:pdf \\
+    site:<dominio> filetype:xls \\
+    site:<dominio> ext:doc \textbar{} ext:docx \textbar{} ext:ppt \\
+    site:<dominio> intitle:"index of" \\
+    site:<dominio> ext:sql \textbar{} ext:bak \textbar{} ext:env
+    \end{tcolorbox}
+
+    Estos archivos pueden contener información financiera, estructuras organizativas, políticas internas, credenciales, configuraciones de bases de datos, etc.
+
+    \item \textbf{Detección de configuraciones inseguras y errores:}
+
+    A través de búsquedas específicas se intenta localizar archivos de configuración, errores de servidor, rutas de debugging o código mal gestionado.
+
+ 
+\begin{tcolorbox}[colback=yellow!20!white, colframe=orange!80!black, title={Dorks para errores y configuraciones expuestas}]
+    \small
+    site:<dominio> "DB\_PASSWORD" \\
+    site:<dominio> inurl:config \\
+    site:<dominio> intitle:"index of" "backup" \\
+    site:<dominio> "Warning: include" \textbar{} "Fatal error:"
+    \end{tcolorbox}
+
+    \item \textbf{Paneles administrativos y accesos restringidos:}
+
+   Se intenta detectar interfaces web de administración, zonas restringidas o mecanismos de autenticación expuestos:
+
+    \begin{tcolorbox}[colback=yellow!20!white, colframe=orange!80!black, title={Dorks para paneles y logins}]
+    \small
+    site:<dominio> inurl:admin \\
+    site:<dominio> inurl:login \\
+    site:<dominio> intitle:"Restricted Area" \\
+    site:<dominio> intitle:"403 Forbidden"
+    \end{tcolorbox}
+
+    \item \textbf{Recolección de correos y personal expuesto:}
+
+    Se buscan direcciones de correo, nombres de usuarios o referencias a departamentos o empleados, con el objetivo de trazar relaciones personales o identificar posibles vectores de ingeniería social.
+
+    \begin{tcolorbox}[colback=yellow!20!white, colframe=orange!80!black, title={Dorks para emails y personal}]
+    \small
+    site:<dominio> intext:"@<dominio>" \\
+    site:<dominio> intext:"empleado" \textbar{} intext:"departamento" \\
+    site:linkedin.com/in/ "\textless nombre\_empresa\textgreater"
+    \end{tcolorbox}
+
+    \item \textbf{Errores, configuraciones expuestas y archivos con claves:}
+
+    Dorks adicionales para identificar posibles vectores técnicos:
+
+     \begin{tcolorbox}[colback=yellow!20!white, colframe=orange!80!black, title={Dorks para claves, errores y archivos críticos}]
+    \small
+    site:<dominio> intext:"internal server error" \\
+    site:<dominio> intitle:"phpinfo()" \\
+    site:<dominio> intitle:"Index of /" intext:passwd \\
+    site:<dominio> ext:env OR ext:json intext:password \\
+    site:<dominio> ext:txt intext:apikey
+    \end{tcolorbox}
+
+    \item \textbf{Recolección activa mediante herramientas especializadas:}
+
+    Se recomienda complementar las búsquedas manuales con herramientas como:
+
+    \begin{itemize}
+        \item \textbf{theHarvester} para enumerar correos, subdominios y usuarios desde fuentes abiertas:
+        \begin{lstlisting}[language=bash, style=terminalstyle, caption=Enumeración con theHarvester]
+$ theHarvester -d <dominio> -b all
+        \end{lstlisting}
+
+        \item \textbf{ExifTool} para analizar metadatos en documentos públicos:
+        \begin{lstlisting}[language=bash, style=terminalstyle, caption=Extracción de metadatos]
+$ exiftool <documento_publico>
+        \end{lstlisting}
+
+        \item \textbf{DeHashed} o APIs similares para buscar credenciales filtradas asociadas al dominio:
+        \begin{lstlisting}[language=bash, style=terminalstyle, caption=Búsqueda de filtraciones con DeHashed]
+$ curl -X POST "https://api.dehashed.com/search?query=<dominio>" -u usuario:api_key
+        \end{lstlisting}
+    \end{itemize}
+
+    \item \textbf{Visualización de relaciones con Maltego:}
+
+    Todos los datos extraídos deben correlacionarse mediante herramientas de visualización como \textbf{Maltego}, que permiten:
+
+    \begin{itemize}
+        \item Representar gráficamente relaciones entre dominios, subdominios, empleados, documentos y correos.
+        \item Facilitar la generación de un informe visual claro para justificar la exposición externa y los datos sensibles encontrados.
+    \end{itemize}
+
+\end{enumerate}
+
+\vspace{0.5cm}
+\subsubsection*{Resultados esperados}
+
+\begin{itemize}
+    \item \textbf{Diagrama de información expuesta en Internet:} Emails, nombres de empleados, documentos con metadatos, IPs asociadas, dominios antiguos, etc.
+    \item \textbf{Evaluación del riesgo de ingeniería social:} Estimación del grado de exposición que puede facilitar ataques personalizados contra empleados o departamentos asociados a la empresa.
+    \item \textbf{Mapa visual de relaciones (con Maltego):} Representación gráfica de nodos relacionados (usuarios, correos, dominios, IPs), para detectar patrones o vectores de ataque posibles.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection*{Limitaciones}
+
+\begin{itemize}
+\item \textbf{Cobertura incompleta:} A pesar del uso de múltiples motores y herramientas, siempre existe el riesgo de que ciertos datos relevantes no sean indexados, estén ocultos detrás de CAPTCHAs, firewalls o configuraciones que impiden su recolección automatizada.
+
+\item \textbf{Resultados falsos o irrelevantes:} Las búsquedas pueden arrojar información antigua, duplicada o ajena a la organización objetivo (falsos positivos), lo que requiere una validación cuidadosa por parte del analista.    
+
+\item \textbf{Dependencia de terceros:} Herramientas como DeHashed, Shodan o Maltego dependen de servicios externos que pueden tener restricciones, limitaciones de API, modelos de pago o datos incompletos.
+
+\item \textbf{Alcance legal:} Se limita exclusivamente al análisis de fuentes abiertas sin realizar ningún tipo de contacto no autorizado.
+\end{itemize}
+
+\par\vspace{0.5cm}
+
+
+
+
+
+\clearpage
+
+
+
+
+\subsection{Fase de Ataque de la Auditoría}
+\par\vspace{0.5cm}
+
+
+
+-   Esra fase comienza una vez compeltado la fase de descubrimiento. Se retroalimenta con la de descubrimirneto ya que tras trazar un plan de ataque adecuado a los hallazgos obtenidos en la anterior fase, se retoma la investigaciñon de nuevas vulnerabilidades asociadas a los nuevos descubrimientos.
+
+
+- wifi
+
+
+
+\clearpage
+
+
+
+
+\subsection{Fase de Reporte de la Auditoría}
+
+La fase de reporte representa el cierre formal del proceso de auditoría de ciberseguridad. 
+Su propósito principal es documentar todos los hallazgos, evidencias e información recopilada durante las fases anteriores,
+ proporcionando una visión general del estado actual de seguridad a todos los niveles de la organización. 
+
+\par\vspace{0.5cm}
+
+Durante esta fase se elaboran dos documentos fundamentales: el \textbf{Informe Técnico Detallado}, y el \textbf{Informe Ejecutivo}. Cada uno presenta la información adaptada específicamente a las necesidades y responsabilidades de sus destinatarios.
+\par\vspace{0.5cm}
+
+Uno de los aspectos más importantes de estos informes es evaluar detalladamente la situación general de seguridad de la organización, identificando los riesgos más relevantes y determinando el alcance real que podría tener un atacante externo. A partir de este análisis, se formula un plan de acción para mitigar eficazmente los riesgos detectados.
+\par\vspace{0.5cm}
+
+\subsubsection{Objetivos de la fase de reporte}
+\begin{itemize}
+\item \textbf{Documentar los hallazgos técnicos:} Elaborar un informe técnico detallado que describa las vulnerabilidades detectadas, las pruebas realizadas, las evidencias recopiladas y las herramientas utilizadas, facilitando su análisis por parte del equipo de TI.
+
+\item \textbf{Informar a la dirección:} Redactar un informe ejecutivo claro, conciso y comprensible, que resuma el estado de seguridad de la organización, los principales riesgos identificados y su posible impacto sobre el negocio.
+
+\item \textbf{Evaluar riesgos:} Analizar los riesgos según su criticidad y probabilidad de explotación, estableciendo un orden de prioridades que permita asignar adecuadamente los recursos disponibles.
+
+\item \textbf{Proponer un plan de mejora:} Definir un conjunto de medidas correctivas y recomendaciones organizadas por niveles de prioridad, incluyendo responsables asignados y plazos estimados, con el objetivo de fortalecer la postura de seguridad de la organización a corto, medio y largo plazo.
+\end{itemize}
+\vspace{0.5cm}
+
+
+
+\subsubsection{Informe Técnico detallado}
+
+\textbf{Dirigido a:} Personal técnico especializado (equipo de seguridad, administradores de sistemas, responsables de TI).
+
+\textbf{Propósito:} Documentar de forma exhaustiva y técnica los hallazgos detectados durante la auditoría, proporcionando al equipo técnico toda la información necesaria para comprender, reproducir y corregir las vulnerabilidades identificadas.
+
+\textbf{Estructura:}
+\begin{itemize}
+  \item \textbf{Portada:} Título del informe, entidad auditada, equipo auditor, fecha y clasificación del documento.
+  \item \textbf{Índice:} Tabla de contenidos para facilitar la navegación del informe.
+  \item \textbf{Objetivo y Alcance:} Descripción detallada del propósito de la auditoría, los sistemas revisados y las limitaciones del análisis.
+  \item \textbf{Metodología:} Marcos y estándares aplicados (por ejemplo, NIST SP 800-115, OWASP, ISO/IEC 27001), herramientas utilizadas (Nmap, Nessus, Burp Suite, etc.) y fases de análisis (reconocimiento, escaneo, explotación, post-explotación).
+  \item \textbf{Hallazgos Técnicos:} Para cada vulnerabilidad:
+  \begin{itemize}
+    \item Identificador del hallazgo (por ejemplo, VULN-001).
+    \item Descripción técnica detallada.
+    \item Activo o sistema afectado.
+    \item Evidencias (capturas, logs, outputs de herramientas).
+    \item Nivel de criticidad (alto, medio, bajo) y justificación.
+    \item Riesgo y posible impacto.
+    \item Recomendaciones de mitigación específicas.
+    \item CVEs y referencias relacionadas.
+  \end{itemize}
+  \item \textbf{Resumen Técnico de Hallazgos:} Tabla resumen de todas las vulnerabilidades detectadas con criticidad, activos afectados y estado actual.
+  \item \textbf{Anexos:} Evidencias adicionales, logs completos, scripts utilizados, informes de herramientas de escaneo, etc.
+  \item \textbf{Glosario y Abreviaturas:} Definición de términos técnicos utilizados en el informe.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\subsubsection{Informe Ejecutivo}
+
+\textbf{Dirigido a:} Alta dirección, gerencia y responsables del negocio no técnicos.
+
+\textbf{Propósito:} Comunicar de forma clara y concisa los principales riesgos y hallazgos de la auditoría, así como su impacto potencial en el negocio, facilitando la toma de decisiones estratégicas.
+
+\textbf{Estructura:}
+\begin{itemize}
+  \item \textbf{Portada:} Título, nombre de la empresa auditada, entidad auditora, fecha, clasificación del informe.
+  \item \textbf{Resumen Ejecutivo:} Visión general de la auditoría, principales hallazgos, riesgos más relevantes y conclusiones clave.
+  \item \textbf{Objetivo y Alcance:} Breve explicación de qué se auditó y durante qué periodo, incluyendo los sistemas o áreas abarcadas.
+  \item \textbf{Metodología General:} Mención a los marcos y estándares utilizados, así como el tipo de pruebas realizadas.
+  \item \textbf{Resumen de Hallazgos:} Tabla o listado con cada vulnerabilidad, nivel de criticidad, impacto potencial y recomendación breve.
+  \item \textbf{Recomendaciones Generales:} Medidas de seguridad prioritarias y buenas prácticas sugeridas.
+  \item \textbf{Conclusiones:} Valoración global del estado de la ciberseguridad en la organización, nivel de exposición al riesgo y urgencia de intervención.
+\end{itemize}
+
+
+
+
+\subsubsection{Comparativa entre informe ejecutivo y técnico}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{|p{4cm}|p{5cm}|p{5cm}|}
+\hline
+\textbf{Característica} & \textbf{Informe Ejecutivo} & \textbf{Informe Técnico Detallado} \\
+\hline
+\textbf{Público objetivo} & Directivos / Gerencia & Técnicos / Administradores de sistemas \\
+\hline
+\textbf{Lenguaje} & No técnico, orientado a la comprensión empresarial & Técnico, con terminología especializada \\
+\hline
+\textbf{Enfoque} & Visión global y decisiones estratégicas & Solución de problemas y detalle técnico \\
+\hline
+\textbf{Extensión} & Breve (2-5 páginas) & Extenso (20 o más páginas) \\
+\hline
+\textbf{Incluye evidencias técnicas} & No & Sí (capturas, logs, herramientas) \\
+\hline
+\textbf{Nivel de detalle} & Bajo & Alto \\
+\hline
+\textbf{Recomendaciones} & Estratégicas, priorizadas por impacto y coste-beneficio & Operativas, específicas y técnicas \\
+\hline
+\end{tabular}
+\caption{Comparativa entre informe ejecutivo e informe técnico detallado en una auditoría de ciberseguridad.}
+\end{table}
+
+
+
+
+
+
+\vspace{0.5cm}
+
+\subsubsection{Evaluación de Riesgos}
+
+Para identificar y priorizar los riesgos de seguridad en una PYME, se aplica la metodología estructurada propuesta en la \textbf{NIST SP 800-30 Rev. 1} (NIST, 2012). Esta guía se centra en siete pasos clave, que permiten realizar un análisis completo y eficaz, incluso en entornos con recursos limitados.
+
+\vspace{0.5cm}
+
+\textbf{Objetivo:} Priorizar los riesgos que afectan la ciberseguridad de los activos críticos del negocio para aplicar controles técnicos y organizativos proporcionales.
+
+\vspace{0.5cm}
+
+\begin{center}
+\begin{tabular}{|c|p{12cm}|}
+\hline
+\rowcolor[HTML]{EFEFEF}
+\textbf{Paso} & \textbf{Descripción} \\
+\hline
+1 & \textbf{Caracterizar el sistema:} Identificar los activos críticos de la empresa (servidores, datos, procesos, redes, etc.) y su contexto operativo. \\
+\hline
+2 & \textbf{Identificar amenazas:} Listar amenazas posibles: malware, accesos no autorizados, errores humanos, incendios, etc. \\
+\hline
+3 & \textbf{Identificar vulnerabilidades:} Detectar debilidades explotables en sistemas, como software desactualizado, contraseñas débiles o falta de backups. \\
+\hline
+4 & \textbf{Estimar la probabilidad:} Asignar un nivel de probabilidad (alta, media, baja) de que una amenaza explote una vulnerabilidad. \\
+\hline
+5 & \textbf{Estimar el impacto:} Evaluar el daño potencial que causaría la explotación de la vulnerabilidad (económico, reputacional, legal...). \\
+\hline
+6 & \textbf{Determinar el riesgo:} Calcular el nivel de riesgo combinando probabilidad e impacto mediante una matriz de riesgos. \\
+\hline
+7 & \textbf{Recomendar respuesta:} Definir acciones para mitigar, transferir, evitar o aceptar los riesgos según su nivel. \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.8cm}
+\textbf{Matriz de Evaluación de Riesgos}
+
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\rowcolor[HTML]{D9EAD3}
+\textbf{Impacto} $\downarrow$ / \textbf{Probabilidad} $\rightarrow$ & \textbf{Baja} & \textbf{Media} & \textbf{Alta} \\
+\hline
+\textbf{Alta}   & Medio          & Alto           & Crítico \\
+\hline
+\textbf{Media}  & Bajo           & Medio          & Alto \\
+\hline
+\textbf{Baja}   & Bajo           & Bajo           & Medio \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+\textbf{Ejemplo Aplicado a una PYME (tienda online)}
+
+\begin{center}
+\begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|p{2cm}|}
+\hline
+\rowcolor[HTML]{F4CCCC}
+\textbf{Activo} & \textbf{Amenaza} & \textbf{Vulnerabilidad} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Riesgo} \\
+\hline
+Servidor web & Ataque DDoS & Sin protección WAF & Alta & Alta & Crítico \\
+\hline
+Base de datos de clientes & Robo de datos & Contraseña débil & Media & Alta & Alto \\
+\hline
+Sistema de backups & Falla física & Copia local única & Baja & Media & Medio \\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{0.5cm}
+
+\textbf{Recomendaciones de Respuesta}
+
+\begin{itemize}
+\item \textbf{Mitigar}: Instalar WAF y balanceador de carga para proteger servidor web.
+\item \textbf{Evitar}: Restringir acceso a la base de datos por IP.
+\item \textbf{Transferir}: Contratar seguro cibernético ante incidentes.
+\item \textbf{Aceptar}: Riesgos de bajo impacto que no justifican inversión.
+\end{itemize}
+
+\vspace{0.5cm}
+
+\textbf{Conclusión:} Esta evaluación permite a las PYMEs focalizar su estrategia de auditoría técnica en los activos más expuestos, alineando la metodología de pruebas de la \textbf{NIST SP 800-115} con una gestión de riesgos basada en datos y prioridades reales.
+
+\vspace{0.8cm}
+
+\textbf{Bibliografía}
+
+National Institute of Standards and Technology. (2012). \textit{Guide for conducting risk assessments} (NIST Special Publication 800-30 Revision 1). Gaithersburg, MD: U.S. Department of Commerce. Recuperado de \url{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf}
+
+
+\subsubsection{Plan de Mitigación de Riesgos}
+
+A partir del análisis de riesgos, se desarrolla un plan de acción estructurado que propone medidas claras y adaptadas al contexto de la organización para reducir o eliminar las vulnerabilidades detectadas.
+
+\textbf{Estructura del plan de mitigación:}
+\begin{itemize}
+\item \textbf{Medida propuesta:} Parcheo, configuración, segmentación, formación, etc.
+\item \textbf{Vulnerabilidad objetivo:} Vulnerabilidad específica a resolver.
+\item \textbf{Prioridad asignada:} Alta, media, baja, dependiendo del análisis de riesgos.
+\item \textbf{Responsable de ejecución:} Personal técnico, proveedor externo, departamentos específicos.
+\item \textbf{Plazo de implementación:} Tiempos recomendados según urgencia.
+\item \textbf{Estimación de recursos:} Coste o esfuerzo aproximado necesario para la implementación.
+\end{itemize}
+
+\textit{Objetivo: proveer una hoja de ruta práctica y efectiva para fortalecer la postura general de seguridad de la organización.}
+
+\vspace{0.5cm}
 
 
 
@@ -1981,14 +2766,6 @@ Para ello, se ha definido un entorno de pruebas que incluye:
 
 \par\vspace{0.4cm}
 
-\subsubsection*{Encuesta}
-
-\subsubsection*{Bloques y Objetivos}
-\subsubsection*{Bateria de preguntas}
-\subsubsection*{Estrucuturas externas e internas}
-\subsubsection*{Responsables}
-
-\subsubsection*{Inventario de activos}
 
 
 
@@ -2011,140 +2788,107 @@ Para ello, se ha definido un entorno de pruebas que incluye:
 
 % -----------------------------------------------REFERENCIAS------------------------------------------------------------
 %Poner bien las referencias en APA
-\begin{thebibliography}{20}
+\begin{thebibliography}{99}
     
-    \bibitem{farlopa}
-    DefSec. (s.f.). \textit{Mariscada virtual en el servidor de CCOO}. Recuperado el 08 de febrero de 2025, de \url{https://defsec.noblogs.org/mariscada-virtual-en-el-servidor-de-ccoo/}
-    
+    \bibitem{napalm-ccoo}
+    napalm. (2023, 2 de Diciembre). \textit{Mariscada virtual en el servidor de CCOO} [Entrada de blog]. Recuperado el 8 de Febrero de 2025, de \url{https://defsec.noblogs.org/mariscada-virtual-en-el-servidor-de-ccoo/}
+
     \bibitem{avtest}
-    AV-TEST. (s.f.). \textit{AV-Atlas Malware Portal}. Recuperado el 10 de enero de 2025, de \url{https://portal.av-atlas.org/malware}
-    
-    \bibitem{mitigacion}
-    Por Alguien. (2222) \url{http://perspectivas.espoch.edu.ec:8081/index.php/RCP_ESPOCH/article/view/215/146 consultado el 5/5/2025}
-    
+    AV-TEST. (s.f.). \textit{Malware Statistics Portal} [Página web]. Recuperado el 10 de Enero de 2025, de \url{https://portal.av-atlas.org/malware}
 
-    \bibitem{fortinet}
-    Por Alguien. (2222) \url{https://fortiguard.fortinet.com/threat-map}
-    
-    \bibitem{clockify}
-    \url{https://fortiguard.fortinet.com/threat-map}
-    
+    \bibitem{junta-perfiles}
+    Ceada Ramos, J. L. (2018, 3 de Agosto). \textit{Informe final sobre la consulta preliminar del mercado: “Perfiles profesionales ámbito informático”} [Informe técnico]. Junta de Andalucía. Recuperado el 13 de Febrero de 2025, de \url{https://www.juntadeandalucia.es/haciendayadministracionpublica/apl/pdc-front-publico/perfiles-licitaciones/consultas-preliminares/detalle?idExpediente=000000078484}
 
-
-    \bibitem{agencia_digital} 
-    Agencia Digital de Andalucía. (2024). \textit{Documento de transparencia sobre costes laborales en perfiles TIC}. Encontrado el 13 de febrero de 2025, de \url{https://ws040.juntadeandalucia.es/webconsejos/cgobierno/transparencia/240730/documentos/30Expediente.pdf}
-    
-    \bibitem{vuln}
-    Morales-López \& Taipe-Yanez \& Pallo-Tulmo, (2024) \textit{Estrategias de Auditoría en ciberseguridad y su importancia en las empresas una revisión bibliográfica} Encontrado el 07 de abril de 2025 de \url{https://www.investigarmqr.com/ojs/index.php/mqr/article/view/1436/4849}
-
-    \bibitem{boe}
-    Boletín Oficial del Estado. (2024). Código Electrónico de Ciberseguridad. el 08 de abril de 2025 Recuperado de: \url{https://www.boe.es/biblioteca_juridica/codigos/codigo.php?id=173}
-
-\bibitem{incibe}
-Instituto Nacional de Ciberseguridad (INCIBE). (s.f.). \textit{Página oficial de INCIBE}. Recuperado el 24 de mayo de 2025, de \url{https://www.incibe.es/}
-
-\bibitem{cni}
-Centro Nacional de Inteligencia (CNI). (s.f.). \textit{Quiénes somos}. Recuperado el 24 de mayo de 2025, de \url{https://www.cni.es/}
-
-\bibitem{ccncert}
-Centro Criptológico Nacional (CCN-CERT). (s.f.). \textit{Portal del CCN-CERT}. Recuperado el 24 de mayo de 2025, de \url{https://www.ccn-cert.cni.es/}
-
-\bibitem{aepd}
-Agencia Española de Protección de Datos (AEPD). (s.f.). \textit{Portal de la AEPD}. Recuperado el 24 de mayo de 2025, de \url{https://www.aepd.es/}
-
-\bibitem{nist}
-National Institute of Standards and Technology (NIST). (s.f.). \textit{Cybersecurity Framework}. Recuperado el 24 de mayo de 2025, de \url{https://www.nist.gov/cyberframework}
-
-\bibitem{nist800115}
-Scarfone, K., \& Mell, P. (2008). \textit{Technical Guide to Information Security Testing and Assessment (NIST SP 800-115)}. National Institute of Standards and Technology. Recuperado el 24 de mayo de 2025, de \url{https://csrc.nist.gov/publications/detail/sp/800-115/final}
-
-\bibitem{sans}
-SANS Institute. (s.f.). \textit{SANS Cyber Security Training and Certifications}. Recuperado el 24 de mayo de 2025, de \url{https://www.sans.org/}
-
-\bibitem{boe_ens}
-Boletín Oficial del Estado. (2022). \textit{Real Decreto 311/2022, por el que se regula el Esquema Nacional de Seguridad}. Recuperado el 24 de mayo de 2025, de \url{https://www.boe.es/eli/es/rd/2022/05/03/311}
-
-\bibitem{rgpd}
-Reglamento (UE) 2016/679 del Parlamento Europeo y del Consejo. (2016). \textit{Reglamento General de Protección de Datos (RGPD)}. Recuperado el 24 de mayo de 2025, de \url{https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32016R0679}
-
-\bibitem{boe_lopdgdd}
-Boletín Oficial del Estado. (2018). \textit{Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales}. Recuperado el 24 de mayo de 2025, de \url{https://www.boe.es/eli/es/lo/2018/12/05/3}
-
-\bibitem{nis2}
-Parlamento Europeo. (2022). \textit{Directiva (UE) 2022/2555 sobre medidas para un alto nivel común de ciberseguridad en la Unión (NIS2)}. Recuperado el 24 de mayo de 2025, de \url{https://eur-lex.europa.eu/legal-content/ES/TXT/?uri=CELEX%3A32022L2555}
-
-\bibitem{iso27001}
-International Organization for Standardization. (2022). \textit{ISO/IEC 27001:2022 – Information security, cybersecurity and privacy protection}. Recuperado el 24 de mayo de 2025, de \url{https://www.iso.org/standard/27001}
-
-\bibitem{triada}
-4IT Networks. (s.f.). \textit{La triada de la seguridad de la información: Confidencialidad, Integridad y Disponibilidad}. Recuperado el 24 de mayo de 2025, de \url{https://www.4itn.mx/ciberseguridad/triada-de-la-informacion/}
-
-\bibitem{owasp}
-OWASP Foundation. (s.f.). \textit{Open Web Application Security Project}. Recuperado el 24 de mayo de 2025, de \url{https://owasp.org/}
-
-\bibitem{osstmm}
-ISECOM. (s.f.). \textit{OSSTMM – Open Source Security Testing Methodology Manual}. Recuperado el 24 de mayo de 2025, de \url{https://www.isecom.org/OSSTMM.3.pdf}
-
-\bibitem{tibereu}
-European Central Bank. (s.f.). \textit{TIBER-EU Framework}. Recuperado el 24 de mayo de 2025, de \url{https://www.ecb.europa.eu/pub/pdf/other/ecb.tiber_eu_framework.en.pdf}
-
-\bibitem{nist80053}
-National Institute of Standards and Technology. (2020). \textit{NIST Special Publication 800-53 Revision 5: Security and Privacy Controls}. Recuperado el 24 de mayo de 2025, de \url{https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final}
-
-\bibitem{lpic}
-Linux Professional Institute. (s.f.). \textit{LPIC-1/2 Linux Professional Certification}. Recuperado el 24 de mayo de 2025, de \url{https://www.lpi.org/}
-
-\bibitem{ejptv2}
-eLearnSecurity. (s.f.). \textit{eJPTv2 - Junior Penetration Tester Certification}. Recuperado el 24 de mayo de 2025, de \url{https://elearnsecurity.com/product/ejpt-certification/}
-
-\bibitem{ewpt}
-eLearnSecurity. (s.f.). \textit{Web Application Penetration Tester (eWPT)}. Recuperado el 24 de mayo de 2025, de \url{https://elearnsecurity.com/product/ewpt-certification/}
-
-\bibitem{ecpptv2}
-eLearnSecurity. (s.f.). \textit{Certified Professional Penetration Tester (eCPPTv2)}. Recuperado el 24 de mayo de 2025, de \url{https://elearnsecurity.com/product/ecppt-certification/}
-
-\bibitem{pnpt}
-TCM Security. (s.f.). \textit{Practical Network Penetration Tester (PNPT)}. Recuperado el 24 de mayo de 2025, de \url{https://tcm-sec.com/pnpt-certification/}
-
-\bibitem{oscp}
-Offensive Security. (s.f.). \textit{Offensive Security Certified Professional (OSCP)}. Recuperado el 24 de mayo de 2025, de \url{https://www.offensive-security.com/pwk-oscp/}
-
-
-    \bibitem{cadena_ser}
-    Cadena SER. (2024). ¿Qué cambia la directiva de la UE que mejora la ciberseguridad y ya aplican los Estados?. el 08 de abril de 2025 Recuperado de: \url{https://cadenaser.com/cmadrid/2024/10/22/que-cambia-la-directiva-de-la-ue-que-mejora-la-ciberseguridad-y-ya-aplican-los-estados-ser-madrid-sur/}
-
-    \bibitem{device42}
-    Device42. (2024). \textit{Device42: The Ultimate Guide to Network Mapping}. Recuperado el 24 de mayo de 2025, de \url{https://www.device42.com/compliance-standards/nist-csf-categories/}
-
-    \bibitem{bce}
-    Banco Central Europeo. (2025). Decisiones adoptadas por el Consejo de Gobierno del BCE. el 08 de abril de 2025 Recuperado de: \url{https://www.ecb.europa.eu/press/govcdec/otherdec/2025/html/ecb.gc250131~d2c6d582b0.es.html}
-
-    \bibitem{comision_europea}
-    Comisión Europea. (2023). Una Europa Adaptada a la Era Digital. Recuperado de:el 08 de abril de 2025  \url{https://commission.europa.eu/strategy-and-policy/priorities-2019-2024/europe-fit-digital-age_es}
-
-    \bibitem{escudo2023}
-    Escudo Digital. (2023). INCIBE, CNI y CCN se reúnen para impulsar su coordinación en ciberseguridad. Recuperado de: \url{https://www.escudodigital.com/ciberseguridad/incibe-cni-ccn-se-reunen-impulsar-su-coordinacion-en-ciberseguridad_54930_102.html}
-
-    \bibitem{felipe2024}
-    Felipe Redondo, A. M., \& Núñez Cárdenas, F. J. (2024). \textit{Criterios de selección de herramientas para pentesting}. Ciencia Huasteca Boletín Científico de la Escuela Superior de Huejutla, 12(24), 31-35. Recuperado de \url{https://repository.uaeh.edu.mx/revistas/index.php/huejutla/article/view/12763/11251}
-    
     \bibitem{hiscox}
-    Hiscox (2022). \textit{ 44\% de las pymes españolas sufrió al menos un ciberataque durante 2021} Recuperado de \url{https://www.hiscox.es/el-44-de-las-pymes-espanolas-sufrio-al-menos-un-ciberataque-durante-2021}
+    Hiscox. (2022, 27 de Junio). \textit{El 44\% de las pymes españolas sufrió al menos un ciberataque durante 2021} [Nota de prensa]. Recuperado el 13 de Febrero de 2025, de \url{https://www.hiscox.es/el-44-de-las-pymes-espanolas-sufrio-al-menos-un-ciberataque-durante-2021}
 
     \bibitem{incibe2023}
-    INCIBE (2023). \textit{INCIBE gestionó más de 118.000 incidentes de ciberseguridad durante 2022, un 9\% más que en 202} Recuperado de \url{https://www.incibe.es/incibe/sala-de-prensa/incibe-gestiono-mas-115000-incidentes-ciberseguridad-durante-2022-9-mas}
+    INCIBE. (2023, 29 de Marzo). \textit{INCIBE gestionó más de 118.000 incidentes de ciberseguridad durante 2022, un 9\% más que en 2021} [Nota de prensa]. Recuperado el 13 de Febrero de 2025, de \url{https://www.incibe.es/incibe/sala-de-prensa/incibe-gestiono-mas-115000-incidentes-ciberseguridad-durante-2022-9-mas}
 
-    \bibitem{pow}
-    POW (2021). \textit{El 86\% de las compañías españolas carecen de una cultura de ciberseguridad entre los empleados} Recuperado de \url{https://www.pwc.es/es/sala-prensa/notas-prensa/2021/companias-espanolas-cultura-ciberseguridad-empleados.html}
+    \bibitem{pwc}
+    PwC España. (2021). \textit{El 86\% de las compañías españolas carecen de una cultura de ciberseguridad entre los empleados} [Nota de prensa]. Recuperado el 13 de Febrero de 2025, de \url{https://www.pwc.es/es/sala-prensa/notas-prensa/2021/companias-espanolas-cultura-ciberseguridad-empleados.html}
 
+    \bibitem{treyder}
+    Treyder. (s.f.). \textit{La ciberseguridad en las PYMES: Cómo proteger tu negocio de las amenazas en línea} [Entrada de blog]. Recuperado el 7 de Abril de 2025, de \url{https://www.treyder.com/blog/ciberseguridad-en-las-pymes/}
+
+    \bibitem{vuln}
+    Morales-López \& Taipe-Yanez \& Pallo-Tulmo, (2024) \textit{Estrategias de Auditoría en ciberseguridad y su importancia en las empresas una revisión bibliográfica} Recuperado el 07 de Abril de 2025, de \url{https://www.investigarmqr.com/ojs/index.php/mqr/article/view/1436/4849}
+
+    \bibitem{toms2021}
+    Toms, L. (2021, 30 de Julio). \textit{5 riesgos de seguridad para las PYMEs que se deben tener en cuenta}. GlobalSign. Recuperado el 7 de Abril de 2025, de \href{https://www.globalsign.com/es/blog/top-5-pequena-empresa-grandes-riesgos-5-riesgos-de-seguridad-para-las-pymes-que-se-deben-tener-en-cuenta}{https://www.globalsign.com/es/blog/} 
+        
+    \bibitem{fortinet}
+    Fortinet. (s.f.). \textit{Threat Map} [Mapa interactivo]. Recuperado el 7 de Abril de 2025, de \url{https://fortiguard.fortinet.com/threat-map}
+
+    \bibitem{mitigacion}
+    Viteri-Hernández, C., \& Avila-Pesantez, D. (2024). \textit{Exploración integral de la seguridad en redes de proveedores de servicios de Internet: Una revisión sistemática de literatura}. Recuperado el 5 de Mayo de 2025, de \url{https://perspectivas.espoch.edu.ec/RCP_ESPOCH/article/view/215/146}
+        
+    \bibitem{incibe}
+    INCIBE. (2015, 4 de Diciembre). \textit{Introducción a INCIBE} [Video]. Recuperado el 24 de Mayo de 2025, de \url{https://www.youtube.com/watch?v=zFCq191o1oA}
+
+    \bibitem{cni}
+    Centro Nacional de Inteligencia. (s.f.). \textit{Objetivos y valores}. Recuperado el 24 de Mayo de 2025, de \url{https://www.cni.es/sobre-el-cni/objetivos-y-valores}
+
+    \bibitem{ccncert}
+    Centro Criptológico Nacional (CCN-CERT). (s.f.). \textit{Portal del CCN-CERT}. Recuperado el 24 de Mayo de 2025, de \url{https://www.ccn-cert.cni.es/es/sobre-nosotros/}
+
+    \bibitem{aepd}
+    Agencia Española de Protección de Datos (AEPD). (2024, 13 de Marzo). \textit{Portal de la AEPD}. Recuperado el 24 de Mayo de 2025, de \url{https://www.aepd.es/la-agencia/transparencia/informacion-de-caracter-institucional-organizativa-y-de-planificacion-0}
+
+    \bibitem{nist}
+    National Institute of Standards and Technology (NIST). (s.f.). \textit{Cybersecurity Framework}. Recuperado el 24 de Mayo de 2025, de \url{https://www.nist.gov/about-nist}
+
+    \bibitem{device42}
+    Device42. (2024). \textit{NIST CSF Categories: Description, Examples, and Best Practices}. Recuperado el 24 de Mayo de 2025, de \url{https://www.device42.com/compliance-standards/nist-csf-categories/}
+
+    \bibitem{nistsp}
+    SEGURIDAD CERO (2022, 26 de Mayo). \textit{Ciberseguridad Buenas Practicas | NIST} [Video]. Recuperado el 24 de Mayo de 2025, de \url{https://www.youtube.com/watch?v=i3McVotWrl8&t=718s&ab_channel=SEGURIDADCERO}
+
+    \bibitem{sans}
+    SANS Institute. (s.f.). \textit{SANS Cyber Security Training and Certifications}. Recuperado el 25 de Mayo de 2025, de \url{https://www.sans.org/}
+
+    \bibitem{sanscert}
+    SANS Institute. (s.f.). \textit{Red Team Operations Certifications}. Recuperado el 25 de Mayo de 2025, de \url{https://www.giac.org/focus-areas/offensive-operations/}
+
+    \bibitem{boe_ens}
+    Centro Criptológico Nacional (CCN-CERT). (s.f). \textit{Esquema Nacional de Seguridad (ENS)}. Recuperado el 26 de Mayo de 2025, de \url{https://ens.ccn.cni.es/es/que-es-el-ens/faq}
+
+    \bibitem{rgpd}
+    Agencia Española de Protección de Datos (AEPD) (s.f). \textit{Reglamento General de Protección de Datos (RGPD)}. Recuperado el 26 de Mayo de 2025, de \url{https://ens.ccn.cni.es/es/que-es-el-ens}
+
+    \bibitem{boe_lopdgdd}
+    Boletín Oficial del Estado. (2018). \textit{Ley Orgánica 3/2018, de Protección de Datos Personales y garantía de los derechos digitales}. Recuperado el 26 de Mayo de 2025, de \url{https://www.boe.es/eli/es/lo/2018/12/05/3}
+
+    \bibitem{nis2}
+    Ingertec. (s.f.). \textit{Directiva NIS 2}. Recuperado el 28 de Mayo de 2025, de \url{https://ingertec.com/ciberseguridad/directiva-nis-2/}
+
+    \bibitem{iso27001}
+    International Organization for Standardization. (s.f). \textit{NORMA ISO 27001}. Recuperado el 28 de Mayo de 2025, de \url{https://www.normaiso27001.es/}
 
     \bibitem{triada}
-    Triada, A. (2023). \textit{Ciberseguridad para pymes: ¿Por qué es importante?} Recuperado del 07 de abril \url{https://www.4itn.mx/ciberseguridad/}
-    \bibitem{toms2021}
-    Toms, L. (2021). \textit{5 riesgos de seguridad para las PYMEs que se deben tener en cuenta} Recuperado de \url{https://www.globalsign.com/es/blog/top-5-pequena-empresa-grandes-riesgos-5-riesgos-de-seguridad-para-las-pymes-que-se-deben-tener-en-cuenta}
-    
-    \bibitem{treider}
-    Treider, A. (2021). \textit{Ciberseguridad para pymes: ¿Por qué es importante?} Recuperado del 07 de abril \url{https://www.treyder.com/blog/ciberseguridad-en-las-pymes/}
+    4IT Networks. (s.f.). \textit{Seguridad y Protección de la Información}. Recuperado el 28 de Mayo de 2025, de \url{https://www.4itn.mx/ciberseguridad/}
+
+    \bibitem{owasp}
+    OWASP Foundation. (s.f.). \textit{Open Web Application Security Project}. Recuperado el 22 de Mayo de 2025, de \url{https://owasp.org/about/}
+
+    \bibitem{osstmm}
+    ISECOM. (s.f.). \textit{OSSTMM – Open Source Security Testing Methodology Manual}. Recuperado el 22 de Mayo de 2025, de \url{https://www.isecom.org/OSSTMM.3.pdf}
+
+    \bibitem{tibereu}
+    European Central Bank. (s.f.). \textit{TIBER-EU Framework}. Recuperado el 22 de Mayo de 2025, de \url{https://www.ecb.europa.eu/pub/pdf/other/ecb.tiber_eu_framework.en.pdf}
+
+    \bibitem{nist80053}
+    National Institute of Standards and Technology. (2020). \textit{NIST Special Publication 800-53 Revision 5: Security and Privacy Controls for Information Systems and Organizations}. Recuperado el 22 de Mayo de 2025, de \url{https://doi.org/10.6028/NIST.SP.800-53r5}
+
+    \bibitem{nist800115}
+    Scarfone, K., Souppaya, M., Cody, A., \& Orebaugh, A. (2008). \textit{Technical guide to information security testing and assessment (NIST SP 800-115)}. National Institute of Standards and Technology. Recuperado el 22 de Mayo de 2025, de \url{https://doi.org/10.6028/NIST.SP.800-115}
+
+    \bibitem{felipe2024}
+    Felipe Redondo, A. M., \& Núñez Cárdenas, F. J. (2024). \textit{Criterios de selección de herramientas para pentesting}. \textit{Artículo Científico}. Recuperado el 8 de Abril de 2025, de \url{https://repository.uaeh.edu.mx/revistas/index.php/huejutla/article/view/12763/11251}
+
+    \bibitem{cvss}
+    FIRST. (s.f.). \textit{Common Vulnerability Scoring System}. Recuperado el 7 de Junio de 2025, de \url{https://www.first.org/cvss/specification-document}
+
 \end{thebibliography}
 
 
@@ -2159,41 +2903,339 @@ Offensive Security. (s.f.). \textit{Offensive Security Certified Professional (O
 % -----------------------------------------------ANEXOS------------------------------------------------------------
 \section{Anexos}
 
+
+\subsection{Anexo I. Registro de actividades en Clockify}
+
+A continuación se muestra el enlace al recurso utilizado para el control del tiempo y la gestión de tareas del proyecto:
+\url{https://app.clockify.me/shared/abc123}
+
+
+\clearpage
+
+
+
+\subsection{Anexo II. Enlaces oficiales de herramientas de pentesting}
+
+\subsection*{Sistemas Operativos}
 \begin{table}[H]
 \centering
-\begin{tabular}{|p{4cm}|p{8cm}|}
+\begin{tabular}{|m{5cm}|m{10cm}|}
 \hline
-\textbf{Herramienta} & \textbf{URL de referencia / descarga} \\
+\textbf{Herramienta} & \textbf{URL} \\
 \hline
 Kali Linux & \url{https://www.kali.org} \\
+\hline
 Parrot OS & \url{https://www.parrotsec.org} \\
-Nmap & \url{https://nmap.org} \\
-Nessus & \url{https://www.tenable.com/products/nessus} \\
-OpenVAS & \url{https://www.greenbone.net/en/} \\
-Nikto & \url{https://github.com/sullo/nikto} \\
-SQLMap & \url{https://sqlmap.org} \\
-Burp Suite & \url{https://portswigger.net/burp} \\
-OWASP ZAP & \url{https://www.zaproxy.org} \\
-Shodan & \url{https://www.shodan.io} \\
-Censys & \url{https://censys.io} \\
-TheHarvester & \url{https://github.com/laramies/theHarvester} \\
-Maltego & \url{https://www.maltego.com} \\
-Wireshark & \url{https://www.wireshark.org} \\
-Tcpdump & \url{https://www.tcpdump.org} \\
-Metasploit & \url{https://www.metasploit.com} \\
-BloodHound & \url{https://github.com/BloodHoundAD/BloodHound} \\
-CrackMapExec & \url{https://github.com/Porchetta-Industries/CrackMapExec} \\
-Mimikatz & \url{https://github.com/gentilkiwi/mimikatz} \\
-Flipper Zero & \url{https://flipperzero.one} \\
-USB Rubber Ducky & \url{https://shop.hak5.org/products/usb-rubber-ducky-deluxe} \\
-Cactus WHID & \url{https://github.com/spacehuhntech/WHID-Injector} \\
 \hline
 \end{tabular}
-\caption{Listado de herramientas utilizadas en auditorías de ciberseguridad y sus referencias oficiales}
+\end{table}
+
+\subsection*{Herramientas OSINT}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Shodan & \url{https://www.shodan.io} \\
+\hline
+Censys & \url{https://censys.io} \\
+\hline
+TheHarvester & \url{https://github.com/laramies/theHarvester} \\
+\hline
+Maltego & \url{https://www.maltego.com} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Herramientas de Enumeración y Escaneo}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Nmap & \url{https://nmap.org} \\
+\hline
+Nessus & \url{https://www.tenable.com/products/nessus} \\
+\hline
+SQLmap & \url{https://sqlmap.org} \\
+\hline
+OpenVAS (Greenbone) & \url{https://www.greenbone.net/en/} \\
+\hline
+Nikto & \url{https://github.com/sullo/nikto} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Herramientas para Aplicaciones Web}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Burp Suite & \url{https://portswigger.net/burp} \\
+\hline
+ZAP (Zed Attack Proxy) & \url{https://www.zaproxy.org} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Herramientas para Auditoría de Redes Wi-Fi}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Aircrack-ng & \url{https://www.aircrack-ng.org} \\
+\hline
+Wifi Pineapple & \url{https://shop.hak5.org/collections/2025-best-sellers/products/wifi-pineapple-enterprise} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Herramientas Físicas (Hardware Hacking)}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Flipper Zero & \url{https://flipperzero.one} \\
+\hline
+USB Rubber Ducky & \url{https://shop.hak5.org/products/usb-rubber-ducky-deluxe} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Post-Explotación y Explotación}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Metasploit & \url{https://www.metasploit.com} \\
+\hline
+John the Ripper & \url{https://www.openwall.com/john} \\
+\hline
+BloodHound & \url{https://github.com/BloodHoundAD/BloodHound} \\
+\hline
+NetExec (antes CrackMapExec) & \url{https://github.com/Pennyw0rth/NetExec} \\
+\hline
+Mimikatz & \url{https://github.com/gentilkiwi/mimikatz} \\
+\hline
+\end{tabular}
+\end{table}
+
+\subsection*{Análisis de Tráfico de Red}
+\begin{table}[H]
+\centering
+\begin{tabular}{|m{5cm}|m{10cm}|}
+\hline
+\textbf{Herramienta} & \textbf{URL} \\
+\hline
+Wireshark & \url{https://www.wireshark.org} \\
+\hline
+\end{tabular}
 \end{table}
 
 
 \clearpage
+
+\subsection{Anexo III: Glosario de términos}
+
+A continuación se presenta un glosario con los principales términos utilizados en el presente trabajo:
+
+\begin{itemize}
+
+    \item \textbf{AD}: Active Directory. Servicio de directorio desarrollado por Microsoft para gestionar usuarios, equipos y recursos en una red.
+
+    \item \textbf{AEPD}: Agencia Española de Protección de Datos. Autoridad nacional encargada de velar por el cumplimiento del RGPD y la LOPD-GDD en España.
+
+    \item \textbf{AP}: Access Point (Punto de acceso). Dispositivo que permite la conexión de dispositivos inalámbricos a una red cableada.
+
+    \item \textbf{APA}: American Psychological Association. Estilo de citación utilizado habitualmente en ciencias sociales y documentos académicos.
+
+    \item \textbf{API}: Application Programming Interface. Conjunto de funciones que permite la comunicación entre diferentes aplicaciones o servicios.
+
+    \item \textbf{ARP}: Address Resolution Protocol. Protocolo que asocia direcciones IP con direcciones MAC en redes locales.
+
+    \item \textbf{BLE}: Bluetooth Low Energy. Versión de bajo consumo del estándar Bluetooth, usado en dispositivos IoT y móviles.
+
+    \item \textbf{BSSID}: Basic Service Set Identifier. Dirección MAC única del punto de acceso Wi-Fi.
+
+    \item \textbf{CCN-CERT}: Capacidad de Respuesta a Incidentes del Centro Criptológico Nacional. Organismo especializado en ciberseguridad y respuesta a amenazas en la administración pública.
+
+    \item \textbf{CIDR}: Classless Inter-Domain Routing. Notación para representar rangos de direcciones IP mediante una dirección seguida de una barra y el número de bits de red (ej. \texttt{/24}).
+
+    \item \textbf{CISO}: Chief Information Security Officer. Directivo encargado de definir y supervisar la estrategia de ciberseguridad de una organización.
+
+    \item \textbf{CMD}: Command. Abreviatura común para referirse a la línea de comandos o terminal.
+
+    \item \textbf{CoAP}: Constrained Application Protocol. Protocolo optimizado para dispositivos IoT con recursos limitados.
+
+    \item \textbf{CNI}: Centro Nacional de Inteligencia. Agencia de inteligencia española con competencias en seguridad del Estado.
+
+    \item \textbf{CSRF}: Cross-Site Request Forgery. Ataque que hace que un usuario autenticado ejecute acciones no deseadas en una aplicación web.
+
+    \item \textbf{CTO}: Chief Technology Officer. Responsable de la estrategia tecnológica y del liderazgo en innovación dentro de una organización.
+
+    \item \textbf{CVE}: Common Vulnerabilities and Exposures. Identificador estándar para vulnerabilidades conocidas en software y hardware.
+
+    \item \textbf{DDoS}: Distributed Denial of Service. Ataque que busca colapsar un sistema mediante el envío masivo de tráfico desde múltiples fuentes.
+
+    \item \textbf{DNS}: Domain Name System. Sistema que traduce nombres de dominio legibles por humanos a direcciones IP.
+
+    \item \textbf{EE}: Entorno Empresarial. Conjunto de condiciones externas e internas que afectan a la actividad de una empresa.
+
+    \item \textbf{EI}: Entorno Interno. Factores y recursos propios de una organización que influyen en su gestión y seguridad.
+
+    \item \textbf{ENS}: Esquema Nacional de Seguridad. Marco normativo español que establece requisitos de seguridad para sistemas de las administraciones públicas.
+
+    \item \textbf{GHDB}: Google Hacking Database. Base de datos de búsquedas avanzadas que pueden revelar información sensible mediante motores de búsqueda.
+
+    \item \textbf{GIAC}: Global Information Assurance Certification. Conjunto de certificaciones profesionales en seguridad de la información emitidas por SANS.
+
+    \item \textbf{GPO}: Group Policy Object. Conjunto de reglas en sistemas Windows que controlan la configuración de usuarios y equipos.
+
+    \item \textbf{HTTP}: HyperText Transfer Protocol. Protocolo utilizado para la transferencia de datos en la web.
+
+    \item \textbf{IDOR}: Insecure Direct Object Reference. Vulnerabilidad que permite acceder a recursos sin autorización mediante manipulación de identificadores.
+
+    \item \textbf{IDS/IPS}: Intrusion Detection/Prevention System. Sistemas para detectar (IDS) y prevenir (IPS) accesos o actividades maliciosas en una red.
+
+    \item \textbf{INCIBE}: Instituto Nacional de Ciberseguridad. Organismo español encargado de impulsar la ciberseguridad en ciudadanos, empresas y operadores estratégicos.
+
+    \item \textbf{IoT}: Internet of Things. Red de dispositivos físicos conectados a internet que recopilan y comparten datos.
+
+    \item \textbf{ISO/IEC}: Conjunto de estándares internacionales de la Organización Internacional de Normalización y la Comisión Electrotécnica Internacional.
+
+    \item \textbf{LOPD-GDD}: Ley Orgánica de Protección de Datos y Garantía de Derechos Digitales. Ley española que adapta el RGPD al marco legal nacional.
+
+    \item \textbf{MFA}: Multi-Factor Authentication. Sistema de autenticación que requiere más de un factor (como contraseña y código enviado al móvil) para verificar la identidad de un usuario.
+
+    \item \textbf{MITM}: Man-In-The-Middle. Ataque en el que un tercero intercepta y/o modifica las comunicaciones entre dos partes sin que estas lo sepan.
+
+    \item \textbf{MQTT}: Message Queuing Telemetry Transport. Protocolo ligero para la comunicación entre dispositivos IoT.
+
+    \item \textbf{NDA}: Non-Disclosure Agreement (Acuerdo de confidencialidad). Contrato legal que obliga a las partes a no divulgar información sensible o confidencial.
+
+    \item \textbf{NIST}: National Institute of Standards and Technology. Organismo estadounidense que publica estándares y guías de ciberseguridad de referencia internacional.
+
+    \item \textbf{OS}: Operating System. Software principal que gestiona el hardware y recursos de un sistema.
+
+    \item \textbf{OSINT}: Open Source Intelligence. Recopilación de información a partir de fuentes públicas como parte del proceso de análisis o investigación.
+
+    \item \textbf{OSSTMM}: Open Source Security Testing Methodology Manual. Marco metodológico abierto para auditorías de seguridad y evaluación de riesgos.
+
+    \item \textbf{OT}: Operational Technology. Tecnología utilizada para el control de procesos físicos (como maquinaria industrial), distinta de la TI tradicional.
+
+    \item \textbf{OWASP}: Open Web Application Security Project. Proyecto abierto que promueve buenas prácticas y recursos para mejorar la seguridad de las aplicaciones web.
+
+    \item \textbf{Pymes}: Pequeñas y Medianas Empresas. Negocios con limitaciones de recursos humanos y económicos en comparación con grandes corporaciones.
+
+    \item \textbf{Protocolos}: Conjunto de reglas que rigen la comunicación entre dispositivos en una red (ej. HTTP, FTP, TCP/IP).
+
+    \item \textbf{PTES}: Penetration Testing Execution Standard. Estándar que define buenas prácticas y metodologías para realizar pruebas de penetración (pentesting).
+
+    \item \textbf{RCE}: Remote Code Execution. Vulnerabilidad que permite ejecutar código malicioso de forma remota en un sistema comprometido.
+
+    \item \textbf{RGPD}: Reglamento General de Protección de Datos. Normativa europea que regula el tratamiento de datos personales y garantiza los derechos de los ciudadanos.
+
+    \item \textbf{SANS}: SysAdmin, Audit, Network and Security. Organización líder en formación y certificación en ciberseguridad.
+
+    \item \textbf{SGSI}: Sistema de Gestión de Seguridad de la Información. Conjunto de políticas, procedimientos y controles diseñados para proteger los activos de información.
+
+    \item \textbf{SMS}: Short Message Service. Servicio de mensajería de texto utilizado también como segundo factor de autenticación.
+
+    \item \textbf{SQL}: Structured Query Language. Lenguaje utilizado para gestionar bases de datos, a menudo objetivo de ataques como la inyección SQL.
+
+    \item \textbf{SQLi}: SQL Injection. Ataque que consiste en insertar comandos SQL maliciosos en formularios o URLs para manipular bases de datos.
+
+    \item \textbf{SSH}: Secure Shell. Protocolo de red que permite la administración remota segura de sistemas.
+
+    \item \textbf{SSID}: Service Set Identifier. Nombre que identifica una red Wi-Fi.
+
+    \item \textbf{SUID}: Set User ID. Permiso especial en sistemas Unix que permite ejecutar un archivo con los privilegios del propietario.
+
+    \item \textbf{TFG}: Trabajo de Fin de Grado. Proyecto académico obligatorio para la obtención del título universitario de grado.
+
+    \item \textbf{TIBER}: Threat Intelligence-Based Ethical Red Teaming. Marco europeo para realizar ejercicios avanzados de simulación de ciberataques en infraestructuras críticas.
+
+    \item \textbf{TI}: Tecnologías de la Información. Conjunto de recursos tecnológicos utilizados para gestionar y procesar información.
+
+    \item \textbf{TOR}: The Onion Router. Red diseñada para navegar de forma anónima a través de múltiples capas de cifrado.
+
+    \item \textbf{UE}: Unión Europea. Comunidad política y económica que agrupa a 27 países europeos, responsable de normativas como el RGPD.
+
+    \item \textbf{UPnP}: Universal Plug and Play. Conjunto de protocolos que permite la conexión automática de dispositivos en una red.
+
+    \item \textbf{VLAN}: Virtual LAN. Red lógica que segmenta dispositivos dentro de una misma red física para mejorar la seguridad y eficiencia.
+
+    \item \textbf{VPN}: Virtual Private Network. Red privada virtual que cifra la conexión a internet para proteger la privacidad y seguridad.
+
+    \item \textbf{WAF}: Web Application Firewall. Sistema de seguridad que protege aplicaciones web contra ataques como XSS o SQLi.
+
+    \item \textbf{WEP}: Wired Equivalent Privacy. Protocolo de seguridad obsoleto para redes Wi-Fi, vulnerable a múltiples ataques.
+
+    \item \textbf{WPA}: Wi-Fi Protected Access. Protocolo de seguridad para redes inalámbricas, sucesor de WEP.
+
+    \item \textbf{XSS}: Cross-Site Scripting. Vulnerabilidad que permite inyectar scripts maliciosos en páginas web vistas por otros usuarios.
+
+    \item \textbf{XXE}: XML External Entity. Vulnerabilidad que permite a un atacante acceder a archivos o recursos internos a través de procesamiento inseguro de XML.
+\end{itemize}
+
+\clearpage
+
+\subsection{Anexo IV: Parámetros avanzados de Nmap}
+
+A continuación se presenta un resumen de los parámetros más relevantes de \textbf{Nmap}.
+
+\vspace{1em}
+
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{clXc}
+\toprule
+\textbf{Parámetro} & \textbf{} & \textbf{Función} & \textbf{Categoría} \\
+\midrule
+\bottomrule
+\texttt{-sn} & & Realiza un escaneo sin comprobar puertos (ping scan). Detecta si los hosts están activos. & Detección de hosts \\
+\bottomrule
+\texttt{-sS} & & Escaneo SYN (stealth scan). No completa la conexión TCP (half-open). & Sigilo \\
+\bottomrule
+\texttt{-sT} & & Escaneo TCP completo con conexión. Útil si no se tienen privilegios root. & Estándar \\
+\bottomrule
+\texttt{-sU} & & Escaneo de puertos UDP. Más lento pero detecta servicios no-TCP. & Cobertura total \\
+\bottomrule
+\texttt{-Pn} & & Desactiva el ping inicial (asume que los hosts están activos). Evita bloqueos por firewall. & Evasión \\
+\bottomrule
+\texttt{-f}  & & Fragmenta los paquetes para dificultar su detección por sistemas IDS/IPS. & Evasión \\
+\bottomrule
+\texttt{-D decoy1,decoy2} & & Usa direcciones señuelo (decoys) para ocultar la IP real del escáner. & Evasión \\
+\bottomrule
+\texttt{-T0} -- \texttt{-T5} & & Controla la velocidad y agresividad del escaneo. `T0` es muy lento/sigiloso, `T5` es muy rápido. & Rendimiento / Sigilo \\
+\bottomrule
+\texttt{-sV} & & Detecta versiones de servicios en puertos abiertos. & Identificación \\
+\bottomrule
+\texttt{-O} & & Intenta identificar el sistema operativo del host. & Identificación \\
+\bottomrule
+\texttt{-A} & & Realiza detección avanzada: SO, versiones, traceroute y scripts NSE. & Detección avanzada \\
+\bottomrule
+\texttt{-n} & & Desactiva la resolución DNS para aumentar la velocidad. & Rendimiento \\
+\bottomrule
+\texttt{-v}, \texttt{-vv} & & Aumenta el nivel de detalle (verbose) en la salida del escaneo. & Monitorización \\
+\bottomrule
+\texttt{-oA base} & & Guarda los resultados en tres formatos: XML, normal y grepable. & Registro \\
+\bottomrule
+\end{tabularx}
+\caption{Parámetros avanzados de Nmap clasificados por funcionalidad}
+\label{tab:nmap_avanzado}
+\end{table}
 
 
 
