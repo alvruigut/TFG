@@ -33,6 +33,10 @@
 \usepackage{tabularx}
 \usepackage{smartdiagram}
 \usepackage[most]{tcolorbox}
+\usepackage{titlesec}
+\usepackage{tikz}
+\usepackage{etoolbox}
+\usepackage{ulem}
 
 % Configuración de código
 \usepackage{listings}
@@ -78,13 +82,6 @@
     framexleftmargin=0.5cm
 }
 
-
-
-
-
-
-
-
 % Definición de colores para tabla de vulnerabilidades
 \definecolor{cvsscritical}{RGB}{204,0,0}    % rojo fuego
 \definecolor{cvsshigh}{RGB}{255,102,0}      % naranja
@@ -113,18 +110,57 @@
     showstringspaces=false,
     showtabs=false
 }
-
 \lstset{style=mystyle}
 \renewcommand{\lstlistingname}{Código}
+
 % Variable para logo
+
 \newcommand{\logoPortada}{images/logo_uni.png}
 
 % Configuración de cabecera y pie de página
+
+\renewcommand{\sectionmark}[1]{%
+  \markboth{\textcolor{black}{\thesection.}~#1}{}%
+}
+
 \pagestyle{fancy}
-\fancyhead[L]{\textcolor{red}\leftmark}    
+\fancyhead[L]{\leftmark}
 \fancyhead[C]{}
-\fancyhead[R]{}
-\fancyfoot[C]{\textcolor{red}{\thepage}}
+\fancyhead[R]{{\thepage}}
+\fancyfoot[C]{}
+
+\fancypagestyle{nohead}{
+  \fancyhf{} 
+   \renewcommand{\headrulewidth}{0pt}
+  \fancyfoot[C]{{\thepage}} 
+}
+
+
+
+
+
+
+
+\titleformat{\section}[block]
+  {\normalfont\bfseries}
+  {
+    \vspace*{2cm}
+    \begin{flushright}
+      \fontsize{14pt}{14pt}\selectfont\MakeUppercase{Capítulo {\fontsize{32pt}{32pt}\selectfont \thesection}
+      }
+    \end{flushright}
+    \vspace{0.3cm} 
+    \titlerule
+    \vspace{0.4cm} 
+  }
+  {0pt}
+  {
+    \centering\Huge
+  }
+  [\vspace{0.4cm}\titlerule\vspace{1cm}] 
+
+
+
 
 
 
@@ -132,6 +168,7 @@
 
 % -----------------------------------------PORTADA-------------------------------------------------------------
     \begin{titlepage}
+        \thispagestyle{empty}
         \centering
         \includegraphics[width=0.2\textwidth]{\logoPortada} \par\vspace{1cm}
         {\scshape\LARGE \textbf{Universidad de Sevilla}}\par\vspace{1cm}
@@ -145,85 +182,23 @@
         {\Large\itshape Alejandro Carrasco Muñoz}\par\vspace{1cm}
         Departamento:\par\vspace{0.1cm}
         {\Large\itshape Tecnología Electrónica}\par\vspace{1cm}
-        2024/2025
+        \textbf{JUNIO 2025}
     \end{titlepage}
     \clearpage
-% -----------------------------------------------INDICES------------------------------------------------------------
-
-\tableofcontents
-\thispagestyle{empty}
-\clearpage
-
-
-\listoffigures
-\thispagestyle{empty}
-\clearpage
-
-
-\listoftables
-\thispagestyle{empty}
-\clearpage
-
-\renewcommand{\lstlistlistingname}{Índice de códigos}
-\lstlistoflistings
-\thispagestyle{empty}
-\clearpage
 
 
 
-% -----------------------------------------------AGRADECIMIENTOS------------------------------------------------------------
-
-\section*{Agradecimientos}
-\section*{Familiares}
-
-\thispagestyle{empty}
-
-\vfill
-\begin{flushright}
-\begin{minipage}{0.5\textwidth}
-A mi familia, por estar siempre presente en cada paso del camino. Gracias por vuestro amor, comprensión y por haberme dado el apoyo necesario, también en lo económico, para poder continuar con mi formación.
-\end{minipage}
-\end{flushright}
-\clearpage
-
-\section*{Mi pareja y familiares}
-\thispagestyle{empty}
-
-\vfill
-\begin{flushright}
-\begin{minipage}{0.5\textwidth}
-A mi pareja y a su familia, por su apoyo incondicional y por sostenerme en los momentos más difíciles. Gracias por estar siempre, por el cariño, la paciencia y por motivarme a seguir adelante cuando más lo necesitaba.
-\end{minipage}
-\end{flushright}
-\clearpage
-
-\section*{Mi Tutor}
-\thispagestyle{empty}
-
-\vfill
-\begin{flushright}
-\begin{minipage}{0.5\textwidth}
-A mi tutor Alejandro, por aceptar ser parte de este camino. Gracias por la confianza depositada en mí, por las facilidades aportadas y por abrirme la puerta hacia una nueva etapa profesional.
-\end{minipage}
-\end{flushright}
-\clearpage
-
-\section*{BeeHacker}
-\thispagestyle{empty}
-\vfill
-\begin{flushright}
-\begin{minipage}{0.5\textwidth}
-A la empresa Beehacker, por su colaboración en este proyecto. Agradezco sinceramente la oportunidad que me han ofrecido para aplicar mis conocimientos en un entorno real y su implicación durante todo el proceso.
-\end{minipage}
-\end{flushright}
-\clearpage
+\pagenumbering{roman}
+\setcounter{page}{1}
 
 
 
-% -----------------------------------------------RESUMEN------------------------------------------------------------
 
+
+
+    % -----------------------------------------------RESUMEN------------------------------------------------------------
+\thispagestyle{nohead}
 \section*{Resumen}
-\thispagestyle{empty}
 Las pequeñas y medianas empresas (PYMEs) desempeñan un papel fundamental en la economía global. Sin embargo, su creciente digitalización ha incrementado su exposición a ciberataques, debido a infraestructuras de seguridad limitadas y a la falta de recursos suficientes para hacer frente a amenazas sofisticadas.
 Este proyecto tiene como objetivo principal desarrollar un modelo de auditoría de ciberseguridad adaptado a las PYMEs. Para garantizar su aplicabilidad, se elaborará una guía accesible para usuarios sin conocimientos técnicos avanzados, que les permita evaluar la seguridad de sus entornos digitales de forma autónoma.
 
@@ -243,9 +218,9 @@ Finalmente, se presentan los resultados obtenidos, ofreciendo una visión clara 
 \clearpage
 
 % -----------------------------------------------ABSTRACT------------------------------------------------------------
+\thispagestyle{nohead}
 
 \section*{Abstract}
-\thispagestyle{empty}
 Small and medium-sized enterprises (SMEs) play a fundamental role in the global economy. However, their increasing digitalization has significantly raised their exposure to cyberattacks, due to limited security infrastructures and insufficient resources to address sophisticated threats.
 This project aims to develop a cybersecurity audit model specifically tailored to SME. To ensure its usability, an accessible guide will be created for users without advanced technical knowledge, enabling them to assess the security of their digital environments independently.
 
@@ -265,8 +240,90 @@ Finally, the results obtained are presented, providing a clear and structured ov
 \clearpage
 
 
+% -----------------------------------------------AGRADECIMIENTOS------------------------------------------------------------
+\thispagestyle{nohead}
+
+\section*{Agradecimientos}
+\section*{Familiares}
+
+
+\vfill
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+A mi familia, por estar siempre presente en cada paso del camino. Gracias por vuestro amor, comprensión y por haberme dado el apoyo necesario, también en lo económico, para poder continuar con mi formación.
+\end{minipage}
+\end{flushright}
+\clearpage
+\thispagestyle{nohead}
+
+\section*{Mi pareja y familiares}
+
+\vfill
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+A mi pareja y a su familia, por su apoyo incondicional y por sostenerme en los momentos más difíciles. Gracias por estar siempre, por el cariño, la paciencia y por motivarme a seguir adelante cuando más lo necesitaba.
+\end{minipage}
+\end{flushright}
+\clearpage
+\thispagestyle{nohead}
+
+\section*{Mi Tutor}
+
+\vfill
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+A mi tutor Alejandro, por aceptar ser parte de este camino. Gracias por la confianza depositada en mí, por las facilidades aportadas y por abrirme la puerta hacia una nueva etapa profesional.
+\end{minipage}
+\end{flushright}
+\clearpage
+\thispagestyle{nohead}
+
+\section*{BeeHacker}
+\vfill
+\begin{flushright}
+\begin{minipage}{0.5\textwidth}
+A la empresa Beehacker, por su colaboración en este proyecto. Agradezco sinceramente la oportunidad que me han ofrecido para aplicar mis conocimientos en un entorno real y su implicación durante todo el proceso.
+\end{minipage}
+\end{flushright}
+\clearpage
+
+
+% -----------------------------------------------INDICES------------------------------------------------------------
+\addcontentsline{toc}{section}{Índice de General}
+\thispagestyle{nohead}
+\renewcommand{\contentsname}{Índice General}
+\tableofcontents
+\clearpage
+
+\addcontentsline{toc}{section}{Índice de Figuras}
+\listoffigures
+\thispagestyle{nohead}
+\clearpage
+
+\listoftables
+\addcontentsline{toc}{section}{Índice de Cuadros}
+\thispagestyle{nohead}
+\clearpage
+
+\renewcommand{\lstlistlistingname}{Índice de Códigos}
+\thispagestyle{nohead}
+\lstlistoflistings
+\addcontentsline{toc}{section}{Índice de Códigos}
+
+\clearpage
+
+\pagenumbering{arabic}
+
+
+
+
+
+
+
+
 % -----------------------------------------------INTRODUCCION------------------------------------------------------------
 \section{Introducción}
+\thispagestyle{nohead}
 \par\vspace{0.5cm}
 
 En el mundo digital actual, la ciberseguridad ya no es una opción, sino una necesidad. Las pequeñas y medianas empresas (PYMEs), pilares fundamentales de la economía global, se encuentran entre los objetivos más vulnerables frente a ciberataques. A pesar de su importancia económica, 
@@ -285,93 +342,74 @@ En este contexto, es crucial que las PYMEs adopten medidas proactivas para prote
 estrategias de mitigación efectivas. A través de esta guía, se busca que las PYMEs fortalezcan su seguridad informática y enfrenten con mayor confianza los desafíos del entorno digital actual.
 \par\vspace{0.5cm}
 
-\clearpage
 
+\subsection{Motivación}
+\par\vspace{0.5cm}
 
+Una de las principales motivaciones personales que impulsa la realización de este trabajo es mi interés en formarme profesionalmente como \textit{pentester}. Este proyecto supone un gran reto académico y personal, ya que se trata de una iniciativa que exige muchas horas de dedicación y esfuerzo. Representa además el cierre de mi etapa universitaria como estudiante de Ingeniería del Software, y el desafío más importante será enfrentarme a un ámbito completamente nuevo y desconocido, sin contar con información previa ni experiencia específica en auditorías de ciberseguridad. 
+\par\vspace{0.5cm}
+
+Al mismo tiempo, me gustaría que esta guía sirviera como punto de partida para otros estudiantes en prácticas o personas con poca experiencia que deseen introducirse en el ámbito de la ciberseguridad. De este modo, no solo se contribuirá a la protección de las PYMEs, sino también al desarrollo de nuevos profesionales en el sector.
+
+\par\vspace{0.5cm}
+Además de la motivación personal, este proyecto surge con la intención de concienciar a las pequeñas y medianas empresas sobre la importancia de mantener un nivel adecuado de protección en materia de ciberseguridad. En un entorno cada vez más digitalizado, muchas PYMEs se enfrentan a amenazas constantes sin disponer de los medios necesarios para hacerles frente de forma eficaz. Según datos de la plataforma AV-TEST, se detectan más de 450.000 nuevas muestras de software malicioso cada día, y se estima que el 70\,\% de los ciberataques registrados en la Península Ibérica tienen como objetivo a este tipo de empresas \cite{avtest}. 
+\par\vspace{0.5cm}
+
+Ante esta situación, el presente trabajo plantea el diseño de una guía práctica y accesible que permita realizar auditorías básicas de ciberseguridad, adaptada a entornos donde no siempre se dispone de conocimientos técnicos especializados.
 
 \subsection{Objetivos}
 \par\vspace{0.5cm}
 
-El objetivo principal de este trabajo es dise\~nar un modelo de auditor\'ia de ciberseguridad  espec\'ifico para PYMEs, que sea f\'acil de implementar por personas sin conocimientos t\'ecnicos avanzados. Los objetivos espec\'ificos incluyen:
+El objetivo principal de este trabajo es diseñar un modelo de auditoría de ciberseguridad específico para PYMEs, que sea fácil de implementar por personas sin conocimientos técnicos avanzados. Los objetivos específicos incluyen:
 
 \begin{itemize}
-    \item Establecer un marco te\'orico que contemple los fundamentos necesarios para dar una base inicial a cualquier persona interesada en la ciberseguridad.
-    \item Proponer una metodolog\'ia de auditor\'ia completa y estructurada.
-    \item Desarrollar un caso pr\'actico en una PYME real para validar la metodolog\'ia propuesta.
-    \item Redactar un informe detallado que incluya el an\'alisis de riesgos, vulnerabilidades detectadas y recomendaciones de mejora.
+    \item Establecer un marco teórico que contemple los fundamentos necesarios para dar una base inicial a cualquier persona interesada en la ciberseguridad.
+    \item Proponer una metodología de auditoría completa y estructurada.
+    \item Desarrollar un caso práctico en una PYME real para validar la metodología propuesta.
+    \item Analizar e interpretar los resultados obtenidos en el caso práctico, destacando las principales conclusiones y puntos de mejora detectados.
+
+    \item Redactar un informe detallado que incluya el análisis de riesgos, vulnerabilidades detectadas y recomendaciones de mejora.
     \item Elaborar una guía clara y comprensible, diseñada específicamente para ser utilizada por personas con conocimientos básicos de ciberseguridad.
 \end{itemize}
-\par\vspace{0.5cm}
 
-\subsection{Alcance}
+\subsection{Alcance y limitaciones}
 \par\vspace{0.5cm}
 
 El alcance está diseñado para cubrir todos los aspectos necesarios para realizar una auditoría de ciberseguridad efectiva en PYMEs, basándose en estándares y metodologías reconocidas internacionalmente.
 
 \begin{enumerate}
-\item \textbf{Marco teórico:} Se analizarán las principales amenazas y riesgos a los que se enfrentan las PYMEs, así como las herramientas más utilizadas en las auditorías de ciberseguridad. Además, se abordarán las normativas más relevantes tanto a nivel nacional como europeo, junto con las metodologías reconocidas dentro del sector. También se incluirán recomendaciones de buenas prácticas desde la perspectiva de una PYME y de un auditor de seguridad. Por último, se presentará una selección de certificaciones fundamentales en el ámbito de la ciberseguridad, con el objetivo de orientar a quienes deseen iniciarse profesionalmente en este campo.    
+    \item \textbf{Marco teórico:} Se analizarán las principales amenazas y riesgos a los que se enfrentan las PYMEs, así como las herramientas más utilizadas en las auditorías de ciberseguridad. Además, se abordarán las normativas más relevantes tanto a nivel nacional como europeo, junto con las metodologías reconocidas dentro del sector. También se incluirán recomendaciones de buenas prácticas desde la perspectiva de una PYME y de un auditor de seguridad. Por último, se presentará una selección de certificaciones fundamentales en el ámbito de la ciberseguridad, con el objetivo de orientar a quienes deseen iniciarse profesionalmente en este campo.    
+    
     \item \textbf{Requisitos previos:} Se detallarán los conocimientos, habilidades y recursos técnicos necesarios para realizar auditorías efectivas, incluyendo la configuración de entornos de prueba y el uso de herramientas especializadas.
         
-    \item \textbf{Propuesta de metodología:} Se desarrollará una metodología estructurada que incluirá el análisis exhaustivo de todos los aspectos a evaluar en una auditoria de ciberseguridad completa. Esta abarcará el perímetro de red, la seguridad inalámbrica, la identificación de vulnerabilidades, pruebas sobre aplicaciones web, evaluación de la infraestructura interna y análisis de seguridad en endpoints y sistemas de almacenamiento de datos.
-    
+    \item \textbf{Propuesta de metodología:} Se desarrollará una metodología estructurada que incluirá el análisis exhaustivo de todos los aspectos a evaluar en una auditoría de ciberseguridad completa.
     \item \textbf{Caso práctico:} Se implementará un caso práctico que aplicará la metodología propuesta de manera parcial en un entorno real, permitiendo ilustrar de manera tangible el proceso completo de una auditoría de ciberseguridad.
     
-    \item \textbf{Informe final:} Elaboración de un documento que refleje el estado actual de la ciberseguridad en la empresa auditada y las recomendaciones pertinentes.
+    \item \textbf{Informe final:} Se elaborará dos informes que reflejen el estado actual de la ciberseguridad en la empresa auditada y las recomendaciones pertinentes.
 \end{enumerate}
 
-\par\vspace{0.5cm}
+\subsubsection*{Limitaciones del proyecto}
+\par\vspace{0.3cm}
 
-\subsection{Motivación}
-\par\vspace{0.5cm}
+Con respecto a las limitaciones, es importante destacar que este trabajo se ha desarrollado dentro de un contexto académico, con restricciones tanto personales como materiales que condicionan el alcance total de una auditoría profesional. A continuación, se detallan los principales factores que han limitado el desarrollo del proyecto:
 
-La creciente digitalización ha expuesto a las Pequeñas y Medianas Empresas (PYMEs) a una variedad de ciberamenazas que, de no ser gestionadas adecuadamente, 
-pueden poner en riesgo la continuidad de sus operaciones. A diferencia de las grandes corporaciones, las PYMEs suelen carecer de los recursos humanos y financieros 
-necesarios para implementar medidas robustas de ciberseguridad, lo que las convierte en un fácil objetivo para los ciberdelincuentes.
-\par\vspace{0.5cm}
-El aumento en el volumen de software malicioso, que supera los 450.000 nuevos programas diarios según el análisis de la plataforma de inteligencia de amenazas de AV-TEST \cite{avtest}, y el hecho de que el 70 
-por ciento de los ciberataques en la Península Ibérica afectan a PYMEs, subrayan la urgencia de desarrollar herramientas accesibles y eficaces para proteger a estas organizaciones. 
-Este proyecto surge como respuesta a esa necesidad, proporcionando una guía práctica que permite a cualquier persona, independientemente de su nivel técnico, llevar a cabo una auditoría 
-básica de ciberseguridad.
-\par\vspace{0.5cm}
-Además, una de las principales motivaciones personales que ha impulsado la realización de este trabajo es mi interés en formarme profesionalmente como pentester. 
-Este proyecto representa un primer paso en ese camino, permitiéndome aplicar conocimientos teóricos y prácticos en un entorno real. Al mismo tiempo, me gustaría que esta guía 
-pudiera servir como punto de partida para otros estudiantes en prácticas o personas con poca experiencia que deseen introducirse en el ámbito de la ciberseguridad. 
-De este modo, no solo se contribuye a la protección de las PYMEs, sino también al desarrollo de nuevos profesionales en el sector.
-\par\vspace{0.5cm}
-
-
-\subsection{Requisitos formales}
-\par\vspace{0.5cm}
-
-Una vez definido el contexto general del trabajo, se establecen los requisitos formales necesarios para la correcta redacción y desarrollo del documento.
-
-\subsubsection{Documentación e información}
 \begin{itemize}
-    \item Los documentos pueden ser extraídos de \textit{Google Scholar} para su posterior citación.
-    \item Se recomienda utilizar publicaciones con una antigüedad no superior a 3 o 4 años, para asegurar la vigencia de la información
-    \item Todos los documentos consultados se citarán en formato APA.
-    \item Deben contener información relevante y actualizada sobre ciberseguridad en PYMEs.
-\end{itemize}
+    \item \textbf{Limitación de recursos humanos:} El proyecto ha sido desarrollado por una única persona, lo cual limita la posibilidad de abordar en profundidad todas las fases de una auditoría profesional, que habitualmente requiere un equipo de al menos 3 o 4 profesionales dirigidos por un jefe de equipo.
 
-\subsubsection{Normativas y certificaciones}
-\begin{itemize}
-    \item Deben ser oficiales y de libre acceso, proporcionadas por organismos reguladores tanto de ámbito europeo como internacional.
-\end{itemize}
+    \item \textbf{Limitación de recursos técnicos:} No se cuenta con todo el equipamiento hardware necesario para realizar algunas pruebas avanzadas, por lo que se reduce el alcance de ciertas evaluaciones técnicas.
 
-\subsubsection{Propuesta de metodología de la auditoría}
-\begin{itemize}
-    \item Debe atender a los requerimientos de ciberseguridad descritos en la documentación oficial.
-    \item Describir las implementaciones de hardware y software necesarias para proteger los sistemas.
-\end{itemize}
+    \item \textbf{Limitación presupuestaria:} No ha sido posible adquirir herramientas profesionales de pago que, si bien no son imprescindibles, sí complementan y facilitan el trabajo de auditoría en ciertas fases.
 
-\subsubsection{Sobre el caso práctico}
-\begin{itemize}
-    \item Descripción del sistema auditado, incluyendo modelo y vulnerabilidades.
-    \item Aplicación de la metodología de ciberseguridad en la PYME seleccionada.
-    \item Detalle de las pruebas realizadas y la obtención de información sobre riesgos, amenazas y vulnerabilidades.
-\end{itemize}
 
+    \item \textbf{Limitación por falta de experiencia profesional:} Al no tener experiencia previa en el sector, algunas fases han supuesto un reto adicional en términos de tiempo y aprendizaje, aunque se ha procurado mantener el mayor nivel de rigor posible apoyándose en estándares y documentación reconocida.
+
+    \item \textbf{Confidencialidad del entorno auditado:} Para preservar la seguridad de la empresa auditada, no se revelará su identidad ni se detallarán públicamente vulnerabilidades específicas que puedan poner en riesgo su infraestructura tecnológica.
+
+    \item \textbf{Cobertura parcial de técnicas ofensivas:} Debido a la amplia variedad de técnicas existentes en el ámbito del hacking ético y la auditoría ofensiva, este proyecto solo aborda una selección limitada de pruebas, de nivel intermedio y avalado profesionalmente, que sirvan como ejemplo práctico y aplicable a un entorno PYME.
+\end{itemize}
 \par\vspace{0.5cm}
+
+
 
 \subsection{Estructura del documento}
 \par\vspace{0.5cm}
@@ -383,18 +421,22 @@ El documento está organizado en once capítulos que abordan de manera integral 
     
     \item \textbf{Resumen:} Síntesis del contenido, objetivos y resultados del trabajo.
     
-    \item \textbf{Introducción:} Presentación del contexto de la ciberseguridad en PYMEs, objetivos, alcance, motivación, requisitos formales para el desarrollo del proyecto y estructura del documento.
+    \item \textbf{Introducción:} Presentación del contexto de la ciberseguridad en PYMEs, motivación ,objetivos, alcance y limitaciones.
     
     \item \textbf{Planificación:} Descripción de la organización del trabajo, incluyendo cronograma, recursos utilizados, costes y fases del proyecto.
+    
+    
+    \item \textbf{Requisitos Formales:} Descripción de los requisitos formales que debe cumplir la documentación de la memoria de este trabajo.
     
     \item \textbf{Marco Teórico:} Análisis de principales riegos y amenazas a las que están expuestas las PYMEs, planes de mitigación, normativas nacionales y europeas aplicables, estándares, herramientas de pentesting, buenas prácticas y sección destinada a las certificaciones principales en el ámbito de la ciberseguridad ofensiva.
     
 
     \item \textbf{Metodología elegida:} Se expone la metodología de auditoría base para modelar nuestro propio modelo.
-    \item \textbf{Modelo de auditoría:} Propuesta de un modelo de auditoría adaptado a las PYMEs, que incluye fases, herramientas y técnicas específicas.
-    \item \textbf{Requisitos:} Definición de los requisitos previos a una auditoría de seguridad.
+    \item \textbf{Modelo de auditoría:} Se introduce las fases de un modelo de auditoría adaptado a las PYMEs y propuesto por BeeHacker.
+    \item \textbf{Requisitos previos a una auditoría:} Definición de los requisitos previos a una auditoría de ciberseguridad.
     
-    \item \textbf{Propuesta de auditoría:} Propuesta de un modelo de auditoría dividido en diseño, metodología y fases específicas.
+    \item \textbf{Propuesta de auditoría:} Representa uno de los pilares fundamentales de este trabajo, ya que materializa de forma práctica todo el aprendizaje adquirido a lo largo del desarrollo del proyecto.
+
     
     \item \textbf{Caso Práctico:} Implementación de la auditoría en un entorno real de una PYME, aplicando las herramientas y técnicas descritas.
     
@@ -415,7 +457,7 @@ El documento está organizado en once capítulos que abordan de manera integral 
 
 % -----------------------------------------------PLANIFICACION------------------------------------------------------------
 \section{Planificación}
-\par\vspace{0.5cm}
+\thispagestyle{nohead}
 Este capítulo presenta la planificación detallada para el desarrollo del trabajo. Se describirán las fases y tareas específicas a desarrollar, los roles y responsabilidades de los participantes en el proyecto, así como un cronograma que permitirá visualizar el progreso del trabajo a lo largo del tiempo. Además, se identificarán los recursos necesarios para llevar a cabo el proyecto y se realizará un análisis de los costes asociados.
 \par\vspace{0.5cm}
 
@@ -536,7 +578,7 @@ El cronograma presentado a continuación  muestra la planificación general del 
 en el detalle de cada tarea individual. La duración total del trabajo ha sido de nueve meses, dado que se la ha dado mayor importancia a 
 partir del mes de mayo, una vez finalizadas las asignaturas del curso actual.
 \par\vspace{0.5cm}
-Para consultar un desglose más detallado de las actividades realizadas, incluyendo descripciones y tiempos invertidos en cada una, puede accederse al recurso utilizado para el seguimiento del proyecto, disponible en el \textbf{Anexo I}.
+Para consultar un desglose más detallado de las actividades realizadas, incluyendo descripciones y tiempos invertidos en cada una, puede accederse al recurso utilizado para el seguimiento del proyecto, disponible en el \hyperref[anexo:1]{\textbf{Anexo 1}}.
 
 \par\vspace{0.5cm}
 
@@ -613,7 +655,7 @@ En la siguiente figura se muestra el diagrama de Gantt, que recoge visualmente l
 \subsection{Recursos}
 \par\vspace{0.5cm}
 
-Los recursos necesarios para el desarrollo de la auditoría de ciberseguridad se dividen en tres categorías principales: recursos humanos, materiales y costos asociados. A continuación, se detallan cada uno de ellos.
+Los recursos necesarios para el desarrollo de la auditoría de ciberseguridad se dividen en tres categorías principales: recursos humanos, materiales y costos asociados. Cada una de estas categorías, se detalla en los siguientes apartados.
 \par\vspace{0.5cm}
 
 \subsubsection{Recursos Humanos}
@@ -727,6 +769,7 @@ Costos Asociados & 1.100 € \\ \hline
 
 
 \clearpage
+\thispagestyle{nohead}
 
 
 
@@ -736,6 +779,60 @@ Costos Asociados & 1.100 € \\ \hline
 
 
 
+% -----------------------------------------------REQUISITOS FORMALES------------------------------------------------------------
+
+
+
+\section{Requisitos formales}
+\par\vspace{0.5cm}
+Una vez definido el contexto general del proyecto y delimitado su alcance, se establecen los requisitos formales necesarios para la correcta redacción y desarrollo del trabajo, estructurados en una tabla.
+\par\vspace{0.5cm}
+
+Dicha tabla recoge, los principales requisitos identificados para el desarrollo del proyecto, agrupados en distintas categorías. Para cada requisito se indica su fuente 
+o parte interesada, el objetivo específico al que contribuye dentro del proyecto, y el criterio que permitirá validar su cumplimiento.
+
+\begin{landscape}
+\begin{table}
+\centering
+\small
+\begin{tabular}{|p{1cm}|p{6cm}|p{2.5cm}|p{2.7cm}|p{3.2cm}|p{4.9cm}|}
+\hline
+\textbf{ID} & \textbf{Requisito} & \textbf{Categoría} & \textbf{Fuente / Interesado} & \textbf{Objetivo(s) del Proyecto} & \textbf{Criterio(s) de Aceptación} \\
+\hline
+RF-01 & Los documentos deben extraerse de Google Scholar para su citación. & Documentación e información & Estudiante & Establecer un marco teórico riguroso & Referencias académicas verificables \\
+\hline
+RF-02 & Se recomienda utilizar publicaciones con una antigüedad no superior a 3 o 4 años. & Documentación e información & Tutor & Asegurar información actualizada & Año de publicación \\
+\hline
+RF-03 & Todos los documentos consultados se citarán en formato APA. & Documentación e información & Universidad & Cumplir formato académico & Revisión de estilo \\
+\hline
+RF-04 & Los documentos deben contener información relevante y actualizada sobre ciberseguridad en PYMEs. & Documentación e información & Estudiante & Fundamentos del trabajo & Relevancia del contenido \\
+\hline
+RF-05 & Elaborar una guía clara, comprensible y aplicable, orientada a perfiles no técnicos. & Documentación e información & Estudiante & Facilitar la adopción de buenas prácticas por parte de PYMEs & Guía redactada, revisada y publicada junto al informe \\
+\hline
+RF-06 & Estudiar y desarrollar los fundamentos teóricos de la ciberseguridad. & Marco teórico & Estudiante / Tutor & Fundamentar teóricamente el análisis posterior & Redacción clara y coherente del marco teórico \\
+\hline
+RF-07 & Las normativas deben ser oficiales y de libre acceso, proporcionadas por organismos reconocidos. & Normativas y certificaciones & Estudiante & Sostener la validez de la metodología & Fuentes oficiales citadas \\
+\hline
+RF-08 & La metodología debe seguir requerimientos oficiales de ciberseguridad. & Propuesta de metodología de la auditoría & Estándares & Proponer metodología válida & Alineación con normativas y metodologías reconocidas \\
+\hline
+RF-09 & Describir las implementaciones de hardware y software necesarias para proteger los sistemas. & Propuesta de metodología de la auditoría & Estudiante & Propuesta técnica clara & Herramientas identificadas y justificadas \\
+\hline
+RF-10 & Descripción del sistema auditado, incluyendo modelo y vulnerabilidades. & Sobre el caso práctico & Estudiante & Documentar el contexto práctico & Información técnica recopilada \\
+\hline
+RF-11 & Aplicación de la metodología en la PYME seleccionada. & Sobre el caso práctico & Estudiante & Validar la metodología propuesta & Aplicación práctica verificada \\
+\hline
+RF-12 & Detalle de las pruebas realizadas y los riesgos detectados. & Sobre el caso práctico & Estudiante & Identificar amenazas y vulnerabilidades & Resultados documentados de las pruebas \\
+\hline
+RF-13 & Redactar un informe final que contenga el análisis de riesgos, vulnerabilidades y propuestas de mejora. & Sobre el caso práctico & Estudiante & Sintetizar hallazgos y proponer soluciones & Informe estructurado y evaluado según criterios académicos \\
+\hline
+RF-14 & Incluir un apartado final con los resultados generales del TFG. & Resultados & Tutor / Universidad & Sintetizar conclusiones y validar el proceso & Sección de resultados redactada y bien estructurada \\
+\hline
+\end{tabular}
+\caption{Requisitos formales del proyecto}
+\label{tab:requisitos_formales}
+\vspace{0.2cm}
+\end{table}
+\end{landscape}
 
 
 
@@ -743,23 +840,11 @@ Costos Asociados & 1.100 € \\ \hline
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+\clearpage
+\thispagestyle{nohead}
 
 
 % -----------------------------------------------MARCO TEÓRICO------------------------------------------------------------
-\par\vspace{0.5cm}
 
 \section{Fundamentos teóricos para una auditoría de ciberseguridad en PYMEs}
 \par\vspace{0.5cm}
@@ -978,7 +1063,7 @@ La ciberseguridad en pequeñas y medianas empresas requiere un enfoque integral 
 
 Las auditorías son procesos estructurados que permiten evaluar el estado de la seguridad informática de una organización. 
 Para que sean eficaces, deben llevarse a cabo bajo un conjunto de buenas prácticas que garanticen no solo la calidad técnica del análisis, sino también la ética profesional, 
-la trazabilidad de los hallazgos y la aplicabilidad de las recomendaciones. A continuación, se describen las principales buenas prácticas que deben seguirse durante una auditoría de ciberseguridad:
+la trazabilidad de los hallazgos y la aplicabilidad de las recomendaciones. Seguidamente, se describen las principales buenas prácticas que deben seguirse durante una auditoría de ciberseguridad:
 
 \begin{itemize}
 
@@ -1392,7 +1477,7 @@ más utilizadas y valoradas en el ámbito del pentesting. \cite{felipe2024}
 \end{flushleft}
 \end{table}
 \par\vspace{0.5cm}
-Estas herramientas, junto con sus respectivas páginas oficiales para descarga o consulta, pueden encontrarse en el \textbf{Anexo II}.
+Estas herramientas, junto con sus respectivas páginas oficiales para descarga o consulta, pueden encontrarse en el \hyperref[anexo:2]{\textbf{Anexo 2}}.
 
 \par\vspace{0.5cm}
 
@@ -1402,7 +1487,7 @@ Estas herramientas, junto con sus respectivas páginas oficiales para descarga o
 
 Por último, para aquellas personas interesadas en iniciarse en el campo de la ciberseguridad ofensiva, 
 es fundamental contar con una guía clara que oriente su aprendizaje y desarrollo profesional. Las certificaciones 
-profesionales cumplen un papel importante en este sentido, ya que no solo validan los conocimientos técnicos y las habilidades de la persona, sino que también proporcionan una formación progresiva para adquirir competencias en distintas áreas de la ciberseguridad. La selección que se presenta a continuación ha sido elaborada a partir de fuentes formales y del conocimiento compartido en comunidades especializadas de hacking ético y pentesting, incluyendo foros, redes profesionales y grupos de intercambio de experiencias. Se incluyen algunas de las certificaciones más relevantes, ordenadas por nivel de dificultad dentro del área ofensiva, incluyendo una certificación fundamental en administración de sistemas Linux, que sirve de base para el dominio de entornos seguros.
+profesionales cumplen un papel importante en este sentido, ya que no solo validan los conocimientos técnicos y las habilidades de la persona, sino que también proporcionan una formación progresiva para adquirir competencias en distintas áreas de la ciberseguridad. La selección de estas certificaciones ha sido elaborada a partir de fuentes formales y del conocimiento compartido en comunidades especializadas de hacking ético y pentesting, incluyendo foros, redes profesionales y grupos de intercambio de experiencias. Se incluyen algunas de las certificaciones más relevantes, ordenadas por nivel de dificultad dentro del área ofensiva, incluyendo una certificación fundamental en administración de sistemas Linux, que sirve de base para el dominio de entornos seguros.
 
 
 
@@ -1427,6 +1512,7 @@ profesionales cumplen un papel importante en este sentido, ya que no solo valida
 
 \clearpage
 
+\thispagestyle{nohead}
 
 
 
@@ -1500,6 +1586,7 @@ Finalmente, se documentan los hallazgos obtenidos durante la auditoría. El info
 
 
 \clearpage
+\thispagestyle{nohead}
 
 
 % -----------------------------------------------MODELO------------------------------------------------------------
@@ -1507,9 +1594,26 @@ Finalmente, se documentan los hallazgos obtenidos durante la auditoría. El info
 \section{Modelo de auditoría}
 \par\vspace{0.5cm}
 
-El presente capítulo tiene como objetivo presentar un modelo de auditoría de ciberseguridad diseñado específicamente para las PYMES. 
-Este modelo ha sido construido siguiendo el \textbf{roadmap de auditoría de seguridad de la empresa BeeHacker}, 
-una guía actualizada basada en la experiencia real de entornos empresariales. 
+
+El presente capítulo tiene como finalidad exponer un modelo de auditoría de ciberseguridad que integra y sintetiza las fases, técnicas y prácticas empleadas por organizaciones especializadas en ciberseguridad, adaptándolas a la metodología base definida en el capítulo anterior. Este modelo ha sido desarrollado en colaboración con la empresa \textbf{BeeHacker}.
+\par\vspace{0.5cm}
+
+\textbf{BeeHacker} es una empresa de ciberseguridad ubicada en Mairena del Aljarafe (Sevilla), especializada en ofrecer servicios relacionados con el cumplimiento normativo, la ciberdefensa y las pruebas de penetración. Disponen de un equipo especializado en \textit{Blue Team} y \textit{SOC} (Security Operations Center), así como expertos en \textit{Pentesting}, responsables de la realización de auditorías de seguridad, ejercicios Red Team y análisis forense, incluyendo la respuesta ante incidentes de seguridad. \cite{beehacker}
+
+\subsection*{Áreas de especialización de BeeHacker}
+
+\begin{itemize}
+    \item \textbf{OWASP}: Pruebas centradas en vulnerabilidades comunes del desarrollo web.
+    \item \textbf{Seguridad legal / SGSI / ENS}: Adecuación a normativas y estándares como el ENS (Esquema Nacional de Seguridad) o sistemas de gestión de seguridad de la información.
+    \item \textbf{Seguridad industrial}: Protección de entornos OT (tecnología operativa) e infraestructuras críticas.
+\end{itemize}
+
+Cabe destacar y agradecer especialmente la implicación del equipo de BeeHacker durante el desarrollo de este trabajo. Su disponibilidad para realizar entrevistas, reuniones y sesiones de formación ha sido clave tanto para el enfoque técnico del proyecto como para mi crecimiento personal. Han contribuido activamente a contextualizar el estado actual del sector de la ciberseguridad y a ofrecer una visión clara sobre sus desafíos y buenas prácticas.
+\par\vspace{0.5cm}
+
+El modelo que se presenta a continuación ha sido elaborado de forma iterativa a lo largo de dichas sesiones, resolviendo dudas y contrastando enfoques, con el objetivo de reflejar y poner en valor el trabajo que realiza BeeHacker en el marco de una auditoría de ciberseguridad orientada a PYMEs.
+
+
 \par\vspace{0.5cm}
 
 \subsection{Diseño propuesto por BeeHacker}
@@ -1518,7 +1622,7 @@ una guía actualizada basada en la experiencia real de entornos empresariales.
 El modelo de auditoría propuesto se basa en un enfoque estructurado por capas, abarcando todos los vectores de ataque 
 potenciales desde el perímetro exterior hasta los datos almacenados internamente. 
 Este diseño tiene como objetivo principal proporcionar un listado de actividades que permita
-auditar la ciberseguridad en una pyme sin necesidad de poseer conocimientos técnicos avanzados. 
+auditar la ciberseguridad en una Pyme sin necesidad de poseer conocimientos técnicos avanzados. 
 
 
 
@@ -1802,6 +1906,7 @@ OBJ-47 & Verificar uso de contraseñas robustas y controles de autenticación & 
 
 \clearpage
 
+\thispagestyle{nohead}
 
 
 
@@ -1823,7 +1928,12 @@ OBJ-47 & Verificar uso de contraseñas robustas y controles de autenticación & 
 
 \section{Requisitos previos a la auditoría}
 \par\vspace{0.5cm}
-Conforme a la metodología establecida, es imprescindible cumplir con los siguientes requisitos previos:
+En esta sección se detallan los requisitos previos necesarios para realizar una auditoría de ciberseguridad, en virtud de la metodología seleccionada previamente, la \textbf{NIST SP 800-115}, y siguiendo las recomendaciones aportadas por el CTO de \textbf{BeeHacker}. 
+\par\vspace{0.5cm}
+
+A continuación, se recogen los requisitos previos comunes a todo proceso de auditoría, según los marcos analizados.
+
+\par\vspace{0.5cm}
 
 \begin{enumerate}
 \item \textbf{Formalización previa}: Establecer por escrito los siguientes documentos:
@@ -1834,14 +1944,21 @@ Conforme a la metodología establecida, es imprescindible cumplir con los siguie
 \item \textbf{Acuerdo de Servicios}: Establece los objetivos concretos, el alcance detallado, la duración estimada y las condiciones generales de la colaboración. Sirve como base para planificar y organizar el trabajo de forma estructurada y transparente.
 
 \item \textbf{Autorización para Pruebas Técnicas}: Permite expresamente la realización de actividades técnicas como análisis de red, detección de vulnerabilidades, pruebas de acceso o campañas controladas de ingeniería social. Además, delimita qué sistemas están autorizados y bajo qué condiciones deben desarrollarse las pruebas.
-
 \end{itemize}
 
-\item \textbf{Identificación detallada de activos}: Solicitar un inventario completo (en caso de que lo tengan y se encuentre actualizado), de sistemas, redes, aplicaciones y dispositivos que serán objeto de análisis durante la auditoría
+\item \textbf{Marco normativo y regulatorio}: Asegurar que la auditoría se alinea con las normativas vigentes aplicables, como el Esquema Nacional de Seguridad (ENS), el Reglamento General de Protección de Datos (RGPD), la ISO/IEC 27001 y otras normativas sectoriales o internas relevantes.
+
+\item \textbf{Identificación detallada de activos}: Solicitar un inventario completo, actualizado y validado de los sistemas, redes, aplicaciones y dispositivos que serán objeto de análisis durante la auditoría.
+
 \item \textbf{Análisis de riesgos y medidas preventivas}: Antes de ejecutar cualquier acción técnica, es fundamental realizar una evaluación de los riesgos asociados a las pruebas de seguridad. Este análisis considera el impacto potencial sobre la disponibilidad, integridad y confidencialidad de los sistemas auditados. Se identifican los servicios críticos y se diseñan estrategias de mitigación para evitar interrupciones no deseadas, como realizar pruebas en entornos controlados o fuera del horario operativo.
 
-\item \textbf{Preparación técnica previa}: Asegurar disponibilidad y funcionamiento de herramientas y recursos técnicos.
-\item \textbf{Definición del equipo auditor}: La conformación del equipo de trabajo es un factor clave para el éxito del proceso de auditoría. En este apartado se detallan los miembros que participarán, sus roles específicos, y sus responsabilidades. Además, se establece la cadena de comunicación interna y con los responsables de la organización auditada.
+\item \textbf{Preparación técnica y metodológica}: En esta auditoría se empleará la metodología desarrollada en los próximos capítulos.
+
+\item \textbf{Comunicación y coordinación}: Durante toda la auditoría se mantendrán abiertos canales de comunicación estructurados entre el equipo auditor y los responsables designados por la organización auditada. Se definirán personas de contacto técnico y organizativo, así como los medios de notificación para incidentes, entregas de resultados intermedios y coordinación de accesos. Esta coordinación incluye reuniones previas, revisiones de estado y una reunión de cierre. La documentación generada en cada fase se compartirá a través de repositorios seguros o canales cifrados previamente acordados.
+
+\item \textbf{Planificación y cronograma}: La auditoría seguirá un calendario de trabajo estructurado en fases, con fechas estimadas de inicio y fin para cada bloque. Este cronograma permitirá a la organización auditada conocer con antelación las actividades previstas, asignar recursos y supervisar el cumplimiento de los objetivos. Las fases estarán alineadas con el modelo secuencial definido en el plan metodológico de auditoría.
+
+\item \textbf{Definición y organización del equipo auditor}: La estructura del equipo auditor debe estar claramente definida desde el inicio del proyecto. Se especificarán los profesionales que integran el equipo, incluyendo sus perfiles técnicos, funciones asignadas y grado de responsabilidad dentro del proceso. Asimismo, se establecerán los flujos de comunicación internos y los canales oficiales de interlocución con la entidad auditada, garantizando una coordinación eficaz durante todas las fases de la auditoría.
 \end{enumerate}
 
 
@@ -1889,16 +2006,22 @@ Conforme a la metodología establecida, es imprescindible cumplir con los siguie
 
 
 
-
 \clearpage
+\thispagestyle{nohead}
 
+
+%------------------PROPUESTA-------------------------------------------------------
 \section{Propuesta metodológica de auditoría}
-\par\vspace{0.5cm}
 
-Esta propuesta combina el modelo estructurado por bloques sugerido por BeeHacker con las fases claramente definidas de la metodología NIST SP 800-115: Planificación, Descubrimiento, Ataque y Reporte.
 \par\vspace{0.5cm}
+Este capítulo constituye el núcleo central del presente trabajo. A partir de toda la información recopilada en secciones anteriores, y tomando como referencia las fases establecidas por la \textbf{NIST SP 800-115}, así como los objetivos definidos por la empresa \textbf{BeeHacker}, se ha desarrollado una propuesta metodológica propia para la realización de auditorías de ciberseguridad.
 
-Cada uno de los siete bloques será abordado secuencialmente, siguiendo estas cuatro etapas fundamentales:
+\par\vspace{0.5cm}
+El objetivo de esta sección es sintetizar y estructurar de forma secuencial todos los conocimientos y buenas prácticas analizadas, creando así un modelo accesible, replicable y comprensible incluso para profesionales sin experiencia previa en auditorías de ciberseguridad. Esta metodología no solo sigue el enfoque de evaluación técnica de la NIST, sino que incorpora objetivos concretos, herramientas recomendadas (de las cuales se ilustran mediante ejemplos prácticos su aplicación sin entrar en detalle), criterios de decisión y buenas prácticas organizativas validadas por \textbf{Ramón}, CTO de la empresa colaboradora \textbf{BeeHacker}.
+
+\par\vspace{0.5cm}
+El resultado es una metodología estructurada por fases, pensada para ofrecer una visión global del proceso de auditoría de ciberseguridad desde una perspectiva práctica y completa. A continuación, se exponen en detalle las fases secuenciales que componen la propuesta.
+
 
 \par\vspace{0.5cm}
 
@@ -1936,6 +2059,7 @@ En esta fase se lleva a cabo la recopilación de información técnica sobre los
 
 
 \subsubsection{Análisis Externo de Redes Inalámbricas}
+\label{sec:analisis_redes_inalambricas}
 
 
 \par\vspace{0.5cm}
@@ -2092,7 +2216,7 @@ Los comandos mostrados anteriormente representan ejemplos básicos del uso de es
 \par\vspace{0.5cm}
 Es posible configurar escaneos más \textbf{sigilosos} para evitar la detección por firewalls o sistemas de prevención de intrusiones (IPS), así como escaneos más \textbf{agresivos} y rápidos cuando no se requiere discreción.
 \par\vspace{0.5cm}
-Un desglose detallado de estas opciones avanzadas, se encuentra disponible en el \textbf{Anexo IV}.
+Un desglose detallado de estas opciones avanzadas, se encuentra disponible en el \hyperref[anexo:4]{\textbf{Anexo 4}}.
 
 \subsubsection*{Resultados esperados}
 \begin{itemize}
@@ -2450,6 +2574,14 @@ $ curl -X POST "https://api.dehashed.com/search?query=<dominio>" -u usuario:api_
 
 
 
+\subsubsection*{Conclusión de la fase de descubrimiento}
+
+Al finalizar esta fase, se habrá recopilado toda la información relevante sobre el entorno. 
+Este conocimiento servirá como base para trazar un \textbf{plan de ataque adecuado}, que 
+permita evaluar de forma controlada el impacto real las vulnerabilidades encontradas.
+\vspace{0.5cm}
+
+Sin embargo, esta fase no debe considerarse concluida de forma definitiva. A lo largo de la auditoría seguirán apareciendo nuevos indicios, configuraciones o vulnerabilidades que deberán ser evaluados. La información recopilada está en constante evolución, por lo que el proceso de descubrimiento y análisis se retroalimenta con la fase de ataque, permitiendo ajustar el plan inicial y clasificar nuevas amenazas a medida que se profundiza en el entorno.
 
 \clearpage
 
@@ -2463,8 +2595,41 @@ $ curl -X POST "https://api.dehashed.com/search?query=<dominio>" -u usuario:api_
 
 -   Esra fase comienza una vez compeltado la fase de descubrimiento. Se retroalimenta con la de descubrimirneto ya que tras trazar un plan de ataque adecuado a los hallazgos obtenidos en la anterior fase, se retoma la investigaciñon de nuevas vulnerabilidades asociadas a los nuevos descubrimientos.
 
+\subsubsection{Ataques WIFI}
 
-- wifi
+- wifi, fuerza bruta hankdshake, rogues ap contra empleados y (karma?), EVALUAR PASSWORDS CON ALGUNA Q INDIQUE EL TIEMPO ESTIMADO EN CRACKEAR SEGUN 
+  LA COMPLEJIDAD DE LA CONTRASEÑA,
+
+
+\subsubsection{Fuerza Bruta}
+
+- credenciales por defecto de todos los paneles.
+
+- fuerza bruta de credenciales a todos los paneles de todos los dispotivos, intento de acceso a todos los puertos abiertos destinados a la conexion y eso como el 22, ...
+
+\subsubsection{Explorar VULNS}
+
+-  explotar posibles cves analizadas y vuln tanto manual como con herrmaienta automastizasd como metasploit
+
+- ecplotar vulns q hayas visto en otras fuentes, explot db, cve...
+
+\subsubsection{Directorio Activo}
+
+
+
+\subsubsection{WEBS}
+
+WEBS
+
+-owasp para auditoria web y servidor en el q se aloja la web,
+
+\subsubsection{MIMT, SniffingM Poisongs}
+
+
+\subsubsection{Una vez dentro}
+
+-escaladas de privileio dentro de las maquinas, tecnicas de pivoting y movimiento lateral
+ VER CONFIGURACIONE DE USUARIOS, GRUPOS, PERMISOS, POLITICAS DE SEGURIDAD,
 
 
 
@@ -2477,17 +2642,17 @@ $ curl -X POST "https://api.dehashed.com/search?query=<dominio>" -u usuario:api_
 
 La fase de reporte representa el cierre formal del proceso de auditoría de ciberseguridad. 
 Su propósito principal es documentar todos los hallazgos, evidencias e información recopilada durante las fases anteriores,
- proporcionando una visión general del estado actual de seguridad a todos los niveles de la organización. 
+ proporcionando una visión general del estado actual de seguridad a todos los niveles de la organización. Para ello,
+ se elaboran dos documentos fundamentales, el \textbf{Informe Técnico Detallado} y el \textbf{Informe Ejecutivo}. 
+
 
 \par\vspace{0.5cm}
 
-Durante esta fase se elaboran dos documentos fundamentales: el \textbf{Informe Técnico Detallado}, y el \textbf{Informe Ejecutivo}. Cada uno presenta la información adaptada específicamente a las necesidades y responsabilidades de sus destinatarios.
+Ambos informes cumplen funciones distintas pero complementarias. Uno de los aspectos más relevantes de esta etapa. además de evaluar el nivel de seguridad de la organización, 
+es identificar los riesgos más significativos y analizar el impacto que podría tener una amenaza. A partir de esta evaluación, se proponen recomendaciones y un plan de acción orientado a mitigar eficazmente las vulnerabilidades detectadas, alineando las medidas técnicas con los objetivos de negocio y las obligaciones legales vigentes.
 \par\vspace{0.5cm}
 
-Uno de los aspectos más importantes de estos informes es evaluar detalladamente la situación general de seguridad de la organización, identificando los riesgos más relevantes y determinando el alcance real que podría tener un atacante externo. A partir de este análisis, se formula un plan de acción para mitigar eficazmente los riesgos detectados.
-\par\vspace{0.5cm}
-
-\subsubsection{Objetivos de la fase de reporte}
+\subsubsection*{Objetivos de la fase de reporte}
 \begin{itemize}
 \item \textbf{Documentar los hallazgos técnicos:} Elaborar un informe técnico detallado que describa las vulnerabilidades detectadas, las pruebas realizadas, las evidencias recopiladas y las herramientas utilizadas, facilitando su análisis por parte del equipo de TI.
 
@@ -2501,18 +2666,18 @@ Uno de los aspectos más importantes de estos informes es evaluar detalladamente
 
 
 
-\subsubsection{Informe Técnico detallado}
+\subsubsection{Informe Técnico Detallado}
 
-\textbf{Dirigido a:} Personal técnico especializado (equipo de seguridad, administradores de sistemas, responsables de TI).
+El informe técnico detallado está orientado al personal especializado en tecnologías de la información, como el equipo de ciberseguridad, los administradores de sistemas y otros perfiles técnicos responsables de la gestión y protección de los activos digitales de la organización. Su propósito es ofrecer una documentación exhaustiva de todos los hallazgos detectados durante la auditoría, incluyendo evidencias técnicas, detalles específicos de cada vulnerabilidad, metodologías empleadas y recomendaciones concretas para su corrección. 
+\vspace{0.5cm}
 
-\textbf{Propósito:} Documentar de forma exhaustiva y técnica los hallazgos detectados durante la auditoría, proporcionando al equipo técnico toda la información necesaria para comprender, reproducir y corregir las vulnerabilidades identificadas.
+Se trata de un documento fundamental para garantizar la trazabilidad de las pruebas realizadas y facilitar la implementación efectiva de medidas correctivas. A continuación, se describe su estructura habitual:
 
-\textbf{Estructura:}
 \begin{itemize}
   \item \textbf{Portada:} Título del informe, entidad auditada, equipo auditor, fecha y clasificación del documento.
   \item \textbf{Índice:} Tabla de contenidos para facilitar la navegación del informe.
   \item \textbf{Objetivo y Alcance:} Descripción detallada del propósito de la auditoría, los sistemas revisados y las limitaciones del análisis.
-  \item \textbf{Metodología:} Marcos y estándares aplicados (por ejemplo, NIST SP 800-115, OWASP, ISO/IEC 27001), herramientas utilizadas (Nmap, Nessus, Burp Suite, etc.) y fases de análisis (reconocimiento, escaneo, explotación, post-explotación).
+  \item \textbf{Metodología:} Marcos y estándares aplicados, herramientas utilizadas, y fases de análisis.
   \item \textbf{Hallazgos Técnicos:} Para cada vulnerabilidad:
   \begin{itemize}
     \item Identificador del hallazgo (por ejemplo, VULN-001).
@@ -2533,11 +2698,11 @@ Uno de los aspectos más importantes de estos informes es evaluar detalladamente
 
 \subsubsection{Informe Ejecutivo}
 
-\textbf{Dirigido a:} Alta dirección, gerencia y responsables del negocio no técnicos.
+El informe ejecutivo está dirigido a la alta dirección, gerencia y responsables de negocio no técnicos. Su objetivo es transmitir de forma clara, breve y comprensible los principales hallazgos de la auditoría, poniendo el foco en los riesgos estratégicos y el impacto potencial que las vulnerabilidades identificadas podrían tener sobre la operativa, la reputación o el cumplimiento legal de la organización. Este informe sirve como base para la toma de decisiones y la priorización de inversiones en ciberseguridad.
+\vspace{0.5cm}
 
-\textbf{Propósito:} Comunicar de forma clara y concisa los principales riesgos y hallazgos de la auditoría, así como su impacto potencial en el negocio, facilitando la toma de decisiones estratégicas.
+A continuación, se detalla su estructura recomendada:
 
-\textbf{Estructura:}
 \begin{itemize}
   \item \textbf{Portada:} Título, nombre de la empresa auditada, entidad auditora, fecha, clasificación del informe.
   \item \textbf{Resumen Ejecutivo:} Visión general de la auditoría, principales hallazgos, riesgos más relevantes y conclusiones clave.
@@ -2551,7 +2716,11 @@ Uno de los aspectos más importantes de estos informes es evaluar detalladamente
 
 
 
-\subsubsection{Comparativa entre informe ejecutivo y técnico}
+
+\subsection*{Comparativa entre informe ejecutivo y técnico}
+
+
+A modo de resumen, se presenta una tabla comparativa donde se señalan las características principales de cada informe con el objetivo de diferenciar de forma más concisa sus destinatarios, propósitos y enfoques.
 
 \begin{table}[H]
 \centering
@@ -2574,7 +2743,7 @@ Uno de los aspectos más importantes de estos informes es evaluar detalladamente
 \textbf{Recomendaciones} & Estratégicas, priorizadas por impacto y coste-beneficio & Operativas, específicas y técnicas \\
 \hline
 \end{tabular}
-\caption{Comparativa entre informe ejecutivo e informe técnico detallado en una auditoría de ciberseguridad.}
+\caption{Diferencias entre informe ejecutivo e informe técnico detallado.}
 \end{table}
 
 
@@ -2586,42 +2755,55 @@ Uno de los aspectos más importantes de estos informes es evaluar detalladamente
 
 \subsubsection{Evaluación de Riesgos}
 
-Para identificar y priorizar los riesgos de seguridad en una PYME, se aplica la metodología estructurada propuesta en la \textbf{NIST SP 800-30 Rev. 1} (NIST, 2012). Esta guía se centra en siete pasos clave, que permiten realizar un análisis completo y eficaz, incluso en entornos con recursos limitados.
+Una vez documentados los hallazgos de la auditoría, resulta fundamental realizar una evaluación sistemática de los riesgos asociados a 
+cada vulnerabilidad detectada. Este proceso no solo permite identificar qué fallos son más críticos, sino también establecer un orden de 
+prioridad para su resolución en función de su probabilidad de explotación y el impacto que podrían generar sobre la confidencialidad, 
+integridad y disponibilidad de los activos de la empresa.
 
 \vspace{0.5cm}
 
-\textbf{Objetivo:} Priorizar los riesgos que afectan la ciberseguridad de los activos críticos del negocio para aplicar controles técnicos y organizativos proporcionales.
+Para identificar y priorizar los riesgos de seguridad en una PYME, se aplica la metodología estructurada propuesta en la \textbf{NIST SP 800-30} \cite{nist80030}. Esta guía forma parte del marco de gestión de riesgos del NIST (Risk Management Framework) y es aplicable a organizaciones de cualquier tamaño, incluso con recursos limitados.
 
-\vspace{0.5cm}
 
-\begin{center}
+\vspace{0.3cm}
+
+A continuación, se describen los pasos fundamentales de esta metodología:
+\vspace{0.3cm}
+
+
+\begin{table}[H]
+\centering
 \begin{tabular}{|c|p{12cm}|}
 \hline
 \rowcolor[HTML]{EFEFEF}
 \textbf{Paso} & \textbf{Descripción} \\
 \hline
-1 & \textbf{Caracterizar el sistema:} Identificar los activos críticos de la empresa (servidores, datos, procesos, redes, etc.) y su contexto operativo. \\
+1 & \textbf{Caracterizar el sistema:} Identificar los activos críticos de la empresa. \\
 \hline
-2 & \textbf{Identificar amenazas:} Listar amenazas posibles: malware, accesos no autorizados, errores humanos, incendios, etc. \\
+2 & \textbf{Identificar amenazas:} Listar las posibles amenazas asociadas a cada activo. \\
 \hline
-3 & \textbf{Identificar vulnerabilidades:} Detectar debilidades explotables en sistemas, como software desactualizado, contraseñas débiles o falta de backups. \\
+3 & \textbf{Identificar vulnerabilidades:} Detectar las vulnerabilidades de cada amenaza. \\
 \hline
 4 & \textbf{Estimar la probabilidad:} Asignar un nivel de probabilidad (alta, media, baja) de que una amenaza explote una vulnerabilidad. \\
 \hline
-5 & \textbf{Estimar el impacto:} Evaluar el daño potencial que causaría la explotación de la vulnerabilidad (económico, reputacional, legal...). \\
+5 & \textbf{Estimar el impacto:} Evaluar las consecuencias económicas, legales, reputacionales, y operativas, del daño potencial que causaría en la empresa la explotación de la vulnerabilidad. \\
 \hline
 6 & \textbf{Determinar el riesgo:} Calcular el nivel de riesgo combinando probabilidad e impacto mediante una matriz de riesgos. \\
 \hline
 7 & \textbf{Recomendar respuesta:} Definir acciones para mitigar, transferir, evitar o aceptar los riesgos según su nivel. \\
 \hline
 \end{tabular}
-\end{center}
+\caption{Pasos de la metodología NIST SP 800-30 para la evaluación de riesgos.}
+\end{table}
 
-\vspace{0.8cm}
-\textbf{Matriz de Evaluación de Riesgos}
+\vspace{0.3cm}
 
-\begin{center}
-\begin{tabular}{|c|c|c|c|}
+El sexto paso de esta metodología (Determinar el riesgo), se lleva a cabo utilizando una matriz que combina los niveles de probabilidad e impacto. Esta herramienta ayuda a clasificar la severidad de los riesgos y establecer prioridades de actuación de manera visual.
+\vspace{0.3cm}
+
+
+\begin{table}[H]
+\centering\begin{tabular}{|c|c|c|c|}
 \hline
 \rowcolor[HTML]{D9EAD3}
 \textbf{Impacto} $\downarrow$ / \textbf{Probabilidad} $\rightarrow$ & \textbf{Baja} & \textbf{Media} & \textbf{Alta} \\
@@ -2633,12 +2815,17 @@ Para identificar y priorizar los riesgos de seguridad en una PYME, se aplica la 
 \textbf{Baja}   & Bajo           & Bajo           & Medio \\
 \hline
 \end{tabular}
-\end{center}
+\caption{Matriz de riesgos para evaluar la criticidad de las vulnerabilidades.}
+\end{table}
 
-\vspace{0.5cm}
-\textbf{Ejemplo Aplicado a una PYME (tienda online)}
 
-\begin{center}
+\vspace{0.3cm}
+
+La siguiente tabla ejemplifica cómo se puede aplicar esta metodología en el contexto de una pequeña empresa.
+\vspace{0.3cm}
+
+\begin{table}[H]
+\centering
 \begin{tabular}{|p{3cm}|p{3cm}|p{3cm}|p{2cm}|p{2cm}|p{2cm}|}
 \hline
 \rowcolor[HTML]{F4CCCC}
@@ -2648,50 +2835,30 @@ Servidor web & Ataque DDoS & Sin protección WAF & Alta & Alta & Crítico \\
 \hline
 Base de datos de clientes & Robo de datos & Contraseña débil & Media & Alta & Alto \\
 \hline
-Sistema de backups & Falla física & Copia local única & Baja & Media & Medio \\
+Sistema de backups & Fallo físico & Copia local única & Baja & Media & Medio \\
 \hline
 \end{tabular}
-\end{center}
+\caption{Ejemplo de análisis de riesgos.}
+\end{table}
 
 \vspace{0.5cm}
 
-\textbf{Recomendaciones de Respuesta}
 
-\begin{itemize}
-\item \textbf{Mitigar}: Instalar WAF y balanceador de carga para proteger servidor web.
-\item \textbf{Evitar}: Restringir acceso a la base de datos por IP.
-\item \textbf{Transferir}: Contratar seguro cibernético ante incidentes.
-\item \textbf{Aceptar}: Riesgos de bajo impacto que no justifican inversión.
-\end{itemize}
+Es importante destacar que la evaluación de riesgos no es un proceso estático. A medida que se descubren nuevas amenazas, 
+cambian las configuraciones o evolucionan los sistemas, será necesario revisar y actualizar la clasificación de riesgos. 
+Este enfoque dinámico permite ajustar las prioridades en función del contexto y asegurar una gestión continua de la seguridad.
 
 \vspace{0.5cm}
 
-\textbf{Conclusión:} Esta evaluación permite a las PYMEs focalizar su estrategia de auditoría técnica en los activos más expuestos, alineando la metodología de pruebas de la \textbf{NIST SP 800-115} con una gestión de riesgos basada en datos y prioridades reales.
 
-\vspace{0.8cm}
+Como resultado de esta evaluación, se desarrolla un \textit{plan de mitigación} de riesgos, adaptado al nivel 
+de criticidad de cada vulnerabilidad, priorizando aquellas con mayor probabilidad e impacto. Este plan permitirá optimizar los recursos 
+disponibles y servirá como base para las acciones técnicas correctivas que se desarrollarán en fases posteriores ajenas de la auditoría.
 
-\textbf{Bibliografía}
-
-National Institute of Standards and Technology. (2012). \textit{Guide for conducting risk assessments} (NIST Special Publication 800-30 Revision 1). Gaithersburg, MD: U.S. Department of Commerce. Recuperado de \url{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf}
-
-
-\subsubsection{Plan de Mitigación de Riesgos}
-
-A partir del análisis de riesgos, se desarrolla un plan de acción estructurado que propone medidas claras y adaptadas al contexto de la organización para reducir o eliminar las vulnerabilidades detectadas.
-
-\textbf{Estructura del plan de mitigación:}
-\begin{itemize}
-\item \textbf{Medida propuesta:} Parcheo, configuración, segmentación, formación, etc.
-\item \textbf{Vulnerabilidad objetivo:} Vulnerabilidad específica a resolver.
-\item \textbf{Prioridad asignada:} Alta, media, baja, dependiendo del análisis de riesgos.
-\item \textbf{Responsable de ejecución:} Personal técnico, proveedor externo, departamentos específicos.
-\item \textbf{Plazo de implementación:} Tiempos recomendados según urgencia.
-\item \textbf{Estimación de recursos:} Coste o esfuerzo aproximado necesario para la implementación.
-\end{itemize}
-
-\textit{Objetivo: proveer una hoja de ruta práctica y efectiva para fortalecer la postura general de seguridad de la organización.}
 
 \vspace{0.5cm}
+
+
 
 
 
@@ -2731,6 +2898,7 @@ A partir del análisis de riesgos, se desarrolla un plan de acción estructurado
 
 
 \clearpage
+\thispagestyle{nohead}
 
 
 
@@ -2738,56 +2906,176 @@ A partir del análisis de riesgos, se desarrolla un plan de acción estructurado
 % -----------------------------------------------CASO PRÁCTICO------------------------------------------------------------
 \section{Caso Práctico}
 
-En esta sección se presenta el caso práctico de auditoría realizado en una empresa real, siguiendo la metodología propuesta en el capítulo anterior. El objetivo es aplicar los conceptos teóricos aprendidos y demostrar la viabilidad de la metodología en un entorno real.
+En esta sección se presenta la puesta en práctica de la metodología propuesta anteriormente en una Pyme. El propósito principal es demostrar, mediante la aplicación de los conceptos teóricos abordados, la viabilidad y eficacia de esta metodología en un contexto real.
+
+\par\vspace{0.5cm}
+
+La organización seleccionada para el desarrollo de la auditoría corresponde a una \textbf{Pyme del sector agroalimentario}, ubicada en territorio nacional. Por razones de confidencialidad y con el fin de preservar la seguridad y privacidad de la entidad auditada, se ha decidido mantener su anonimato. En este documento, dicha organización será referida como \textbf{Empresa X}.
+
+\par\vspace{0.5cm}
+
+Asimismo, con el objetivo de proteger aún más la identidad y confidencialidad de los sistemas, aplicaciones y procesos involucrados, se emplearán nombres ficticios en las referencias específicas. De este modo, se evita cualquier posible asociación con los sistemas y aplicaciones reales de la organización.
+\par\vspace{0.5cm}
+
+Cabe destacar que la realización de este caso práctico no habría sido posible sin la implicación activa de la empresa auditada, que facilitó el acceso a su infraestructura y entornos necesarios para llevar a cabo la auditoría de ciberseguridad en condiciones reales. Asimismo, agradezco especialmente la implicación de mi tutor Alejandro, cuya colaboración ha sido fundamental para poder aplicar la metodología desarrollada en un entorno profesional y realista.
+
+\par\vspace{0.5cm}
+
+La auditoría llevada a cabo se ha estructurado en torno a las cuatro fases metodológicas definidas en el capítulo anterior:
+
+\par\vspace{0.5cm}
+
+\subsection{Fase de Planificación en el Caso Práctico}
+\par\vspace{0.5cm}
+
+Atendiendo a la metodología definida, se redactaron inicialmente tres documentos clave para formalizar el proceso de auditoría: el acuerdo de confidencialidad (NDA), el acuerdo de servicios y la autorización para realizar pruebas técnicas de pentesting. Estos documentos fueron presentados a la empresa para su revisión y firma, con el fin de garantizar su conformidad con el proceso.
+\par\vspace{0.5cm}
+
+En primer lugar, se detallaron las pruebas técnicas que se llevarían a cabo, basadas principalmente en las fases de enumeración y explotación controlada de vulnerabilidades. Posteriormente, se procedió a definir el alcance específico de la auditoría. Se realizó una primera entrevista con uno de los responsables de seguridad de la pyme, lo que permitió evaluar preliminarmente el nivel de seguridad existente y conocer algunas de las medidas de mitigación implementadas por la empresa.
+\par\vspace{0.5cm}
+
+Durante esta fase inicial, se tuvo acceso a un inventario de activos actualizado parcialmente, así como a las políticas internas definidas por la empresa. Estas políticas estaban bien estructuradas y alineadas con la norma ISO 27001, incluyendo planes de mitigación de riesgos, políticas de copias de seguridad y formación continua para los empleados. Sin embargo, aunque estas políticas podrían haber sido objeto de auditoría para verificar su correcta implementación, dicha tarea quedó fuera del alcance establecido. El enfoque principal se centró en identificar los posibles daños que un atacante externo podría ocasionar si lograra acceder al perímetro de red.
+\par\vspace{0.5cm}
+
+Una vez concluida la entrevista inicial, se realizó una visita presencial a las instalaciones de la empresa para definir con mayor precisión el alcance del proyecto. 
+Durante esta visita, se observó que la empresa no disponía de un mapa de red actualizado. Además, se habían realizado modificaciones recientes en 
+ciertos activos que no se reflejaban en el inventario original. 
+Por lo tanto, fue necesario actualizar dicho inventario y definir una topología de red detallada, identificando claramente los segmentos específicos que 
+serían objeto de la auditoría.
+\par\vspace{0.5cm}
+
+Tras varias horas de análisis, se estableció una estructura de red definitiva que identificaba tres redes principales dentro de la empresa representado en la Figura~\ref{fig:topologia-red}: una red de invitados, aislada del resto; una red dedicada a la oficina de TI; y una red para el área de fábrica, dedicada a tecnologías operacionales (OT). Se decidió que la auditoría se centraría exclusivamente en la red de oficina, ya que la red de invitados resultaba irrelevante desde el punto de vista del riesgo para los activos críticos, y la red de fábrica contenía activos cuya interrupción podría afectar gravemente la continuidad operativa y económica de la empresa.
+\par\vspace{0.5cm}
+
+\begin{figure}[H]
+  \centering
+  \includegraphics[width=\textwidth]{images/topologia.png}
+  \caption{Topología de red de la Empresa X.}
+  \label{fig:topologia-red}
+\end{figure}
+
+\par\vspace{0.5cm}
+
+Finalmente, con el alcance, herramientas y técnicas claramente definidos, se procedió a preparar todo el material necesario para realizar la auditoría. 
+\par\vspace{0.5cm}
 
 
-\subsection{Implementación de la auditoría}
 
 
-\par\vspace{0.4cm}
+\subsubsection{Resultados Obtenidos en la Fase de Planificación}
 
-El entorno auditado corresponde a una \textbf{pyme del sector industrial} ubicada en territorio nacional. Por motivos de confidencialidad, hemos decidido mantener el anonimato de la entidad analizada, la cual será mencionada en este documento como \textbf{Empresa X}. 
-\par\vspace{0.4cm}
+Como resultado de esta fase de planificación, se lograron concretar los siguientes puntos clave:
 
-Además, se utilizarán nombres de dominio ficticios para proteger la identidad de los sistemas y aplicaciones involucradas, evitando así cualquier posible asociación con la empresa real. Asimismo, la direcciones IP públicas y nombres de host utilizados durante la práctica serán también ficticios y no corresponden a sistemas reales.
+\begin{itemize}
+    \item Documentos formales firmados por la empresa: acuerdo de confidencialidad (NDA), acuerdo de servicios y autorización para pruebas de pentesting.
+    \item Alcance de la auditoría definido claramente en base a la topología de red actualizada.
+    \item Actualización completa del inventario de activos en formato Excel.
+    \item Elaboración de un diagrama actualizado de la topología de red, entregado formalmente a la empresa.
+    \item Reorganización física y propuesta de eliminación de activos obsoletos y equipos no utilizados presentes en las instalaciones.
+\end{itemize}
 
-\par\vspace{0.4cm}
-
-La auditoría se estructuró conforme a las cinco fases metodológicas descritas en el capítulo anterior:
 
 
-\subsection{Planificación de la auditoría}
-\par\vspace{0.4cm}
-\subsubsection*{Definición del alcance}
+\par\vspace{0.5cm}
+\subsection{Fase de Descubrimiento en el Caso Práctico}
 
-El alcance de la auditoría se estableció atendiendo a los recuros disponibles y a las posibles limitaciones que pudiera surgir durante la práctica que pudieran afectar al rendimiento de la empresa auditada.
+Una vez finalizada la fase de planificación, y haber preparado todas las herramientas y autorizaciones necesarias, se procedió con la ejecución de la \textbf{fase de descubrimiento}, según lo establecido en la metodología propuesta de esta memoria.
 
-Para ello, se ha definido un entorno de pruebas que incluye:
+\par\vspace{0.5cm}
 
-\par\vspace{0.4cm}
+Como paso previo, se llevó a cabo el análisis opcional de OSINT. Esta etapa permitió obtener información pública sobre la organización auditada. En concreto, se localizaron los siguientes elementos relevantes:
 
+\begin{itemize}
+    \item Documentos indexados en motores de búsqueda bajo el dominio corporativo
+    \item Informes sobre la facturación anual, número de empleados, ejecutivos de la empresa, teléfonos y correos de contactos.
+    \item Relaciones internacionales.
+    \item Listado de posibles empleados.
+    \item Correos corporativos.
+    \item Registros de haber sufrido un ciberataque años anteriores.
+    \item Inventario de puertos y dominios públicos asociados a la empresa.
+\end{itemize}
+
+\par\vspace{0.5cm}
+
+A través de estas búsquedas especializadas, se identificaron varias credenciales asociadas a cuentas corporativas previamente filtradas, lo cual no supone ningún riesgo si llevan a cabo las políticas de cambios de contraseñas, dejando la información expuesto sin ningún valor para un atacante.
+
+\par\vspace{0.5cm}
+
+Tras concluir con el análsiis de OSINT, se inicia formalmente la fase de descubrimiento, se auditó en primer lugar el perímetro inalámbrico de la red, 
+siguiendo los procedimientos expuestos en la Sección~\ref{sec:analisis_redes_inalambricas}. 
+Para ello se utilizó una antena en modo monitor junto con las herramientas descritas, que permitieron identificar tres redes WiFi vinculadas a la organización. Se observó que dos de ellas compartían el mismo segmento de red, la red de oficina, mientras que la tercera correspondía a una red de invitados, aislada mediante segmentación.
+
+\par\vspace{0.5cm}
+
+Gracias al análisis topológico, pudimos comprobar y evalaur una correcta segmentación mediante un firewall Fortigate de última generación. Las redes identificadas se dividían en un segmento de fábrica (\texttt{172.168.0.0/24}) y uno de oficina (\texttt{192.168.100.0/24}) como se puede ver en la Figura~\ref{fig:topologia-red}. Se evaluó la seguridad de las redes inalámbricas mediante las técnicas de desautenticación descritas en la metodología, obteniéndose los \textit{handshakes} de autenticación para todas las redes detectadas. Estos paquetes fueron almacenados para su posterior análisis en relación con la robustez y complejidad de las contraseñas.
+
+\par\vspace{0.5cm}
+
+A continuación, el responsable de la empresa nos permitió conectarno directamente al segmento de red de la oficina por cable con el fin de agilizar el análisis interno. Se inició una exploración automatizada mediante \texttt{Nessus}, mientras en paralelo se ejecutaban capturas de tráfico con \texttt{Wireshark}. Posteriormente, se utilizó \texttt{Nmap} para enumerar todos los activos.
+
+\par\vspace{0.5cm}
+
+Durante este proceso, algunos escaneos fueron bloqueados por el firewall, lo que obligó a emplear técnicas de evasión y scripts personalizados en \texttt{Python}, uno de los cuales se incluye como ejemplo en el Anexo~\ref{anexo:script_evasion}. Una vez se logró listar los hosts de la red, se procedió a enumerar sus puertos y servicios abiertos de forma individual.
+
+\par\vspace{0.5cm}
+
+Los informes generados por \texttt{Nessus}, junto con los análisis manuales y observaciones realizadas, sirvieron para evaluar las vulnerabilidades detectadas, conforme a la metodología de análisis descrita en la Sección~\ref{sec:analisis_vulnerabilidades}. Esta información permitió sentar las bases para el diseño del posterior plan de ataque.
+
+\par\vspace{0.5cm}
+
+Como resultado directo de esta fase, se obtuvo un conjunto de \textit{handshakes} cuya complejidad será evaluada en base al tiempo estimado de ruptura por fuerza bruta. Asimismo, se generó un inventario detallado de activos, revelando la presencia de un entorno con \textit{Active Directory}, en el cual los nombres de los equipos estaban correctamente etiquetados, facilitando la labor de reconocimiento para un posible atacante.
+
+\par\vspace{0.5cm}
+
+Entre los dispositivos detectados se encontraban routers con paneles de acceso accesibles, servidores de archivos, estaciones de trabajo conectadas al dominio, impresoras de red y dispositivos personales de empleados, como móviles, los cuales representan un potencial vector de riesgo si estuviesen comprometidos. Además, se extrajo un listado preliminar de vulnerabilidades priorizadas para su explotación en fases posteriores.
+
+\par\vspace{0.5cm}
+
+
+\label{sec:fingerprint}
+\label{sec:analisis_vulnerabilidades}
+\label{sec:osint}
+\label{anexo:script_evasion}
+\label{codigo:wireshark}
+
+\par\vspace{0.5cm}
+
+\subsection{Fase de Ataque en el Caso Práctico}
+
+
+una vezx trazado un plan de ataque adecuado al entorno de directorio activo presenre en la red a aduitar, comenzamos previamtene con el crackero de la contrraseña de la red perimetras, esta era bastante robusta con mas de 10 caracteres combinado numeros letras mayusvcula minuscula y algunas simbolos, por lo que se estima segun la sigueinte tabla: que la duracion para romperla es de .... tiempo.
+
+Nos volvemos a conectar a la red y desde dentro, probamos con un listado de posibles credencales por defecto en todos los paneles de acceso. Durante esta etapa logramos acceder de primera mano a la configuracion como administrado de uno de los routers de la empresa, y acceso como administrador al panel de control de una de las impresoras principales de la red de oficina. Una vez probado con toddos los demas paneles, probamos lo mismo a servicios destinado a la conecxion como es el puerto 22 ssh y otros como el telnet 23. Vimos que todos estaban protegido frente a fuer<za bruta y que contaban con contraseñas. Finalmente, comenzxamos a atacar ese sistme de directorio activo siguiendo la metodologia descrita en la seccion pertinenten arriba del documetno.
+
+Ataque de nessu?
+Ataque manuales?
+Probamos un shelshock con paneles cgi.
+
+
+\par\vspace{0.5cm}
+\subsection{Fase de Reporte del Caso Práctico}
 
 
 
 
 \clearpage
-
-% -----------------------------------------------RESULTADOS------------------------------------------------------------
-\section{Resultados}
-
-
-
-\clearpage
+\thispagestyle{nohead}
 
 % -----------------------------------------------CONCLUSIONES O DISCUSIONES------------------------------------------------------------
-\section{Conclusiones}
+\section{Resultados y Conclusiones}
 
+\par\vspace{0.5cm}
+\subsection{Líneas de investigación futuras}
 
 
 \clearpage
+\thispagestyle{nohead}
 
 % -----------------------------------------------REFERENCIAS------------------------------------------------------------
 %Poner bien las referencias en APA
+
+\section*{Bibliografía}
+\addcontentsline{toc}{section}{Bibliografía}
 \begin{thebibliography}{99}
     
     \bibitem{napalm-ccoo}
@@ -2883,11 +3171,18 @@ Para ello, se ha definido un entorno de pruebas que incluye:
     \bibitem{nist800115}
     Scarfone, K., Souppaya, M., Cody, A., \& Orebaugh, A. (2008). \textit{Technical guide to information security testing and assessment (NIST SP 800-115)}. National Institute of Standards and Technology. Recuperado el 22 de Mayo de 2025, de \url{https://doi.org/10.6028/NIST.SP.800-115}
 
+    \bibitem{beehacker}
+    BeeHackers. (s.f.). \textit{BeeHackers}. [Página Web] Recuperado el 7 de junio de 2025, de \url{https://beehackers.es/}
+
     \bibitem{felipe2024}
     Felipe Redondo, A. M., \& Núñez Cárdenas, F. J. (2024). \textit{Criterios de selección de herramientas para pentesting}. \textit{Artículo Científico}. Recuperado el 8 de Abril de 2025, de \url{https://repository.uaeh.edu.mx/revistas/index.php/huejutla/article/view/12763/11251}
 
     \bibitem{cvss}
     FIRST. (s.f.). \textit{Common Vulnerability Scoring System}. Recuperado el 7 de Junio de 2025, de \url{https://www.first.org/cvss/specification-document}
+
+    \bibitem{nist80030}
+    National Institute of Standards and Technology. (2012). \textit{Guide for conducting risk assessments}.  Recuperado el 07 de Junio de 2025, de \url{https://nvlpubs.nist.gov/nistpubs/Legacy/SP/nistspecialpublication800-30r1.pdf}
+
 
 \end{thebibliography}
 
@@ -2901,20 +3196,42 @@ Para ello, se ha definido un entorno de pruebas que incluye:
 
 
 % -----------------------------------------------ANEXOS------------------------------------------------------------
-\section{Anexos}
+\thispagestyle{nohead}
 
 
-\subsection{Anexo I. Registro de actividades en Clockify}
+\section*{Anexo 1. Registro de actividades en Clockify}
+\addcontentsline{toc}{section}{Anexo 1}
 
-A continuación se muestra el enlace al recurso utilizado para el control del tiempo y la gestión de tareas del proyecto:
-\url{https://app.clockify.me/shared/abc123}
+\label{anexo:1}
+
+A continuación se muestra el enlace al recurso utilizado para el control del tiempo y la gestión de tareas del proyecto. Este recurso, gestionado a través de la plataforma Clockify, recoge de forma detallada todas las actividades realizadas durante el desarrollo del TFG. 
+
+El registro incluye:
+\begin{itemize}
+  \item El total de horas dedicadas al desarrollo del proyecto.
+  \item Las fechas y horas dedicadas a cada tarea.
+  \item Las actividades clasificadas según las fases establecidas en el cronograma.
+  \item Una breve descripción para cada actividad desarrollada.
+\end{itemize}
+
+\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+  colback=blue!5!white,colframe=blue!75!black,colbacktitle=red!80!black,
+  title=Dirección URL,fonttitle=\bfseries,
+  boxed title style={size=small,colframe=red!50!black} ]
+  \centering
+  \url{https://app.clockify.me/shared/abc123}
+
+\end{tcolorbox}
 
 
 \clearpage
 
+\thispagestyle{nohead}
 
 
-\subsection{Anexo II. Enlaces oficiales de herramientas de pentesting}
+\section*{Anexo 2. Enlaces oficiales de herramientas de pentesting}
+\label{anexo:2}
+\addcontentsline{toc}{section}{Anexo 2}
 
 \subsection*{Sistemas Operativos}
 \begin{table}[H]
@@ -3044,8 +3361,11 @@ Wireshark & \url{https://www.wireshark.org} \\
 
 
 \clearpage
+\thispagestyle{nohead}
 
-\subsection{Anexo III: Glosario de términos}
+\section*{Anexo 3: Glosario de términos}
+\label{anexo:3}
+\addcontentsline{toc}{section}{Anexo 3}
 
 A continuación se presenta un glosario con los principales términos utilizados en el presente trabajo:
 
@@ -3189,10 +3509,13 @@ A continuación se presenta un glosario con los principales términos utilizados
 \end{itemize}
 
 \clearpage
+\thispagestyle{nohead}
 
-\subsection{Anexo IV: Parámetros avanzados de Nmap}
+\section*{Anexo 4: Parámetros avanzados de Nmap}
+\label{anexo:4}
+\addcontentsline{toc}{section}{Anexo 4}
 
-A continuación se presenta un resumen de los parámetros más relevantes de \textbf{Nmap}.
+Dado el papel fundamental que desempeña \textbf{Nmap} en las tareas de reconocimiento durante una auditoría de ciberseguridad, a continuación se sintetizan sus funcionalidades más relevantes mediante el uso de parámetros específicos según el tipo de análisis requerido.
 
 \vspace{1em}
 
