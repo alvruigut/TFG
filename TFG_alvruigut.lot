@@ -5,20 +5,22 @@
 \contentsline {table}{\numberline {4}{\ignorespaces Costos Asociados}}{12}{table.caption.5}%
 \contentsline {table}{\numberline {5}{\ignorespaces Resumen de costes del proyecto}}{13}{table.caption.6}%
 \contentsline {table}{\numberline {6}{\ignorespaces Requisitos formales del proyecto}}{15}{table.caption.7}%
-\contentsline {table}{\numberline {7}{\ignorespaces Medidas de mitigación y su efectividad.}}{21}{table.caption.10}%
-\contentsline {table}{\numberline {8}{\ignorespaces Certificaciones GIAC ofrecidas por SANS y sus áreas de especialización}}{28}{table.caption.13}%
-\contentsline {table}{\numberline {9}{\ignorespaces Comparativa de normativas y estándares en ciberseguridad.}}{32}{table.caption.15}%
-\contentsline {table}{\numberline {10}{\ignorespaces Herramientas de pentesting más empleadas}}{34}{table.caption.16}%
-\contentsline {table}{\numberline {11}{\ignorespaces Tabla de objetivos en el análisis del perímetro de red}}{41}{table.caption.19}%
-\contentsline {table}{\numberline {12}{\ignorespaces Tabla de objetivos en la fase de Fingerprint interno}}{42}{table.caption.20}%
-\contentsline {table}{\numberline {13}{\ignorespaces Tabla de objetivos en la fase OSINT e Ingeniería Social}}{42}{table.caption.21}%
-\contentsline {table}{\numberline {14}{\ignorespaces Tabla de objetivos en la auditoría de dispositivos IoT}}{43}{table.caption.22}%
-\contentsline {table}{\numberline {15}{\ignorespaces Tabla de objetivos en la auditoría de aplicaciones web}}{44}{table.caption.23}%
-\contentsline {table}{\numberline {16}{\ignorespaces Tabla de objetivos en la evaluación de la seguridad de la infraestructura}}{45}{table.caption.24}%
-\contentsline {table}{\numberline {17}{\ignorespaces Tabla de objetivos en la auditoría de seguridad de endpoints y datos}}{46}{table.caption.25}%
-\contentsline {table}{\numberline {18}{\ignorespaces Ejemplo de redes inalámbricas detectadas con Airodump-ng}}{52}{table.caption.26}%
-\contentsline {table}{\numberline {19}{\ignorespaces Diferencias entre informe ejecutivo e informe técnico detallado.}}{67}{table.caption.27}%
-\contentsline {table}{\numberline {20}{\ignorespaces Pasos de la metodología NIST SP 800-30 para la evaluación de riesgos.}}{68}{table.caption.28}%
-\contentsline {table}{\numberline {21}{\ignorespaces Matriz de riesgos para evaluar la criticidad de las vulnerabilidades.}}{69}{table.caption.29}%
-\contentsline {table}{\numberline {22}{\ignorespaces Ejemplo de análisis de riesgos.}}{69}{table.caption.30}%
-\contentsline {table}{\numberline {23}{\ignorespaces Parámetros avanzados de Nmap clasificados por funcionalidad}}{90}{table.caption.40}%
+\contentsline {table}{\numberline {7}{\ignorespaces Medidas de mitigación y su efectividad.}}{22}{table.caption.10}%
+\contentsline {table}{\numberline {8}{\ignorespaces Certificaciones GIAC ofrecidas por SANS y sus áreas de especialización}}{29}{table.caption.13}%
+\contentsline {table}{\numberline {9}{\ignorespaces Comparativa de normativas y estándares en ciberseguridad.}}{33}{table.caption.15}%
+\contentsline {table}{\numberline {10}{\ignorespaces Herramientas de pentesting más empleadas}}{36}{table.caption.16}%
+\contentsline {table}{\numberline {11}{\ignorespaces Tabla de objetivos en el análisis del perímetro de red}}{46}{table.caption.19}%
+\contentsline {table}{\numberline {12}{\ignorespaces Tabla de objetivos en la fase de Fingerprint interno}}{46}{table.caption.20}%
+\contentsline {table}{\numberline {13}{\ignorespaces Tabla de objetivos en la fase OSINT e Ingeniería Social}}{47}{table.caption.21}%
+\contentsline {table}{\numberline {14}{\ignorespaces Tabla de objetivos en la auditoría de dispositivos IoT}}{48}{table.caption.22}%
+\contentsline {table}{\numberline {15}{\ignorespaces Tabla de objetivos en la auditoría de aplicaciones web}}{49}{table.caption.23}%
+\contentsline {table}{\numberline {16}{\ignorespaces Tabla de objetivos en la evaluación de la seguridad de la infraestructura}}{50}{table.caption.24}%
+\contentsline {table}{\numberline {17}{\ignorespaces Tabla de objetivos en la auditoría de seguridad de endpoints y datos}}{51}{table.caption.25}%
+\contentsline {table}{\numberline {18}{\ignorespaces Ejemplo de redes inalámbricas detectadas con Airodump-ng}}{57}{table.caption.26}%
+\contentsline {table}{\numberline {19}{\ignorespaces Diferencias entre informe ejecutivo e informe técnico detallado.}}{74}{table.caption.27}%
+\contentsline {table}{\numberline {20}{\ignorespaces Pasos de la metodología NIST SP 800-30 para la evaluación de riesgos.}}{75}{table.caption.28}%
+\contentsline {table}{\numberline {21}{\ignorespaces Matriz de riesgos para evaluar la criticidad de las vulnerabilidades.}}{75}{table.caption.29}%
+\contentsline {table}{\numberline {22}{\ignorespaces Ejemplo de análisis de riesgos.}}{76}{table.caption.30}%
+\contentsline {table}{\numberline {23}{\ignorespaces Resumen de métricas base del sistema CVSS 3.1}}{90}{table.caption.42}%
+\contentsline {table}{\numberline {24}{\ignorespaces Resumen de métricas temporales del sistema CVSS 3.1}}{91}{table.caption.43}%
+\contentsline {table}{\numberline {25}{\ignorespaces Resumen de métricas ambientales del sistema CVSS 3.1}}{91}{table.caption.44}%
