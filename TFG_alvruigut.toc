@@ -1,8 +1,8 @@
 \babel@toc {spanish}{}\relax 
-\contentsline {section}{Índice de General}{\es@scroman {viii}}{Doc-Start}%
-\contentsline {section}{Índice de Figuras}{\es@scroman {xi}}{Doc-Start}%
-\contentsline {section}{Índice de Cuadros}{\es@scroman {xii}}{Doc-Start}%
-\contentsline {section}{Índice de Códigos}{\es@scroman {xiii}}{Doc-Start}%
+\contentsline {section}{Índice de General}{\es@scroman {iv}}{Doc-Start}%
+\contentsline {section}{Índice de Figuras}{\es@scroman {vii}}{Doc-Start}%
+\contentsline {section}{Índice de Cuadros}{\es@scroman {viii}}{Doc-Start}%
+\contentsline {section}{Índice de Códigos}{\es@scroman {ix}}{Doc-Start}%
 \contentsline {section}{\numberline {1}Introducción}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}Motivación}{2}{subsection.1.1}%
 \contentsline {subsection}{\numberline {1.2}Objetivos}{2}{subsection.1.2}%
@@ -28,56 +28,59 @@
 \contentsline {subsubsection}{\numberline {4.4.1}Organismos Reguladores en Ciberseguridad}{25}{subsubsection.4.4.1}%
 \contentsline {subsubsection}{\numberline {4.4.2}Otros Organismos Internacionales}{27}{subsubsection.4.4.2}%
 \contentsline {subsubsection}{\numberline {4.4.3}Normativas y Estándares Aplicables}{29}{subsubsection.4.4.3}%
-\contentsline {subsubsection}{\numberline {4.4.4}Tipos de Auditoría en Ciberseguridad}{33}{subsubsection.4.4.4}%
-\contentsline {subsubsection}{\numberline {4.4.5}Metodologías de Auditoría en Ciberseguridad}{34}{subsubsection.4.4.5}%
-\contentsline {subsection}{\numberline {4.5}Herramientas de pentesting}{35}{subsection.4.5}%
-\contentsline {subsection}{\numberline {4.6}Certificaciones del sector}{37}{subsection.4.6}%
-\contentsline {section}{\numberline {5}Metodología elegida: NIST SP 800-115}{39}{section.5}%
-\contentsline {subsection}{\numberline {5.1}Fase de Planificación (Planning Phase)}{40}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}Fase de Descubrimiento (Discovery Phase)}{40}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}Fase de Ataque (Attack Phase)}{40}{subsection.5.3}%
-\contentsline {subsection}{\numberline {5.4}Fase de Reporte (Reporting Phase)}{40}{subsection.5.4}%
-\contentsline {section}{\numberline {6}Modelo de auditoría}{42}{section.6}%
-\contentsline {subsection}{\numberline {6.1}Diseño propuesto por BeeHacker}{43}{subsection.6.1}%
-\contentsline {subsubsection}{\numberline {6.1.1}Análisis del Perímetro de Red}{45}{subsubsection.6.1.1}%
-\contentsline {subsubsection}{\numberline {6.1.2}Fingerprint (Reconocimiento Interno)}{46}{subsubsection.6.1.2}%
-\contentsline {subsubsection}{\numberline {6.1.3}OSINT e Ingeniería Social}{47}{subsubsection.6.1.3}%
-\contentsline {subsubsection}{\numberline {6.1.4}Seguridad en IoT}{47}{subsubsection.6.1.4}%
-\contentsline {subsubsection}{\numberline {6.1.5}Auditoría Web}{48}{subsubsection.6.1.5}%
-\contentsline {subsubsection}{\numberline {6.1.6}Seguridad de la Infraestructura}{49}{subsubsection.6.1.6}%
-\contentsline {subsubsection}{\numberline {6.1.7}Seguridad de Endpoints y Datos}{50}{subsubsection.6.1.7}%
-\contentsline {section}{\numberline {7}Requisitos previos a la auditoría}{52}{section.7}%
-\contentsline {section}{\numberline {8}Propuesta metodológica de auditoría}{54}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Fase de Planificación de la Auditoría}{54}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}Fase de Descubrimiento de la Auditoría}{56}{subsection.8.2}%
-\contentsline {subsubsection}{\numberline {8.2.1}Análisis Externo de Redes Inalámbricas}{56}{subsubsection.8.2.1}%
-\contentsline {subsubsection}{\numberline {8.2.2}Análisis Interno de Redes (Fingerprint)}{58}{subsubsection.8.2.2}%
-\contentsline {subsubsection}{\numberline {8.2.3}Análisis Interno de Tráfico de Red}{60}{subsubsection.8.2.3}%
-\contentsline {subsubsection}{\numberline {8.2.4}Análisis de vulnerabilidades}{61}{subsubsection.8.2.4}%
-\contentsline {subsubsection}{\numberline {8.2.5}Clasificación de vulnerabilidades}{62}{subsubsection.8.2.5}%
-\contentsline {subsubsection}{\numberline {8.2.6}OSINT e Ingeniería Social}{64}{subsubsection.8.2.6}%
-\contentsline {subsection}{\numberline {8.3}Fase de Ataque de la Auditoría}{69}{subsection.8.3}%
-\contentsline {subsubsection}{\numberline {8.3.1}Ataques WIFI}{69}{subsubsection.8.3.1}%
-\contentsline {subsubsection}{\numberline {8.3.2}Fuerza Bruta}{69}{subsubsection.8.3.2}%
-\contentsline {subsubsection}{\numberline {8.3.3}Explorar VULNS}{69}{subsubsection.8.3.3}%
-\contentsline {subsubsection}{\numberline {8.3.4}Directorio Activo}{70}{subsubsection.8.3.4}%
-\contentsline {subsubsection}{\numberline {8.3.5}WEBS}{70}{subsubsection.8.3.5}%
-\contentsline {subsubsection}{\numberline {8.3.6}MIMT, SniffingM Poisongs}{70}{subsubsection.8.3.6}%
-\contentsline {subsubsection}{\numberline {8.3.7}Una vez dentro}{70}{subsubsection.8.3.7}%
-\contentsline {subsection}{\numberline {8.4}Fase de Reporte de la Auditoría}{71}{subsection.8.4}%
-\contentsline {subsubsection}{\numberline {8.4.1}Informe Técnico Detallado}{71}{subsubsection.8.4.1}%
-\contentsline {subsubsection}{\numberline {8.4.2}Informe Ejecutivo}{72}{subsubsection.8.4.2}%
-\contentsline {subsubsection}{\numberline {8.4.3}Evaluación de Riesgos}{74}{subsubsection.8.4.3}%
-\contentsline {section}{\numberline {9}Caso Práctico}{77}{section.9}%
-\contentsline {subsection}{\numberline {9.1}Fase de Planificación en el Caso Práctico}{78}{subsection.9.1}%
-\contentsline {subsubsection}{\numberline {9.1.1}Resultados Obtenidos en la Fase de Planificación}{79}{subsubsection.9.1.1}%
-\contentsline {subsection}{\numberline {9.2}Fase de Descubrimiento en el Caso Práctico}{80}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}Fase de Ataque en el Caso Práctico}{81}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}Fase de Reporte del Caso Práctico}{82}{subsection.9.4}%
-\contentsline {section}{\numberline {10}Resultados y Conclusiones}{83}{section.10}%
-\contentsline {subsection}{\numberline {10.1}Líneas de investigación futuras}{83}{subsection.10.1}%
-\contentsline {section}{Referencias}{84}{subsection.10.1}%
-\contentsline {section}{Anexo 1}{87}{subsection.10.1}%
-\contentsline {section}{Anexo 2}{88}{section*.33}%
-\contentsline {section}{Anexo 3}{90}{table.caption.41}%
-\contentsline {section}{Anexo 4}{92}{table.caption.44}%
+\contentsline {subsubsection}{\numberline {4.4.4}Tipos de Auditoría de Seguridad Informática}{33}{subsubsection.4.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.5}Metodologías de Auditoría en Ciberseguridad}{35}{subsubsection.4.4.5}%
+\contentsline {subsection}{\numberline {4.5}Herramientas de pentesting}{36}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Certificaciones del sector}{38}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Metodología elegida: NIST SP 800-115}{40}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Fase de Planificación (Planning Phase)}{41}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Fase de Descubrimiento (Discovery Phase)}{41}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Fase de Ataque (Attack Phase)}{41}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Fase de Reporte (Reporting Phase)}{41}{subsection.5.4}%
+\contentsline {section}{\numberline {6}Modelo de auditoría}{43}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Diseño propuesto por BeeHacker}{44}{subsection.6.1}%
+\contentsline {subsubsection}{\numberline {6.1.1}Análisis del Perímetro de Red}{46}{subsubsection.6.1.1}%
+\contentsline {subsubsection}{\numberline {6.1.2}Fingerprint (Reconocimiento Interno)}{47}{subsubsection.6.1.2}%
+\contentsline {subsubsection}{\numberline {6.1.3}OSINT e Ingeniería Social}{48}{subsubsection.6.1.3}%
+\contentsline {subsubsection}{\numberline {6.1.4}Seguridad en IoT}{49}{subsubsection.6.1.4}%
+\contentsline {subsubsection}{\numberline {6.1.5}Auditoría Web}{50}{subsubsection.6.1.5}%
+\contentsline {subsubsection}{\numberline {6.1.6}Seguridad de la Infraestructura}{51}{subsubsection.6.1.6}%
+\contentsline {subsubsection}{\numberline {6.1.7}Seguridad de Endpoints y Datos}{52}{subsubsection.6.1.7}%
+\contentsline {section}{\numberline {7}Requisitos previos para la ejecución de la auditoría}{54}{section.7}%
+\contentsline {section}{\numberline {8}Propuesta metodológica de auditoría}{56}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Fase de Planificación de la Auditoría}{56}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Fase de Descubrimiento de la Auditoría}{58}{subsection.8.2}%
+\contentsline {subsubsection}{\numberline {8.2.1}Análisis Externo de Redes Inalámbricas}{58}{subsubsection.8.2.1}%
+\contentsline {subsubsection}{\numberline {8.2.2}Análisis Interno de Redes (Fingerprint)}{60}{subsubsection.8.2.2}%
+\contentsline {subsubsection}{\numberline {8.2.3}Análisis Interno de Tráfico de Red}{62}{subsubsection.8.2.3}%
+\contentsline {subsubsection}{\numberline {8.2.4}Análisis de vulnerabilidades}{63}{subsubsection.8.2.4}%
+\contentsline {subsubsection}{\numberline {8.2.5}Clasificación de vulnerabilidades}{64}{subsubsection.8.2.5}%
+\contentsline {subsubsection}{\numberline {8.2.6}OSINT e Ingeniería Social}{66}{subsubsection.8.2.6}%
+\contentsline {subsection}{\numberline {8.3}Fase de Ataque de la Auditoría}{71}{subsection.8.3}%
+\contentsline {subsubsection}{\numberline {8.3.1}Ataques de fuerza bruta sobre handshakes WPA/WPA2}{71}{subsubsection.8.3.1}%
+\contentsline {subsubsection}{\numberline {8.3.2}Ataques Rogue AP (Rogue Access Points)}{72}{subsubsection.8.3.2}%
+\contentsline {subsubsection}{\numberline {8.3.3}Fuerza Bruta sobre servicios expuestos}{73}{subsubsection.8.3.3}%
+\contentsline {subsubsection}{\numberline {8.3.4}Explotación de vulnerabilidades detectadas}{74}{subsubsection.8.3.4}%
+\contentsline {subsubsection}{\numberline {8.3.5}Entornos de Directorio Activo}{75}{subsubsection.8.3.5}%
+\contentsline {subsubsection}{\numberline {8.3.6}Auditoría de aplicaciones web}{79}{subsubsection.8.3.6}%
+\contentsline {subsubsection}{\numberline {8.3.7}Post-explotación: escalado de privilegios y movimiento lateral}{80}{subsubsection.8.3.7}%
+\contentsline {subsection}{\numberline {8.4}Fase de Reporte de la Auditoría}{82}{subsection.8.4}%
+\contentsline {subsubsection}{\numberline {8.4.1}Informe Técnico Detallado}{82}{subsubsection.8.4.1}%
+\contentsline {subsubsection}{\numberline {8.4.2}Informe Ejecutivo}{83}{subsubsection.8.4.2}%
+\contentsline {subsubsection}{\numberline {8.4.3}Evaluación de Riesgos}{85}{subsubsection.8.4.3}%
+\contentsline {section}{\numberline {9}Implementación de la Metodología Propuesta: Caso Práctico}{88}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Fase de Planificación en el Caso Práctico}{89}{subsection.9.1}%
+\contentsline {subsubsection}{\numberline {9.1.1}Resultados Obtenidos en la Fase de Planificación}{92}{subsubsection.9.1.1}%
+\contentsline {subsection}{\numberline {9.2}Fase de Descubrimiento en el Caso Práctico}{92}{subsection.9.2}%
+\contentsline {subsubsection}{\numberline {9.2.1}Resultados de la fase de descubrimiento}{97}{subsubsection.9.2.1}%
+\contentsline {subsection}{\numberline {9.3}Fase de Ataque en el Caso Práctico}{98}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Fase de Reporte del Caso Práctico}{102}{subsection.9.4}%
+\contentsline {section}{\numberline {10}Resultados del proyecto}{106}{section.10}%
+\contentsline {section}{\numberline {11}Conclusiones}{108}{section.11}%
+\contentsline {subsection}{\numberline {11.1}Líneas futuras}{108}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}Reflexión personal}{109}{subsection.11.2}%
+\contentsline {section}{Referencias}{110}{subsection.11.2}%
+\contentsline {section}{Anexo 1}{114}{subsection.11.2}%
+\contentsline {section}{Anexo 2}{116}{section*.48}%
+\contentsline {section}{Anexo 3}{118}{table.caption.56}%
+\contentsline {section}{Anexo 4}{120}{table.caption.59}%

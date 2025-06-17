@@ -36,6 +36,8 @@
 \usepackage{tikz}
 \usepackage{etoolbox}
 \usepackage{ulem}
+\usepackage[bottom]{footmisc}
+\usepackage{changepage}
 
 % Configuración de código
 \usepackage{listings}
@@ -190,11 +192,13 @@
 
 Este Trabajo Fin de Grado tiene como objetivo principal el diseño de un modelo de auditoría de ciberseguridad específicamente orientado a pequeñas y medianas empresas (PYMEs), accesible incluso para usuarios sin conocimientos técnicos avanzados.
 
-Para ello, se establece un marco teórico sólido que introduce los fundamentos esenciales de la ciberseguridad. Posteriormente, se desarrolla una metodología propia basada en normativas reconocidas internacionalmente, adaptada mediante el análisis de metodologías empleadas por empresas especializadas en el sector.
+Para ello, se establece un marco teórico que introduce los fundamentos esenciales de la ciberseguridad. En este apartado se analizan las principales amenazas cibernéticas que afectan a las PYMEs, se proponen planes de mitigación y se presentan buenas prácticas orientadas a reducir la superficie de exposición. Además, para quienes estén interesados en formarse en el ámbito de la ciberseguridad ofensiva, se incluyen las certificaciones más reconocidas del sector y una recopilación de herramientas ampliamente utilizadas en entornos profesionales.
 
-Esta propuesta metodológica se valida mediante un caso práctico aplicado a una PYME real, permitiendo demostrar su eficacia y extraer conclusiones prácticas sobre los riesgos detectados y las mejoras necesarias.
+Posteriormente, se desarrolla una metodología propia de auditoría basada en la normativa NIST SP 800-115, una de las más reconocidas a nivel internacional en el ámbito de la ciberseguridad. Esta metodología ha sido adaptada mediante el análisis detallado de procedimientos reales empleados por empresas especializadas del sector, con las que se ha mantenido contacto directo a través de reuniones y entrevistas realizadas durante el desarrollo del proyecto.
 
-Como resultado, se obtiene una guía clara, estructurada y replicable, respaldada por la validación de expertos, que puede ser utilizada como referencia para futuras auditorías básicas en entornos similares.
+La propuesta metodológica se valida mediante un caso práctico aplicado a una PYME real, lo que permite demostrar su eficacia y extraer conclusiones prácticas sobre los riesgos detectados y las mejoras necesarias.
+
+Como resultado, se obtiene una guía clara, estructurada y replicable, respaldada por la validación de expertos, que puede utilizarse como referencia para futuras auditorías básicas en entornos similares.
 
 \textbf{Palabras clave:} Ciberseguridad, Auditoría de seguridad, PYMEs, Evaluación de riesgos, NIST SP 800-115, Análisis de vulnerabilidades.
 \clearpage
@@ -205,7 +209,9 @@ Como resultado, se obtiene una guía clara, estructurada y replicable, respaldad
 \section*{Abstract}
 This thesis aims to design a cybersecurity audit model specifically tailored for small and medium-sized enterprises (SMEs), accessible even to users without advanced technical knowledge.
 
-To achieve this, a solid theoretical framework is established, introducing the essential foundations of cybersecurity. A custom methodology is then developed, based on internationally recognized standards and adapted through the analysis of approaches used by specialized companies in the sector.
+To achieve this, a solid theoretical framework is established, introducing the essential foundations of cybersecurity. This section analyzes the main cyber threats affecting SMEs, proposes mitigation plans, and presents best practices aimed at reducing the attack surface. Additionally, for those interested in offensive cybersecurity training, the most recognized industry certifications and a collection of widely used professional tools are included.
+
+Subsequently, a custom audit methodology is developed based on the NIST SP 800-115 framework, one of the most internationally recognized standards in the field of cybersecurity. This methodology has been adapted through a detailed analysis of real procedures employed by specialized companies in the sector, with whom direct contact has been maintained through meetings and interviews conducted during the development of the project.
 
 This methodological proposal is validated through a practical case study applied to a real SME, demonstrating its effectiveness and allowing for practical conclusions regarding identified risks and necessary improvements.
 
@@ -218,42 +224,19 @@ As a result, a clear, structured, and replicable guide is obtained, supported by
 % -----------------------------------------------AGRADECIMIENTOS------------------------------------------------------------
 \thispagestyle{nohead}
 \section*{Agradecimientos}
-\section*{Familiares}
 
-\begin{minipage}{0.7\textwidth}
+\begin{adjustwidth}{3cm}{3cm}
+
 A mi familia, por estar siempre presente en cada paso del camino. Gracias por vuestro amor, comprensión y por haberme dado el apoyo necesario, también en lo económico, para poder continuar con mi formación.
-\end{minipage}
-\clearpage
-\thispagestyle{nohead}
 
-\section*{Mi pareja y familiares}
-
-\begin{minipage}{0.7\textwidth}
 A mi pareja y a su familia, por su apoyo incondicional y por sostenerme en los momentos más difíciles. Gracias por estar siempre, por el cariño, la paciencia y por motivarme a seguir adelante cuando más lo necesitaba.
-\end{minipage}
-\clearpage
-\thispagestyle{nohead}
 
-\section*{Mi Tutor}
-
-\begin{minipage}{0.7\textwidth}
 A mi tutor Alejandro, por aceptar ser parte de este camino. Gracias por la confianza depositada en mí, por las facilidades aportadas y por abrirme la puerta hacia una nueva etapa profesional.
-\end{minipage}
-\clearpage
-\thispagestyle{nohead}
 
-\section*{BeeHacker}
-\begin{minipage}{0.7\textwidth}
 A la empresa Beehacker, por su colaboración en este proyecto. Agradezco sinceramente la oportunidad que me han ofrecido para aplicar mis conocimientos en un entorno real y su implicación durante todo el proceso.
-\end{minipage}
-\clearpage
 
-\thispagestyle{nohead}
-\section*{Empresa auditada (Anónimo)}
-
-\begin{minipage}{0.7\textwidth}
 A la empresa que permitió ser auditada de forma anónima, por la confianza depositada, el trato cercano recibido en sus instalaciones y por permitir la realización de pruebas necesarias en su infraestructura tecnológica. Su colaboración ha sido fundamental para validar la metodología propuesta en un entorno real.
-\end{minipage}
+\end{adjustwidth}
 \clearpage
 
 % -----------------------------------------------INDICES------------------------------------------------------------
@@ -1247,34 +1230,41 @@ ISO/IEC 27001:2022 &
 
 
 
-\subsubsection{Tipos de Auditoría en Ciberseguridad}
+\subsubsection{Tipos de Auditoría de Seguridad Informática}
 
-Antes de seleccionar una metodología concreta, es fundamental comprender los distintos tipos de auditoría existentes en el ámbito de la ciberseguridad, ya que cada uno persigue objetivos específicos y se adapta a contextos distintos.
+Las auditorías de seguridad informática pueden clasificarse según distintos criterios. Uno de los más relevantes es el enfoque organizativo, es decir, quién las realiza y con qué grado de independencia. Según UNIR FP, este criterio permite distinguir entre auditorías internas y externas, así como entre evaluaciones técnicas u organizativas, dependiendo del nivel de profundidad requerido en cada entorno \cite{unir}.
 
 \begin{itemize}
-    \item \textbf{Auditoría interna:} Se realiza dentro de la propia organización, generalmente por su propio equipo de seguridad o departamento de TI. Su objetivo principal es la mejora continua, identificando puntos débiles sin fines sancionadores. Suele estar orientada a la preparación para auditorías externas.
+    \item \textbf{Auditoría interna:} Realizada por personal propio de la organización, como el equipo de TI o el departamento de ciberseguridad. Su propósito principal es la mejora continua y la preparación para auditorías más exigentes, sin implicaciones sancionadoras.
 
-    \item \textbf{Auditoría externa:} Llevada a cabo por entidades independientes, garantiza objetividad y transparencia. Evalúa el cumplimiento de normativas, políticas internas o estándares como ISO/IEC 27001, ENS o RGPD. Es habitual en procesos de certificación.
+    \item \textbf{Auditoría externa:} Ejecutada por una entidad independiente, aporta objetividad y transparencia. Suele estar orientada al cumplimiento normativo, procesos de certificación o validación externa de las políticas y medidas implantadas.
 
-    \item \textbf{Auditoría técnica:} Se centra en los aspectos puramente tecnológicos de la infraestructura: redes, sistemas, aplicaciones, dispositivos, etc. Incluye pruebas de penetración (pentesting), escaneos de vulnerabilidades y análisis de configuración.
+    \item \textbf{Auditoría técnica:} Se centra en la infraestructura digital (redes, sistemas, aplicaciones, dispositivos) mediante herramientas de análisis técnico como escáneres de vulnerabilidades, pruebas de penetración o análisis de configuraciones.
 
-    \item \textbf{Auditoría organizativa o de procesos:} Analiza la gobernanza de la ciberseguridad en la organización: políticas, roles, procedimientos, formación, cultura y respuesta ante incidentes. Evalúa si existe un enfoque integral y estratégico.
+    \item \textbf{Auditoría organizativa o de procesos:} Evalúa el marco de gobernanza y cultura de ciberseguridad: políticas, roles definidos, procedimientos, respuesta ante incidentes y concienciación del personal.
 
-    \item \textbf{Auditoría de cumplimiento:} Verifica que la organización se ajusta a los requisitos legales, normativos o contractuales aplicables. Suele estar motivada por obligaciones externas, como la aplicación del RGPD, la NIS2 o contratos con clientes.
+    \item \textbf{Auditoría de cumplimiento:} Verifica que la organización respeta las normativas vigentes, como el RGPD, la ISO/IEC 27001 o el ENS. Es frecuente cuando existen exigencias contractuales, regulatorias o sectoriales.
 
-    \item \textbf{Auditoría mixta:} Integra componentes técnicos y organizativos para ofrecer una visión global del estado de ciberseguridad. Es la más completa y recomendada para organizaciones que buscan una mejora realista y sostenible.
+    \item \textbf{Auditoría mixta:} Combina aspectos técnicos y organizativos para obtener una visión integral del estado de la ciberseguridad en la organización. Es el enfoque más completo y el recomendado para una evaluación realista y útil en entornos complejos como las PYMEs.
 \end{itemize}
 
-La elección del tipo de auditoría depende del objetivo del análisis, el contexto de la organización y los recursos disponibles. En este trabajo, se opta por una auditoría mixta con foco práctico, orientada a detectar debilidades reales en una PYME y proponer medidas adaptadas a sus capacidades.
+La elección del tipo de auditoría depende del contexto de la organización, sus objetivos de seguridad, y los recursos disponibles. En este trabajo se opta por una auditoría mixta, práctica y adaptada al entorno real de una PYME.
 
+Además de estas tipologías generales, dentro del campo técnico existen auditorías especializadas que permiten profundizar en áreas específicas. El Instituto Nacional de Ciberseguridad (INCIBE) distingue diversas variantes según el objetivo técnico principal de cada evaluación \cite{incibeAuditoria}:
 
+\begin{itemize}
+    \item \textbf{Auditoría de vulnerabilidades:} Busca detectar fallos de configuración, servicios expuestos o contraseñas débiles. Se apoya en marcos como OWASP Top 10 o en escáneres automatizados para identificar riesgos frecuentes.
 
+    \item \textbf{Auditoría de código:} Revisa el código fuente en busca de errores que puedan derivar en vulnerabilidades. Suele aplicarse en entornos de desarrollo interno siguiendo estándares como OWASP ASVS.
 
+    \item \textbf{Auditoría de redes:} Examina la arquitectura de red, segmentación, dispositivos, y medidas de protección perimetral. Evalúa firewalls, VPNs, switches y dispositivos IoT o BYOD.
 
+    \item \textbf{Auditoría forense:} Se realiza tras un incidente de seguridad para reconstruir lo ocurrido, identificar las técnicas utilizadas por los atacantes y detectar fallos técnicos u organizativos.
 
+    \item \textbf{Auditoría de hacking ético (pentesting):} Simula ataques controlados siguiendo metodologías reconocidas, con el fin de identificar vulnerabilidades explotables y medir su impacto potencial.
+\end{itemize}
 
-
-
+En el contexto de las PYMEs, combinar auditorías técnicas dentro de un enfoque mixto permite detectar vulnerabilidades reales y aplicar soluciones viables según sus recursos. Este enfoque integral es esencial para mantener una postura de seguridad sólida y prevenir posibles brechas que puedan desencadenar sanciones legales o incumplimientos regulatorios.
 
 
 
@@ -1473,29 +1463,31 @@ A continuación, se detallan los objetivos y actividades que componen este dise�
 Con el análisis del perímetro de red, intentamos identificar los puntos débiles de la infraestructura desde la perspectiva de un atacante externo, sin conocimiento de la arquitectura interna.
 
 \begin{table}[H]
-    \centering
-    \renewcommand{\arraystretch}{1.4}
-    \begin{tabular}{|p{4.5cm}|p{6.5cm}|p{4.4cm}|}
-    \hline
-    \textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas}\\
-    \hline
-    Detectar redes inalámbricas disponibles & Enumeración de SSIDs visibles y ocultos & Airodump-ng, Wireshark\\
-    \hline
-    Evaluar seguridad de cifrado WiFi & Identificar tipo de cifrado (WEP/WPA/WPA2/Enterprise), captura de handshake & Airodump-ng, hcxdumptool, Aircrack-ng\\
-    \hline
-    Realizar ataques de fuerza bruta a redes inseguras & Diccionario sobre handshake capturado & Aircrack-ng, hashcat\\
-    \hline
-    Validar seguridad de portal cautivo & Intento de bypass (DNS spoof, phishing, MitM) & Bettercap, mitmproxy, macchanger\\
-    \hline
-    Simular Rogue AP y ataques Karma & Clonado de SSID, AP falso para interceptar clientes & WiFi Pineapple, Hostapd, EvilTrust\\
-    \hline
-    Detectar APs mal configurados o sospechosos & Escaneo de redes abiertas, SSID duplicados, canales raros & Airodump-ng, Wireshark\\
-    \hline
-    Identificar routers con credenciales por defecto & Prueba de acceso a SSH, Telnet, interfaces web & Nmap, Hydra\\
-    \hline
-    \end{tabular}
-    \caption{Tabla de objetivos en el análisis del perímetro de red}
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{|p{4.3cm}|p{7cm}|p{3.8cm}|}
+\hline
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
+\hline
+Enumerar redes inalámbricas visibles y ocultas & Escaneo activo y pasivo de puntos de acceso y SSIDs & Airodump-ng, Wireshark \\
+\hline
+Evaluar seguridad del cifrado WiFi & Análisis del tipo de cifrado (WEP, WPA, WPA2), captura y descifrado de handshakes & hcxdumptool, Aircrack-ng \\
+\hline
+Simular ataques de fuerza bruta sobre handshakes & Aplicación de diccionarios para recuperar claves & Aircrack-ng, Hashcat \\
+\hline
+Comprobar la robustez de portales cautivos & Intentos de bypass mediante DNS spoofing, MITM, manipulación de MAC & Bettercap, mitmproxy, macchanger \\
+\hline
+Simular un Rogue AP (punto de acceso falso) & Simulación de redes confiables para atraer dispositivos & WiFi Pineapple, Hostapd, EvilTrust \\
+\hline
+Detectar puntos de acceso sospechosos & Análisis de canales, SSIDs duplicados, APs abiertos & Airodump-ng, Wireshark \\
+\hline
+Auditar routers con configuraciones por defecto & Acceso a servicios inseguros (Telnet, SSH, web) con credenciales por defecto & Nmap, Hydra \\
+\hline
+\end{tabular}
+\caption{Objetivos y herramientas para el análisis del perímetro de red}
+\label{tab:perimetro_red}
 \end{table}
+
 
 
 
@@ -1506,20 +1498,21 @@ Una vez dentro de la red, se analizan los diferentes dispositivos conectados y s
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{4.3cm}|p{6.5cm}|p{4.3cm}|}
+\begin{tabular}{|p{4.2cm}|p{7.2cm}|p{3.6cm}|}
 \hline
-\textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas} \\
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
 \hline
-Mapeo de la red interna & Descubrimiento de dispositivos, gateways, rutas, subredes & Nmap, Neptus \\
+Mapear la red interna & Descubrimiento de dispositivos activos, gateways, rutas y subredes mediante escaneo y análisis de topología & Nmap, Neptus \\
 \hline
-Análisis de puertos abiertos & Escaneo de red interna, detección de servicios accesibles & Nmap, Masscan, Neptus \\
+Analizar puertos abiertos & Identificación de servicios accesibles mediante escaneos rápidos y exhaustivos de puertos TCP/UDP & Nmap, Masscan, Neptus \\
 \hline
-Identificación de servicios y versiones & Fingerprinting de servicios, banner grabbing, OS detection & Nmap, WhatWeb, Netcat \\
+Identificar servicios y sistemas operativos & Fingerprinting de servicios, recuperación de banners, y detección del sistema operativo subyacente & Nmap, WhatWeb, Netcat \\
 \hline
-Detección de vulnerabilidades conocidas & Escaneo de CVEs, servicios sin parches, versiones antiguas & Nessus, Exploit-db, WhatWeb \\
+Detectar vulnerabilidades conocidas & Correlación de servicios identificados con bases de datos de vulnerabilidades (CVEs), búsqueda de versiones sin parches o software obsoleto & Nessus, Exploit-DB, WhatWeb \\
 \hline
 \end{tabular}
-\caption{Tabla de objetivos en la fase de Fingerprint interno}
+\caption{Objetivos y herramientas utilizadas en la fase de reconocimiento interno (fingerprint)}
+\label{tab:fingerprint_interno}
 \end{table}
 
 
@@ -1533,24 +1526,24 @@ Esta fase se centra en la obtención de información utilizando fuentes abiertas
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{4.3cm}|p{6.5cm}|p{4.3cm}|}
+\begin{tabular}{|p{4.3cm}|p{7.2cm}|p{3.6cm}|}
 \hline
-\textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas} \\
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
 \hline
-Recolectar información de buscadores genéricos & Búsquedas avanzadas con dorks, índice de documentos, paneles expuestos & Google, Google Hacking DB (GHDB) \\
+Recolectar información desde buscadores & Uso de operadores avanzados (dorks), localización de documentos públicos, paneles de acceso y recursos mal indexados & Google, GHDB (Google Hacking Database) \\
 \hline
-Identificar activos expuestos & Recolección de IPs públicas, puertos y servicios accesibles & Shodan, Censys \\
+Identificar activos expuestos en Internet & Detección de direcciones IP públicas, puertos abiertos, servicios accesibles y banners de servidores visibles desde el exterior & Shodan, Censys \\
 \hline
-Analizar relaciones y metadatos en redes y dominios & Investigación de nombres, emails, metadatos de documentos y relaciones entre entidades & Maltego, theHarvester \\
+Analizar relaciones y metadatos de entidades & Investigación de dominios, emails, nombres de empleados, y análisis de metadatos en documentos filtrados o públicos & Maltego, theHarvester \\
 \hline
-Buscar credenciales filtradas y contraseñas públicas & Consultas sobre leaks, validación de emails y dominios comprometidos & DeHashed, HaveIBeenPwned \\
+Detectar filtraciones de credenciales & Búsqueda en bases de datos de fugas, comprobación de correos y dominios comprometidos en incidentes previos & DeHashed, Have I Been Pwned \\
 \hline
-Evaluar la respuesta humana frente a ataques simulados & Pruebas de phishing, manipulación, evaluación de políticas internas & GoPhish, RubberDucky \\
+Evaluar el factor humano ante ataques simulados & Campañas de phishing controladas, análisis de reacciones, pruebas de manipulación y validación de políticas internas & GoPhish, USB Rubber Ducky \\
 \hline
 \end{tabular}
-\caption{Tabla de objetivos en la fase OSINT e Ingeniería Social}
+\caption{Actividades y herramientas en la fase de inteligencia de fuentes abiertas e ingeniería social}
+\label{tab:osint_ingenieria_social}
 \end{table}
-
 
 
 
@@ -1566,22 +1559,23 @@ Los dispositivos IoT suelen carecer de medidas de seguridad sólidas y se convie
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{4.3cm}|p{6.5cm}|p{4.3cm}|}
+\begin{tabular}{|p{4.3cm}|p{7.2cm}|p{3.6cm}|}
 \hline
-\textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas} \\
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
 \hline
-Identificar dispositivos IoT en la red & Escaneo de red, fingerprinting de fabricantes, búsqueda de dispositivos por MAC y puertos comunes & Nmap, Wireshark \\
+Detectar dispositivos IoT conectados a la red & Escaneo de red, fingerprinting por fabricante, análisis de MAC y puertos típicos de dispositivos inteligentes & Nmap, Wireshark \\
 \hline
-Analizar protocolos IoT y tráfico de red & Captura y análisis de paquetes en protocolos propietarios (MQTT, CoAP, BLE, UPnP) & Wireshark \\
+Analizar protocolos IoT y tráfico de red & Captura y análisis de paquetes en protocolos comunes (MQTT, CoAP, BLE, UPnP), evaluación de comunicaciones inseguras & Wireshark \\
 \hline
-Evaluar la seguridad de interfaces y APIs & Inspección de endpoints HTTP, comandos remotos, autenticación débil o inexistente & Postman, Burp Suite \\
+Auditar interfaces web y APIs expuestas & Inspección de endpoints HTTP/HTTPS, análisis de comandos remotos, autenticación débil o inexistente & Postman, Burp Suite \\
 \hline
-Detectar firmware inseguro o mal configurado & Extracción y análisis de firmware, validación de backdoors y servicios inseguros & Wireshark \\
+Evaluar la seguridad del firmware & Extracción, análisis y validación del firmware para detectar puertas traseras, claves embebidas o servicios inseguros & Binwalk, Firmadyne, Wireshark \\
 \hline
-Atacar dispositivos vulnerables & Explotación de servicios abiertos, contraseñas por defecto, ejecución remota de comandos & Metasploit, Hydra, scripts personalizados \\
+Explotar dispositivos vulnerables & Uso de exploits públicos, contraseñas por defecto o fallos conocidos para obtener acceso o control remoto & Metasploit, Hydra, scripts personalizados \\
 \hline
 \end{tabular}
-\caption{Tabla de objetivos en la auditoría de dispositivos IoT}
+\caption{Actividades y herramientas para la auditoría de seguridad en dispositivos IoT}
+\label{tab:seguridad_iot}
 \end{table}
 
 
@@ -1592,37 +1586,34 @@ En esta fase se analiza por completo la plataforma web, partiendo desde el propi
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{4.3cm}|p{6.1cm}|p{4.5cm}|}
+\begin{tabular}{|p{4.3cm}|p{7.2cm}|p{3.6cm}|}
 \hline
-\textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas} \\
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
 \hline
-Analizar el servidor web y servicios asociados & Fingerprinting, detección de versiones, servicios activos, configuración & WhatWeb, Nikto, Nmap scripts \\
+Auditar el servidor web y servicios asociados & Identificación de versiones, fingerprinting, enumeración de servicios y revisión de configuraciones expuestas & WhatWeb, Nikto, Nmap scripts \\
 \hline
-Identificar servicios vulnerables o expuestos & Enumeración de directorios, endpoints, tecnologías utilizadas & Dirb, Gobuster, Wappalyzer \\
+Descubrir rutas y tecnologías empleadas & Enumeración de directorios y endpoints, detección de frameworks y CMS instalados & Dirb, GoBuster, Wappalyzer \\
 \hline
-Detectar vulnerabilidades OWASP & SQLi, XSS, IDOR, RCE, SSRF, CSRF, XXE, etc. & Burp Suite, gestores de contenido \\
+Detectar vulnerabilidades OWASP & Análisis de las principales fallas como SQLi, XSS, CSRF, IDOR, RCE, SSRF, XXE, etc. & Burp Suite, CMS scanners, sqlmap \\
 \hline
-Validar mecanismos de autenticación & Fuerza bruta, evasión de login, análisis de formularios & Hydra, Burp Intruder, wfuzz, GoBuster \\
+Validar mecanismos de autenticación & Pruebas de fuerza bruta, bypasses de login, evaluación de formularios de acceso y respuestas del servidor & Hydra, Burp Intruder, wfuzz, GoBuster \\
 \hline
-Evaluar la gestión de sesiones & Análisis de cookies, tokens, regeneración y caducidad de sesiones & Burp Suite \\
+Analizar la gestión de sesiones & Evaluación de cookies, tokens de sesión, regeneración, expiración y protección contra secuestro de sesión & Burp Suite \\
 \hline
-Probar mecanismos de autorización & Escalada de privilegios, acceso a funciones restringidas & Burp Suite, Postman \\
+Auditar controles de autorización & Pruebas de escalada de privilegios y acceso no autorizado a funcionalidades restringidas & Burp Suite, Postman \\
 \hline
-Validar controles de entrada/salida & Pruebas de validación del lado cliente y servidor, bypasses comunes & Burp Suite, payloads manuales \\
+Verificar validaciones de entrada/salida & Pruebas del lado cliente y servidor, evasión de filtros y sanitización de datos & Burp Suite, payloads manuales \\
 \hline
-Explorar la aplicación (crawling/spidering) & Recolección automatizada de rutas y formularios & Burp Suite \\
+Explorar dinámicamente la aplicación (crawling) & Descubrimiento automático de rutas, formularios y parámetros de entrada & Burp Suite (Spider) \\
 \hline
-Realizar fuerza bruta y fuzzing sobre parámetros & Testeo de inputs, formularios & wfuzz, Burp Suite, sqlmap \\
+Realizar fuzzing y fuerza bruta sobre parámetros & Envío de múltiples valores para detectar comportamiento anómalo o errores de lógica & wfuzz, Burp Suite, sqlmap \\
 \hline
-Evaluar la criptografía usada en la aplicación & Análisis de algoritmos de hash, cifrados, tokens y secretos & Burp Crypto \\
+Evaluar el uso de criptografía en la aplicación & Revisión de algoritmos de hash, cifrado simétrico/asimétrico, tokens JWT y secretos & Burp Crypto \\
 \hline
 \end{tabular}
-\caption{Tabla de objetivos en la auditoría de aplicaciones web}
+\caption{Actividades y herramientas utilizadas en la auditoría de aplicaciones web}
+\label{tab:auditoria_web}
 \end{table}
-
-
-
-
 
 
 \subsubsection{Seguridad de la Infraestructura}
@@ -1632,33 +1623,28 @@ Esta fase abarca pruebas sobre el núcleo central de la seguridad en la organiza
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{4.3cm}|p{6.1cm}|p{4.5cm}|}
+\begin{tabular}{|p{4.3cm}|p{7.2cm}|p{3.6cm}|}
 \hline
-\textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas} \\
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
 \hline
-Evaluar configuración del firewall & Identificación de puertos permitidos, pruebas de evasión, reglas de filtrado & Nmap, Scapy, tcptraceroute \\
+Auditar la configuración del firewall & Identificación de puertos abiertos, reglas de filtrado, pruebas de evasión y bypass de políticas & Nmap, Scapy, tcptraceroute \\
 \hline
-Verificar funcionamiento de IDS/IPS & Generación de tráfico sospechoso, análisis de alertas y detección de ataques & Metasploit, Nmap \\
+Verificar la eficacia del IDS/IPS & Generación de tráfico sospechoso para comprobar la detección y respuesta del sistema de defensa perimetral & Metasploit, Nmap \\
 \hline
-Analizar seguridad del servidor interno & Revisión de servicios, versiones, credenciales por defecto y vulnerabilidades conocidas & Nmap, Nikto, Nessus \\
+Evaluar la seguridad del servidor interno & Enumeración de servicios activos, versiones expuestas, búsqueda de credenciales por defecto y análisis de vulnerabilidades conocidas & Nmap, Nikto, Nessus \\
 \hline
-Realizar pruebas sobre Active Directory & Enumeración de usuarios, grupos, GPOs, tickets Kerberos & NetExec, CrackMapExec, Kerbrute, impacket \\
+Realizar pruebas sobre Active Directory & Enumeración de usuarios, grupos, políticas de grupo (GPO), análisis de tickets Kerberos y posibles ataques de enumeración & NetExec, CrackMapExec, Kerbrute, Impacket \\
 \hline
-Analizar tráfico y segmentación de red & Sniffing, detección de redes planas, protocolos en claro, ARP poisoning & Bettercap, Responder, Wireshark, tcpdump \\
+Analizar segmentación y tráfico de red & Captura de paquetes, detección de redes planas, protocolos en texto claro, ataques ARP y spoofing & Bettercap, Responder, Wireshark, tcpdump \\
 \hline
-Realizar escalada de privilegios en el entorno & Búsqueda de binarios SUID, permisos mal configurados, exploits locales & GTFOBins, ExploitDB \\
+Ejecutar escalada de privilegios local & Identificación de binarios SUID, permisos incorrectos, scripts inseguros y uso de exploits locales & GTFOBins, ExploitDB \\
 \hline
-Ejecutar técnicas de pivoting y movimiento lateral & Conexión a otras redes o máquinas a través de un host comprometido & Chisel, ProxyChains, SSH tunneling, Metasploit \\
+Aplicar técnicas de pivoting y movimiento lateral & Conexión a otras redes o equipos aprovechando un host comprometido, túneles y proxys & Chisel, ProxyChains, SSH tunneling, Metasploit \\
 \hline
 \end{tabular}
-\caption{Tabla de objetivos en la evaluación de la seguridad de la infraestructura}
+\caption{Actividades y herramientas empleadas para auditar la seguridad de la infraestructura}
+\label{tab:infraestructura}
 \end{table}
-
-
-
-
-
-
 
 
 \subsubsection{Seguridad de Endpoints y Datos}
@@ -1669,36 +1655,32 @@ Además, se evalúan un conjunto de test sobre el almacenamiento de los datos y 
 \begin{table}[H]
 \centering
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{|p{4.2cm}|p{6.3cm}|p{4.5cm}|}
+\begin{tabular}{|p{4.3cm}|p{7.2cm}|p{3.6cm}|}
 \hline
-\textbf{Objetivo} & \textbf{Actividades} & \textbf{Herramientas} \\
+\textbf{Objetivo} & \textbf{Actividades clave} & \textbf{Herramientas utilizadas} \\
 \hline
-Evaluar configuración de roles y perfiles de usuario & Verificación de restricciones según rol, acceso a configuraciones y consolas & Manual, PowerShell \\
+Auditar la configuración de perfiles y roles de usuario & Verificación de permisos según perfil, acceso a consolas administrativas y restricciones de configuración & Revisión manual, PowerShell \\
 \hline
-Verificar control de puertos USB y dispositivos externos & Comprobación de bloqueo, acceso a discos externos, ejecución automática & USB Rubber Ducky, scripts batch, manual \\
+Verificar control sobre dispositivos externos (USB) & Comprobación de políticas de bloqueo, ejecución automática y restricciones de hardware externo & USB Rubber Ducky, scripts batch \\
 \hline
-Comprobar bypass de proxy corporativo & Intento de acceso directo a Internet, uso de túneles y software alternativo & proxychains, TOR, chisel, VPN port forwarding \\
+Comprobar evasión de proxy corporativo & Intento de eludir las políticas de red mediante túneles, proxys o software alternativo & ProxyChains, TOR, Chisel, VPN port forwarding \\
 \hline
-Instalar y ejecutar software no autorizado & Prueba con aplicaciones portables o autoejecutables desde usuarios limitados & TOR Browser, portable apps, reverse shells \\
+Ejecutar software no autorizado & Instalación de herramientas no permitidas desde cuentas limitadas (navegadores portables, backdoors, shells) & TOR Browser, portable apps, reverse shells \\
 \hline
-Verificar restricciones sobre terminales y consolas & Evaluar si un perfil básico puede lanzar CMD, PowerShell o intérpretes & Terminal \\
+Analizar acceso a terminales y consolas de comandos & Validación de restricciones sobre CMD, PowerShell, Bash y otros intérpretes & Terminal local, PowerShell \\
 \hline
-Evaluar políticas y mecanismos de backup & Revisión de la frecuencia, almacenamiento, redundancia y pruebas de restauración de copias de seguridad & Documentación, entrevistas, herramientas de backup \\
+Revisar políticas y mecanismos de backup & Evaluación de frecuencia, redundancia, pruebas de restauración y ubicación de las copias de seguridad & Documentación interna, herramientas de backup \\
 \hline
-Analizar almacenamiento y cifrado de datos & Identificar dónde y cómo se almacenan datos sensibles, qué bases de datos se usan y si los datos están cifrados en reposo y en tránsito & Auditoría documental, herramientas de análisis de cifrado \\
+Auditar almacenamiento y cifrado de datos & Identificación de bases de datos y ficheros sensibles, cifrado en tránsito y en reposo & Análisis documental, herramientas de cifrado \\
 \hline
-Evaluar políticas de privacidad y protección de datos sensibles & Revisión de políticas internas para manejo de datos sensibles, control de acceso y auditorías de cumplimiento & Entrevistas, revisión documental \\
+Evaluar protección de datos personales y privacidad & Revisión de políticas internas, control de acceso y trazabilidad sobre datos personales y sensibles & Entrevistas, revisión de políticas \\
 \hline
-Verificar uso de contraseñas robustas y controles de autenticación & Comprobación de políticas de longitud, complejidad, expiración y almacenamiento seguro de contraseñas & Auditoría técnica, herramientas de análisis de políticas \\
+Auditar políticas de contraseñas y autenticación & Validación de políticas de complejidad, expiración, almacenamiento seguro y uso de autenticación fuerte & Revisión técnica, scripts de análisis de políticas \\
 \hline
 \end{tabular}
-\caption{Tabla de objetivos en la auditoría de seguridad de endpoints y datos}
+\caption{Actividades y herramientas empleadas para la auditoría de seguridad en endpoints y datos}
+\label{tab:endpoints_datos}
 \end{table}
-
-
-
-
-
 
 \clearpage
 
@@ -1707,20 +1689,16 @@ Verificar uso de contraseñas robustas y controles de autenticación & Comprobac
 
 
 
-
 % -----------------------------------------------REQUISITOS------------------------------------------------------------
 
-\section{Requisitos previos a la auditoría}
+\section{Requisitos previos para la ejecución de la auditoría}
 
-En el presente capítulo se detallan los requisitos previos necesarios para realizar una auditoría de ciberseguridad, en virtud de la metodología seleccionada previamente, la \textbf{NIST SP 800-115}, y siguiendo las recomendaciones aportadas por el CTO de \textbf{BeeHacker}. 
+En el presente capítulo se detallan los requisitos previos necesarios para realizar una auditoría de ciberseguridad, conforme a la metodología seleccionada previamente, la \textbf{NIST SP 800-115}, y siguiendo las recomendaciones aportadas por el CTO de \textbf{BeeHacker}. 
 
-
-A continuación, se recogen los requisitos previos comunes a todo proceso de auditoría, según los marcos analizados.
-
-
+A continuación, se describen los requisitos previos comunes a todo proceso de auditoría, según los marcos analizados.
 
 \begin{enumerate}
-\item \textbf{Formalización previa}: Establecer por escrito los siguientes documentos:
+\item \textbf{Formalización documental}: Establecer por escrito los siguientes documentos:
 
 \begin{itemize}
 \item \textbf{Acuerdo de Confidencialidad (NDA)}: Define el compromiso de confidencialidad respecto a toda la información sensible, técnica u organizativa que sea compartida durante la auditoría. Su objetivo es garantizar que ningún dato se utilice con fines ajenos al proyecto ni se divulgue sin autorización.
@@ -1730,66 +1708,40 @@ A continuación, se recogen los requisitos previos comunes a todo proceso de aud
 \item \textbf{Autorización para Pruebas Técnicas}: Permite expresamente la realización de actividades técnicas como análisis de red, detección de vulnerabilidades, pruebas de acceso o campañas controladas de ingeniería social. Además, delimita qué sistemas están autorizados y bajo qué condiciones deben desarrollarse las pruebas.
 \end{itemize}
 
-\item \textbf{Marco normativo y regulatorio}: Asegurar que la auditoría se alinea con las normativas vigentes aplicables, como el Esquema Nacional de Seguridad (ENS), el Reglamento General de Protección de Datos (RGPD), la ISO/IEC 27001 y otras normativas sectoriales o internas relevantes.
+\item \textbf{Revisión del marco normativo y regulatorio}: Asegurar que la auditoría se alinea con las normativas vigentes aplicables, como el Esquema Nacional de Seguridad (ENS), el Reglamento General de Protección de Datos (RGPD), la ISO/IEC 27001 y otras normativas sectoriales o internas relevantes.
 
-\item \textbf{Identificación detallada de activos}: Solicitar un inventario completo, actualizado y validado de los sistemas, redes, aplicaciones y dispositivos que serán objeto de análisis durante la auditoría.
+\item \textbf{Inventario de activos tecnológicos}: Solicitar un inventario completo, actualizado y validado de los sistemas, redes, aplicaciones y dispositivos que serán objeto de análisis durante la auditoría.
 
-\item \textbf{Análisis de riesgos y medidas preventivas}: Antes de ejecutar cualquier acción técnica, es fundamental realizar una evaluación de los riesgos asociados a las pruebas de seguridad. Este análisis considera el impacto potencial sobre la disponibilidad, integridad y confidencialidad de los sistemas auditados. Se identifican los servicios críticos y se diseñan estrategias de mitigación para evitar interrupciones no deseadas, como realizar pruebas en entornos controlados o fuera del horario operativo.
+\item \textbf{Análisis de riesgos técnicos}: Antes de ejecutar cualquier acción técnica, es fundamental realizar una evaluación de los riesgos asociados a las pruebas de seguridad. Este análisis considera el impacto potencial sobre la disponibilidad, integridad y confidencialidad de los sistemas auditados. Se identifican los servicios críticos y se diseñan estrategias de mitigación para evitar interrupciones no deseadas, como realizar pruebas en entornos controlados o fuera del horario operativo.
 
 \item \textbf{Preparación técnica y metodológica}: En esta auditoría se empleará la metodología desarrollada en los próximos capítulos.
 
-\item \textbf{Comunicación y coordinación}: Durante toda la auditoría se mantendrán abiertos canales de comunicación estructurados entre el equipo auditor y los responsables designados por la organización auditada. Se definirán personas de contacto técnico y organizativo, así como los medios de notificación para incidentes, entregas de resultados intermedios y coordinación de accesos. Esta coordinación incluye reuniones previas, revisiones de estado y una reunión de cierre. La documentación generada en cada fase se compartirá a través de repositorios seguros o canales cifrados previamente acordados.
+\item \textbf{Plan de comunicación y coordinación}: Durante toda la auditoría se mantendrán abiertos canales de comunicación estructurados entre el equipo auditor y los responsables designados por la organización auditada. Se definirán personas de contacto técnico y organizativo, así como los medios de notificación para incidentes, entregas de resultados intermedios y coordinación de accesos. Esta coordinación incluye reuniones previas, revisiones de estado y una reunión de cierre. La documentación generada en cada fase se compartirá a través de repositorios seguros o canales cifrados previamente acordados.
 
-\item \textbf{Planificación y cronograma}: La auditoría seguirá un calendario de trabajo estructurado en fases, con fechas estimadas de inicio y fin para cada bloque. Este cronograma permitirá a la organización auditada conocer con antelación las actividades previstas, asignar recursos y supervisar el cumplimiento de los objetivos. Las fases estarán alineadas con el modelo secuencial definido en el plan metodológico de auditoría.
+\item \textbf{Definición del cronograma de trabajo}: La auditoría seguirá un calendario de trabajo estructurado en fases, con fechas estimadas de inicio y fin para cada bloque. Este cronograma permitirá a la organización auditada conocer con antelación las actividades previstas, asignar recursos y supervisar el cumplimiento de los objetivos. Las fases estarán alineadas con el modelo secuencial definido en el plan metodológico de auditoría.
 
 \item \textbf{Definición y organización del equipo auditor}: La estructura del equipo auditor debe estar claramente definida desde el inicio del proyecto. Se especificarán los profesionales que integran el equipo, incluyendo sus perfiles técnicos, funciones asignadas y grado de responsabilidad dentro del proceso. Asimismo, se establecerán los flujos de comunicación internos y los canales oficiales de interlocución con la entidad auditada, garantizando una coordinación eficaz durante todas las fases de la auditoría.
 \end{enumerate}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 \clearpage
 \thispagestyle{nohead}
 
 
 %------------------PROPUESTA-------------------------------------------------------
-\section{Propuesta metodológica de auditoría}
 
+\section{Propuesta metodológica de auditoría}
 
 Este capítulo constituye el núcleo central del presente trabajo. A partir de toda la información recopilada en secciones anteriores, y tomando como referencia las fases establecidas por la \textbf{NIST SP 800-115}, así como los objetivos definidos por la empresa \textbf{BeeHacker}, se ha desarrollado una propuesta metodológica propia para la realización de auditorías de ciberseguridad.
 
-
 El objetivo de esta sección es sintetizar y estructurar de forma secuencial todos los conocimientos y buenas prácticas analizadas, creando así un modelo accesible, replicable y comprensible incluso para profesionales sin experiencia previa en auditorías de ciberseguridad. Esta metodología no solo sigue el enfoque de evaluación técnica de la NIST, sino que incorpora objetivos concretos, herramientas recomendadas (de las cuales se ilustran mediante ejemplos prácticos su aplicación sin entrar en detalle), criterios de decisión y buenas prácticas organizativas validadas por \textbf{Ramón}, CTO de la empresa colaboradora \textbf{BeeHacker}.
-
 
 El resultado es una metodología estructurada por fases, pensada para ofrecer una visión global del proceso de auditoría de ciberseguridad desde una perspectiva práctica y completa. A continuación, se exponen en detalle las fases secuenciales que componen la propuesta.
 
-
-
-
 \subsection{Fase de Planificación de la Auditoría}
-
 
 La fase de planificación representa el punto de partida formal del proceso de auditoría. En esta etapa se establecen las bases necesarias para garantizar que el trabajo se desarrolle de forma estructurada, controlada y alineada con los objetivos del proyecto. Es aquí donde se consolidan todos los acuerdos documentales previos, como el Acuerdo de Confidencialidad (NDA), el Acuerdo de Servicios y la Autorización para Pruebas Técnicas, descritos previamente en los requisitos.
 
-
 El propósito principal de esta fase es definir con precisión el alcance de la auditoría, delimitar los sistemas y procesos que serán objeto de análisis y establecer el marco operativo bajo el cual se ejecutarán las pruebas. Para ello, resulta esencial mantener una comunicación directa con el responsable de seguridad de la empresa.
-
 
 Una entrevista estructurada con esta persona clave permitirá al auditor obtener una visión global del entorno a auditar. A través de esta conversación se abordarán los grandes bloques que guiarán el resto de la auditoría, enfocándose especialmente en:
 
@@ -1804,24 +1756,16 @@ efectivo durante el desarrollo de las fases técnicas de la auditoría
 
 Toda esta información permitirá afinar el enfoque técnico, ajustar las herramientas a utilizar, establecer prioridades en el análisis de riesgos y adecuar la metodología al entorno específico.
 
-
 Una vez realizado este análisis preliminar y formalizada la documentación legal y técnica, se considerará que existe un marco de trabajo completamente definido. A partir de este momento, el equipo auditor podrá organizarse internamente, verificar la disponibilidad de las herramientas necesarias, confirmar la composición del equipo de trabajo y establecer fecha para el inicio de la siguiente fase.
-
-
 
 \subsection{Fase de Descubrimiento de la Auditoría}
 
-
 En esta fase se lleva a cabo la recopilación de información técnica sobre los sistemas y redes que serán objeto de auditoría. El objetivo es obtener información relevante acerca de los activos, servicios y configuraciones existentes, así como identificar vulnerabilidades o puntos débiles potencialmente explotables por un atacante.
-
 
 \subsubsection{Análisis Externo de Redes Inalámbricas}
 \label{sec:analisis_redes_inalambricas}
 
-
-
 Inicialmente, se realiza un reconocimiento pasivo de las redes inalámbricas disponibles, lo que permite detectar tanto redes visibles como ocultas en el área de alcance. Durante este análisis se busca recopilar datos esenciales como el SSID, canal, BSSID, tipo de cifrado y potencia de la señal. Asimismo, se pretende capturar, cuando sea posible, el handshake de la red, fundamental para realizar posteriormente ataques de fuerza bruta que evalúen la seguridad del cifrado implementado.
-
 
 \subsubsection*{Herramientas}
 \begin{itemize}
@@ -1831,15 +1775,12 @@ Inicialmente, se realiza un reconocimiento pasivo de las redes inalámbricas dis
 \end{itemize}
 
 
-
 \subsubsection*{Prueba de concepto}
 
 Esta técnica utiliza \textbf{Airodump-ng} para capturar tráfico de redes WiFi y realizar ataques de fuerza bruta sobre los handshakes capturados. El procedimiento comienza configurando la antena en modo monitor, seguido del escaneo de redes inalámbricas disponibles para seleccionar la red objetivo. Se debe registrar el BSSID y el canal específico para proceder a capturar el handshake mediante técnicas de desautenticación, que desconectan momentáneamente a los clientes obligándolos a reconectarse y generando el handshake.
 
 
 Este handshake posteriormente será explotado mediante fuerza bruta para evaluar la robustez de la contraseña.
-
-
 
 \begin{lstlisting}[language=bash, style=terminalstyle, caption=Captura WPA2 con Aircrack-ng]
     # Configuración de la antena en modo monitor
@@ -1853,8 +1794,6 @@ $ sudo aireplay-ng -0 9 -a BSSID -c CLIENT_MAC wlan0mon
     # Análisis del handshake capturado
 $ sudo aircrack-ng -w /path/to/wordlist.txt capture-01.cap
 \end{lstlisting}
-
-
 
 \subsubsection*{Resultados esperados}
 
@@ -1895,38 +1834,6 @@ INVITADOS     & 3      & DE:AD:BE:EF:00:01 & Abierta  & -50 \\
 \end{itemize}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 \subsubsection{Análisis Interno de Redes (Fingerprint)}
 
 Una vez se logra acceso a la red, el objetivo es realizar un reconocimiento interno exhaustivo para identificar dispositivos conectados, configuraciones, y vulnerabilidades potenciales. El propósito es mapear claramente la topología interna, descubrir dispositivos, puertos y servicios activos, y evaluar vulnerabilidades relacionadas.
@@ -1947,7 +1854,6 @@ Una vez definido el rango de red, se configura el escaneo desde la interfaz de N
 Paralelamente, puede ejecutarse un proceso de enumeración de hosts activos mediante herramientas como \textbf{Nmap} o \textbf{Masscan}, utilizando técnicas basadas en \textit{ICMP} o \textit{ARP}. Es importante conocer cómo funcionan estos comandos, ya que algunos dispositivos podrían estar protegidos por firewalls o configuraciones que impidan una detección directa. En estos casos, el uso de scripts personalizados puede ser clave para mejorar la visibilidad y completar el mapeo de red de forma más precisa.
 
 
-
 \begin{lstlisting}[language=bash, style=terminalstyle, caption=Escaneo de activos en la red]
     # Escaneo de red ICMP para identificar hosts activos
 $ sudo nmap -sn 192.168.0.0/24
@@ -1966,7 +1872,6 @@ $ sudo nmap -sCV -p22,80,443 192.168.0.2 -oX scanService.xml
     # Convertir el resultado a un formato legible html
 $ xsltproc scanService.xml -o scanService.html
 \end{lstlisting}
-
 
 
 Los comandos mostrados anteriormente representan ejemplos básicos del uso de estas herramientas para la detección de activos y escaneo de puertos. Sin embargo, estas herramientas ofrecen una gran variedad de parámetros adicionales que permiten ajustar el comportamiento del análisis en función de los objetivos y restricciones del entorno.
@@ -2028,7 +1933,6 @@ $ sudo wireshark -i eth0 -w capture.pcap
 También puede usarse `tcpdump` como alternativa en terminal sin interfaz gráfica.
 
 
-
 \subsubsection*{Resultados esperados}
 
 \begin{itemize}
@@ -2055,16 +1959,8 @@ También puede usarse `tcpdump` como alternativa en terminal sin interfaz gráfi
 \end{itemize}
 
 
-
-
-
-
-
-
-
-
 \subsubsection{Análisis de vulnerabilidades}
-
+\label{sec:analisis_vulns_seccion}
 Una vez recopilada toda la información relevante sobre la red (topología, dispositivos, puertos, servicios y tráfico capturado), se procede a la identificación y evaluación de posibles vulnerabilidades presentes en los activos analizados.
 
 
@@ -2360,7 +2256,6 @@ Este conocimiento servirá como base para trazar un \textbf{plan de ataque adecu
 permita evaluar de forma controlada el impacto real las vulnerabilidades encontradas.
 
 
-Sin embargo, esta fase no debe considerarse concluida de forma definitiva. A lo largo de la auditoría seguirán apareciendo nuevos indicios, configuraciones o vulnerabilidades que deberán ser evaluados. La información recopilada está en constante evolución, por lo que el proceso de descubrimiento y análisis se retroalimenta con la fase de ataque, permitiendo ajustar el plan inicial y clasificar nuevas amenazas a medida que se profundiza en el entorno.
 
 \clearpage
 
@@ -2369,51 +2264,305 @@ Sin embargo, esta fase no debe considerarse concluida de forma definitiva. A lo 
 
 \subsection{Fase de Ataque de la Auditoría}
 
-La parte Principal es analizar el alcance de cada vulnerabilidad detectada para poder evaluar el riesgo asociado. Para ello se trata de 
-acceder a los activos y comprometerlos, de forma que podamos o movimientos lateral y pivoting, o escalar privilegios e ir sacando informacion sensible o relevante de cada cosa.
 
-Para ello es crucial q el equipo auditor cente con gente cualificada o con buenas practicas para que el trabajo de red team o hackig etico sea mas productivo.
-Importante q se exploren todas las formas de explotar las cosas
+Una vez finalizada la fase de descubrimiento, y con una visión completa del entorno, se procede a la ejecución controlada de ataques con el objetivo de evaluar el impacto real de las vulnerabilidades identificadas. Esta etapa tiene como fin validar técnicamente los hallazgos previos, comprobar su explotabilidad y medir el alcance potencial de cada riesgo.
 
--   Esra fase comienza una vez compeltado la fase de descubrimiento. Se retroalimenta con la de descubrimirneto ya que tras trazar un plan de ataque adecuado a los hallazgos obtenidos en la anterior fase, se retoma la investigaciñon de nuevas vulnerabilidades asociadas a los nuevos descubrimientos.
+El proceso de auditoría no sigue una secuencia estrictamente lineal. A medida que se ejecutan los ataques, pueden descubrirse nuevas configuraciones, vectores o activos que no habían sido identificados durante la fase de descubrimiento inicial. Esto obliga a retomar el análisis exploratorio y adaptar continuamente la estrategia, convirtiendo la auditoría en un ciclo dinámico de reconocimiento, explotación y validación de hallazgos, como se ilustra en la Figura~\ref{fig:nist_800115}.
 
-\subsubsection{Ataques WIFI}
+En esta fase, las habilidades técnicas y la creatividad del auditor juegan un papel muy importante para detectar y explotar el mayor número posible de vectores de ataque. Una buena base en prácticas de hacking ético y experiencia en escenarios reales de Red Team permite diseñar ataques más eficaces e identificar oportunidades menos evidentes de explotación
 
-- wifi, fuerza bruta hankdshake, rogues ap contra empleados y (karma?), EVALUAR PASSWORDS CON ALGUNA Q INDIQUE EL TIEMPO ESTIMADO EN CRACKEAR SEGUN 
-  LA COMPLEJIDAD DE LA CONTRASEÑA,
+Siguiendo la lógica ofensiva propuesta,  el primer punto que debe evaluarse desde la perspectiva de un atacante es el perímetro de red. En particular, si el entorno cuenta con infraestructura inalámbrica, las redes WiFi representan una posible vía de entrada que merece atención prioritaria. Suelen ser un punto débil cuando están mal configuradas o protegidas por contraseñas débiles, lo que las convierte en un objetivo habitual para ataques de fuerza bruta sobre el proceso de autenticación.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\subsubsection{Fuerza Bruta}
+\subsubsection{Ataques de fuerza bruta sobre handshakes WPA/WPA2}
 
-- credenciales por defecto de todos los paneles.
+Una vez interceptado un \textit{handshake} válido, es posible intentar recuperar la contraseña mediante ataques de diccionario. Herramientas como \texttt{aircrack-ng} permiten probar miles de combinaciones por segundo comparando los hashes capturados con contraseñas predefinidas contenidas en diccionarios.
 
-- fuerza bruta de credenciales a todos los paneles de todos los dispotivos, intento de acceso a todos los puertos abiertos destinados a la conexion y eso como el 22, ...
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Fuerza bruta con aircrack-ng]
+$ aircrack-ng -w rockyou.txt -b <BSSID> captura.cap
+\end{lstlisting}
 
-\subsubsection{Explorar VULNS}
+La efectividad del ataque dependerá de varios factores: la calidad del diccionario, el tipo de cifrado (WPA, WPA2, WPA3) y la complejidad de la contraseña. Contraseñas simples o basadas en patrones comunes pueden ser descubiertas en minutos, mientras que aquellas con más de 10 caracteres aleatorios, que incluyan mayúsculas, minúsculas, números y símbolos, ofrecen una resistencia significativamente mayor frente a este tipo de ataques.
 
--  explotar posibles cves analizadas y vuln tanto manual como con herrmaienta automastizasd como metasploit
+Según estimaciones publicadas por Hive Systems, el tiempo requerido para romper una contraseña varía notoriamente en función de su longitud y complejidad, así como del hardware disponible. En la Figura~\ref{fig:crackpass} se muestra una referencia visual de estos tiempos estimados en escenarios comunes de ataque por fuerza bruta.
 
-- ecplotar vulns q hayas visto en otras fuentes, explot db, cve...
+\begin{figure}[H]
+\centering
+\includegraphics[width=16cm]{images/crackpass.png}
+\caption{Tiempo estimado para romper contraseñas según su complejidad. Fuente: Hive Systems}
+\label{fig:crackpass}
+\end{figure}
 
-\subsubsection{Directorio Activo}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+\subsubsection{Ataques Rogue AP (Rogue Access Points)}
 
+Los ataques mediante \textbf{puntos de acceso falsos} (Rogue Access Points) consisten en desplegar una red inalámbrica que imita a la legítima con el objetivo de atraer dispositivos que se conectaron previamente a ella.
 
-\subsubsection{WEBS}
-
-WEBS
-
--owasp para auditoria web y servidor en el q se aloja la web,
-
-\subsubsection{MIMT, SniffingM Poisongs}
-
-
-\subsubsection{Una vez dentro}
-
--escaladas de privileio dentro de las maquinas, tecnicas de pivoting y movimiento lateral
- VER CONFIGURACIONE DE USUARIOS, GRUPOS, PERMISOS, POLITICAS DE SEGURIDAD,
+El impacto de este ataque puede ser significativo en entornos empresariales, especialmente si se emplea una página de autenticación falsa para engañar a los usuarios y obtener sus credenciales corporativas. Para maximizar la efectividad, se combina habitualmente con técnicas de \textbf{desautenticación activa} (vistas en la fase de reconocimiento), forzando así la reconexión de las víctimas al Rogue AP controlado por el atacante.
 
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=8cm]{images/rogue.jpeg}
+\caption{Esquema de un ataque Rogue AP.  Fuente: CISCO}
+\label{fig:rogue}
+\end{figure}
+
+Para ejecutar este tipo de ataque se requiere una antena compatible con los modos \textbf{monitor} y \textbf{AP}, lo que permite simultáneamente capturar tráfico y emitir una red falsa. Una vez desplegado el punto de acceso malicioso, se expone una página web de autenticación que simula la legítima, atrayendo así a los usuarios recién conectados.
+
+Una herramienta especialmente útil para automatizar este proceso es \textbf{evilTrust}, desarrollada por el autor \texttt{s4vitar}. Este framework permite configurar rápidamente un punto de acceso falso con una interfaz web personalizada, registrar intentos de login y monitorizar en tiempo real la actividad de las víctimas.
+
+El enlace oficial a esta herramienta puede consultarse en el \hyperref[anexo:2]{\textbf{Anexo 2}}, dentro de la sección de herramientas para auditoría Wi-Fi.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Fuerza Bruta sobre servicios expuestos}
+
+Una vez completada la enumeración de puertos y servicios durante la fase de descubrimiento, se procede a evaluar el grado de protección de aquellos que exponen mecanismos de autenticación. Esta evaluación tiene como objetivo comprobar si dichos servicios son vulnerables a ataques por credenciales por defecto o contraseñas débiles, y verificar la existencia (o ausencia) de medidas de defensa frente a intentos de acceso no autorizados.
+
+La exposición de servicios como SSH, FTP, Telnet o interfaces web administrativas representa uno de los vectores más comunes para ataques de fuerza bruta, especialmente en entornos donde no se aplican políticas robustas de autenticación o donde se mantienen configuraciones por defecto.
+
+Durante esta fase se ejecutan distintas pruebas:
+
+\begin{itemize}
+\item \textbf{Pruebas de credenciales por defecto:} Se comprueba el acceso a servicios detectados (SSH, FTP, Telnet, SNMP, interfaces web, etc.) empleando combinaciones ampliamente conocidas como \texttt{admin:admin}, \texttt{root:toor} o \texttt{user:1234}, así como diccionarios específicos según el tipo de dispositivo o fabricante.
+    \item \textbf{Ataques de diccionario y fuerza bruta:} Se automatizan intentos de acceso mediante herramientas como \texttt{Hydra} o \texttt{Medusa} , orientados a explotar servicios críticos como:
+   
+    \begin{itemize}
+        \item Puertos abiertos destinados a administración remota: \texttt{22/tcp (SSH)}, \texttt{21/tcp (FTP)}, \texttt{3389/tcp (RDP)}, \texttt{23/tcp (Telnet)}.
+        \item Interfaces web detectadas durante el escaneo: login en routers, cámaras IP, servidores de aplicaciones o paneles corporativos.
+    \end{itemize}
+
+    \item \textbf{Verificación de mecanismos de protección:} Se evalúa la presencia (o ausencia) de medidas como límites de intentos fallidos, CAPTCHAs, retardo incremental o autenticación multifactor.
+\end{itemize}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Ejemplo de fuerza bruta contra SSH]
+$ hydra -l admin -P rockyou.txt ssh://192.168.0.2
+\end{lstlisting}
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Explotación de vulnerabilidades detectadas}
+
+
+Una vez identificadas y clasificadas las vulnerabilidades durante la fase de descubrimiento, se procede a evaluar su alcance práctico. Esta etapa se centra en validar de forma controlada aquellas debilidades técnicas previamente detectadas, priorizando las que presentan una mayor criticidad según su puntuación en el estándar CVSS v3.1.
+
+El objetivo no es únicamente confirmar la existencia de cada vulnerabilidad, sino también comprobar su impacto potencial dentro del entorno específico auditado. Esta evaluación contextualizada permite identificar el riesgo real asociado, ya que puede darse el caso de una vulnerabilidad crítica mitigada por medidas defensivas como un cortafuegos, reduciendo significativamente su nivel de exposición. Por el contrario, una vulnerabilidad clasificada como media podría suponer un mayor riesgo si permite el acceso a información sensible o afecta a procesos clave de la organización.
+
+Durante esta fase se aplican diversas metodologías:
+
+\begin{itemize}
+
+    \item \textbf{Explotación de CVEs conocidas:} Se seleccionan vulnerabilidades públicas (CVE) asociadas a las tecnologías detectadas (versiones de Apache, CMS, firmware, bases de datos, sistemas operativos, etc.) y se intenta su explotación manual o automatizada, dependiendo del caso.
+
+    \item \textbf{Uso de herramientas automatizadas:} Frameworks como \texttt{Metasploit} o \texttt{Searchsploit} permiten validar rápidamente vulnerabilidades conocidas, especialmente cuando existen módulos públicos ya probados y documentados.
+
+    \item \textbf{Exploración de repositorios comunitarios:} Para vulnerabilidades más recientes o específicas, se consultan fuentes como \texttt{Exploit-DB}, \texttt{GitHub} o foros técnicos en busca de herramientas de explotación, scripts PoC (\textit{Proof of Concept}) o técnicas actualizadas que permitan aprovechar la debilidad detectada.
+
+    \item \textbf{Adaptación del exploit al entorno real:} En muchos casos, los exploits disponibles requieren adaptaciones al contexto concreto de la empresa auditada: red interna, arquitectura de sistemas, configuraciones personalizadas o barreras defensivas (IPS, firewalls, EDR). El auditor debe adaptar o modificar el código fuente cuando sea necesario para asegurar su funcionamiento sin afectar a la estabilidad del entorno.
+\end{itemize}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Ejemplo básico de uso de Metasploit para explotación de CVE]
+$ msfconsole
+msf > search cve:2021-26855
+msf > use exploit/windows/http/exchange_proxylogon
+msf > set RHOSTS 192.168.0.5
+msf > run
+\end{lstlisting}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\subsubsection{Entornos de Directorio Activo}
+\label{sec:ad}
+
+\subsubsection*{Entorno de Active Directory}
+
+El \textbf{Directorio Activo (Active Directory, AD)} es un servicio de directorio desarrollado por Microsoft, diseñado para gestionar de forma centralizada los recursos de red en entornos corporativos. Permite la administración unificada de usuarios, equipos, grupos, políticas de seguridad y servicios dentro de una infraestructura Windows.
+
+Un entorno típico de Active Directory se compone de los siguientes elementos clave:
+
+\begin{itemize}
+    \item \textbf{Controlador de Dominio (Domain Controller, DC):} Servidor responsable de autenticar usuarios, aplicar políticas de grupo (GPOs) y mantener una copia del directorio. Puede haber múltiples DCs para garantizar la alta disponibilidad y la redundancia.
+    
+    \item \textbf{Dominios:} Unidad lógica que agrupa objetos del directorio como usuarios, equipos, grupos o impresoras. Cada dominio tiene su propio conjunto de políticas y límites administrativos.
+
+    \item \textbf{Árboles y Bosques (Trees and Forests):} Estructuras jerárquicas que permiten interconectar múltiples dominios. Un \textit{bosque} es la unidad más amplia y constituye el límite de confianza y seguridad del entorno AD.
+    
+    \item \textbf{Servicios integrados:}
+    \begin{itemize}
+        \item \textbf{Kerberos:} Protocolo principal de autenticación dentro de AD.
+        \item \textbf{LDAP (Lightweight Directory Access Protocol):} Protocolo para acceder y consultar la información del directorio.
+        \item \textbf{DNS:} Sistema esencial para la resolución de nombres dentro del dominio.
+        \item \textbf{SMB (Server Message Block):} Protocolo de red utilizado para compartir archivos e impresoras.
+        \item \textbf{WinRM (Windows Remote Management):} Protocolo basado en HTTP/S para la administración remota de sistemas Windows.
+    \end{itemize}
+    
+    \item \textbf{Políticas de Grupo (Group Policy Objects, GPOs):} Conjunto de reglas y configuraciones que se aplican a usuarios y equipos para establecer políticas de seguridad, restricciones del sistema, scripts de inicio de sesión, entre otros.
+
+    \item \textbf{Unidades Organizativas (OUs):} Contenedores jerárquicos dentro de un dominio que permiten agrupar objetos de manera lógica y aplicar políticas específicas a cada conjunto.
+\end{itemize}
+
+
+\subsubsection*{Enumeración de servicios y usuarios en AD}
+
+Antes de aplicar cualquier técnica de explotación, es crucial realizar una enumeración precisa del entorno. Algunas herramientas y comandos útiles incluyen:
+
+\begin{itemize}
+\item \texttt{netexec}: enumeración de usuarios, dispositivos, shares SMB, versión del dominio y estado de firma.
+\item \texttt{smbclient}, \texttt{rpcclient} y \texttt{enum4linux-ng} para realizar consultas vía SMB o RPC.
+\item Sesiones nulas (\textit{null sessions}) para acceder sin credenciales a ciertos servicios si no están debidamente configurados.
+\end{itemize}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Enumeración de recursos SMB con NetExec]
+$ netexec smb 192.168.1.0/24 --shares
+$ netexec smb 192.168.1.10 -u '' -p '' --users
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Acceso a recursos compartidos SMB con smbclient]
+$ smbclient -L //192.168.1.10/ -N
+$ smbclient //192.168.1.10/shared -U usuario
+\end{lstlisting}
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Enumeración con rpcclient]
+$ rpcclient -U "" 192.168.1.10
+> enumdomusers
+\end{lstlisting}
+
+Es fundamental verificar en este entorno si los equipos del dominio tiene habilitada la \textbf{firma SMB}. Su ausencia permite ataques de tipo \textit{SMB Relay}, que pueden ser utilizados para redirigir autenticaciones válidas capturadas hacia otros servicios dentro del dominio.
+
+\subsubsection*{Ataque SMB Relay}
+
+Una de las técnicas más efectivas en estos entornos es el \textbf{SMB Relay}, aprovechando el protocolo NTLMv2. 
+Esta técnica permite a un atacante interceptar y reutilizar las credenciales de un usuario legítimo para ejecutar comandos en otros sistemas del dominio.
+
+Para iniciar este ataque, se lanza la herramienta \texttt{Responder} en la red para envenenar el tráfico de la red y suplantar servicios como LLMNR, NBNS o DNS. Con esto trataremos de hashes NTLMv2 de autenticaciones que ocurren de manera automática cuando los usuarios intentan conectarse a recursos compartidos. 
+
+Este tipo de ataque no requiere interacción activa con los equipos objetivo una vez desplegado el entorno, sino que se basa principalmente en esperar pacientemente a que algún usuario realice una conexión, lo que lo convierte en una técnica silenciosa y efectiva.
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Captura de hashes NTLMv2 con Responder]
+$ sudo responder -I eth0 -dw
+\end{lstlisting}
+
+Estos hashes únicamente serán visibles si existe tráfico activo en la red del dominio que implique peticiones a recursos compartidos, y siempre que el cortafuegos no bloquee las respuestas maliciosas generadas por Responder (spoofing de LLMNR/NBNS) en IPv4. Una vez capturados, dichos hashes NTLMv2 pueden ser sometidos a ataques de diccionario o fuerza bruta utilizando herramientas ya vistas como \texttt{john}.
+
+Para aprovechar estos hashes sin necesidad de romperlos, es posible realizar un ataque de \textbf{relay} directamente contra otros equipos del dominio. Para ello, se recomienda desactivar los módulos SMB y HTTP en el archivo \texttt{Responder.conf}, de forma que \texttt{Responder} no interfiera con la herramienta \texttt{ntlmrelayx}, que se encargará de interceptar y redirigir las autenticaciones capturadas.
+
+Una vez configurado el entorno, se puede lanzar \texttt{ntlmrelayx} en paralelo a \texttt{Responder}, especificando un archivo de objetivos (\texttt{targets.txt}) que contenga las direcciones IP de los equipos del dominio que se desea comprometer. Si alguno de estos sistemas acepta autenticaciones NTLM entrantes y tiene SMB habilitado, se puede ejecutar un comando remoto como en el siguiente ejemplo:
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Relay NTLM y ejecución remota]
+$ ntlmrelayx.py -tf targets.txt -smb2support -c "powershell comando"
+\end{lstlisting}
+
+\subsubsection*{Ataque SMB Relay por IPV6}
+
+Es posible que algunas empresas mitiguen este tipo de ataques configurando adecuadamente el cortafuegos para bloquear intentos de envenenamiento de red sobre IPv4. Sin embargo, en muchos casos no se implementan medidas equivalentes para el protocolo IPv6, lo que deja una vía de entrada abierta. Si IPv6 no está debidamente deshabilitado o protegido, puede ser explotado de forma similar mediante técnicas de suplantación.
+
+Mediante \texttt{mitm6}, un atacante puede suplantar un servidor DHCPv6 y redirigir el tráfico de autenticación hacia su equipo, permitiendo realizar ataques \textbf{NTLM Relay sobre IPv6} combinados con \texttt{ntlmrelayx} en modo SOCKS:
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Relay IPv6 con túnel SOCKS]
+$ mitm6 -d dominio.local
+$ ntlmrelayx.py -6 -wh "IP Atacante" -t smb://"IP Víctima" -socks -smb2support -debug
+\end{lstlisting}
+
+Desde la consola interactiva de \texttt{ntlmrelayx}, mediante el comando \texttt{socks}, se puede habilitar un túnel que permite monitorizar las conexiones entrantes hacia los objetivos especificados. En esta consola se mostrará una tabla de usuarios del dominio que intentan acceder a recursos compartidos sobre los equipos comprometidos. 
+
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Vista del túnel SOCKS en ntlmrelayx]
+ntlmrelayx> socks
+Protocol  Target         Username             AdminStatus  Port
+--------  -------------  -------------------  -----------  ----
+SMB       192.168.94.138  \\DOMINIO\USUARIO     TRUE         445
+ntlmrelayx> [+] KeepAlive Timer reached. Updating connections
+[+] Calling keepAlive() for \\DOMINIO\USUARIO@192.168.0.2:445
+\end{lstlisting}
+
+
+Es habitual que algunos de estos usuarios posean privilegios administrativos sobre la víctima, es decir, aparezcan con \texttt{adminstatus=true}. Aprovechando este túnel, podemos utilizar herramientas como \texttt{proxychains} para redirigir el tráfico a través del relay y ejecutar comandos directamente sobre la víctima como si fuéramos ese usuario con privilegios.
+
+Por ejemplo, se puede solicitar la información contenida en el archivo SAM (Security Account Manager), el cual almacena los hashes de las contraseñas de los usuarios locales del sistema, utilizando las credenciales capturadas de un usuario con privilegios administrativos y sin necesidad de conocer la contraseña del usuario del sistema.
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Abuso del túnel SOCKS con netexec]
+$ proxychains netexec smb 192.168.0.2 -u 'Administrador' -p 'Intencionadamente Errónea' -d 'dominio' --sam
+\end{lstlisting}
+
+Los hashes extraídos del archivo \texttt{SAM} pueden ser utilizados directamente en ataques de tipo \textbf{Pass-the-Hash}\footnote{Técnica que permite autenticarse en sistemas Windows reutilizando directamente el hash NTLM de la contraseña, sin necesidad de conocer la contraseña en texto claro.}, permitiendo ejecutar acciones como si se tratara del propio usuario legítimo.
+
+Este ataque es especialmente útil cuando se han obtenido hashes de cuentas con privilegios administrativos. Herramientas como \texttt{winexe}, \texttt{impacket-psexec} o \texttt{netexec} permiten autenticarse remotamente usando estos hashes para ejecutar comandos, listar información o incluso obtener consolas de comandos remotas.
+
+\begin{lstlisting}[language=bash, style=terminalstyle, caption=Ejemplo de Pass-the-Hash]
+$ impacket-psexec dominio/Administrador@192.168.1.143 -hashes :8846f7eaee8fb117ad06bdd830b7586c
+$ netexec smb 192.168.1.143 -u Administrador -H 8846f7eaee8fb117ad06bdd830b7586c --exec-method smbexec -x "whoami"
+\end{lstlisting}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Auditoría de aplicaciones web}
+
+Las aplicaciones web y los servidores que las alojan representan uno de los vectores de ataque más frecuentes en entornos corporativos, 
+especialmente cuando están expuestos a Internet o permiten la interacción con usuarios externos. Debido a su criticidad, toda auditoría 
+web debe seguir una metodología estructurada y ampliamente reconocida que garantice una cobertura completa de los riesgos. 
+
+\textbf{OWASP} (Open Worldwide Application Security Project) proporciona un marco de trabajo sistemático para la auditoría de seguridad de aplicaciones web. Su documentación oficial no solo enumera las vulnerabilidades más críticas a través del conocido \textbf{OWASP Top 10}, sino que también ofrece recursos prácticos, metodologías paso a paso y herramientas para llevar a cabo auditorías completas, desde el análisis inicial hasta la explotación de fallos.
+
+Utilizar la metodología OWASP permite auditar una aplicación web de forma completa y estructurada, abarcando desde su lógica de negocio hasta la configuración del servidor, lo que garantiza una cobertura integral de seguridad. El OWASP Top 10 incluye categorías clave como:
+
+\begin{itemize}
+\item Inyecciones (SQL, LDAP, NoSQL, OS Command).
+\item Exposición de datos sensibles.
+\item Fallos en la autenticación y en la gestión de sesiones.
+\item Inclusión de archivos locales o remotos (LFI/RFI).
+\item XSS (Cross-Site Scripting), CSRF, SSRF, etc.
+\end{itemize}
+
+Además de las vulnerabilidades a nivel de aplicación, la auditoría debe contemplar el entorno donde está desplegada, incluyendo:
+
+\begin{itemize}
+\item Versiones y configuraciones del servidor web (Apache, Nginx, IIS, etc.).
+\item Módulos habilitados por defecto y servicios innecesarios.
+\item Permisos de archivos y directorios.
+\item Interfaces administrativas o rutas sensibles accesibles.
+\item Cabeceras HTTP de seguridad.
+\end{itemize}
+
+
+En definitiva, es muy recomendable apoyarse en la metodología OWASP, ya que garantiza un enfoque global, estandarizado y probado en múltiples entornos reales. La documentación oficial está disponible de forma gratuita en el siguiente enlace:
+
+\begin{tcolorbox}[enhanced,attach boxed title to top center={yshift=-3mm,yshifttext=-1mm},
+  colback=blue!5!white,colframe=blue!75!black,colbacktitle=red!80!black,
+  title=Dirección URL,fonttitle=\bfseries,
+  boxed title style={size=small,colframe=red!50!black} ]
+  \centering
+\url{https://owasp.org/www-project-web-security-testing-guide/}
+
+\end{tcolorbox}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsubsection{Post-explotación: escalado de privilegios y movimiento lateral}
+
+Una vez conseguido acceso a uno o varios sistemas, comienza la fase de post-explotación. En este punto, el objetivo ya no es simplemente demostrar que una vulnerabilidad es explotable, sino evaluar hasta qué punto un atacante podría expandir su control sobre la red interna, acceder a información sensible o comprometer la infraestructura completa.
+
+Las acciones se centran en tres ejes principales:
+
+\begin{itemize}
+
+    \item \textbf{Escalado de privilegios:} Se analiza si el acceso inicial puede convertirse en control total del sistema. Esto implica buscar configuraciones incorrectas, servicios mal gestionados, contraseñas almacenadas localmente, binarios con permisos SUID mal asignados, tareas programadas inseguras o vulnerabilidades locales que permitan elevar privilegios a nivel administrador.
+    \item \textbf{Revisión de configuración interna:} Se inspeccionan políticas de seguridad, usuarios del sistema, grupos con privilegios elevados, permisos de archivos, unidades compartidas y logs del sistema. Esta información ayuda a entender el entorno y detectar posibles vectores de escalado o abuso.
+    \item \textbf{Movimiento lateral y pivoting:} Si el sistema comprometido forma parte de una red mayor, se intenta acceder a otros equipos desde esa posición. Se emplean técnicas de enumeración interna (NetBIOS, ARP, SNMP, escaneo de puertos internos), así como herramientas que permiten enrutar tráfico o ejecutar comandos en otros sistemas de la red.
+
+\end{itemize}
+
+El análisis exhaustivo de la configuración interna, junto con las técnicas de post-explotación, permite determinar la capacidad de un atacante para expandir su acceso dentro del entorno y comprometer activos adicionales. Es aquí donde una vulnerabilidad inicialmente acotada puede convertirse en una amenaza crítica, si facilita el acceso a datos sensibles, usuarios con privilegios elevados o sistemas clave para el funcionamiento de la organización.
 
 \clearpage
 
@@ -2536,7 +2685,7 @@ A modo de resumen, se presenta una tabla comparativa donde se señalan las carac
 
 
 \subsubsection{Evaluación de Riesgos}
-
+\label{sec:ev_riesgos}
 Una vez documentados los hallazgos de la auditoría, resulta fundamental realizar una evaluación sistemática de los riesgos asociados a 
 cada vulnerabilidad detectada. Este proceso no solo permite identificar qué fallos son más críticos, sino también establecer un orden de 
 prioridad para su resolución en función de su probabilidad de explotación y el impacto que podrían generar sobre la confidencialidad, 
@@ -2686,7 +2835,7 @@ disponibles y servirá como base para las acciones técnicas correctivas que se 
 
 
 % -----------------------------------------------CASO PRÁCTICO------------------------------------------------------------
-\section{Caso Práctico}
+\section{Implementación de la Metodología Propuesta: Caso Práctico}
 
 En esta sección se presenta la puesta en práctica de la metodología propuesta anteriormente en una Pyme. El propósito principal es demostrar, mediante la aplicación de los conceptos teóricos abordados, la viabilidad y eficacia de esta metodología en un contexto real.
 
@@ -2726,23 +2875,31 @@ Por lo tanto, fue necesario actualizar dicho inventario y definir una topología
 serían objeto de la auditoría.
 
 
-Tras varias horas de análisis, se estableció una estructura de red definitiva que identificaba tres redes principales dentro de la empresa representado en la Figura~\ref{fig:topologia-red}: una red de invitados, aislada del resto; una red dedicada a la oficina de TI; y una red para el área de fábrica, dedicada a tecnologías operacionales (OT). Se decidió que la auditoría se centraría exclusivamente en la red de oficina, ya que la red de invitados resultaba irrelevante desde el punto de vista del riesgo para los activos críticos, y la red de fábrica contenía activos cuya interrupción podría afectar gravemente la continuidad operativa y económica de la empresa.
+Tras varias horas de análisis, se estableció una estructura de red definitiva que identificaba tres redes principales dentro de la empresa, representadas en la Figura~\ref{fig:topologia-red}. De ellas, dos redes tienen relevancia directa en el contexto de la auditoría:
+
+\begin{itemize}
+    \item \textbf{Red de oficina TI} (color verde): destinada a los sistemas y usuarios del departamento de Tecnologías de la Información. En esta red se conectan tanto los empleados de oficina como los invitados.
+    \item \textbf{Red de fábrica OT} (color rojo): dedicada a los sistemas de tecnologías operacionales y dispositivos críticos para la producción.
+\end{itemize}
+
+La tercera red, \textbf{representada en color amarillo}, corresponde a un router gestionado por una empresa externa encargada de la seguridad informática, la cual se conecta a través de una VPN\footnote{Tecnología que crea una conexión segura y cifrada entre tu dispositivo e internet, permitiendo navegar de forma anónima y segura, ocultando tu dirección IP y protegiendo tus datos.}. Este dispositivo proporciona conexión Wi-Fi a los empleados de la fábrica, pero no tiene trascendencia directa en el ámbito de esta auditoría.
+
+Dado que la red de fábrica alberga activos cuya interrupción podría comprometer gravemente la continuidad operativa y económica de la empresa, se decidió que la auditoría se centraría exclusivamente en la red de oficina TI.
 
 
+\clearpage
+\begin{landscape}
 \begin{figure}[H]
   \centering
-  \includegraphics[width=\textwidth]{images/topologia.png}
+    \includegraphics[width=20cm,height=14cm]{images/topologia.png}
   \caption{Topología de red de la Empresa X.}
   \label{fig:topologia-red}
 \end{figure}
+\end{landscape}
+\clearpage
 
 
-
-Finalmente, con el alcance, herramientas y técnicas claramente definidos, se procedió a preparar todo el material necesario para realizar la auditoría. 
-
-
-
-
+Finalmente, una vez definida la topología de red, fue posible concretar con mayor precisión el alcance de la auditoría y preparar adecuadamente las técnicas y herramientas necesarias. Con el alcance, herramientas y técnicas claramente establecidos, se procedió a reunir todo el material necesario para llevar a cabo la auditoría.
 
 \subsubsection{Resultados Obtenidos en la Fase de Planificación}
 
@@ -2758,12 +2915,12 @@ Como resultado de esta fase de planificación, se lograron concretar los siguien
 
 
 
-
 \subsection{Fase de Descubrimiento en el Caso Práctico}
 
 Una vez finalizada la fase de planificación, y haber preparado todas las herramientas y autorizaciones necesarias, se procedió con la ejecución de la \textbf{fase de descubrimiento}, según lo establecido en la metodología propuesta de esta memoria.
 
 
+\subsection*{OSINT}
 
 Como paso previo, se llevó a cabo el análisis opcional de OSINT. Esta etapa permitió obtener información pública sobre la organización auditada. En concreto, se localizaron los siguientes elementos relevantes:
 
@@ -2781,61 +2938,332 @@ Como paso previo, se llevó a cabo el análisis opcional de OSINT. Esta etapa pe
 
 A través de estas búsquedas especializadas, se identificaron varias credenciales asociadas a cuentas corporativas previamente filtradas, lo cual no supone ningún riesgo si llevan a cabo las políticas de cambios de contraseñas, dejando la información expuesto sin ningún valor para un atacante.
 
+\subsection*{Perímetro de red}
+
+Tras concluir con el análisis de OSINT, dio comienzo formalmente la fase de descubrimiento. En primer lugar, se auditó el perímetro inalámbrico de la red siguiendo los procedimientos establecidos en la metodología propuesta. Para ello, se empleó una antena en modo monitor junto con las herramientas descritas, lo que permitió identificar tres redes WiFi vinculadas a la organización. Se observó que dos de ellas compartían el mismo segmento de red que la oficina, mientras que la tercera correspondía a la red expuesta por la empresa externa, marcada en color amarillo en la Figura~\ref{fig:topologia-red}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{images/wifis_disponibles.png}
+    \caption{Redes inalámbricas disponibles.}
+    \label{fig:redes-wifis}
+\end{figure}
+
+Como puede apreciarse en las Figuras~\ref{fig:topologia-red} y~\ref{fig:redes-wifis}, la red \textbf{COMETA} corresponde a la empresa subcontratada, cuyo router principal es un dispositivo Huawei ubicado en la zona amarilla del esquema. Esta red es utilizada principalmente por el personal de fábrica. Por otro lado, el punto de acceso \textbf{LAFRAGUA} forma parte del segmento inalámbrico de la red de oficina (zona verde) y fue uno de los AP desde los que se estableció conexión durante la auditoría. Cabe destacar que también se identificó una tercera red denominada \textbf{SATURNO}, igualmente asociada a la red de oficina, aunque no aparece en la captura debido a que, en el momento de la detección, se encontraba fuera de alcance.
+
+Gracias al análisis topológico, se comprobó y evaluó una correcta segmentación mediante un firewall Fortigate de última generación. Las redes identificadas estaban distribuidas en dos segmentos: uno correspondiente a la fábrica (\texttt{172.168.0.0/24}) y otro a la oficina (\texttt{192.168.100.0/24}), tal como se muestra en la Figura~\ref{fig:topologia-red}. 
+
+La seguridad de las redes inalámbricas fue evaluada mediante técnicas de desautenticación descritas en la metodología. Como resultado, se logró capturar los \textit{handshakes} de autenticación de todas las redes detectadas, los cuales fueron almacenados para su posterior análisis con el objetivo de evaluar la robustez y complejidad de las contraseñas utilizadas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/redfragua_handshake.png}
+    \caption{Handshake de LaFragua.}
+    \label{fig:handshakefragua}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/redsaturno_handshake.png}
+    \caption{Handshake de Saturno.}
+    \label{fig:handshakesaturno}
+\end{figure}
 
 
-Tras concluir con el análsiis de OSINT, se inicia formalmente la fase de descubrimiento, se auditó en primer lugar el perímetro inalámbrico de la red, 
-siguiendo los procedimientos expuestos en la Sección~\ref{sec:analisis_redes_inalambricas}. 
-Para ello se utilizó una antena en modo monitor junto con las herramientas descritas, que permitieron identificar tres redes WiFi vinculadas a la organización. Se observó que dos de ellas compartían el mismo segmento de red, la red de oficina, mientras que la tercera correspondía a una red de invitados, aislada mediante segmentación.
+\subsection*{Enumeración de activos}
+
+A continuación, el responsable de la empresa nos permitió conectarno directamente al segmento de red de la oficina por cable con el fin de agilizar el análisis interno. Se inició una exploración automatizada mediante \texttt{Nessus}, mientras en paralelo se ejecutaban capturas de tráfico con \texttt{Wireshark}. 
+
+\subsection*{Perímetro de red}
+
+Durante este proceso, algunos escaneos fueron bloqueados por el firewall, lo que obligó a emplear técnicas de evasión y a relanzar el mismo escaneo varias veces. Una vez se logró listar los hosts presentes en la red, se procedió a enumerar sus puertos y servicios abiertos de forma individual.
+
+Además, se observó que la red hacía uso de direccionamiento dinámico mediante \textit{DHCP}, lo que dificultaba el seguimiento de los activos por dirección \textit{IP}. Por tanto, fue fundamental identificar cada dispositivo mediante su dirección \textit{MAC} para asegurar un rastreo preciso durante toda la auditoría.
+
+Todos los comandos ejecutados con \texttt{nmap} se fueron guardando en formato \texttt{XML}, lo que permitió exportarlos posteriormente a \texttt{HTML} de forma sencilla, obteniendo así una visualización más cómoda y ordenada de toda la información recolectada.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/scan_hosts_nmap.png}
+    \caption{Escaneo de activos con Nmap.}
+    \label{fig:nmap_hosts}
+\end{figure}
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{images/puertos_nmap.png}
+    \caption{Escaneo de activos puertos y servicios de cada activo.}
+    \label{fig:nmap_ports}
+\end{figure}
+
+
+\subsection*{Análisis de los hallazgos}
+
+Una vez recopilada toda la información necesaria manualmente, se procedió a analizar el contenido de los hallazgos. En primer lugar, se revisaron individualmente los puertos que tenían abierto cada activo. En caso de tener expuesto alguna web, se accedía para comprobar el contenido, identificar su función y ver si ofrecía información relevante. 
+
+Se trató de identificar cada dispositivo: entre ellos encontramos routers, servidores, un entorno de directorio con su controlador de dominio y varios equipos conectados, impresoras, e incluso dispositivos móviles ajenos a la auditoría.
+
+Una vez identificados todos los activos, versiones, paneles, webs y demás recursos, se pasó al análisis de las posibles vulnerabilidades detectadas. Para ello, se consultaron las fuentes mencionadas en la Sección~\ref{sec:analisis_vulns_seccion}. Una vez enumeradas todas las vulnerabilidades posibles, se revisaron los informes generados por \texttt{Nessus}, teniendo en cuenta que su versión gratuita presenta ciertas limitaciones. Al contrastar los resultados automáticos con los análisis manuales, se comprobó que ambos enfoques aportaban información distinta pero complementaria.
 
 
 
-Gracias al análisis topológico, pudimos comprobar y evalaur una correcta segmentación mediante un firewall Fortigate de última generación. Las redes identificadas se dividían en un segmento de fábrica (\texttt{172.168.0.0/24}) y uno de oficina (\texttt{192.168.100.0/24}) como se puede ver en la Figura~\ref{fig:topologia-red}. Se evaluó la seguridad de las redes inalámbricas mediante las técnicas de desautenticación descritas en la metodología, obteniéndose los \textit{handshakes} de autenticación para todas las redes detectadas. Estos paquetes fueron almacenados para su posterior análisis en relación con la robustez y complejidad de las contraseñas.
+\subsection*{Clasificación de las vulnerabilidades}
+
+Siguiendo la metodología propuesta, se procedió a clasificar las vulnerabilidades en función de su criticidad, usando el estándar \textbf{CVSS 3.1} y su calculadora oficial \cite{cvsscalc}. Entre las vulnerabilidades más importantes detectadas, se destacan las siguientes, clasificadas según su criticidad.
+
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|c|p{2.5cm}|p{2.8cm}|p{5.2cm}|c|}
+\hline
+\rowcolor{gray!20}
+\textbf{ID} & \textbf{Activo / IP} & \textbf{Puerto / Servicio} & \textbf{Vulnerabilidad probable} & \textbf{CVSS 3.1} \\
+\hline
+\rowcolor{cvsscritical!70}
+VUL-01 & 192.168.100.169 & 23, 80, 4370 – ZEM500 & Telnet abierto y web sin cifrado en dispositivo biométrico. (ZKTeco CVEs) & 9.0 \\
+\rowcolor{cvsshigh!70}
+VUL-02 & 192.168.100.6 & 23 Telnet – D-Link Switches & Telnet sin cifrado, acceso a configuración crítica. (CVE-2016-6563) & 8.8 \\
+\rowcolor{cvsshigh!70}
+VUL-03 & 192.168.100.229 & 8080 Knopflerfish – OSGi Framework & RCE en framework embebido sin aislamiento. (CVE-2017-12345) & 8.8 \\
+\rowcolor{cvsshigh!70}
+VUL-04 & 192.168.100.5 & 5621 SuperMicro – ASF/IPMI & RCE por IPMI sin cifrado ni autenticación. & 8.6 \\
+\rowcolor{cvsshigh!70}
+VUL-05 & 192.168.100.3 & HTTP(S) – GoAhead WebServer & RCE y bypass en versiones vulnerables. (CVE-2017-17562) & 8.3 \\
+\rowcolor{cvsshigh!70}
+VUL-06 & 192.168.100.243 & 8080 gSOAP – SOAP Server & SSRF y deserialización insegura. (CVE-2017-9765) & 8.1 \\
+\rowcolor{cvssmedium!70}
+VUL-07 & 192.168.100.238 & FTP, Telnet, HTTP – Brother/HP Printer & FTP anónimo, Telnet y panel web sin cifrado. (HP/Brother CVEs) & 7.8 \\
+\rowcolor{cvssmedium!70}
+VUL-08 & 192.168.0.100 & HTTP (80) – Lighttpd 1.4.38 & DoS y LFI en versión desactualizada. (CVE-2016-1000212) & 7.5 \\
+\rowcolor{cvssmedium!70}
+VUL-09 & 192.168.100.2 & 5123 IPMI – IPMI & Control sin autenticación robusta. (CVE-2013-4786) & 7.5 \\
+\rowcolor{cvssmedium!70}
+VUL-10 & 192.168.100.104 & 443 – HP Printer & Admin web sin HTTPS fuerte. (HP printer CVEs) & 7.1 \\
+\hline
+\end{tabular}
+\caption{Top 10 vulnerabilidades detectadas ordenadas por criticidad.}
+\label{tab:vulnstop10}
+\end{table}
+
+
+Estos resultados sirvieron de base para el diseño del posterior plan de ataque.
+
+\subsubsection{Resultados de la fase de descubrimiento}
+
+En resumen, al finalizar esta fase de descubrimiento se obtuvieron los siguientes resultados principales:
+
+\begin{itemize}
+    \item Inventario actualizado de redes inalámbricas detectadas, junto con la captura de los \textit{handshakes} de autenticación para su posterior análisis.
+    \item Listado detallado de activos conectados a la red de oficina, identificados por dirección IP, dirección MAC y nombre de host.
+    \item Recopilación de capturas de tráfico relevantes utilizando \texttt{Wireshark}.
+    \item Enumeración de puertos y servicios abiertos en cada dispositivo, así como paneles de administración accesibles.
+    \item Identificación de la existencia de un entorno de \textit{Active Directory} correctamente etiquetado, facilitando la labor a un posible atacante.
+    \item Detección de dispositivos potencialmente vulnerables, como routers o impresoras con paneles accesibles.
+    \item Listado de vulnerabilidades asociadas a cada activo, fruto del análisis manual y del escaneo con \texttt{Nessus}, sirviendo como base preparatoria para la fase de ataque.
+\end{itemize}
 
 
 
-A continuación, el responsable de la empresa nos permitió conectarno directamente al segmento de red de la oficina por cable con el fin de agilizar el análisis interno. Se inició una exploración automatizada mediante \texttt{Nessus}, mientras en paralelo se ejecutaban capturas de tráfico con \texttt{Wireshark}. Posteriormente, se utilizó \texttt{Nmap} para enumerar todos los activos.
 
-
-
-Durante este proceso, algunos escaneos fueron bloqueados por el firewall, lo que obligó a emplear técnicas de evasión y scripts personalizados en \texttt{Python}, uno de los cuales se incluye como ejemplo en el Anexo~\ref{anexo:script_evasion}. Una vez se logró listar los hosts de la red, se procedió a enumerar sus puertos y servicios abiertos de forma individual.
-
-
-
-Los informes generados por \texttt{Nessus}, junto con los análisis manuales y observaciones realizadas, sirvieron para evaluar las vulnerabilidades detectadas, conforme a la metodología de análisis descrita en la Sección~\ref{sec:analisis_vulnerabilidades}. Esta información permitió sentar las bases para el diseño del posterior plan de ataque.
-
-
-
-Como resultado directo de esta fase, se obtuvo un conjunto de \textit{handshakes} cuya complejidad será evaluada en base al tiempo estimado de ruptura por fuerza bruta. Asimismo, se generó un inventario detallado de activos, revelando la presencia de un entorno con \textit{Active Directory}, en el cual los nombres de los equipos estaban correctamente etiquetados, facilitando la labor de reconocimiento para un posible atacante.
-
-
-
-Entre los dispositivos detectados se encontraban routers con paneles de acceso accesibles, servidores de archivos, estaciones de trabajo conectadas al dominio, impresoras de red y dispositivos personales de empleados, como móviles, los cuales representan un potencial vector de riesgo si estuviesen comprometidos. Además, se extrajo un listado preliminar de vulnerabilidades priorizadas para su explotación en fases posteriores.
-
-
-
-
-\label{sec:fingerprint}
-\label{sec:analisis_vulnerabilidades}
-\label{sec:osint}
-\label{anexo:script_evasion}
-\label{codigo:wireshark}
 
 
 
 \subsection{Fase de Ataque en el Caso Práctico}
 
+Una vez analizadas y clasificadas las vulnerabilidades, se comenzó a trazar el plan de ataque. Debido al gran número de posibles vectores de ataque, se decidió dar prioridad en explotar las vulnerabilidades más críticas para evaluar su impacto real. Además, se planificó una estrategia específica enfocada al entorno de Directorio Activo.
 
-una vezx trazado un plan de ataque adecuado al entorno de directorio activo presenre en la red a aduitar, comenzamos previamtene con el crackero de la contrraseña de la red perimetras, esta era bastante robusta con mas de 10 caracteres combinado numeros letras mayusvcula minuscula y algunas simbolos, por lo que se estima segun la sigueinte tabla: que la duracion para romperla es de .... tiempo.
+\subsection*{Ataque por fuerza bruta sobre handshakes WiFi}
 
-Nos volvemos a conectar a la red y desde dentro, probamos con un listado de posibles credencales por defecto en todos los paneles de acceso. Durante esta etapa logramos acceder de primera mano a la configuracion como administrado de uno de los routers de la empresa, y acceso como administrador al panel de control de una de las impresoras principales de la red de oficina. Una vez probado con toddos los demas paneles, probamos lo mismo a servicios destinado a la conecxion como es el puerto 22 ssh y otros como el telnet 23. Vimos que todos estaban protegido frente a fuer<za bruta y que contaban con contraseñas. Finalmente, comenzxamos a atacar ese sistme de directorio activo siguiendo la metodologia descrita en la seccion pertinenten arriba del documetno.
+Durante la fase preparatoria, se evaluó previamente la robustez de las contraseñas capturadas en los \textit{handshakes} mediante ataque de diccionario. La contraseña correspondiente a la red inalámbrica perimetral resultó ser bastnate compleja: más de 10 caracteres, combinación de letras mayúsculas, minúsculas, números y símbolos.
 
-Ataque de nessu?
-Ataque manuales?
-Probamos un shelshock con paneles cgi.
+Según las estimaciones basadas en la Figura~\ref{fig:crackpass}, el tiempo requerido para descubrir una contraseña de estas características con el hardware y complejidad especificada, sería de más de miles de años, descartando así su explotación efectiva durante las pruebas de intrusión
+
+
+\subsection*{Ataques por fuerza bruta a paneles y servicios}
+
+Una vez recopiladas las herramientas necesarias, se regresó a la empresa para iniciar la fase práctica del ataque. Conectados ya desde dentro de la red, se probaron credenciales por defecto sobre todos los paneles de acceso detectados.
+
+Durante esta etapa, se consiguió acceso como administrador al panel de configuración de uno de los routers corporativos, así como al panel de administración de una de las impresoras principales de la oficina. En ambos casos, se emplearon credenciales conocidas o por defecto.
+
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/panel_hp.png}
+    \caption{Panel de control de la impresora como Administrador.}
+    \label{fig:panel_impresora}
+\end{figure}
+
+Además, se intentó acceso por fuerza bruta a servicios como \texttt{SSH} (puerto 22) y \texttt{Telnet} (puerto 23), sin éxito. Todos los servicios estaban protegidos por contraseñas robustas y no se detectaron mecanismos de autenticación débiles.
+
+\subsection*{Explotación de vulnerabilidades críticas}
+
+A continuación, se procedió a probar la explotación de las vulnerabilidades más críticas identificadas. Uno de los casos más relevantes fue el servidor con IP \texttt{192.168.100.2}, perteneciente al dominio del Directorio Activo, que tenía habilitado el servicio IPMI en el puerto 5123, vulnerable a la CVE-2013-4786.
+
+Para su explotación, se utilizó \texttt{msfconsole}, logrando interactuar con el servicio y obtener el hash del usuario \texttt{root}. Dicho hash fue almacenado para su posterior descifrado, el cual se puede efectuar de manera offline mediante herramientas como \texttt{John The Ripper}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/ipmi_prueba.png}
+    \caption{Explotación del servicio IPMI en el host \texttt{192.168.100.2} mediante \texttt{Metasploit}.}
+    \label{fig:ipmi_prueba}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/hash_ipmi.png}
+    \caption{Hash del usuario root del host \texttt{192.168.100.2} explotado mediante la vulnerabilidad IPMI.}
+    \label{fig:hash_ipmi}
+\end{figure}
+
+\subsection*{Ataque al Directorio Activo}
+
+Finalmente, se puso en práctica la fase de ataque al entorno de Directorio Activo, siguiendo la metodología detallada en la Sección~\ref{sec:ad}.
+
+Se intentó la enumeración de usuarios, recursos y servicios mediante sesiones nulas, sin resultados. 
+
+A través de \texttt{netexec} se listaron los equipos del dominio, observando que ninguno tenía activada la firma SMB, lo cual habilitaba la posibilidad de realizar ataques de tipo \texttt{SMB Relay}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/smbsignature.png}
+    \caption{Equipos del dominio de directorio activo.}
+    \label{fig:smb_signature}
+\end{figure}
+
+Se configuró \texttt{Responder} sobre IPv4 durante aproximadamente 30 minutos, pero no se generó suficiente tráfico de red para capturar \texttt{hashes NTLMv2}.
+
+Posteriormente, se probó una variante del ataque utilizando \texttt{mitm6} junto con \texttt{ntlmrelayx.py} para interceptar tráfico sobre IPv6. Sin embargo, debido al escaso tiempo de ejecución y al bajo nivel de actividad de red en ese momento, no se lograron capturar credenciales válidas.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1.1\textwidth]{images/ipv6_ad.png}
+    \caption{Envenenamiento del tráfico de red por IPV6.}
+    \label{fig:ipv6_poisoning}
+\end{figure}
+
+
+\subsection*{Intento de explotación mediante Shellshock}
+
+Como parte de los intentos adicionales, se identificó que ciertos paneles de routers redirigían a extensiones \texttt{.cgi}. Esto abrió la posibilidad de aplicar ataques tipo \texttt{Shellshock}, conocidos por aprovechar la ejecución de comandos en entornos que usan como lenguaje de programación Bash expuestos a través de CGI.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{images/logincgi.png}
+    \caption{Panel de login CGI posiblemente vulnerable a Shellshock (\texttt{.cgi}).}
+    \label{fig:ipv6_poisoning}
+\end{figure}
+
+
+Sin embargo, a pesar de realizar varios intentos utilizando herramientas como \texttt{BurpSuite}, no se logró ejecutar código remotamente. La explotación no fue efectiva, posiblemente debido a filtros en el servidor web, ausencia de ejecución de Bash en el backend o sanitización de cabeceras clave como \texttt{User-Agent} o \texttt{Referer}, que son vectores típicos en este tipo de ataque.
+
+
+
+\subsubsection*{Resultados de la Fase de Ataque}
+
+\begin{itemize}
+    \item \textbf{Hash de root}: Se obtuvo el hash del usuario \texttt{root} desde un servidor IPMI, listo para ser crackeado offline con \texttt{John}. Este acceso podría permitir futuras acciones movimiento lateral mediante SMB, especialmente si la contraseña es compartida entre servicios.
+    
+    \item \textbf{Acceso completo a impresora principal}: Se accedió como administrador a una de las impresoras del dominio. Desde su panel de control se visualizaron logs de actividad, direcciones IP internas, usuarios que imprimieron/copiarion y fechas concretas.
+\end{itemize}
 
 
 
 \subsection{Fase de Reporte del Caso Práctico}
+
+Tras finalizar todas las fases técnicas de la auditoría, se procedió a elaborar la documentación final del proceso. Como paso previo, se llevó a cabo una evaluación de los riesgos asociados a cada una de las vulnerabilidades detectadas, teniendo en cuenta su probabilidad de explotación y el impacto que podrían generar sobre los activos evaluados.
+
+A partir de esta evaluación, se diseñó un plan de mitigación realista, priorizando aquellas acciones que reducen de forma inmediata los riesgos más críticos, especialmente aquellos que afectan directamente a la disponibilidad, confidencialidad o integridad de los sistemas clave.
+
+Finalmente, todo el contenido de la auditoría fue recogido y estructurado en dos informes diferenciados:
+
+\begin{itemize}
+    \item Un \textbf{Informe Técnico}, donde se detallan todas las vulnerabilidades detectadas, pruebas realizadas, capturas, comandos, CVEs y recomendaciones técnicas específicas.
+    
+    \item Un \textbf{Informe Ejecutivo}, orientado a la dirección de la empresa, en el que se resume el estado general de seguridad, los principales riesgos detectados y las acciones prioritarias a tomar.
+\end{itemize}
+
+
+\subsubsection*{Evaluación de Riesgos}
+
+Para cada vulnerabilidad se analizó el riesgos existente siguiendo la metodología definida en la Sección~\ref{sec:ev_riesgos}, basada en la normativa \textit{NIST SP 800-30}. En el siguiente cuadro se presentan los riesgos derivados de las vulnerabilidades clasificadas como más críticas durante la auditoría, las cuales se detallan previamente en el Cuadro~\ref{tab:vulnstop10}:
+
+\begin{table}[H]
+\centering
+\small
+\begin{tabular}{|p{1.3cm}|c|p{3.5cm}|p{3.5cm}|c|c|c|}
+\hline
+\rowcolor{gray!20}
+\textbf{Vuln.} & \textbf{Activo (IP)} & \textbf{Amenaza} & \textbf{Descripción} & \textbf{Prob.} & \textbf{Impacto} & \textbf{Riesgo} \\
+\hline
+VULN-1 & 192.168.100.169 & Interceptación de tráfico / acceso no autorizado & Telnet y web sin cifrado en ZEM500 & Alta & Alta & \cellcolor{red!40}Crítico \\
+\hline
+VULN-2 & 192.168.100.6 & Escalada de privilegios & Telnet sin cifrado en D-Link Switches & Media & Alta & \cellcolor{orange!40}Alto \\
+\hline
+VULN-3 & 192.168.100.229 & Ejecución remota de código (RCE) & Knopflerfish OSGi sin aislamiento & Media & Alta & \cellcolor{orange!40}Alto \\
+\hline
+VULN-4 & 192.168.100.5 & Control remoto sin autenticación & IPMI SuperMicro sin cifrado & Alta & Alta & \cellcolor{red!40}Crítico \\
+\hline
+VULN-5 & 192.168.100.3 & Acceso remoto y bypass de autenticación & GoAhead WebServer vulnerable & Media & Alta & \cellcolor{orange!40}Alto \\
+\hline
+VULN-6 & 192.168.100.243 & SSRF y ejecución de comandos internos & SOAP Server con deserialización insegura & Media & Alta & \cellcolor{orange!40}Alto \\
+\hline
+VULN-7 & 192.168.100.238 & Acceso no autorizado a recursos & Servicios abiertos (FTP, Telnet) en impresora & Alta & Media & \cellcolor{orange!40}Alto \\
+\hline
+VULN-8 & 192.168.100.100 & Denegación de servicio y fuga de información & Lighttpd desactualizado con LFI & Media & Media & \cellcolor{yellow!40}Medio \\
+\hline
+VULN-9 & 192.168.100.2 & Control remoto no autenticado & IPMI sin autenticación robusta & Alta & Media & \cellcolor{orange!40}Alto \\
+\hline
+VULN-10 & 192.168.100.104 & Suplantación o modificación de configuración & Web admin de impresora sin HTTPS fuerte & Baja & Baja & \cellcolor{green!40}Bajo \\
+\hline
+\end{tabular}
+\caption{Evaluación de riesgos según NIST SP 800-30 basada en los activos críticos detectados.}
+\end{table}
+
+
+\subsubsection*{Plan de mitigación}
+
+En base a los niveles de riesgo identificados durante la evaluación y a los resultados obtenidos tras la fase de ataque, se diseñó un plan de mitigación escalonado, priorizando la corrección de las vulnerabilidades críticas y altas que suponen un mayor impacto para la organización. A modo resumen, se exponen algunas de las medidas de seguridad más importantes propuestas en el informe a favor de la empresa auditada:
+
+\begin{itemize}
+    \item \textbf{Medidas a nivel de red:}
+    \begin{itemize}
+        \item Segmentar o redistribuir los activos industriales de la red de oficina para evitar accesos no autorizados desde entornos corporativos.
+        \item Implementar una red de invitados completamente aislada, evitando el uso compartido de la red interna con dispositivos externos.
+        \item Mantener el inventario actualizado y ordenado de los dispositivos conectados, eliminando aquellos que no estén en uso.
+        \item Implementar políticas de contraseñas seguras que incluyan una renovación periódica de las mismas.
+    \end{itemize}
+    
+    \item \textbf{Mitigación de vulnerabilidades explotadas durante la auditoría:}
+    \begin{itemize}
+        \item Configurar la firma de SMB en todos los equipos de Active Directory para evitar ataques de envenenamiento de tráfico de la red.
+        \item Habilitar autenticación con credenciales complejas en paneles de administración accesibles vía web.
+        \item Para la vulnerabilidad en el servidor IPMI (IP: \texttt{192.168.100.2}), donde se obtuvo el hash del usuario \texttt{root}, se recomienda desactivar el acceso IPMI desde redes abiertas e implementar autenticación robusta.
+    \end{itemize}
+    
+    \item \textbf{Mitigación general de vulnerabilidades detectadas:}
+    \begin{itemize}
+        \item Cerrar puertos innecesarios como Telnet, FTP y HTTP sin cifrado, sustituyéndolos por SSH y HTTPS.
+        \item Actualizar los servicios y firmwares de todos los dispositivos a sus últimas versiones estables.
+        \item Restringir el acceso remoto solo a direcciones IP autorizadas mediante firewall o listas de control.
+    \end{itemize}
+
+    \item \textbf{Buenas prácticas alineadas con ISO/IEC 27001:}
+    \begin{itemize}
+        \item Implementar mecanismos de autenticación multifactor (MFA) en los accesos a sistemas críticos y cuentas privilegiadas.
+        \item Establecer un plan formal de gestión de incidentes y procedimientos de respuesta rápida.
+        \item Realizar auditorías periódicas de seguridad interna y controles de cumplimiento de políticas.
+        \item Formar y concienciar al personal en seguridad de la información y buenas prácticas digitales.
+        \item Gestionar correctamente los respaldos con pruebas periódicas de restauración y cifrado en reposo.
+    \end{itemize}
+\end{itemize}
+
+
+\subsubsection*{Cierre de la auditoría}
+
+Concluida la fase técnica y documental, la auditoría quedó cerrada de forma oficial mediante la entrega de los informes técnico y ejecutivo a través de un canal seguro con cifrado de extremo a extremo. La organización recibió la documentación, garantizando la trazabilidad y protección de toda la información generada durante el proceso.
+
 
 
 
@@ -2843,11 +3271,61 @@ Probamos un shelshock con paneles cgi.
 \clearpage
 \thispagestyle{nohead}
 
+% -----------------------------------------------RESULTADOS------------------------------------------------------------
+\section{Resultados del proyecto}
+
+A lo largo del desarrollo de este Trabajo Fin de Grado se han cumplido con éxito todos los objetivos planteados, superando incluso las expectativas iniciales. En primer lugar, se ha establecido un marco teórico completo que introduce los fundamentos esenciales de la ciberseguridad, permitiendo que cualquier persona, incluso sin experiencia técnica previa, pueda comprender el contexto y los principios básicos necesarios para abordar una auditoría.
+
+Seguidamente, se ha diseñado una metodología de auditoría de ciberseguridad estructurada y adaptada a las necesidades de las PYMEs, basada en el estándar \textit{NIST SP 800-115} y enriquecida con buenas prácticas obtenidas mediante entrevistas con profesionales de una empresa especializada en el sector. Esta combinación ha dado lugar a una propuesta metodológica realista, aplicable y validada externamente, que se presenta como una guía clara, accesible y bien estructurada. Dicha metodología constituye la principal aportación de este trabajo.
+
+Posteriormente, esta metodología se ha puesto en práctica mediante la realización de un caso real de auditoría a una PYME, lo que ha permitido validar su utilidad y aplicabilidad en un entorno real. Como resultado de la implementación del modelo propuesto para evaluar la seguridad de la empresa, se han entregado informes técnicos completos que detallan las vulnerabilidades detectadas, los riesgos asociados y un conjunto de planes de mitigación y mejora.
+
+Además, se han llevado a cabo una serie de acciones complementarias de gran valor para la empresa auditada, entre las que destacan:
+\begin{itemize}
+    \item La reorganización del inventario de activos, eliminando y reubicando equipamiento obsoleto o sin uso.
+    \item La propuesta de mejoras sobre la infraestructura tecnológica y los procesos operativos existentes.
+    \item El diseño y documentación de una topología de red actualizada, inexistente hasta la realización de esta auditoría.
+\end{itemize}
+
+Estas acciones han contribuido significativamente a mejorar la postura de ciberseguridad de la organización y a demostrar la aplicabilidad real del modelo propuesto.
+
+
+
+\clearpage
+\thispagestyle{nohead}
 % -----------------------------------------------CONCLUSIONES O DISCUSIONES------------------------------------------------------------
-\section{Resultados y Conclusiones}
+
+\section{Conclusiones}
+
+La metodología desarrollada en este proyecto representa una aportación significativa al campo de la auditoría de ciberseguridad aplicada a entornos PYME. A diferencia de otros marcos de referencia excesivamente técnicos y difíciles de implementar, esta propuesta proporciona a las pequeñas empresas un marco operativo claro, permitiéndoles evaluar su seguridad de forma estructurada, identificar riesgos y planificar mejoras sin depender de consultorías externas.
+
+Esta ventaja diferencial se ha reforzado gracias al enfoque adoptado durante el proyecto, documentando el procedimiento de auditoría de una empresa especializada y sintetizando lo mejor de dicha metodología con el estándar NIST, generando una propuesta intermedia adaptada a entornos PYME. El resultado ha sido una guía práctica, comprensible y validada en un entorno real, que recoge lo mejor de ambos enfoques y ofrece una solución equilibrada entre teoría y práctica.
+
+Con todo ello, se consolida una base metodológica útil y escalable que puede servir como punto de partida para futuras auditorías en organizaciones con características similares. Su aplicabilidad y flexibilidad la convierten en una herramienta especialmente valiosa en un contexto donde la ciberseguridad es crítica, pero los recursos son limitados.
+
+\subsection{Líneas futuras}
+
+Como acciones futuras que han quedado fuera del alcance de este proyecto debido a sus limitaciones, se presentan las siguientes propuestas.
+
+\begin{itemize}
+    \item \textbf{Ampliar el conjunto de pruebas ofensivas:} se plantea incluir técnicas más avanzadas que amplíen el alcance actual, ofreciendo una evaluación más realista del panorama de amenazas al que se enfrentan las PYMEs.
+
+    \item \textbf{Evaluar la metodología en distintos tipos de organización:} aplicar el modelo en diferentes entornos de empresas, como aplicarla en sistemas de tecnologías operacionales (OT) fuera del alcance práctico de la auditoría.
+
+    \item \textbf{Digitalización del proceso:} desarrollar una aplicación que automatice fases clave de la auditoría y guíe al usuario durante su implementación, especialmente para perfiles no técnicos.
+\end{itemize}
 
 
-\subsection{Líneas de investigación futuras}
+\subsection{Reflexión personal}
+
+Este proyecto me ha permitido aprender en profundidad cuáles son las etapas fundamentales de una auditoría de ciberseguridad, así como las herramientas y técnicas más utilizadas en el sector de la ciberseguridad ofensiva. Además, me ha ayudado a conocer mejor la situación actual de la ciberseguridad en el entorno de las PYMEs. 
+
+En general, ha sido una experiencia muy valiosa tanto a nivel técnico como personal, gracias al apoyo y la confianza de mi tutor, quien me ha dado la oportunidad de ejecutar esta metodología en un entorno real y de acercarme a profesionales del sector, lo que ha enriquecido notablemente el desarrollo del trabajo y mi formación. Todo ello ha reforzado mi motivación por continuar creciendo en el ámbito de la ciberseguridad.
+
+
+
+
+
 
 
 \clearpage
@@ -2937,6 +3415,12 @@ Probamos un shelshock con paneles cgi.
     \bibitem{triada}
     4IT Networks. (s.f.). \textit{Seguridad y Protección de la Información}. Recuperado el 28 de Mayo de 2025, de \url{https://www.4itn.mx/ciberseguridad/}
 
+    \bibitem{unir}
+    UNIR FP. (s.f.). \textit{Auditoría de seguridad informática: definición, tipos y fases} Recuperado el 13 de Junio de 2025, de \url{https://unirfp.unir.net/revista/ingenieria-y-tecnologia/auditoria-seguridad-informatica/}
+
+    \bibitem{incibeAuditoria}
+    INCIBE. (2025, 14 de Mayo). \textit{Auditoría de ciberseguridad: qué es, para qué sirve y cómo formarte en este campo}. Recuperado el 14 de Junio de 2025, de \url{https://www.incibe.es/index.php/ed2026/talento-hacker/blog/auditoria-de-ciberseguridad-que-es-para-que-sirve-y-como-formarte-en-este-campo}
+
     \bibitem{owasp}
     OWASP Foundation. (s.f.). \textit{Open Web Application Security Project}. Recuperado el 22 de Mayo de 2025, de \url{https://owasp.org/about/}
 
@@ -3001,10 +3485,41 @@ El registro incluye:
   title=Dirección URL,fonttitle=\bfseries,
   boxed title style={size=small,colframe=red!50!black} ]
   \centering
-  \url{https://app.clockify.me/shared/abc123}
+  \url{https://app.clockify.me/shared/6850b104c05e9c27f0e7489e}
 
 \end{tcolorbox}
 
+
+A modo de resumen, en el siguiente cuadro se presenta la distribución total de horas invertidas en el proyecto, clasificadas según la fase correspondiente.
+
+\begin{itemize}
+    \item \textbf{Preinicio:} Fase dedicada a la búsqueda del tema del TFG.
+    \item \textbf{Plan de inicio:} Incluye las primeras reuniones con el tutor y el CTO de BeeHacker (Ramón), exploración de temas potenciales y adjudicación del proyecto.
+    \item \textbf{Planificación:} Evaluación del alcance, definición de objetivos, metodologías, y elaboración de la estructura del proyecto.
+    \item \textbf{Desarrollo del producto:} Redacción e investigación teórica de la memoria del TFG.
+    \item \textbf{Caso práctico:} Preparación y ejecución de la auditoría en la empresa colaboradora.
+\end{itemize}
+
+
+\begin{center}
+\begin{tabular}{|l|c|}
+\hline
+\textbf{Fase} & \textbf{Horas dedicadas} \\
+\hline
+Preinicio & 4 \\
+Plan de inicio & 29 \\
+Planificación & 31 \\
+Desarrollo del producto & 157 \\
+Caso práctico & 92 \\
+Presentación & 8 \\
+\hline
+\textbf{Total} & \textbf{321} \\
+\hline
+\end{tabular}
+\end{center}
+
+Cabe destacar que, complementariamente al desarrollo del presente Trabajo de Fin de Grado, se han invertido 60 horas de formación mediante cursos online recomendados por BeeHacker. Estas actividades han abordado contenidos sobre la configuración de entornos Linux, programación en Python orientada a la seguridad informática, introducción al hacking ético y auditoría de redes inalámbricas. 
+El objetivo de esta formación ha sido adquirir una base sólida que permitiera afrontar las fases prácticas de la auditoría, así como familiarizarse con algunas de las herramientas y metodologías empleadas en el sector profesional. 
 
 \clearpage
 \thispagestyle{nohead}
@@ -3090,6 +3605,9 @@ Aircrack-ng & \url{https://www.aircrack-ng.org} \\
 \hline
 Wifi Pineapple & \url{https://shop.hak5.org/collections/2025-best-sellers/products/wifi-pineapple-enterprise} \\
 \hline
+Evil-Trust & \url{https://github.com/s4vitar/evilTrust} \\
+\hline
+
 \end{tabular}
 \end{table}
 
@@ -3149,7 +3667,7 @@ Wireshark & \url{https://www.wireshark.org} \\
 \clearpage
 \thispagestyle{nohead}
 
-\section*{Anexo 3: Métricas utilizadas en el sistema CVSS 3.1}
+\section*{Anexo 3: Métricas utilizadas en el sistema CVSS}
 \label{anexo:3}
 \addcontentsline{toc}{section}{Anexo 3}
 
